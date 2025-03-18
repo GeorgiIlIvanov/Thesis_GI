@@ -1,0 +1,2524 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\graphicspath{{./Photos/}}
+\usepackage[english, russian]{babel}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\usepackage{setspace}
+\pdfimageresolution=1200
+\usepackage{hyperref}
+\usepackage{doi}
+\usepackage{enumitem}
+\usepackage{ragged2e} 
+\usepackage[numbers]{natbib}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usetikzlibrary{arrows.meta, positioning, decorations.pathmorphing}
+\usepackage[a4paper, margin=0.75in]{geometry}
+\usepackage{afterpage}
+
+\usepackage{titlesec}
+%\titleformat{\section}[display]
+  %{\normalfont\centering}
+  %{\huge\bfseries ---\thesection---}  % Number with lines on both sides
+  %{0.2ex}                            % Reduced space between number and title
+ % {\Large\bfseries}                 
+%  [\vspace{1ex}\titlerule\vspace{1.5ex}] 
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header/footer fields
+
+% Right-aligned section title in the header
+\fancyhead[R]{\rightmark}
+\fancyfoot[C]{\thepage}
+
+% Add the horizontal line under the header
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Ensure section marks are updated properly
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+
+\definecolor{crimson}{rgb}{0.644, 0.109, 0.187}
+\newtheorem{theorem}{Theorem}
+
+\newenvironment{boxtheorem}[1]
+  {\begin{mdframed}\noindent\textbf{#1}\itshape\par}
+  {\end{mdframed}}
+  
+ \newenvironment{boxt}[1]
+  {\begin{mdframed}\noindent\textbf{#1}\normalfont\par}
+  {\end{mdframed}}
+  
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\usepackage{titlesec}
+
+
+
+\title{Delocalization of Eigenvectors in Random Matrices}
+
+\author{Georgi Ivanov\\Advisor: Dr. Kevin Yang}
+\date{}
+\doublespacing
+\begin{document}
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\refname}{References}
+
+\pagenumbering{roman}
+% Title Page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{4cm}
+        
+        \Huge{\textcolor{crimson}{Delocalization of Eigenvectors \\ \vspace{-0.5cm} in Random Matrices}}
+        
+        \vspace{2cm}
+        
+        \Large{A \textsc{thesis presented\\
+        \vspace{-0.5cm}
+		by\\
+		\vspace{-0.5cm}
+        Georgi Iliyanov Ivanov\\
+        \vspace{-0.5cm}
+			to\\ \vspace{-0.5cm}
+        The Department of Mathematics}}
+        
+        \vspace{1cm}
+        
+        \Large{\textsc{in partial fulfillment of the requirements\\ \vspace{-0.5cm}
+        for the degree of\\ \vspace{-0.5cm}
+        Bachelor of Arts\\ \vspace{-0.5cm}
+        in the subjects of\\ \vspace{-0.5cm}
+        Mathematics and Statistics}}
+        
+        \vspace{0.5cm}
+                \begin{center}
+    \Large{\textsc{Advised by Dr. Kevin Yang}}
+    \end{center}
+    \vspace{1cm}
+        \includegraphics[scale=1.25]{harvard_logo.png}
+        
+        \Large{\textsc{Harvard University\\ \vspace{-0.5cm}
+        Cambridge, MA\\ \vspace{-0.5cm}
+        March 2025}}
+        
+    \end{center}
+    \afterpage{\blankpage}
+\end{titlepage}
+
+% Abstract
+
+
+    \begin{center}
+    
+    \vspace*{2cm}
+    \LARGE{\textcolor{crimson}{Delocalization of Eigenvectors in Random Matrices}}
+    
+
+    \end{center}
+    \vspace{1cm}
+    \begin{center}
+        {\Large{\textsc{Abstract}}}
+    \end{center}
+    \begin{center}
+    
+    
+	 \justify{  
+	 In this thesis, we investigate the delocalization properties of eigenvectors in random matrices with a particular focus on the non-mean field model of the random band matrix. We provide an overview of recent advancements that employ the stochastic flow method, placing them in the context of universality classes and Anderson localization. The approach enables rigorous bounds on eigenvector statistics using resolvent identities and diagrammatic perturbation methods. The analysis includes detailed estimates on the drift terms in the dynamical $T$-equation and applications of martingale theory to the control of the quadratic variation. The final section explores the extension of these results beyond Gaussian distributions using the Lindeberg exchange strategy and provides a Five Moment Theorem that addresses the universality of delocalization behavior. 
+	 }
+    \end{center}
+  
+
+
+
+% Acknowledgments
+
+\thispagestyle{empty}
+\clearpage
+
+\begin{center}
+    \Large{\textbf{Acknowledgments}}
+\end{center}
+\vspace{1cm}
+\begin{center}
+\justify{}
+
+\end{center}
+
+\newpage
+
+\vspace*{10 cm}
+\begin{center}
+\Large{\textsc{В памет на Баба Руми}}
+\thispagestyle{empty}
+\end{center}
+
+\newpage
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\section{Introduction}
+\label{sec:intro}
+The topic of random matrix theory (RMT) was originally motivated by the study of complex quantum systems, described by a Hamiltonian  - the operator that models the interactions between constituent particles. Even when all couplings are known, the daunting and often impossible task of diagonalizing the operator to obtain its spectral decomposition prevents calculating its exact energy levels. To tackle this, Eugene Wigner introduced in his seminal 1957 paper \cite{wigner} the phenomenological model of a random matrix with independent and identically distributed (i.i.d) entries. His goal was to explain the empirical observation that the spectral gaps of large nuclei follow the same statistics, regardless of the material. 
+
+\vspace{0.5cm}
+\noindent The core idea was to ignore all physical details of the system except for the constraint on its symmetry type, defined by the presence of time-reversal and rotational symmetry, or the lack-thereof. The key result, now known as the Wigner semicircle law, states that the eigenvalue density of \( N \times N \) self-adjoint random matrices with independent entries $H_{ij}\sim [0, 1/N]$, up to the symmetry constraint $H_{ij} = \overline{H_{ji}}$, is given by $\varrho_{SC}(x)=\frac{1}{2\pi} \sqrt{(4-x^2)_+}$ \cite{dynamic}. What Wigner proved is a type of law of large numbers that holds in the limit \( N \to \infty \) and is independent of the distribution of individual entries. The prediction that the spacing of individual eigenvalues $\lambda_1(H)\leq \cdots \leq \lambda_n(H)$ follows universal gap statistics was later refined into the Wigner-Dyson-Mehta (WDM) universality conjecture \cite{mehta}, which asserts the latter hypothesis is true for \textit{Wigner matrices} \cite{taoWDM}. This RMT ensemble defines a general class of mean-field integrable models and is part of the active effort of understanding the different universality classes. 
+
+\vspace{0.5 cm}
+\noindent Another subject of great importance is the \textit{Poisson universality class}, closely related to the phenomenon of localized eigenstates. While Wigner's original theory had no mention of eigenvectors \cite{7}, their properties are essential in studying the behavior of more general random operators. One historically relevant example is the Anderson localization model, introduced by Philip W. Anderson in 1958, which explores how disorder affects quantum transport \cite{anderson}. The author considered the behavior of a quantum particle moving on a lattice $\Z^d$ with random on-site energies, represented by the random Schrödinger operator \( H_{RS}=-\Delta + \lambda V \), where \( \Delta \) is the discrete Laplacian and \( \lambda V \) is a random diagonal perturbation \cite{randomoperators}. In his work, Anderson posited that there exists a \textit{mobility edge} that separates a transition between localized and delocalized eigenvector statistics. 
+\vspace{0.5 cm}
+
+\noindent Localization for large values of $\lambda$ was first rigorously demonstrated using multiscale analysis \cite{24} with alternative approaches, such as the fractional moment method \cite{1}, later ensuing. The conjectured delocalization for small $\lambda$ is supported by extensive numerical evidence, yet a rigorous proof has remained out of reach \cite{bandSDE}. The primary reason for the scarcity of rigorous results has been in the general lack of exactly solvable models of sufficient generality. \cite{kravtsov2009}.  To address these gaps, it is crucial to explore systems that interpolate between localized and delocalized regimes while preserving analytical tractability. One such ensemble, supported by extensive numerical evidence, provides a promising case study for establishing the coexistence of localized and delocalized regimes. Two examples that we will consider more in depth in this paper are the non-invariant Gaussian random matrix ensemble and the Random Band Matrix model (RBM).
+
+\subsection*{Non-Invariant Gaussian Model}
+The non-invariant Gaussian random matrix ensemble, called also the critical random matrix ensemble (CRMT) \cite{mirlin1996}, is defined for Hermitian matrices \( H \) with independent Gaussian-distributed off-diagonal elements \cite{kravtsov2009}:$$
+\langle H_{nm} \rangle = 0, \quad \langle |H_{nm}|^2 \rangle = 
+\begin{cases} 
+\beta^{-1}, & n = m \\ 
+\frac{1}{2} \left[ 1 + \left( \frac{n - m}{b} \right)^2 \right]^{-1}, & n \neq m 
+\end{cases}
+,$$
+where \( \beta = 1, 2, 4 \) corresponds to the orthogonal (GOE), unitary (GUE), and symplectic (GSE) symmetry classes, respectively, and \( b > 0 \) is a tunable parameter. The CRMT emerged in the study of the 3D Anderson model as the critical value  instantiation of a Power-law RBM (defined below). By mapping the system onto a nonlinear $\sigma$-model with nonlocal interaction and using renormalization group (RG) methods, the authors found that for $a = 1$, the model reaches a critical point with multifractal eigenstate behavior, and the spectral statistics exhibit an intermediate regime. The critical nature of CRMT is encoded in the decay \( |n - m|^{-2} \), reminiscent of the Anderson model's localization in coordinate space. The parameter \( b \) influences the spectrum of fractal dimensions \( d_n(b) \), governed by:
+\[
+d_2 = 
+\begin{cases} 
+1 - c_\beta B^{-1}, & B \gg 1 \\ 
+c_\beta B, & B \ll 1 
+\end{cases}
+\]
+where \( B = b \pi \beta/2 \), and \( c_\beta \) is a constant specific to the symmetry class. Notably, this leads to a duality relationship \( d_2(B) + d_2(B^{-1}) = 1 \) that has been numerically verified with high precision \cite{kravtsov2009}. The level spacing distribution \( P(s) \) of CRMT exhibits hybrid behavior, combining a Poisson tail with Wigner-Dyson statistics in the bulk. While this model effectively captures key aspects of multifractality and the coexistence of localized and delocalized phases, it lacks the rigor necessary to fully characterize the critical behaviors and universal properties of these transitions. Particularly helpful will be the aforementioned fact that the CRMT is a critical value instantiation of an random band matrix with power-law entires. Given the rich and active topic of RBMs, it will serve as our main object of study.  
+
+\subsection*{Random Band Matrices (RBM)}
+The Random band matrix model is of great interest by itself because it serves as an interpolation between Wigner matrices and the random Schrödinger operator $H_{RS}$ \cite{dynamic}. A RBM $(H_{xy})_{x, y\in \Gamma}$, with centered entries independent up to symmetry $H_{ij} = \overline{H_{ji}}$, can represent a $d$-dimensional quantum system on a graph $\Gamma = \llbracket 1, N\rrbracket ^d$ with the effective distance being of order $W<\frac{N}{2}$, defined to the band width of the model \cite{7, knowles2013}.  What this means is that for $|i-j|_{N} = \min\left([x-y]_N, [y-x]_N\right)>W$ we have $H_{ij}=0$. It is standard to also normalize the covariance matrix $S_{xy} = \mathbb{E} |H_{xy}|^2$, s.t. $\sum_x S_{xy}=1$ for any $x\in \Gamma$. The model is conjectured to exhibit both localization for $W\ll W_c$ and delocalization for $W\gg W_c$ w.r.t a critical transition band $W_c$ that depends on the band width $W$ and the dimension $d$ \cite{7}:  \[
+W_c = 
+\begin{cases} 
+\sqrt{N} & \text{for } d=1 \\ 
+\sqrt{\log N} & \text{for } d=2 \\
+O(1) & \text{for } d=3
+
+\end{cases}
+\]
+Our focus will be exclusively on the $d=1$ case. The primary motivation being that the Anderson model and the RBM are expected to have the same properties when $\lambda  \approx \frac{1}{W}$ \cite{7}, an observation supported with extensive numerical evidence \cite{arbm1, arbm2}. For localization, the current best bound is up to $W\ll N^{1/4}$ \cite{13}. On the other side of the transition, there is a long line of work of iterative improvements. Relevant examples include the work by Bourgade, Yang, Yau and Yin, which established for $W\gg N^{3/4}$ a strong form of delocalization and GUE statistics \cite{8, 9, 40}. Most recently, Dubova and Yang have rigorously proved quantum diffusion for Gaussian random band matrices, assuming $W\gg N^{8/11}$ \cite{bandSDE}. Sections \hyperref[sec:flow]{3} through \hyperref[sec:drift]{6} are dedicated exclusively to their work. The matrix model is defined as follows: identify $\Z_n$ with $\Gamma=\{1, \cdots, N\}$ and equip it with the aforementioned periodic distance $|i-j|_N$. Now, for a symmetric and compactly supported probability density function (PDF) on $\mathbb{R}$, define the doubly stochastic matrix as: $$S_{xy} := Z_{N, W}^{-1}f\left(\frac{|x-y|_N}{W}\right),$$
+where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically above and below by $W$. A technical, but necessary assumption is for $S$ to admit a matrix square root $S^{1/2}$, satisfying the same properties for a similarly symmetric and compactly supported PDF $f'$. 
+
+
+\newpage
+\section{Prerequisites}
+The main tool used to study both Anderson localization and random matrix statistics is the \textit{Green function} or \textit{resolvent}. For a random matrix $H$, it is defined as: $$G(z) := (H-zI_N)^{-1} = (H-z)^{-1},$$
+where $z\in \mathbb{C}\backslash \{\lambda_1, \cdots, \lambda_N\}$ is the spectral parameter ranging over the complement of the eigenvalues $\lambda_1(H)\leq \cdots \leq \lambda_N(H)$ of $H$. Observe that for any eigenvector $\mathbf{u}_\alpha$ we have:
+$$H\mathbf{u}_\alpha = \lambda_\alpha \mathbf{u}\Leftrightarrow (H - z)\mathbf{u}_\alpha = (\lambda_\alpha-z)\mathbf{u}_\alpha$$
+\begin{equation}
+\Rightarrow G(z)\mathbf{u}_\alpha = (H-z)^{-1}\mathbf{u}_\alpha = \frac{1}{\lambda_\alpha-z}\frac{(\lambda_\alpha-z)\mathbf{u}_\alpha }{H-z}=\frac{1}{\lambda_\alpha -z}\mathbf{u}_\alpha\end{equation}
+
+\noindent This is equivalent to $\mathbf{u}_\alpha$ being eigenvectors for the resolvent with $\frac{1}{\lambda_\alpha-z}$ as the eigenvalues. This also means that we have by spectral decomposition 
+$$G(z) =\sum_{i=1}^N \frac{\mathbf{u}_\alpha\mathbf{u}_\alpha^*}{\lambda_\alpha-z}.$$
+Now, recall that their empirical measure for $H$ is defined as \cite{dynamic}: $$\varrho_N(dx):=\frac{1}{N}\sum_{j=1}^N \delta(x-\lambda_j)dx,$$
+Let $m(z)=m_N(z) = \int_\R \frac{\varrho_N(x)}{x-z}dx$ be its Stieltjes transform for $z = E+i\eta$, where $E\in \R$ and $\eta>0$. By the relationship we found above, we have the following  identity, which follows from the definition of the Dirac delta function: $$m(z)= \int_\R \frac{\varrho_N(x)}{x-z}dx = \int_\mathbb{R} \frac{1}{N}\frac{\sum_{j=1}^N \delta(x-\lambda_j)dx}{x-z}dx = \frac{1}{N}\sum_{j=1}^N\int_\R\frac{\delta(x-\lambda_j)}{x-z}dx =\frac{1}{N} \sum_{j=1}^N \frac{1}{\lambda_j-z} = \frac{1}{N}\text{Tr}(G(z))$$
+From the moments method \cite{dynamic} we know that the Stieltjes transform $m_N(z)$ of the empirical distribution converges in probability to the Stieltjes transform $m_{SC} = \frac{1}{2}(-z+\sqrt{z^2-4})$ of the semicircle law as $N\rightarrow\infty$. This means that in the limit, with probability one the self-consistent equation holds: \begin{equation}
+m(z) = -\frac{1}{z+m(z)} \Leftrightarrow m(z) + \frac{1}{m(z)} + z=0
+\end{equation}
+Observe that: $$m(z)(m(z)+z) = \frac{1}{4}(-z+\sqrt{z^2-4})(z+\sqrt{z^2-4})=\frac{1}{4}(-z^2+z^2-4)=-1$$
+$$\Rightarrow |m(z)| = \frac{1}{|m(z)+z|^{-1}}$$
+Now, take the imaginary part of $(2)$: $$\text{Im}(m(z)) + \text{Im}\left(\frac{1}{m(z)}\right)+\eta=0=\text{Im}(m(z)) + \frac{\text{Im}}{|m(z)|^2}+\eta$$
+$$\Rightarrow \text{Im}(m(z))\left(1-\frac{1}{|m(z)|^2}\right)=-\eta$$
+And since $\text{Im}(m(z))>0$ and $\eta>0$, we must have $1-\frac{1}{|m(z)|^2}<0$, i.e $|m(z)|<1$. 
+$$\Rightarrow \text{Im }m \asymp 1\quad 1-|m|^2 \asymp \eta$$
+Hence, our $\Theta$ term simplify $$\Theta \sim \frac{S}{1-|m(z)|^2+|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta+(S-\text{Id})}$$
+
+
+
+
+
+\subsection{Resolvent Identities}
+We can define the augmented minor Green function for any index $\alpha$ as $G(z)^{(\alpha)} = (H^{(\alpha)}-w_t)^{-1}$, where: $$\left(H^{(\alpha)}\right):=H_{ab}\cdot \mathbf{1}(a\neq \alpha)\cdot \mathbf{1}(b\neq \alpha),$$ 
+so the augmented matrix is still $N\times N$ with the $\alpha$-row and -column set to zero \cite{dynamic}. As a consequence: 
+\begin{equation}
+G_{xy}^{(\alpha)} = \left\{\begin{array}{cc}
+  (-z)^{-1}  & x=y=i\\
+  0 & x=\alpha\ \text{XOR } y = \alpha\\
+  G_{xy}^{[\alpha]} = (H^{[\alpha]}-z)_{xy}^{-1} & x\neq \alpha, y\neq \alpha
+  \end{array}
+  \right.
+\end{equation}
+Before we derive the estimate, let us first establish several identities:\newpage
+
+\begin{boxt}{Matrix Identities}
+Let $A$ and $B$ be arbitrary matrices. Provided that the inverses exist, we can derive the following identities: 
+$$\frac{1}{A}=A^{-1} =A^{-1}(A+B)(A+B)^{-1}=(A+B)^{-1}+A^{-1}B(A+B)^{-1} = \frac{1}{A+B}-\frac{1}{A}B\frac{1}{A+B}$$
+$$\Rightarrow \frac{1}{A+B}=\frac{1}{A}-\frac{1}{A}B\frac{1}{A+B} = \frac{1}{A}-\frac{1}{A+B}B\frac{1}{A},$$
+where the last equality follows from simply swapping the order $A^{-1}=A^{-1}(A+B)^{-1}(A+B)$. \end{boxt}
+
+\noindent Using this, we can now set $A = H_t^{(\alpha)}-z$ and $B  = H_t-H_t^{(\alpha)}$, hence by substituting above, we have: $$\frac{1}{H_t-z} = G_{t}(z) = \frac{1}{H_t^{\alpha}-z}-\frac{1}{H_t-z}\left(H_t-H_t^{(\alpha)}\right)\frac{1}{H_t^{(\alpha)}-z} = G^{(\alpha)}_t-G_t(H_t-H_t^{(\alpha)})G_t^{(\alpha)}$$
+But observe that by definition of the augmented minor, the $xy$ entry of our identity above simplifies as: 
+
+\begin{equation*}
+G_{xy}=G_{xy}^{(\alpha)}-\sum_{j=1}^N\sum_{k=1}^NG_{xj}(H_{jk}-H^{(\alpha)}_{jk})G_{ky}^{(\alpha)} = G_{xy}^{(\alpha)} - G_{x\alpha}\sum_{k\neq \alpha} H_{\alpha k}G_{ky}^{(\alpha)} = G_{xy}^{\alpha}+\frac{G_{x\alpha}G_{\alpha y}}{G_{\alpha\alpha}}
+\end{equation*}
+Similarly, we can derive our second resolvent identity, by applying again the same properties $(3)$, with the special case of $\alpha = x$, s.t. we get:
+
+\begin{equation*}
+G_{xy} = G_{xy}^{(x)} - G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)} =- G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)}\quad x\neq y
+\end{equation*}
+Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entry $H_{ij}$ using the limit definition. Let us define the perturbed matrix $H' = H(H_{ij}, H_{ji}\mapsto H_{ij}+\epsilon , H_{ji}+\epsilon)$ at entries $H_{ij}, H_{ji}$, where $G' = (H'-z)^{-1}$ and let $\epsilon_{ij} = \mathbf{0}(0_{ij}, 0_{ij}\mapsto \epsilon, \epsilon)$ be the perturbed zero matrix and write it as $\mathbf{1}_{ij}$ when $\epsilon=1$. Observe then that by our matrix identities, we have: $$\partial_{H_{ij}}G(z)_{xy}=\lim_{\epsilon\rightarrow 0} \frac{G_{xy}'-G_{xy}}{\epsilon} = \lim_{\epsilon\rightarrow 0}\frac{\left[G'(H-H')G\right]_{xy}}{\epsilon} = -\lim_{\epsilon\rightarrow 0}\frac{\left[G'\epsilon_{ij}G\right]_{xy}}{\epsilon} = -[G'\mathbf{1}_{ij}G]_{xy} = -G_{xi}G_{jy}$$
+
+ $$\partial_{H_{ij}}\overline{G(z)_{xy}}=\lim_{\epsilon\rightarrow 0} \frac{\overline{G(z)_{xy}'}-\overline{G(z)_{xy}}}{\epsilon} = \lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}(H^\intercal-H'^\intercal)\overline{G}\right]_{xy}}{\epsilon} = -\lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}\epsilon_{ji}\overline{G}\right]_{xy}}{\epsilon} = -[\overline{G'}\mathbf{1}_{ji}\overline{G}]_{xy} = -\overline{G_{xj}}\overline{G_{iy}}$$
+
+\newpage
+\section{Flow Method}
+\label{sec:flow}
+Consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)\sim \mathcal{N}(0, t)$ represents the Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where $w(t) = -\frac{1}{m(z)}-tm(z)$. In order to study this system and its transition from $t=0$ with $G(0) = m(z)$, to $t=1$ with $G(1)=G(z)$, we will employ stochastic calculus. For this purpose, observe that our differentials are $dH(t)_{xy} = \sqrt{S_{xy}}db_{xy}(t)$ and $\partial_tw(t) = -m(z)$. Recall the Îto equation, namely, the statement that a function $f(\vec{b}(t), t)$, dependent on a Brownian random walk  $\vec{b}(t) = (b(t)_1, \cdots, b(t)_d)$ w.r.t to time $t$, has derivative:
+$$df(\vec{b}(t), t) = \frac{\partial f}{\partial t}dt + \sum_{i=1}^d \frac{\partial f}{\partial b_i}db_i(t) + \frac{1}{2}\sum_{i=1}^d \frac{\partial^2 f}{\partial b_i^2} dt$$
+In our case, by taking the function to be $G(t)$ and using restriction of a symmetric matrix and the latter differentials, we get the following expression:
+
+$$dG(t)_{xy} = \frac{\partial G(t)_{xy}}{\partial t}dt +\sqrt{S_{ij}}\sum_{i\leq j}\frac{\partial G(t)_{xy}}{\partial b(t)_{ij}}db(t)_{ij}
++\frac{S_{ij}}{2}\sum_{i\leq j}\frac{\partial^2 G(t)_{xy}}{\partial b(t)_{ij}^2}(db(t)_{ij})^2$$
+To calculate the individual terms, we will use the definition of derivative:
+$$\frac{\partial G(t)_{xy}}{\partial t}=\lim_{\epsilon\rightarrow 0}\frac{(H(t)-w(t+\epsilon))^{-1}_{xy}-(H(t)-w(t))^{-1}{xy}}{\epsilon},$$
+whereas the following matrix identity: $A^{-1}-B^{-1} = A^{-1}(B-A)B^{-1}$ can help us approximate for small perturbations. Namely, for $\Delta w(t) = w(t+\epsilon)-w(t)$, we have:
+$$\left[(H(t)-w(t+\epsilon))^{-1}\right]_{xy}-\left[(H(t)-w(t))^{-1}\right ]_{xy}= \left[ G(t)\Delta w(t) G(t)\right]_{xy}$$$$\Rightarrow \frac{\partial G(t)_{xy}}{\partial t} =\lim_{\epsilon\rightarrow 0} \frac{ \left[ G(t)\Delta w(t) G(t)\right]_{xy}}{\epsilon}=\sum_{j}G(t)_{xj}\frac{dw(t)}{dt}G(t)_{jy}= -m(z)\sum_j G(t)_{xj}G(t)_{jy}$$
+Similarly, we can carry out the calculation for the second term, using the independence of entries:
+
+$$\frac{\partial G(t)_{xy}}{\partial b(t)_{ij}}= \lim_{\epsilon\rightarrow 0}\frac{(\sqrt{S_{xy}}b(t+\epsilon)_{ij}+w(t))^{-1}_{xy}-(\sqrt{S_{xy}}b(t)_{ij}+w(t))^{-1}_{xy}}{\epsilon}=$$
+$$ =\lim_{\epsilon\rightarrow 0}\frac{[G(t)\sqrt{S}(b(t+\epsilon)-b(t))G(t)]_{xy}}{\epsilon}=\sum_{\alpha, \beta}G(t)_{x\alpha}\sqrt{S_{\alpha \beta}}db(t)_{\alpha\beta}G(t)_{\beta y}$$
+Lastly, carrying out the equivalent summation and using the fact that $(d(b)(t))^2=dt$, we get:
+$$dG(t)_{xy}=-m(z)\sum_j G_{xj}G_{jy}dt+\sum_{\alpha, \beta}G_{x, \alpha}\sqrt{S_{\alpha, \beta}}db_{\alpha, \beta}(t)G_{\beta, t}+\sum_j G_{xj}\left(\sum_yS_{jy}G_{yy}\right)G_{jy}dt=$$
+
+
+$$=\sum_{\alpha, \beta}G_{x\alpha}\sqrt{S_{\alpha \beta}}db_{\beta(t)}G_{\beta y}+\sum_j G_{xj}\left(S_{jy}(G_{yy}-m(z))\right)G_{jy}dt = dI(t) + dII(t)dt$$
+This provides us with the decomposition of a stochastic term $dI(t)$ and a deterministic term $dII(t)dt$. 
+
+
+\section*{Dynamical T- equation}
+Now, define $F_{xy} = |G(t)_{xy}|^2 = G(t)_{xy}\overline{G(t)_{xy}}$. 
+ Applying Itô's formula to \( F(t)_{xy} \), we have:
+\[
+dF(t)_{xy} = G(t)_{xy} d\overline{G(t)}_{xy} + \overline{G(t)}_{xy} dG(t)_{xy} + dG(t)_{xy} d\overline{G(t)}_{xy}.
+\]
+$$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} + d\left[G_{xy}, \overline{G}_{xy}\right]$$
+ $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} +d\left[\sum_{\alpha, \beta} G_{x\alpha}d H_{\alpha \beta}\overline{G}_{xy}\right]$$
+$$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} +\sum_{\alpha,\beta, \gamma, \delta}G_{x\alpha}G_{\beta\gamma}\overline{G_{xy}}\overline{G_{\delta \gamma}}$$
+To get the $T$-equation, define it as:
+\[
+T(t) =  S^{1/2}F(t)S^{1/2}=\sum_{x,y} S_{xy} F(t)_{xy} = \sum_{x,y} S_{xy} |G(t)_{xy}|^2,
+\]
+On the other hand, by substituting \( dG(t)_{xy} = dI(t)_{xy} + dII(t)_{xy} dt \) and its conjugate, and noting that \( dI(t)_{xy} d\overline{I(t)}_{xy} \) contributes to the quadratic variation, we obtain:
+\[
+dF(t)_{xy} = dM(t)_{xy} + \Omega(t)_{xy} dt, \quad \text{where}
+\]
+\[
+dM(t)_{xy} = \overline{G(t)}_{xy} dI(t)_{xy} + G(t)_{xy} \overline{dI(t)}_{xy}.
+\]
+$$
+\Omega(t)_{xy} = G_{xy}\frac{\overline{dII(t)}_{xy}}{dt}+\overline{G_{xy}}\frac{dII(t)_{xy}}{dt}+\frac{d\left[G_{xy}, \overline{G_{xy}}\right]}{dt}=G_{xy}(t)\left(\overline{\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)}\right)+$$
+$$+\overline{G_{xy}(t)}\left(\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)\right)+\sum_{\alpha, \beta}|G_{xa}(t)|^2S_{\alpha, \beta}|G_{x\beta}(t)|^2$$
+
+\begin{equation}
+\Rightarrow d{T} = {T}^2 dt + S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt
+\end{equation}
+Now, define $\Theta(t)=\Theta_t$ and $\epsilon_t(z)$ as:$$\Theta(t) = \frac{|m(z)|^2}{1-t|m(z)|^2S}\Leftrightarrow d\Theta_t = \Theta_t^2 dt$$
+$$\E_t(z):T_t(z)-\Theta_t$$
+$$\Rightarrow d\E_t(z) = T_t(z)^2dt + \Theta_t^2dt-S^{1/2}dM_t(z)S^{1/2}+S^{1/2}\Omega_t(z)S^{1/2}dt=$$
+ $$=\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt +\E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$$
+by observing that $T_t(z)^2-\Theta_t^2=\Theta_t\E_t(z)+\E_t(z)\Theta_t+\E_t(z)^2$. Integrating $\E_t(z)$ over $s$:
+$$\E_t(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\left\{\E^2(s)ds +S^{1/2} dM(s)S^{1/2}+  S^{1/2} \Omega(s) S^{1/2}\right\} \{\text{Id} + (t-s)\Theta_t\}ds,$$
+whereas we can split the terms in three separate components, each of which we will individually bound in the following section:
+
+$$\E_t^{D}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds,$$
+$$\E_t^{M}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}+ \{\text{Id} + (t-s)\Theta_t\}ds,$$
+$$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$
+
+
+
+\newpage
+
+\section{Resolvent Estimates }
+
+Throughout this section we will state or derive all of the inequalities and stochastic bounds we will need for control of the resolvent. Starting with a particularly important large deviation estimate (Theorem 7.7 \cite{dynamic}), which we will need as a Lemma for the estimates:
+
+  
+
+\begin{boxtheorem}{Lemma 1: Large Deviation estimates}
+
+  
+
+Let $\left(X_i^{(N)}\right)$ and $\left(Y_i^{(N)}\right)$ are independent families of random variables and $\left(a_{ij}^{(N)}\right)$ and $\left(b_{ij}^{(N)}\right)$ be deterministic. Suppose all entrires $X_{i}^{(N)}$ and $Y_{i}^{(N)}$ are independent and satisfy: $$\E X = 0, \quad \E |X|^2=1, \quad \|X\|_p:=(\E |X|^p)^{1/p}\leq \mu_p$$
+
+for all $p\in \N$ and some constants $\mu_p$. Then, we have the bounds: 
+
+\begin{equation*}\sum_i b_i X_i \prec \left(\sum_i |b_i|^2\right)^{1/2}\tag{1.1}\end{equation*}
+
+\begin{equation*}\sum_{i, j} a_{ij}X_iY_j \prec \left(\sum_{i,j} |a_{ij}|^2\right)^{1/2}\tag{1.2}\end{equation*}
+
+\begin{equation*}\sum_{i\neq j} a_{ij}X_iY_j \prec \left(\sum_{i\neq j} |a_{ij}|^2\right)^{1/2}\tag{1.3}\end{equation*}
+
+\end{boxtheorem}
+
+\subsection{Off-diagonal $G_{xy}$ estimate}
+
+There will be two important observations used throughout the following estimations. First, per the covariance normalization, ofthe generalized Wigner matrix \cite{dynamic} , we have $S_{ab}\lesssim N^{-1}$. Secondly, $\sum_{y}|B_{xy}|$, $\sum_{y}|S_{xy}|$ have size $O(1)$ per Lemma 25 \cite{bandSDE}. Now, having established that, we can use estimate $(1.3)$ from the Lemma above, along with resolvent identity $(3)$, s.t. we get:
+
+$$|G_{xy}| = \left\vert G_{xx}\sum_{w\neq x}H_{xw}G^{(x)}_{wy}\right\vert= |G_{xx}|\left\vert\sum_{w\neq x}\sqrt{S_{xy}}B(t)_{xy}G^{(x)}_{wy}\right\vert\prec  |G_{xx}|\left(\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\right)^{1/2}\quad (x\neq y)$$
+
+\begin{equation*}\Rightarrow |G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\quad x\neq y\tag{3.1}\end{equation*}
+
+On the other hand, we can rewrite identity $(3)$ as $$G_{wy}^{(x)} = G_{wy}-\frac{G_{wx}G_{xy}}{G_{xx}},$$
+
+s.t. we can bound the latter result using the Cauchy-Schwarz inequality: 
+
+$$|G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2 \lesssim |G_{xx}|^2\sum_{w\neq x}S_{xw}|G_{wy}|^2+|G_{xx}|^2\sum_{w\neq x} S_{xw}\frac{|G_{wx}G_{xy}|^2}{|G_{xx}|^2}$$
+
+\begin{equation*}\Rightarrow |G_{xy}|^2 \lesssim |G_{xx}|^2\sum_{w\neq x}S_{xy}^2|G_{wy}|^2+|G_{xy}|^2\sum_{w\neq x}S_{xw}|G_{wx}|^2 \tag{4}\end{equation*}
+
+\begin{equation*}|G_{xy}|^2\lesssim \sum_{w\neq x}S_{xw}|G_{wy}|^2+N^{-2\delta}|G_{xy}|^2,\tag{4.1}\end{equation*}
+
+where $(4.1)$ follows from $(4)$ under assumptions $|G_{xx}|\prec 1$ and $\sup_{w\neq x}|G_{wx}|^2\prec N^{-\delta}$. By the same logic as above, using $G^*$ instead of $G$ for any $w\neq y$, we have:
+
+$$|G_{wy}|^2 =|G_{yw}^*|^2 \prec |G_{yy}^*|^2\sum_{u\neq y}S_{yu}|G^{*,(y)}_{uw}|^2 \lesssim $$
+
+$$\lesssim |G_{yy}^*|^2\sum_{u\neq y}S_{yu}|G^{*}_{uw}|^2 +|G_{yw}^*|^2\sum_{u\neq y}S_{yu}|G^{*}_{uy}|^2 =$$
+
+  
+
+$$=|G_{yy}|^2\sum_{u\neq y}S_{yu}|G_{wu}|^2 +|G_{wy}|^2\sum_{u\neq y}S_{yu}|G_{yu}|^2 $$
+
+Let us now multiply the latter result by $S_{xw}$ and sum over $w\neq x$, isolating the term $w=y$: 
+
+$$\sum_{w\neq x} S_{xw}|G_{wy}|^2\prec |G_{yy}|^2S_{xy}+\sum_{w\neq x,y}S_{xw}|G_{wy}|^2$$
+
+Now, by using $(4)$, we have:
+
+$$\sum_{w\neq x} S_{xw}|G_{wy}|^2 \lesssim S_{xy}|G_{yy}|^2+\sum_{w\neq z}S_{xw}|G_{yy}|^2\sum_{u\neq y}|G_{wu}|^2S_{uy}+\sum_{w\neq x}|G_{wy}|^2\sum_{u\neq y}|G_{yu}|^2S_{uy}\prec$$
+
+$$\prec S_{xy}|G_{yy}|^2 + \sum_{w, u}S_{xw}|G_{wu}|^2S_{uy}+\sum_{w\neq x}|G_{wy}|^2\sum_{u\neq y}|G_{yu}|^2S_{uy}\prec $$
+
+$$\prec S_{xy} + \sum_{w, u}S_{xw}|G_{wu}|^2S_{uy}+N^{-2\delta}\sum_{w\neq x} S_{xw}|G_{wy}|^2=$$
+
+$$=S_{xy}+\left(S^{1/2}TS^{1/2}\right)_{xy}+N^{-2\delta}\sum_{w\neq x}S_{xw}|G_{wy}|^2$$
+
+\begin{equation*}\Rightarrow \sum_{w\neq x} S_{xw}|G_{wy}|^2\prec S_{xy}+(S^{1/2}T S^{1/2})_{xy}\tag{5}\end{equation*}
+
+Hence, by putting together $(4)$ and $(5)$, we get: $$|G_{xy}|^2\prec S_{xy} + (S^{1/2}TS^{1/2})_{xy}+ N^{-2\delta}|G_{xy}|^2 \Rightarrow \frac{|G_{xy}|^2}{S_{xy} + (S^{1/2}TS^{1/2})_{xy}}\prec 1$$
+
+  
+
+  
+
+\subsection{Diagonal $|G_{xx}-m(z)|$ estimate}
+
+Let us extend the assumption from the previous section for some $\delta?>0$ as:
+
+ $$\max_{a, b}|G_{xy}-m(z)\mathbf{1}_{(x=y)}| = \Psi \leq N^{-\delta}$$
+
+Assume the existence of a family of admissible control parameters $\Omega_{ij}^2$, s.t $T_{ij}\prec \Omega_{i, j}^2$. Using our earlier estimates, namely $(3.1)$ and $(3.2)$,  we have: 
+
+$$|G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\prec\sum_{w\neq x} S_{xw}\left(|G_{wy}|^2+O_{\prec}(|G_{wx}G_{xy}|^2)\right)=$$
+
+\begin{equation*}= T_{xy}-S_{xx}|G_{xy}|^2+O_{\prec \Psi^4}\prec \Omega_{xy}^2+\Psi^4\tag{6}\end{equation*}
+
+  
+
+\noindent Using Definition 8.1 \cite{dynamic} for operations $P_iX:= \E[X|H^{(i)}]$ and $Q_i = X-P_iX$, we can define the following quantity:
+
+  
+
+\begin{equation*}Z_x:=\sum_{k, l\neq x}Q_{x}\left(H_{xk}G_{kl}^{(x)}H_{lx}\right)\tag{7}\end{equation*}
+
+  
+
+\noindent Then for $M :=\left(\max_{i, j}S_{i,j}\right)^{-1}\gtrsim N$, by Lemma 3.8 from \cite{knowles2013}, we have that:
+
+$$G_{xx} = m+m^2 Z_x + O_{\prec}\left(\Psi^2+M^{-1/2}\right), \quad Z_i\prec \Psi$$
+
+$$\Rightarrow |G_{xx}-m|^2\leqslant|Z_i|^2+O_{\prec}(\Psi^2+M^{-1}),$$
+
+using $|m(z)|\leqslant 1$ from Lemma 6.2 \cite{dynamic}. In order to estimate $|Z_i|^2$, we can rewrite the resolvent identity $(3)$ in a form of an inequality, which holds for $\forall k, \ell$:
+
+$$|G_{k\ell}^{(x)}|\leq |G_{k\ell}|+\frac{|G_{kx}||G_{x\ell}|}{|G_{xx}|}$$
+
+When applied to $(6)$ along with the assumptions $G_{kk}^{(i)}\prec 1$, we get: 
+
+\begin{equation*}\Rightarrow \sum_{k, l\neq x, k\neq l}S_{xk}|G_{kl}^{(x)}|^2S_{lx}\prec \sum_{k}\Omega_{xk}^2S_{kx}+\Psi^4\tag{8}\end{equation*}
+
+\noindent Similarly, applying it to $(7)$ along with $(1.1)$ and $(1.2)$ from the Lemma gives us: 
+
+\begin{equation*}|Z_x|^2\leqslant \left\vert\sum_{k\neq x}(|H_{xk}|^2-S_{xk})G_{kk}^{(x)}\right\vert^2+\left\vert\sum_{k, \ell\neq x\\ k\neq \ell}H_{xk}G_{k\ell}^{(x)}H_{\ell x}\right\vert^2 \tag{9}\end{equation*}
+
+Hence, by putting $(8)$ and $(9)$ together, we get:
+
+\begin{equation*}\Rightarrow |G_{xx}-m|^2\prec \sum_{k}\Omega_{xk}^2S_{kx}+\Psi^4 + M^{-1}\tag{10}\end{equation*}
+
+Recall that $|G_{kk}^{(x)}|\prec 1$ and $S_{ab}\lesssim N^{-1}$, hence, we can bound the first term using $(1.3)$ from the Lemma:
+
+$$\left\vert\sum_{k\neq x}(|H_{xk}|^2-S_{xk})G_{kk}^{(x)}\right\vert^2\prec\left\vert\sum_{k\neq x}S_{xk}(|B_{xk}|^2-1)\right\vert^2 \prec  \sum_{k\neq x}|S_{xk}|^2\prec N^{-1}$$
+
+Similarly, we can bound the second term by applying $(1.3)$ from the Lemma:
+
+$$\left\vert\sum_{k, \ell\neq x, k\neq \ell}H_{xk}G_{k\ell}^{(x)}H_{\ell x}\right\vert^2 = \left\vert\sum_{k, \ell\neq x, k\neq \ell}\sqrt{S_{xk}}B_{xk}G_{k\ell}^{(x)}\sqrt{S_{\ell x}}B_{\ell x}\right\vert^2 \prec \sum_{k, l\neq x, k\neq l}S_{xk}|G_{kl}^{(x)}|^2S_{lx} \lesssim$$
+
+$$\lesssim \sum_{k, l\neq x, k\neq l}S_{xk}|G_{kl}|^2S_{lx}+|G_{xx}|^{-2}\sum_{k, l\neq x, k\neq l}S_{xk}|G_{kx}|^2|G_{xl}|^2S_{lx}\lesssim \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}+\max_{a, b}|S_{a, b}^{1/2}|$$
+
+$$\Rightarrow \max_x|G_{xx}-m|^2\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|+\max_{a, b}|G_{ab}-m\mathbf{1}_{a=b}|^4+N^{-1}\prec$$
+
+$$\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}| +\max_{a\neq b}|G_{ab}|^4 + N^{-\delta}\max_x|G_{xx}-m|^2+N^{-1}\prec$$
+
+$$ \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|+N^{-\delta}\max_x|G_{xx}-m|^2+N^{-1}$$
+
+$$\Rightarrow \max_x|G_{xx}-m|^2\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|+N^{-1}$$
+
+\newpage
+\section{Bounds on Flow Terms}
+\label{sec:drift}
+In this section, our goal is to control the three terms of the fluctuations between the $T_{xy}$ and $\Theta_{xy}$ matrices. The squared $\mathcal{E}_t^S$ and $M$-term $\mathcal{E}_t^M$ of the flow SDE can be handled using the resolvent bounds we derived earlier, along with standard martingale calculus. However, the drift term $\mathcal{E}^{D}_t$ requires extra care. For it, we will follow Dubova and Yang's derivation closely, which employs the graphical perturbation methods developed by Bourgade, Yau and Yin, in their self-energy renormalization paper \cite{38}. More specifically, we will use Definition 17  \cite{bandSDE} for the diagrammatic notation of a standard oriented graph:
+\vspace{0.25 cm}
+\begin{boxt}{Diagrammatic notation}
+\begin{itemize}
+\item Each vertex will be assigned a label, corresponding to a matrix index $\alpha \in \{1, \cdots, N\}$. 
+\item Each blue-colored loop \textcolor{blue}{$\circlearrowright$}, regardless of direction, represents a term $G_s(z)_{\alpha\alpha} - m(z)$;
+\item A solid blue edge  $\alpha\textcolor{blue}{\longrightarrow}\beta$ represents a factor of $G_s(z)_{\alpha\beta}$, whereas a red $\alpha\textcolor{red}{\longrightarrow}\beta$ one is $\overline{G_s(z)_{\alpha\beta}}$;
+\item A black wavy edge $\alpha\leftrightsquigarrow \beta$ represents $S_{\alpha\beta}$, whereas $\alpha\textcolor{blue}{\leftrightsquigarrow} \beta$ is $B_{\alpha\beta} = (I-sm(z)^2S)^{-1}$; 
+\item A double edge $\alpha =\!=\!=\!=\beta$ represents $\{\text{Id}+(t-s)\Theta_t\}S^{1/2}$, which commute as shown before;
+\end{itemize}
+\end{boxt}
+Having defined the diagrammatic notation, we can now present the main operation that will allow the bounding of the drift term, namely Lemma 16 \cite{bandSDE}, which lists the loop expansion (Lemma 3.5 \cite{38}) and the regular vertex expansion (Lemma 3.14 \cite{38}): 
+
+\subsection*{Loop Expansion}
+Consider a differentiable function $f: \mathbb{C}^{N^2}\rightarrow\mathbb{C}$, which represents the remaining subgraph per our diagrammatic notation above. For fixed time $s\in [0, 1]$, we have the following identity of subgraphs, not accounting for the renormalization term: 
+\begin{equation*}
+(G_s(z))_{vv} - m) f(G_s(z)) = {sm} \sum_{\alpha, \beta=1}^N B_{v\alpha} S_{\alpha\beta} \big((G_s(z))_{\alpha\alpha} - m\big)\big((G_s(z))_{\beta\beta} - m\big) f(G_s(z))
+\end{equation*}
+\begin{equation*}
+ - sm \sum_{\alpha, \beta=1}^N B_{v\alpha} S_{\alpha\beta} {(G_s(z))_{\beta\alpha}} \partial_{H_{s,\beta\alpha}} f(G_s(z)) = {sm}\mathcal{G}_{1, s}(z)_{ab}+sm\mathcal{G}_{2, s}(z)_{ab} + sm\mathcal{G}_{3, s}(z)_{ab} + sm\mathcal{G}_{4, s}(z)_{ab}.
+\end{equation*}
+Here, $\mathcal{G}_{1, s}(z)_{ab}$ is equivalent to the first term, whereas subgraphs $\mathcal{G}_{2, s}(z)_{ab}$ through $\mathcal{G}_{4, s}(z)_{ab}$ are the result of expanding the partial derivative $\partial_{H_{s, \alpha\beta}}f(G_s(z))$, using the fact that: $\partial_{H_{\beta\alpha}} G_{xy} = -G_{x\beta}G_{\alpha y}$ and $\partial_{H_{\beta\alpha}}\overline{G}_{xy} = -\overline{G}_{x\alpha}\overline{G}_{\beta y}$.  Similarly, the regular vertex expansion for a connected pair of edges is:
+\subsection*{Regular Vertex Expansion}
+For a differentiable function $f: \mathbb{C}^{N^2}\rightarrow\mathbb{C}$ and fixed time $s\in [0, 1]$, we have the following identity, not accounting for the renormalization term: \begin{equation*}
+G_{xu}G_{uy}f(G) = mB_{uy}G_{xy} f(G) + sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma y} f(G)
+\end{equation*}
+$$+sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{x\delta}(G_{\gamma\gamma}-m)G_{\delta y}f(G)-sm\sum_{\gamma\beta=1}^N B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}\partial_{H_{\delta \gamma}}(f(G))$$
+$$= m\mathcal{G}_{i0, s}+sm\mathcal{G}_{i1,s}+sm\mathcal{G}_{i2, s}-sm\mathcal{G}_{i3,s}^{(1)}-sm\mathcal{G}_{i3,s}^{(2)}-sm\mathcal{G}_{i3,s}^{(3)},$$
+where $\mathcal{G}_{i0, s}$, $\mathcal{G}_{i1, s}$ and $\mathcal{G}_{i2, s}$ represent the first three terms, respectively, and $\mathcal{G}_{i3, s}^{(i)}$ are the resulting elements from applying 
+the resolvent derivatives w.r.t. to $H_{\beta\alpha}$. To be clear, the exact number of the latter do not follow from the lemma itself and are rather a feature of our particular diagrammatic structure. The explicit results will be verified when we apply the lemma to each respective term. Now, in order to bound each term from the flow SDE, we will use the following estimates:
+
+\begin{boxt}{Estimates}
+
+\begin{enumerate}
+
+\item  $\sup_x\sum_{y}|G_{xy}|\lesssim W^{\frac{1}{2}+\epsilon}\eta_{s}^{-\frac{3}{4}}$ (Result $4.5$ \cite{bandSDE}).
+
+\item $\max_{x,y}\left\vert G_{xy} - \delta_{xy}m(z)\right\vert\lesssim W^{-\frac{1}{2}}\eta_s^{-\frac{1}{4}}$ (Result $4.6$ \cite{bandSDE})). 
+
+
+\item  The entries of $\Theta_{t}$ are  $O\left(W^{-1}\eta_{t}^{-\frac{1}{2}}\right)$ per Lemma 23 \cite{bandSDE}
+    
+\item Per the covariance normalization, $S_{ab}\lesssim W^{-1}$
+\item $\sum_{y}|B_{xy}|$, $\sum_{y}|S_{xy}|$ have size $O(1)$ per Lemma 25 \cite{bandSDE}.
+
+\item $\sum_{x}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\lesssim \eta_t^{-1}\eta_s$ per (3.7) from \cite{bandSDE})
+
+\item $(t-s)\lesssim \eta_s$
+\end{enumerate}
+\end{boxt}
+
+\subsection{Estimates for term $\mathcal{E}_t^{D}(z)_{ab}$} 
+The goal for this subsection is to bound the drift term, which we can expand and rewrite as follows: 
+$$\mathcal{E}_t^{D}(z)_{ab}=\int_0^{ t}\{\text{Id}+(t-s)\Theta_t\}S^{\frac{1}{2}}\Omega_s(z)S^{\frac{1}{2}}\{\text{Id}+(t-s)\Theta_t\}$$
+$$=\int_0^t \{\text{Id}+(t-s)\Theta_t\}\left\{
+\overline{G_s(z)}_{xy} G_s(z)_{xu} S_{uv} 
+\left[ G_s(z)_{vv} - m(z) \right] G_s(z)_{uy}
+\right\}\{\text{Id}+(t-s)\Theta_t\}+
+$$
+$$
+\int_0^t \{\text{Id}+(t-s)\Theta_t\}\left\{
+ G_s(z)_{xy} \overline{G_s(z)}_{xu} S_{uv} 
+\left[ \overline{G_s(z)}_{vv} - m(z) \right] \overline{G_s(z)}_{uy} 
+\right\} \{\text{Id}+(t-s)\Theta_t\} = 
+$$
+Observe that we can represent the first term with the diagrammatic notation defined earlier, whereas its complex conjugate has the exact same structure, with only the colors of the straight edges being flipped. Since this doesn't change the underlying estimates we have from the previous section, WLOG we can pick the first term and write it out as follows:
+
+\begin{center}
+
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (u) at (4, 0) {u};
+\node (v) at (4, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[blue, ->] (x) to (u);
+\draw[wavy] (u) -- (v);
+\draw[blue, ->] (u) -- (y);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->] (x) to[bend right=47	] (y);
+\draw[blue, ->] (v) to[out=200, in=150, loop] (v);
+\end{tikzpicture}
+$$\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_s(z)}_{xy} G_s(z)_{xu} S_{uv} 
+\left[ G_s(z)_{vv} - m(z) \right] G_s(z)_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax} 
+$$
+\end{center}
+By applying the loop expansion at edge $v$, we get the following four subgraphs: 
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (u) at (4, 0) {u};
+\node (v) at (4, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[blue, ->] (x) to (u);
+\draw[wavy] (u) -- (v);
+\draw[blue, ->] (u) -- (y);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->] (x) to[bend right=47	] (y);
+\draw[blue, ->] (alpha) to[out=200, in=150, loop] (alpha);
+\draw[blue, ->] (beta) to[out=0, in=40, loop] (beta);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\end{tikzpicture}
+\begin{equation*}
+\mathcal{G}_{1, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}}G_{xu}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)G_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (u) at (4, 0) {u};
+\node (v) at (4, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[blue, ->] (x) to (u);
+\draw[wavy] (u) -- (v);
+\draw[blue, ->] (u) -- (y);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[red, ->] (beta) to (y);
+\draw[red, ->] (x) to[bend left=20] (alpha);
+\draw[blue, ->] (beta) to[bend left=30] (alpha);
+\end{tikzpicture}
+\begin{equation*}
+\mathcal{G}_{2, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{x\alpha}} \overline{G_{\beta y}}G_{xu} S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}G_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (u) at (4, 0) {u};
+\node (v) at (4, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, ->] (u) -- (y);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, <-] (alpha) to[bend right=40] (beta);
+\draw[blue, ->] (x) to[bend left=60] (beta);
+\draw[blue, ->] (alpha) to[bend right=40] (u);
+\draw[red, ->] (x) to [bend right=20] (y);
+\end{tikzpicture}
+\begin{equation*}
+\mathcal{G}_{3, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{x\beta} G_{\alpha u} S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}G_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (u) at (4, 0) {u};
+\node (v) at (4, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[blue, ->] (x) to (u);
+\draw[wavy] (u) -- (v);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (u) to (beta);
+\draw[blue, ->] (alpha) to (y);
+\draw[red, ->] (x) to [bend right=20] (y);
+\draw[blue, <-] (alpha) to [bend left=40] (beta);
+\end{tikzpicture}
+\begin{equation*}
+\mathcal{G}_{4, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{xu}  S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}G_{u\beta}G_{\alpha y}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+\end{center}
+Observe that in all cases we have a vertex $u$ that has one incoming and one outgoing blue edge, implying that we can again apply the regular vertex expansion w.r.t to $u$. For both $\mathcal{G}_{1, s}$ and $\mathcal{G}_{2, s}$ the incoming and outgoing edges are the same, starting and ending at $x$ and $y$, respectively. For $i=3$ and $i=4$ we have a different incoming or outgoing edge, so the corresponding expansion will require slight reformulation. Accounting for this fact, we get the following identities: 
+\begin{itemize}
+\item For $\mathcal{G}_{1, s}$ and $\mathcal{G}_{2, s}$: \begin{equation*}
+G_{xu}G_{uy}f(G) = mB_{uy}G_{xy} f(G) + sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma y} f(G)
+\end{equation*}
+$$+sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{x\delta}(G_{\gamma\gamma}-m)G_{\delta y}f(G)-sm\sum_{\gamma\beta=1}^N B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}\partial_{H_{\delta \gamma}}(f(G))$$
+\item For $\mathcal{G}_{3, s}$:
+\begin{equation*}
+G_{\alpha u}G_{uy}f(G) = mB_{uy}G_{\alpha y} f(G) + sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{\alpha\gamma}(G_{\delta\delta}-m)G_{\gamma y} f(G)
+\end{equation*}
+$$+sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{\alpha\delta}(G_{\gamma\gamma}-m)G_{\delta y}f(G)-sm\sum_{\gamma\delta=1}^N B_{u\gamma}S_{\gamma\delta}G_{\alpha\gamma}G_{\delta y}\partial_{H_{\delta \gamma}}(f(G))$$
+\item For $\mathcal{G}_{4, s}$:
+\begin{equation*}
+G_{xu}G_{u\beta}f(G) = mB_{u\beta}G_{x\beta} f(G) + sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma \beta} f(G)
+\end{equation*}
+$$+sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{x\delta}(G_{\gamma\gamma}-m)G_{\delta \beta}f(G)-sm\sum_{\gamma\delta=1}^N B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta \beta}\partial_{H_{\delta \gamma}}(f(G))$$
+\end{itemize}
+As we noted earlier, each of the former identities can be represented as the sum of independent subraphs, such that for $i=1, 2, 3, 4$, we have:
+$$\mathcal{G}_{i, s} = m\mathcal{G}_{i0, s}+sm\mathcal{G}_{i1,s}+sm\mathcal{G}_{i2, s}-sm\mathcal{G}_{i3,s}^{(1)}-sm\mathcal{G}_{i3,s}^{(2)}-sm\mathcal{G}_{i3,s}^{(3)},$$
+We will begin by focusing our attention on the first three terms for a fixed $i=1, 2, 3, 4$, namely $\mathcal{G}_{ij}$ for $j=0, 1, 2$. For brevity, let us define $\eta_s = \left\vert \text{Im}w_s\right\vert = \left\vert \text{Im}[z+(1-t)m(z)]\right\vert$. 
+Using the estimates we defined in Section 5, we can simplify each of the resulting subgraph, starting with $j=0$:
+\subsubsection*{Size estimates for $\mathcal{G}_{10, s}$}
+Following diagrammatic notation, each of the $B_{uy_i}G_{x_iy_i}f(G)$ terms becomes:
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (u) at (4, 0) {u};
+\node (v) at (4, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[wavy, blue] (u) -- (y);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->] (x) to[bend right=15	] (y);
+\draw[blue, ->](x) to [bend right=35] (y);
+\draw[blue, ->] (alpha) to[out=200, in=150, loop] (alpha);
+\draw[blue, ->] (beta) to[out=0, in=40, loop] (beta);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\end{tikzpicture}
+\begin{equation*}
+\mathcal{G}_{10, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+\end{center}
+We can apply estimate $(2)$ to the two loops around $\alpha$ and $\beta$, as well as estimate $(1)$ to the red edge connecting $x$ and $y$. From this, we receive three multiplicative terms $W^{-1/2}\eta_s^{-1/4}$, i.e combined it yields a term $W^{-3/2}\eta_s^{-3/4}$. By estimate $(5)$, we can sum all the wavy lines out in order $\beta, \alpha, v,$ and finally $u$ for a $O(1)$ term, keeping our earlier estimate. We can stop here by leaving the connected component that is a double line from $a$ to $x$, a blue line from $x$ to $y$ and another double line from $y$ to $b$, i.e: $\mathcal{G}_{10, s}\lesssim W^{-3/2}\eta_s^{-1/4}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (y) at (2, 0) {y};
+\node (b) at (3, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimates for $\mathcal{G}_{20, s}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (u) at (4, 0) {u};
+\node (v) at (4, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (u) -- (y);
+\draw[blue, ->] (x) to [bend right=20] (y);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[red, ->] (beta) to (y);
+\draw[red, ->] (x) to[bend left=20] (alpha);
+\draw[blue, ->] (beta) to[bend left=30] (alpha);
+\end{tikzpicture}
+\begin{equation*}
+\mathcal{G}_{20, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{x\alpha}}G_{xy} \overline{G_{\beta y}} S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+\end{center}
+Repeating the same process as before, we bound all three red lines using estimate $(2)$ and sum over the wavy edges in the same order $(\beta, \alpha, v$, and $u$), s.t. we get the same bound as above:
+$\mathcal{G}_{20, s}\lesssim W^{-3/2}\eta_s^{-1/4}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (y) at (2, 0) {y};
+\node (b) at (3, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimates for $\mathcal{G}_{30, s}$}
+
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (u) at (4, 0) {u};
+\node (v) at (4, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (u) to (y);
+\draw[blue, ->] (alpha) to (y);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, <-] (alpha) to[bend right=30] (beta);
+\draw[blue, ->] (x) to[bend left=60] (beta);
+\draw[red, ->] (x) to [bend right=20] (y);
+\end{tikzpicture}
+\begin{equation*}
+\mathcal{G}_{30, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{x\beta}S_{uv} B_{v\alpha}  S_{\alpha\beta}G_{\beta\alpha}G_{uy} B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+\end{center}
+Here, we eliminate first the edges  $\beta\textcolor{red}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow} y$ using estimate $(2)$, giving us a combined $W^{-1}\eta_s^{-1/2}$ term. Due to the edge from $x\textcolor{blue}{\rightarrow}\beta$, we are not going to be summing $\alpha\leadsto\beta$ over row/column $S_{ab}$ entries because it instead serves as a multiplicative term to the blue edge $x\textcolor{blue}{\rightarrow}\beta$. For this reason, we will apply the individual $S_{ab}\lesssim W^{-1}$ bound, s.t now summing over $x\textcolor{blue}{\rightarrow}\beta$ with estimate $(1)$ gives us a combined bound $W^{3/2}\eta_s^{-3/4}$. Finally, by summing over the remaining wavy edges, starting with $\alpha, v$ and then $u$, due to the $O(1)$ term (estimate $(5)$), we get an estimate of the form:$\mathcal{G}_{30, s}\lesssim W^{1/2}\eta_s^{-5/4}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (y) at (2, 0) {y};
+\node (b) at (3, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->](x) to (y);
+
+\end{tikzpicture}
+
+
+\subsubsection*{Size estimates for $\mathcal{G}_{40, s}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (u) at (4, 0) {u};
+\node (v) at (4, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, wavy] (u) to (beta);
+\draw[blue, ->] (alpha) to (y);
+\draw[red, ->] (x) to [bend right=20] (y);
+\draw[blue, <-] (alpha) to [bend left=15] (beta);
+\draw[blue, ->] (x) to[bend left=60] (beta);
+\end{tikzpicture}
+\begin{equation*}
+\mathcal{G}_{4, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{x\beta}  S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}B_{u\beta}G_{\alpha y}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+\end{center}
+Here, we bound first the inner edges $\alpha\textcolor{blue}{\rightarrow} y$ and $\beta\textcolor{red}{\rightarrow}\alpha$, we get by estimate $(2)$ a combined term $\lesssim W^{-1}\eta_{s}^{-1/2}$. Again, by the same logic as above, we have to account for the individual term $\alpha\leadsto\beta$ instead of summing over it, retaining a $\lesssim W^{-1}$ term. By applying estimate $(1)$ for the edge $x\textcolor{blue}{\rightarrow}\beta$ and summing over the remaining wavy lines, we get the same bound as above, namely: 
+$\mathcal{G}_{40, s}\lesssim W^{1/2}\eta_s^{-5/4}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (y) at (2, 0) {y};
+\node (b) at (3, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->](x) to (y);
+
+\end{tikzpicture}
+
+
+\subsubsection*{Size estimates for $\max_{i=1, \cdots, 4}\mathcal{G}_{40, s}$}
+
+In order to combine all the latter estimates, we can represent with a pink arrow either blue or red:\begin{center}
+
+$\max_{i=1, \cdots, 4}\left\vert\mathcal{G}_{40, s}\right\vert\lesssim W^{-3/2}\eta_s^{-5/4}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (y) at (2, 0) {y};
+\node (b) at (3, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[pink, ->](x) to (y);
+
+\end{tikzpicture}
+\end{center}
+In order to complete the latter result, we need to consider two subcases w.r.t. to the double lines by splitting the double line $\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$ into its two components:
+\begin{itemize}
+\item $(t-s)\left[\Theta_t\right]_{yb} \lesssim (t-s)W^{-1}\eta_t^{-1/2}\lesssim W^{-1}\eta_t^{-1/2}\eta_s$ (estimate 3 \& 7), where by summing over $y$ with estimate 1, we get $O(W^{1/2}\eta_s^{-3/4})$  over $x$ with estimate 6, we have $O(\eta_t^{-1}\eta_s)$, we get a combined term $O(W^{-1/2}\eta_t^{-3/2}\eta_s^{5/4})$
+\item $\text{Id}_{yb}$ is of course $O(1)$, hence we don't have a varying term, which means that we can bound the edge ending at $y$ with estimate 2, s.t. we get $O(W^{-1/2}\eta_s^{-1/4})$ term. Combining it with $O(\eta_t^{-1}\eta_s)$ from estimate 6, we have $O(W^{-1/2}\eta_t^{-1}\eta_s^{3/4})$. With this we achieve a total bound: 
+\end{itemize}
+$$\max_{i=1, \cdots, 4}\left\vert\mathcal{G}_{i0, s}\right\vert\lesssim W^{-2}\eta_t^{-3/2}+W^{-2}\eta_t^{-1}\eta_s^{-1/2}$$
+Lastly, we need to integrate over $s\in [0, 5]$ by using a change of variable $\sigma =\eta_s$, s.t. the bounds of the integral are then $\sigma\in [\eta_t, O(1)]$, i.e we have:
+$$\max \int_0^t|\mathcal{G}_{i0, s}|ds\lesssim W^{-2}\eta_t^{-3/2} \int_{\eta_t}^{O(1)}d\sigma + W^{-2}\eta_t^{-1}\int_{\eta_t}^{O(1)}\sigma^{-1/2}d\sigma \lesssim$$
+$$\lesssim W^{-2}\eta_t^{-3/2}-W^{-2}\eta_t^{-1/2}+2N^{-2}\eta_t^{-1}-2W^{-2}\eta_t^{-1/2}\lesssim W^{-2}\eta_t^{-3/2} $$
+
+\subsubsection*{Size estimates for $\mathcal{G}_{11, s}$}
+In order to represent $B_{u\gamma} S_{\gamma\delta} G_{x_i\gamma}(G_{\delta\delta}-m)G_{\gamma y_i} f(G)$, we need to add the two new vertices $\gamma$ and $\delta$:
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (v) at (5, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+\node (delta) at (3, 1) {$\delta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy, blue] (u) -- (gamma);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->] (x) to[bend right=15	] (y);
+\draw[blue, ->] (alpha) to[out=200, in=150, loop] (alpha);
+\draw[blue, ->] (beta) to[out=0, in=40, loop] (beta);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (x) to (gamma);
+\draw[blue, ->] (gamma) to (y);
+\draw[wavy] (u) to (v);
+\draw[wavy](gamma) to (delta);
+\draw[blue, ->] (delta) to[out=200, in=150, loop] (delta);
+\end{tikzpicture}
+\begin{equation*}\scalebox{0.8}{$
+ \mathcal{G}_{11, s}(z)_{ab}=\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}}B_{u\gamma} S_{\gamma \delta} G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma y}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+$}\end{equation*}
+\end{center}
+\noindent To estimate this graph, we will bound all loops $\textcolor{blue}{\circlearrowright}$ and $x\textcolor{red}{\rightarrow} y$ using estimate 2 which yields in total $O(W^{-2}\eta_s^{-1})$. Then, we sum the wavy lines over $\beta, \alpha, v, u, \delta$ in that order, which is $O(1)$ by estimate 5. This means that we get a combined bound:
+$\mathcal{G}_{11, s}\lesssim W^{-2}\eta_s^{-1}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[blue, ->] (gamma) to (y);
+
+\end{tikzpicture}
+\subsubsection*{Size estimates for $\mathcal{G}_{21, s}$}
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (v) at (5, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+\node (delta) at (3, 1) {$\delta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[red, ->] (beta) to (y);
+\draw[red, ->] (x) to[bend left=40] (alpha);
+\draw[blue, ->] (beta) to[bend left=20] (alpha);
+\draw[wavy, blue] (u) -- (gamma);
+\draw[blue, ->] (x) to (gamma);
+\draw[blue, ->] (gamma) to (y);
+\draw[wavy](gamma) to (delta);
+\draw[blue, ->] (delta) to[out=50, in=10, loop] (delta);
+\end{tikzpicture}
+
+\begin{equation*}\scalebox{0.9}{$
+\mathcal{G}_{21, s}(z)_{ab}= \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{x\alpha}} G_{x\gamma}G_{\gamma y}\overline{G_{\beta y}}B_{u\gamma}S_{\gamma\delta}(G_{\delta\delta}-m) S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
+\end{equation*}
+\end{center}
+
+\noindent Here, we will repeat an equivalent procedure as above, bounding the loop at $\delta$ and the three edges $x\textcolor{red}{\rightarrow}\alpha$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\beta\textcolor{red}{\rightarrow}y$ , getting again a bound $O(W^{-2}\eta_s^{-1})$. Then, we can sum the wavy lines with estimate $(5)$, getting an equivalent bound as above:
+$\mathcal{G}_{21, s}\lesssim W^{-2}\eta_s^{-1}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[blue, ->] (gamma) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimates for $\mathcal{G}_{31, s}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (v) at (5, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (2, 2) {$\beta$};
+\node (delta) at (3, 1) {$\delta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[blue, ->] (delta) to[out=250, in=200, loop] (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, <-] (alpha) to[bend right=20] (beta);
+\draw[blue, ->] (x) to (beta);
+\draw[red, ->] (x) to [bend right=20] (y);
+\draw[blue, ->] (gamma) to (y);
+\draw[blue, ->] (alpha) to [bend right=28](gamma);
+\end{tikzpicture}
+\begin{equation*}\scalebox{0.95}{$
+\mathcal{G}_{31, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{x\beta}B_{u\gamma}S_{\gamma \delta}G_{\alpha \gamma}(G_{\delta\delta}-m)G_{\gamma y}S_{uv} B_{v\alpha}  S_{\alpha\beta}G_{\beta\alpha}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
+\end{equation*}
+\end{center}
+
+\noindent Let us start by bounding the loop at $\delta$, as well as the $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$. In totality, this contributes $O(W^{-2}\eta_s^{-1})$. Here, however, we don't have the same structure as before, since $\gamma$ no longer has an ingoing edge from $x$. Regardless, observe that by preserving $x\textcolor{blue}{\rightarrow}\beta$, when we are performing the total estimation at the end, the wavy lines will be contributing only with $O(1)$ per estimate $(5)$, hence we can expect for the result to be equivalent to the two prior two : $\mathcal{G}_{31, s}\lesssim W^{-2}\eta_s^{-1}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (beta) at (2, 0) {$\beta$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (beta);
+\draw[blue, ->] (beta) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimate for $\mathcal{G}_{41, s}$}
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (v) at (3, 1) {v};
+\node (u) at(4, 1) {u};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (2, 2) {$\beta$};
+\node (delta) at (5, 1) {$\delta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (alpha) to[bend left = 20] (y);
+\draw[blue, <-] (alpha) to [bend right=20] (beta);
+\draw[red, ->] (x) to [bend right=20] (y);
+\draw[blue, ->] (gamma) to[bend left=30] (beta);
+\draw[wavy, blue] (gamma) to (u);
+\draw[blue, ->] (x) to (gamma);
+\draw[wavy] (gamma) to (delta);
+\draw[blue, ->] (delta) to[out=320, in=280, loop] (delta);
+
+\end{tikzpicture}
+\begin{equation*}\scalebox{0.95}{$
+\mathcal{G}_{41, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} B_{u\gamma}S_{\gamma \delta}G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma\beta} S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}G_{\alpha y}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
+\end{equation*}
+\end{center}
+\noindent Here the logic is the same as above, namely, after eliminating the loop at $\delta$ and the edges $x\textcolor{red}{\rightarrow} y$, $\gamma\textcolor{blue}{\rightarrow} \beta$, and $\beta\textcolor{blue}{\rightarrow} \alpha$ we get a term $O(W^{-2}\eta_s^{-1})$. The remaining graph is of similar form to the first two with additional wavy lines that contribute only $O(1)$ at the end, i.e $\mathcal{G}_{41, s}\lesssim W^{-2}\eta_s^{-1}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[blue, ->] (gamma) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimate for $\max_{i=1 ,\cdots, 4}\mathcal{G}_{i1, s}$}
+
+As such, all our graphs are bounded by:
+ 
+\begin{center}
+$\max_{i=1, \cdots, 4} \mathcal{G}_{i1, s}\lesssim W^{-2}\eta_s^{-1}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[blue, ->] (gamma) to (y);
+
+\end{tikzpicture}
+\end{center}
+Observe that the latter subgraph is almost identical to the one we calculate for the $\mathcal{G}_{i0, s}$ estimates with the addition of a solid line. This means that we will have an additional term $O(W^{1/2}\eta_s^{-3/4})$ from estimate $(1)$. As such, the subgraph is bounded by the sum of terms $O(\eta_t^{-3/2}\eta_s^{1/2})$ and $O(\eta_t^{-1})$, i.e combined with the multiplicative term, we get:$$\max_{i=1, \cdots, 4}| \mathcal{G}_{i1, s}|\lesssim W^{-2}\eta_t^{-3/2}\eta_s^{-1/2}+W^{-2}\eta_t^{-1}\eta_s^{-1}$$
+$$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t}|\mathcal{G}_{i1, a}|ds\lesssim W^{-2}\eta_t^{-3/2}\int_{\eta_t}^{O(1)}\sigma^{-1/2}d\sigma + W^{-2}\eta_t^{-1}\int_{\eta_t}^{O(1)}\sigma^{-1}d\sigma=$$
+$$= 2W^{-2}\eta_t^{-3/2}-2W^{-2}\eta_t^{-1}-W^{-2}\eta_t^{-1}\ln \eta_t\in  O(W^{-2}\eta_t^{-3/2})$$
+
+\subsubsection*{Size estimates for $\mathcal{G}_{12, s}$}
+Following the regular vertex expansion, we have to now represent the subgraphs of the form $\mathcal{G}_{i2, s}=B_{u\gamma} S_{\gamma \delta} G_{x_i\delta} (G_{\gamma\gamma}-m)G_{\delta y_i} f(G)$, s.t. by applying the graphical representation we get: 
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (delta) at (4, 0) {$\delta$};
+\node (u) at (4, 1) {u};
+\node (v) at (5, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+\node (gamma) at (3, 1) {$\gamma$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[red, ->] (x) to [bend right=20] (y);
+\draw[blue, ->] (delta) to (y);
+\draw[blue, ->] (alpha) to [out=100, in=135, loop] (alpha);
+\draw[blue, ->] (beta) to [out=100, in=70, loop] (beta);
+\draw[blue, ->] (x) to (delta);
+\draw[blue, ->] (gamma) to [out=100, in=135, loop] (gamma);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}\scalebox{0.85}{$
+\mathcal{G}_{12, s} = 
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} B_{u\gamma} S_{\gamma \delta} G_{x\delta} (G_{\gamma\gamma}-m)G_{\delta y} S_{uv} B_{v\alpha} (G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
+\end{equation*}
+Canceling all three loops $\textcolor{blue}{\circlearrowright}$ and the edge $x\textcolor{red}{\rightarrow}y$ gives us a combined term $O(W^{-2}\eta_s^{-1})$ per estimate $(2)$. Subsequently, we sum out all the wavy lines, which gives us the same bound as before:
+$\mathcal{G}_{12, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (delta) at (2, 0) {$\delta$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}
+\subsubsection*{Size estimates for $\mathcal{G}_{22, s}$}
+
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (delta) at (4, 0) {$\delta$};
+\node (u) at (4, 1) {u};
+\node (v) at (5, 1) {v};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+\node (gamma) at (3, 1) {$\gamma$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (delta) to (y);
+\draw[blue, ->] (x) to (delta);
+\draw[blue, ->] (gamma) to [out=210, in=240, loop] (gamma);
+\draw[blue, ->] (beta) to [bend right=30] (alpha);
+\draw[red, ->] (x) to [bend left = 30] (alpha);
+\draw[red, ->] (beta) to (y);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{22, s} = 
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x\alpha}} B_{u\gamma} S_{\gamma \delta} G_{x\delta} (G_{\gamma\gamma}-m)G_{\delta y}\overline{G_{\beta y}} S_{uv} B_{v\alpha} S_{\alpha\beta}G_{\beta\alpha}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+Here we cancel the loop at $\gamma$ and the directed edges $x\textcolor{red}{\rightarrow}\alpha$, $\beta\textcolor{red}{\rightarrow}y$ and $\beta\textcolor{blue}{\rightarrow}\alpha$. With this, we are again left with a term $O(W^{-2}\eta_s^{-1})$, s.t. after summing out the wavy lines using estimate $(5)$, we get the same bound:
+$\mathcal{G}_{22, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (delta) at (2, 0) {$\delta$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimates for $\mathcal{G}_{32, s}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (delta) at (4, 0) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (gamma) at (4, 1) {$\gamma$};
+\node (u) at (5, 1) {u};
+\node (v) at (6, 1) {v};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (2, 2) {$\beta$};
+
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (delta) to (y);
+\draw[blue, ->] (x) to (beta);
+\draw[blue, ->] (beta) to [bend left=30] (alpha);
+\draw[blue, ->] (gamma) to [out=40, in=70, loop] (gamma);
+\draw[blue, ->] (alpha) to [bend right=30] (delta);
+\draw[red, ->] (x) to [bend right=20] (y);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{32, s} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{xy}}G_{x\beta} B_{u\gamma} S_{\gamma \delta} G_{\alpha \delta} (G_{\gamma\gamma}-m)G_{\delta y}S_{uv}B_{v\alpha}S_{\alpha\beta}G_{\beta \alpha} 
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+For this subgraph, we start by eliminating the loop at $\gamma$ and the edges $\beta\textcolor{blue}{\rightarrow}\alpha$, $\alpha\textcolor{blue}{\rightarrow}\delta$, and $x\textcolor{red}{\rightarrow}y$. This means that we have 5 instead of 4 terms per estimate $(2)$, i.e we get a combined term $O(W^{-5/2}\eta_s^{-5/4})$. With this, we have a similar subgraph remaining with a few extra wavy edges that will sum out to $O(1)$ per estimate 5, hence the total estimate will be equivalent to:
+$\mathcal{G}_{32, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (delta) at (2, 0) {$\delta$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimate for $\mathcal{G}_{42, s}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (v) at (4, 1) {v};
+\node (u) at (5, 1) {u};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (2, 2) {$\beta$};
+\node (delta) at (3, 1) {$\delta$};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[blue, ->] (gamma) to[out=180, in=200, loop] (gamma);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, <-] (alpha) to[bend right=20] (beta);
+\draw[blue, ->] (delta) to (beta);
+\draw[blue, ->] (x) to (delta);
+\draw[red, ->] (x) to [bend right=20] (y);
+\draw[blue, ->] (alpha) to [bend left=30](y);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{42, s} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{xy}}B_{u\gamma} S_{\gamma \delta}  G_{x\delta} (G_{\gamma \gamma}-m)G_{\delta \beta}S_{uv} B_{v\alpha} S_{\alpha \beta} G_{\beta \alpha} G_{\alpha y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+Here, we eliminate the loop at $\gamma$ and the edges $\delta\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $x\textcolor{red}{\rightarrow}y$, all contributing a term $O(W^{-1/2}\eta_s^{-1/4})$. By summing over $\beta\rightsquigarrow \alpha$ for an $O(1)$ term, we again have a bound that is equivalent to the previous ones, since all the wavy lines sum up to contribute $O(1)$. As such, we have a bound, equivalent to:
+$\mathcal{G}_{42, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (delta) at (2, 0) {$\delta$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}. But these are exactly the same bounds as for $\mathcal{G}_{i1, s}$, which means that $\max_{i=1, \cdots, 4}| \mathcal{G}_{i2, s}|\lesssim W^{-2}\eta_t^{-3/2}$
+
+
+\subsubsection*{Size estimate for $\mathcal{G}_{13, s}^{(1)}$}
+The last non-regularization term from the regular vertex expansion contains a partial derivative: $\mathcal{G}_{i3, s} =B_{u\gamma} S_{\gamma \delta} G_{x_i\gamma} G_{\delta y_i} \partial_{H_{\delta \gamma}}(f(G))$. Recall the resolvent perturbation by which we have that $\partial_{H_{\delta \gamma}}\overline{G_{x_iy_i}} = -\overline{G_{x_i\gamma}G_{\delta y_i}}$ and $\partial_{H_{\delta \gamma}}G_{x_iy_i} = -G_{x_i\delta}G_{\gamma y_i}$. Applying the latter identities results in summation of 3 separate subgraphs for each $G_{i3, s}$. We can again represent each of them individually for $i=1, 2, 3, 4$:
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (delta) at (4, 0) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (gamma) at (4, 1) {$\gamma$};
+\node (u) at (5, 1) {u};
+\node (v) at (6, 1) {v};
+\node (alpha) at (6, 2) {$\alpha$};
+\node (beta) at (4, 2) {$\beta$};
+
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (delta) to (y);
+\draw[blue, ->] (beta) to [out=130, in=170, loop] (beta);
+\draw[blue, ->] (alpha) to [out=20, in=50, loop] (alpha);
+\draw[blue, ->] (x) to (delta);
+\draw[blue, ->] (gamma) to (y);
+\draw[blue, ->] (x) to (gamma);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}\scalebox{0.9}{$
+\mathcal{G}_{13, s}^{(1)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+G_{x\delta} G_{\gamma y}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
+\end{equation*}
+Here, we bound the two loops at $\beta, \alpha$ and then the edges $x\textcolor{blue}{\rightarrow}\gamma$ and $\gamma\textcolor{blue}{\rightarrow}y$, getting a combined term $O(W^{-2}\eta_s^{-1})$. Hence, after summing over the wavy lines, we get the same bound as before:
+$\mathcal{G}_{13, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (delta) at (2, 0) {$\delta$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimate for $\mathcal{G}_{13, s}^{(2)}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (delta) at (5, 1) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (2, 2) {$\beta$};
+\node (v) at (3, 1) {v};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[blue, ->] (beta) to[out=180, in=220, loop] (beta);
+\draw[wavy] (alpha) to (beta);
+\draw[red, ->] (x) to [bend right=20] (y);
+\draw[blue, <-] (alpha) to [bend left=30](gamma);
+\draw[blue, ->] (x) to (gamma);
+\draw[blue, ->] (delta) to (y);
+\draw[blue, ->] (alpha) to[bend left=20] (delta);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{13, s}^{(2)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{xy}}S_{uv}B_{v\alpha}G_{\alpha\delta}G_{\gamma\alpha}S_{\alpha\beta}(G_{\beta\beta}-m)B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+We start by eliminating the loop at $\beta$ and then the edges $x\textcolor{red}{\rightarrow}\gamma$, $\gamma\textcolor{blue}{\rightarrow}\alpha$, and $\alpha\textcolor{blue}{\rightarrow}\delta$, getting back $O(W^{-2}\eta_s^{-1})$ by estimate $(2)$. Observe that with this we have almost the same subgraph as before with an additional wavy line $\gamma\rightsquigarrow \delta$, i.e our estimate looks like: 
+$\mathcal{G}_{13, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (delta) at (3, 0) {$\delta$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[wavy] (gamma) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimate for $\mathcal{G}_{13, s}^{(3)}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (delta) at (6, 1) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+\node (v) at (3, 1) {v};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[blue, ->] (alpha) to[out=200, in=160, loop] (alpha);
+\draw[wavy] (alpha) to (beta);
+\draw[red, ->] (x) to [bend right=20] (y);
+\draw[blue, <-] (beta) to (gamma);
+\draw[blue, ->] (x) to (gamma);
+\draw[blue, ->] (delta) to (y);
+\draw[blue, ->] (beta) to (delta);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}\scalebox{0.95}{$
+\mathcal{G}_{13, s}^{(3)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{xy}}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}G_{\beta\delta}G_{\gamma\beta}B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
+\end{equation*}
+
+\noindent For the last subgraph, we start with the loop $\alpha$ and then apply the second estimate for the edges $x\textcolor{red}{\rightarrow}y$, $\gamma\textcolor{blue}{\rightarrow}\beta$, and $\beta\textcolor{blue}{\rightarrow}\delta$. We get a combined term $O(W^{-2}\eta_s^{-1})$, s.t. after summing out $\beta, \alpha, v, u, $, we get a final estimate that looks like the one before:
+$\mathcal{G}_{13, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (delta) at (3, 0) {$\delta$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[wavy] (gamma) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}. And since the partial derivative expansion is equivalent to the summation of the latter three subgraphs, we get a combined bound on $\mathcal{G}_{i3, s}$ that is $O(W^{-2}\eta_t^{-3/2})$ by using our earlier calculations. 
+\subsubsection*{Size estimate for $\mathcal{G}_{23, s}^{(1)}$}
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (delta) at (5, 1) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+\node (v) at (3, 1) {v};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[blue, <-] (alpha) to[bend left=30] (beta);
+\draw[wavy] (alpha) to (beta);
+\draw[red, ->] (x) to [bend right=20] (gamma);
+\draw[blue, ->] (x) to [bend left=20](gamma);
+\draw[blue, ->] (delta) to (y);
+\draw[red, ->] (beta) to (y);
+\draw[red, <-] (alpha) to (delta);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{23, s}^{(1)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x\gamma}G_{\delta \alpha}G_{\beta y}}S_{uv}B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+For this subgraph, we can bound the three red edges along with $\beta\textcolor{blue}{\rightarrow}\alpha$, for which we get combined term $O( W^{-2}\eta_s^{-1})$. After summing over the wavy edges in order $\beta, \alpha, v, u$, we get the same bound as before:
+$\mathcal{G}_{23, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (delta) at (3, 0) {$\delta$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[wavy] (gamma) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimate for $\mathcal{G}_{23, s}^{(2)}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (delta) at (6, 1) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+\node (v) at (3, 1) {v};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[blue, <-] (alpha) to[bend left=30] (beta);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (x) to(gamma);
+\draw[red, ->] (x) to [bend left=30](alpha);
+\draw[red, ->] (delta) to[bend left=20] (y);
+\draw[blue, ->] (delta) to[bend right=20] (y);
+\draw[red, ->] (beta) to[bend right=10] (gamma);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{23, s}^{(2)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x\alpha}G_{\beta \gamma}G_{\delta y}}S_{uv}B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+Here, we can get bound all the red lines along with $\beta\textcolor{blue}{\rightarrow}\alpha$, s.t. after the summation over the wavy lines in order $\beta, \alpha, v, u$, we get the familiar:
+$\mathcal{G}_{23, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (delta) at (3, 0) {$\delta$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[wavy] (gamma) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}
+\subsubsection*{Size estimate for $\mathcal{G}_{23, s}^{(3)}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (delta) at (5, 1) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+\node (v) at (3, 1) {v};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[blue, <-] (alpha) to[bend left=20] (gamma);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (x) to(gamma);
+\draw[red, ->] (x) to [bend left=30](alpha);
+\draw[blue, <-] (delta) to (beta);
+\draw[blue, ->] (delta) to (y);
+\draw[red, ->] (beta) to(y);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{23, s}^{(3)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x\alpha}G_{\beta y}}S_{uv}B_{v\alpha}S_{\alpha\beta}G_{\beta\delta}G_{\gamma \alpha}B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+
+\noindent Lastly, by bounding all the red edges along with $\gamma\textcolor{blue}{\rightarrow}\alpha$ and $\beta\textcolor{blue}{\rightarrow}\delta$ and summing over the wavy edges in order $\beta, \alpha, v, u$, we get the equivalent bound: $\mathcal{G}_{23, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (delta) at (3, 0) {$\delta$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[wavy] (gamma) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}, which makes this subgraph subject to the same $O(W^{-2}\eta_t^{-3/2})$ estimate. 
+
+\subsubsection*{Size estimate for $\mathcal{G}_{33, s}^{(1)}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (delta) at (6, 1) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (2, 2) {$\beta$};
+\node (v) at (3, 1) {v};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[blue, ->] (alpha) to[bend left=30] (gamma);
+\draw[wavy] (alpha) to (beta);
+\draw[red, ->] (x) to(gamma);
+\draw[blue, ->] (x) to (beta);
+\draw[blue, ->] (delta) to[bend left=20] (y);
+\draw[red, ->] (delta) to[bend right=20](y);
+\draw[blue, <-] (alpha) to[bend right=30] (beta);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{33, s}^{(1)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x\gamma}G_{\delta y}}G_{x\beta}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \alpha} B_{u\gamma} S_{\gamma\delta} G_{\alpha \gamma}G_{\delta y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+
+\noindent By bounding all the blue edges we get a combined $O(W^{-2}\eta_s^{-1})$ term, s.t. after summing over the wavy edges in order $\beta, \alpha, v, u$, we get a final bound:
+$\mathcal{G}_{33, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (delta) at (3, 0) {$\delta$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->](x) to (gamma);
+\draw[wavy] (gamma) to (delta);
+\draw[red, ->] (delta) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimate for $\mathcal{G}_{33, s}^{(2)}$}
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (delta) at (4, 0) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (gamma) at (4, 1) {$\gamma$};
+\node (u) at (5, 1) {u};
+\node (v) at (6, 1) {v};
+\node (alpha) at (6, 2) {$\alpha$};
+\node (beta) at (4, 2) {$\beta$};
+
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (delta) to(y);
+\draw[blue, <-] (alpha) to [bend right=30] (beta);
+\draw[blue, ->] (x) to (delta);
+\draw[blue, ->] (gamma) to (beta);
+\draw[red, ->] (x) to [bend right=25](y);
+\draw[blue, ->] (alpha) to (gamma);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{33, s}^{(2)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x y}}G_{x\delta}G_{\gamma \beta}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \alpha} B_{u\gamma} S_{\gamma\delta} G_{\alpha \gamma}G_{\delta y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+For this graph, let us bound the edges $x\textcolor{red}{\rightarrow}y$, $\gamma\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$, s.t. after summing over the wavy lines in order of the indices $\beta, \alpha, v, u, \gamma$, we get a final bound: $\mathcal{G}_{33, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (delta) at (2, 0) {$\delta$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}
+
+\subsubsection*{Size estimate for $\mathcal{G}_{33, s}^{(3)}$}
+
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (delta) at (4, 0) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (gamma) at (4, 1) {$\gamma$};
+\node (u) at (5, 1) {u};
+\node (v) at (6, 1) {v};
+\node (alpha) at (5, 2) {$\alpha$};
+\node (beta) at (3, 2) {$\beta$};
+
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (delta) to(y);
+\draw[blue, ->] (x) to (beta);
+\draw[blue, <-] (delta) to (beta);
+\draw[red, ->] (x) to [bend right=25](y);
+\draw[blue, ->] (alpha) to [bend left=15](gamma);
+\draw[red, ->] (gamma) to [bend left=15] (alpha);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{33, s}^{(3)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x y}}G_{x\beta}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \delta}G_{\gamma \alpha} B_{u\gamma} S_{\gamma\delta} G_{\alpha \gamma}G_{\delta y}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+Lastly, by bounding all of the red edges along with $\beta\textcolor{blue}{\rightarrow}\delta$, $\alpha\textcolor{blue}{\rightarrow}\gamma$, we get a combined estimate $O(W^{-2}\eta_s^{-1})$. This leaves us with a bound that looks like 
+$\mathcal{G}_{33, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (beta) at (2, 0) {$\beta$};
+\node (delta) at (3, 0){$\delta$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (beta);
+\draw [wavy, red] (beta) to (delta);
+\draw[blue, ->] (delta) to (y);
+
+\end{tikzpicture}, 
+where the red wavy line represents a sequence of black and blue wavy lines (specifically those starting at the indices $\beta, \alpha, v, u, \gamma$. And since we already showed that estimation of these subgraphs doesn't change with extra wavy lines per the $O(1)$ contribution from estimate $(5)$, this set of subgraphs is also $O(W^{-2}\eta_t^{-3/2})$  as the ones before. 
+
+
+
+\subsubsection*{Size estimate for $\mathcal{G}_{43, s}^{(1)}$}
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (delta) at (4, 0) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (gamma) at (4, 1) {$\gamma$};
+\node (u) at (2, 1) {u};
+\node (v) at (2, 2) {v};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[red, ->] (delta) to(y);
+\draw[blue, <-] (alpha) to [bend left=30] (beta);
+\draw[blue, ->] (x) to (gamma);
+\draw[blue, ->] (delta) to (beta);
+\draw[red, ->] (x) to [bend right=25](gamma);
+\draw[blue, ->] (alpha) to (y);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{43, s}^{(1)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x \gamma}G_{\delta y}}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \alpha}G_{\alpha y} B_{u\gamma} S_{\gamma\delta} G_{x\gamma}G_{\delta \beta}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+By bounding all the blue edges, getting a $O(W^{-1/2}\eta_s^{-1/4})$ term and subsequently summing over the wavy lines in order $\beta,\alpha, v, u, \gamma$, the resulting estimate is 
+$\mathcal{G}_{43, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (delta) at (3, 0) {$\delta$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->](x) to (gamma);
+\draw[wavy] (gamma) to (delta);
+\draw[red, ->] (delta) to (y);
+
+\end{tikzpicture}
+
+
+
+\subsubsection*{Size estimate for $\mathcal{G}_{43, s}^{(2)}$}
+
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (delta) at (4, 0) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (gamma) at (4, 1) {$\gamma$};
+\node (u) at (2, 1) {u};
+\node (v) at (2, 2) {v};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (gamma) to(alpha);
+\draw[blue, ->] (x) to (gamma);
+\draw[blue, ->] (delta) to [bend left=15](beta);
+\draw[blue, <-] (delta) to [bend right=15](beta);
+\draw[red, ->] (x) to [bend right=25](y);
+\draw[blue, ->] (alpha) to (y);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{43, s}^{(2)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x y}}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \delta}G_{\gamma \alpha}G_{\alpha y} B_{u\gamma} S_{\gamma\delta} G_{x\gamma}G_{\delta \beta}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+
+\noindent Bounding $\gamma\textcolor{blue}{\rightarrow}\alpha$, $\delta\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\delta$ and $x\textcolor{red}{\rightarrow}y$ for a combined $O(W^{-2}\eta_s^{-1})$ term, and summing over $\beta, \alpha, v, u$, we get:
+$\mathcal{G}_{43, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (alpha) at (3, 0){$\alpha$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw [wavy, red] (gamma) to (alpha);
+\draw[blue, ->] (alpha) to (y);
+
+\end{tikzpicture}
+
+
+\subsubsection*{Size estimate for $\mathcal{G}_{43, s}^{(3)}$}
+
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (2, 0) {x};
+\node (gamma) at (4, 0) {$\gamma$};
+\node (u) at (4, 1) {u};
+\node (delta) at (5, 1) {$\delta$};
+\node (y) at (6, 0) {y};
+\node (b) at (8, 0) {b};
+\node (alpha) at (4, 2) {$\alpha$};
+\node (beta) at (6, 2) {$\beta$};
+\node (v) at (3, 1) {v};
+
+\draw[thick, double] (a) -- (x);
+\draw[wavy] (u) -- (v);
+\draw[blue, wavy] (gamma) to (u);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, blue] (v) to (alpha);
+\draw[wavy](gamma) to (delta);
+\draw[wavy] (alpha) to (beta);
+\draw[blue, ->] (x) to(gamma);
+\draw[red, ->] (x) to [bend right=30](y);
+\draw[blue, <-] (delta) to (alpha);
+\draw[blue, ->] (delta) to (beta);
+\draw[blue, ->] (gamma) to (y);
+\draw[blue, <-] (alpha) to [bend left=30] (beta);
+\end{tikzpicture}
+\end{center}
+\begin{equation*}
+\mathcal{G}_{43, s}^{(3)} =   \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
+\overline{G_{x y}}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \alpha}G_{\alpha \delta}G_{\gamma y} B_{u\gamma} S_{\gamma\delta} G_{x\gamma}G_{\delta \beta}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\end{equation*}
+Here, we bound the edges $\alpha\textcolor{blue}{\rightarrow}\delta$, $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$,  and $\delta\textcolor{blue}{\rightarrow}\beta$ for a combined term $O(W^{-2}\eta_s^{-1})$. After summing out $\beta, \alpha, v, u, \delta$ in that order, we get 
+$\mathcal{G}_{43, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2, 0) {$\gamma$};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (gamma);
+\draw[blue, ->] (gamma) to (y);
+
+\end{tikzpicture}. With this, we have in fact verified that all of the partial derivative terms satisfy the estimate:$O(W^{-2}\eta_t^{-3/2})$. 
+\subsubsection*{Combined bound}
+
+\subsection{Estimation of $\E_t^M(z)$ term}
+
+$$\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2}dM(s)S^{1/2} \{\text{Id} + (t-s)\Theta_t\}= $$$$=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\{\text{Id} + (t-s)\Theta_t\}+$$
+$$+ \int_0^t \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\overline{G_{vy}}\right]\{\text{Id} + (t-s)\Theta_t\}$$
+
+\noindent After rewriting the fractions as $\left[\text{Id}+(t-s)\Theta_t\right]_{ax}$ and with index $yb$, respectively, the latter two terms can be written in diagrammatically using our familiar notation:
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+\node (u) at (1.5, 1) {u};
+\node (v) at (2.5, 1){v};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->](x) to (y);
+\draw[blue, ->] (x) to (u);
+\draw[blue, ->] (v) to (y);
+\draw[wavy, purple] (u) to (v);
+
+\end{tikzpicture} \begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (y) at (3, 0) {y};
+\node (b) at (4, 0) {b};
+\node (u) at (1.5, 1) {u};
+\node (v) at (2.5, 1){v};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[blue, ->](x) to (y);
+\draw[red, ->] (x) to (u);
+\draw[red, ->] (v) to (y);
+\draw[wavy, red] (u) to (v);
+
+\end{tikzpicture},
+\end{center}
+where the purple wavy line represents $dH_{uv}$ and the red wavy line is its complement. In order to estimate the latter term, we will apply the Burkholder-Davis-Gundy (BGD) inequality \cite{bdg}, defined below:
+\begin{boxtheorem}{\centering BDG inequality}
+$$\mathbb{E}\left[\sup_{0\leq s\leq t}\left\vert M_{xy}(s)\right\vert^{2p}\right]\leq C_p\mathbb{E}\left[ M_{xy} \right]_t^p$$
+\end{boxtheorem}
+In order to apply the Quadratic Variation (QV) on the RHS, we will need to rewrite our separate graphs into one combined QV graph. To do this, we will use that fact that the Brownian increments $dB_{\alpha\beta}(t)$ are mutually uncorrelated, s.t. we clearly have that the cross-terms in the quadratic variation vanish unless we have $(u, v) = (u', v')$, i.e we can identify the latter pairs, getting a combined graph of the form:
+
+
+\begin{center}
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (xp) at (1, -1) {x'};
+\node (yp) at (3, -1) {y'};
+\node (b) at (4, 0) {b};
+\node (u) at (1.5, 0) {u};
+\node (v) at (2.5, 0){v};
+\node (x) at (1, 1){x};
+\node (y) at (3, 1){y};
+
+\draw[thick, double] (a) -- (xp);
+\draw[thick, double] (yp) -- (b);
+\draw[blue, ->](xp) to (yp);
+\draw[red, ->] (xp) to (u);
+\draw[red, ->] (v) to (yp);
+\draw[wavy, red] (u) to (v);
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[red, ->](x) to (y);
+\draw[blue, ->] (x) to (u);
+\draw[blue, ->] (v) to (y);
+
+\end{tikzpicture}
+\end{center}
+Now, if we are to approach the bounding carelessly, we will quickly stumble into problems. For example, by applying our standard estimates, first eliminating the wavy line, from which we have $\sqrt{S_{uv}}\lesssim N^{-1/2}$ per estimate $4$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'\Rightarrow a\Rightarrow x\textcolor{blue}{\rightarrow }y\Rightarrow b\Rightarrow y'$. By applying the already familiar estimate $2$ to the 4 red lines, we get a combined term $O(N^{-2}\eta_s^{-1})$. Now, to get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$, using estimate 1 (since the edge is not "free") with which we get $O(N^{1/2}\eta_s^{-3/4})$. By observing what remains, we can quickly see this will prove to be unruly due to the fact that we will have to split double lines into the respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, which will each be of the form $O\left(N^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$ (we have an additional estimate from the blue line that is $N^{1/2}\eta_s^{-3/4}$). We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms, hence the bound quickly becomes unruly as we take the limit $\eta_t\rightarrow 0$. 
+
+
+\subsubsection*{Alternative bound}
+The latter calculations demonstrate that we need to be more thoughtful with our estimates. Let us come back to our original form of the $S^{1/2}dM(s)S^{1/2}$ term:
+$$=\int_0^t\left[\text{Id}+(t-s)\Theta_t\right]S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\left[\text{Id}+(t-s)\Theta_t\right] +$$
+$$\int_0^t \left[\text{Id}+(t-s)\Theta_t\right]S^{1/2}\left\{\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\overline{G_{vy}}\right]\right\}S^{1/2}\left[\text{Id}+(t-s)\Theta_t\right] = \mathcal{E}_t^{M, 1}+\mathcal{E}_t^{M, 2}$$ 
+Observe that we can split each of the components into 4 separate parts by simply expanding the square brackets. We will this explicitly for $\mathcal{E}_{t}^{M, 1}$, whereas the second term is equivalent up to complex conjugation:
+
+$$\mathcal{E}_t^{M, 1} = \int_0^t(t-s)^2S^{1/2}\Theta_t\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+\int_0^t(t-s)S^{1/2}\Theta_t\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}+$$
+$$+\int_0^t(t-s)S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+ \int_0^t2S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2} =$$
+$$= \mathcal{E}_t^{M, 11}+\mathcal{E}_t^{M, 12}+\mathcal{E}_t^{M, 13}+\mathcal{E}_t^{M, 14}$$
+Now, instead of applying the BDG inequality to the entire term, we can bound the individual $\mathcal{E}_t^{M, 1i}$ entries:
+
+$$\mathbb{E}\left\vert \mathcal{E}^{M, 1i}_{ab}(s)\right\vert^{2p}\leq C_p\mathbb{E}\left[ \mathcal{E}^{M, 1i}_{ab}(s) \right]_t^p$$
+
+\noindent Hence, we need to calculate the quadratic variation for each term. To do this, recall from before that the Brownian increments $dB_{\alpha\beta}(t)$ are mutually uncorrelated, i.e our term $dH_s = \sum_{u, v} \sqrt{S_{u, v}}dB_{u, v}(s)$ has covariance structure: $$\mathbb{E}\left[dH_s\overline{dH_s}\right] = \mathbb{E}\left[\sum_{u, u', v, v'}\sqrt{S_{uv}}dB_{uv}(s)\sqrt{S_{u'v'}}dB_{u'v'}(s)\right]_{ab}=S_{ab}ds$$
+Hence the QV of each of the latter terms is:
+$$\Rightarrow\left[\mathcal{E}^{M, 11}\right]_{ab} = \int_0^t(t-s)^4\sum_{x, x', y, y', u, v}(\Theta_tS^{1/2})_{ax}(\Theta_tS^{1/2})_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}(S^{1/2}\Theta_t)_{yb}(S^{1/2}\Theta_t)_{yb'}ds$$
+
+$$\left[\mathcal{E}^{M, 12}\right]_{ab} = \int_0^t(t-s)^2\sum_{x, x', y, y', u, v}(\Theta_tS^{1/2})_{ax}(\Theta_tS^{1/2})_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}S^{1/2}_{yb}S^{1/2}_{yb'}ds$$
+
+$$\left[\mathcal{E}^{M, 13}\right]_{ab} = \int_0^t(t-s)^2\sum_{x, x', y, y', u, v}S^{1/2}_{ax}S^{1/2}_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}(S^{1/2}\Theta_t)_{yb}(S^{1/2}\Theta_t)_{yb'}ds$$
+
+$$\left[\mathcal{E}^{M, 14}\right]_{ab} = \int_0^t\sum_{x, x', y, y', u, v}S^{1/2}_{ax}S^{1/2}_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}S^{1/2}_{yb}S^{1/2}_{yb'}ds$$
+
+\noindent Observe that we have the same primary components of the separate terms, differing up to the utmost left and right terms. Hence, we can abstract away four separate matrices, to represent this two-by-two  overlap: 
+
+$$
+\Upsilon_{yy}^u := \sum_v S_{uv} G_{vy} \overline{G}_{vy'} (\Theta_t S^{\frac{1}{2}})_{yb} (\Theta_t S^{\frac{1}{2}})_{y'b},
+$$
+$$
+\Omega_{yy}^u := \sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'}.
+$$
+
+$$
+\Gamma_{yy}^u := \sum_v S_{uv} G_{vy} \overline{G}_{vy'} S^{\frac{1}{2}}_{yb} S^{\frac{1}{2}}_{y'b},
+$$
+
+$$
+\Xi_{yy}^u := \sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'}.
+$$
+$$ \left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right] = \int_0^t (t-s)^4\sum_{u, y} (\Omega^u\Upsilon^{u, *})_{yy'}ds \ , \ \left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] = \int_0^t (t-s)^2\sum_{u, y} (\Omega^u\Gamma^{u, *})_{yy'}ds$$
+$$\Rightarrow \left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] = \int_0^t \sum_{u, y} (t-s)^2(\Xi^u\Upsilon^{u, *})_{yy'}ds \ , \ \left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^t \sum_{u, y} (\Xi^u\Gamma^{u, *})_{yy'}ds$$
+Now, observe that both $\Omega^u$ and $\Xi^u$ are positive-semidefinite, since we can rewrite them as:
+$$\Omega^u = \left(\sum_x (\Theta_t S^{1/2})_{ax}G_{xu}\overline{G}_{xy}\right)\left(\sum_{x'} (\Theta_t S^{1/2})_{ax'}G_{x'u}\overline{G}_{x'y'}\right)^*$$
+$$\Xi^u = \left(\sum_x  S^{1/2}_{ax}G_{xu}\overline{G}_{xy}\right)\left(\sum_{x'} S^{1/2}_{ax'}G_{x'u}\overline{G}_{x'y'}\right)^*$$
+This means that we can apply the trace inequality, which states that the trace is bounded above by singular values $\left\vert\text{Tr}(AB)\right\vert\leq \sum_{i=1}^N \alpha_i\beta_i$, hence by the positive-semidefiniteness, we have that $\left\vert\sum_y\left(\Omega^u\Upsilon^{u, *}\right)_{yy}\right\vert = \left\vert\text{Tr}\left(\Omega^u\Upsilon^{u, *}\right)\right\vert\leq \left\|\Omega^u\right\|_{op}\sum_{y}\Omega_{yy'}^uds$. This means that we can bound each of the earlier terms as follows:
+
+$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right] = \int_0^t (t-s)^4\sum_{u, y} (\Omega^u\Upsilon^{u, *})_{yy}ds\leq \int_0^t (t-s)^4\sum_u \|\Upsilon^u\|_{op}\sum_y \Omega_{yy'}^uds$$
+
+$$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] = \int_0^t (t-s)^2\sum_{u, y} (\Omega^u\Gamma^{u, *})_{yy'}ds\leq \int_0^t (t-s)^2\sum_u \|\Gamma^u\|_{op}\sum_y \Omega_{yy'}^uds$$
+
+$$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] = \int_0^t \sum_{u, y} (t-s)^2(\Xi^u\Upsilon^{u, *})_{yy'}ds \leq  \int_0^t (t-s)^2\sum_u \|\Upsilon^u\|_{op}\sum_y \Xi_{yy'}^uds$$
+
+$$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^t \sum_{u, y} (\Xi^u\Gamma^{u, *})_{yy'}ds\leq \int_0^t \sum_u \|\Gamma^u\|_{op}\sum_y \Xi_{yy'}^uds$$
+We can estimate the latter bounds by using the fact that $\vert G\vert^2 = GG^*$ and $|G|^4=|G|^2|G|^2$:
+$$\sum_{u, y}\Omega_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'} =$$
+$$= \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'}\leq 4 \sum_{x}|G|_{xx}^2 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2,$$
+following from the Schwarz inequality. By the Ward's identity for the resolvent $|G_{xx}|^2 =  \frac{\text{Im}G_{xx}}{\eta}=\frac{\text{Im}G_{xx}}{\text{Im}w_s}$ (equation 7.23 in \cite{dynamic}), we have:
+
+$$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 |\text{Im}w_s|^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 |\text{Im}w_s|^{-2}|\max_{k}\text{Im}G_{xx}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq$$
+
+$$\textcolor{red}{?\lesssim} |\text{Im} w_s|^{-3}\max_k \text{Im}G_{kk}\sum_{x} |(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq N^{-1}|\text{Im}w_s|^{-3}|\text{Im}w_t|^{-3/2},$$
+
+using estimates $(4)$ and $(5)$. By the same logic, we have that: $$\sum_{u, y}\Xi_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'} = \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'}\leq $$
+$$\leq 4 \sum_{x}|G|_{xx}^4 |S^{\frac{1}{2}}_{ax}|^2\lesssim |\text{Im}w_s|^{-3}\max_k\text{Im}G_{kk}\sum_x|S_{ax}^{1/2}|^2\lesssim N^{-1}|\text{Im}w_s|^{-3}$$
+Lastly, we need to bound the other two matrices, which we can do by using the fact that the diagonal matrix $S^u$ is of the same order as estimate $6$, i.e by bounding with the maximal value and Wald's identity, we have: 
+$$\|\Upsilon^u\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2 N^{-1}|\text{Im}w_s|^{-2}\lesssim N^{-1}|\text{Im}w_s|^{-2}|\text{Im}w_t|^{-1}$$
+
+$$\|\Gamma^u\|_{op}\leq\max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2N^{-1}|\text{Im}w_s|^{-2}\lesssim N^{-3}|\text{Im}w_s|^{-2}$$
+Lastly, recall estimate 9 that $(t-s)\lesssim |\text{Im}w_s|^{-1}$, with which we have all the necessary pieces to complete the estimation of all the QV terms $\mathcal{E}^{M, 1i}_t$, by again changing the variable of integration w.r.t $\sigma = |\text{Im}w_s|$:
+
+
+$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right] \leq \int_0^t (t-s)^4\sum_u \|\Upsilon^u\|_{op}\sum_y \Omega_{yy'}^uds \lesssim N^{-4}|\text{Im}w_t|^{-5/2}\int_{\text{Im}w_t}^0\sigma^{-1}\lesssim N^{-4}|\text{Im}w_t|^{-5/2}\log|\text{Im}w_t| $$
+
+$$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] \leq \int_0^t (t-s)^2\sum_u \|\Gamma^u\|_{op}\sum_y \Omega_{yy'}^uds\lesssim N^{-4}|\text{Im}w_t|^{-3/2}\int_{\text{Im}w_t}^0 \sigma^{-3}\lesssim N^{-4}|\text{Im}w_t|^{-7/2}$$
+
+$$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] \leq  \int_0^t (t-s)^2\sum_u \|\Upsilon^u\|_{op}\sum_y \Xi_{yy'}^uds\lesssim N^{-4}|\text{Im}w_s|^{-1}\int_{\text{Im}w_t}^0\sigma^{-3} \lesssim N^{-4}|\text{Im}w_t|^{-3}$$
+
+$$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] \leq \int_0^t \sum_u \|\Gamma^u\|_{op}\sum_y \Xi_{yy'}^uds\lesssim N^{-4}\int_{\text{Im}w_t}^0\sigma^{-5}\lesssim N^{-4}|\text{Im}w_t|^{-4}$$
+
+
+\newpage
+\section{Non-Gaussian case}
+Up to this point, our work on non-mean field models, specifically band matrices, has been focused on the case with Gaussian entries. Given that the delocalization behavior is conjectured to extend beyond the latter case, our last section has has t
+
+
+\subsection{Lindeberg exchange strategy}
+The method developed by Lindeberg in his seminal proof for the generalized CLT \cite{lindeberg} and later generalized by Chatterjee \cite{chatterjee}. The argument proceeds as follows \cite{tao}: Suppose that $X_1, \cdots, X_n\sim [\mu, 1]$ are i.i.d, and let $Y_1, \cdots, Y_n\sim[\mu, 1]$ be another such set. One would like to show that for any smooth, compactly supported function $F$: $$\mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right) = \mathbb{E}F\left(\frac{Y_1+\cdots+Y_n}{\sqrt{n}}\right)+o(1)$$
+by swapping the entries one at a time. Define
+$S= \frac{X_1+\cdots+X_{n-1}}{\sqrt{n}}$, such that $S+n^{-1/2}X_n = \frac{X_1+\cdots+X_n}{\sqrt{n}}$. Using the smoothness and compact support of $F$, we can apply the Taylor expansion: $$F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right)=F(S)+n^{-1/2}X_nF'(S)+\frac{1}{2}n^{-1}X_n^2 F''(S) + O(n^{-3/2}|X_n|^3)$$
+$$\Rightarrow \mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right)=\mathbb{E}F(S)+n^{-1/2}(\mathbb{E}X_n)\mathbb{E}F'(S)+\frac{1}{2}n^{-1}(\mathbb{E}X_n^2)\mathbb{E}F''(S) + O(n^{-3/2})$$
+$$\Rightarrow \mathbb{E}F\left(\frac{X_1+\cdots+X_{n-1}+Y_n}{\sqrt{n}}\right)=\mathbb{E}F(S)+n^{-1/2}(\mathbb{E}Y_n)\mathbb{E}F'(S)+\frac{1}{2}n^{-1}(\mathbb{E}Y_n^2)\mathbb{E}F''(S) +O (n^{-3/2})$$
+$$\Rightarrow \mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right) = \mathbb{E}F\left(\frac{X_1+\cdots+X_{n-1}+Y_n}{\sqrt{n}}\right)+o\left(\frac{1}{n}\right)$$
+by the the fact $X_i$ and $Y_i$ have matching moments of second order. If we have higher matching moments, we could continue the Taylor expansion in order to refine the error term.
+This strategy can naturally be extended to the case of independent Wigner matrices $M_n, M_n'$ with the goal of obtaining bounds like: $$\mathbb{E}F(M_n)-\mathbb{E}F(\tilde{M}_n)=o(1/n)$$
+The equivalent result for the spectral behavior of random matrices is known as the \textit{Four Moment Theorem } \cite{tao2}:
+
+
+\subsection{Four Moment Theorem for Green's function}
+ Let $M_n, M_n'$ be two Wigner random matrices satisfying \textbf{C0} that match to order 4 off the diagonal and to order 2 on the diagonal for some sufficiently large $C_0$. Let $z = E + i\eta$ for some $E \in \mathbb{R}$ and some $\eta > 0$. We assume the level repulsion hypothesis that for any $c > 0$, one has with high probability that
+\begin{equation}
+    \inf_{1 \leq i \leq n} |\lambda_i(\sqrt{n}M_n) - nz| \geq n^{-c}
+\end{equation}
+and
+\begin{equation}
+    \inf_{1 \leq i \leq n} |\lambda_i(\sqrt{n}M_n') - nz| \geq n^{-c}.
+\end{equation}
+
+Let $1 \leq p,q \leq n$. Then for any smooth function $G: \mathbb{C} \to \mathbb{C}$ obeying the bounds $\nabla^j G(x) = O(1)$ for all $x \in \mathbb{C}$ and $0 \leq j \leq 5$, one has
+\begin{equation}
+    \mathbb{E} G \left( \left( \frac{1}{\sqrt{n}} M_n - zI \right)^{-1}_{pq} \right)
+    - \mathbb{E} G \left( \left( \frac{1}{\sqrt{n}} M_n' - zI \right)^{-1}_{pq} \right)
+    = O(n^{-c_0})
+\end{equation}
+for some constant $c_0 > 0$ independent of $n$.
+
+
+
+\subsection{Application}
+In order to apply the Lindeberg expansion strategy to our case, let us consider the following function: $$F(H) = \left\vert
+(H-z)_{ij}^{-1} - m(z)S_{ij}
+\right\vert ^{2p} = \left\vert 
+G_{ij}(z)-m(z)S_{ij}
+\right\vert ^{2p} = |W_{ij}|^{2p}$$
+We consider replacing the $(k, \ell)$ entry of the $H$ matrix with the corresponding entry from $H'$. If we define their difference to be $\Delta = H_{k\ell}-H'_{k\ell}$, the Taylor expansion becomes: $$F(H')-F(H) = \Delta \partial_{H_{k\ell}}F(H)  + \frac{\Delta^2}{2}\partial_{H_{k\ell}}^2F(H) +\frac{\Delta^3}{3!}\partial_{H_{k\ell}}^3F(H) +\frac{\Delta^4}{4!}\partial_{H_{k\ell}}^4F(H)+\frac{\Delta^5}{5!}\partial_{H_{k\ell}}^2F(H) +R_6$$
+When the distributions match up to the 4th moment, we have: $$\mathbb{E}[F(H')-F(H)] = \frac{\mathbb{E}[\Delta^5]}{2}\mathbb{E}\left[\partial_{H_{k\ell}}^5F(H)\right] +\mathbb{E}[R_6]$$
+In order to estimate this expression, we need to calculate the derivatives. Let us start with the first derivative of our function with respect to the matrix entry
+
+
+First, let me establish the relationship between these matrices:
+\begin{itemize}
+    \item $H$ is the base matrix
+    \item $G$ is the resolvent of $H$, defined as $G = (H - zI)^{-1}$ where $z$ is a complex parameter
+    \item $W_{ij} = G_{ij} - mS_{ij}$ is the difference between the resolvent and some scaled matrix $S$
+    \item We want to find $\frac{\partial|W_{ij}|^{2p}}{\partial H_{kl}}$
+\end{itemize}
+
+
+
+I'll use the chain rule since $|W_{ij}|^{2p}$ depends on $H_{kl}$ through $G$:
+
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = \frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}} \cdot \frac{\partial W_{ij}}{\partial G_{ij}} \cdot \frac{\partial G_{ij}}{\partial H_{kl}} + \frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}^*} \cdot \frac{\partial W_{ij}^*}{\partial G_{ij}^*} \cdot \frac{\partial G_{ij}^*}{\partial H_{kl}}$$
+
+The second term appears because we're dealing with complex numbers, and $|W_{ij}|^2 = W_{ij} \cdot W_{ij}^*$. This is why you're seeing real components emerge.
+
+
+
+For a complex number $W$, we have $|W|^{2p} = (W \cdot W^*)^p$
+
+Using complex differentiation:
+$$\frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}} = p|W_{ij}|^{2p-2} \cdot W_{ij}^*$$
+$$\frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}^*} = p|W_{ij}|^{2p-2} \cdot W_{ij}$$
+
+
+Since $W_{ij} = G_{ij} - mS_{ij}$:
+$$\frac{\partial W_{ij}}{\partial G_{ij}} = 1$$
+$$\frac{\partial W_{ij}^*}{\partial G_{ij}^*} = 1$$
+
+
+
+This is where the resolvent identity becomes crucial. For a resolvent $G = (H-zI)^{-1}$, we have:
+$$\frac{\partial G_{ij}}{\partial H_{kl}} = -G_{ik}G_{lj}$$
+
+This identity follows from differentiating the equation $(H-zI)G = I$ and applying the product rule.
+
+
+
+Since we're differentiating with respect to a real parameter $H_{kl}$ (assuming $H$ is Hermitian):
+$$\frac{\partial G_{ij}^*}{\partial H_{kl}} = -G_{ik}^*G_{lj}^*$$
+
+
+
+Now we can substitute all these derivatives into our chain rule expression:
+
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = p|W_{ij}|^{2p-2} \cdot W_{ij}^* \cdot 1 \cdot (-G_{ik}G_{lj}) + p|W_{ij}|^{2p-2} \cdot W_{ij} \cdot 1 \cdot (-G_{ik}^*G_{lj}^*)$$
+
+Simplifying:
+
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [W_{ij}^* \cdot G_{ik}G_{lj} + W_{ij} \cdot G_{ik}^*G_{lj}^*]$$
+
+This can be rewritten as:
+
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [W_{ij}^* \cdot G_{ik}G_{lj} + (W_{ij}^* \cdot G_{ik}G_{lj})^*]$$
+
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(W_{ij}^* \cdot G_{ik}G_{lj})$$
+
+
+
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(W_{ij}^* \cdot G_{ik}G_{lj})$$
+
+Where:
+\begin{itemize}
+    \item $W_{ij} = G_{ij} - mS_{ij}$
+    \item $W_{ij}^*$ is the complex conjugate of $W_{ij}$
+    \item $\text{Re}()$ denotes the real part of the complex expression
+\end{itemize}
+
+\subsection{Old notes}
+
+ $H_{k\ell}$: 
+$$\partial_{H_{k\ell}}F(H) = \partial_{H_{k\ell}} |W_{ij}|^{2p} = 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)= -2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$$
+Similarly, the second derivative is:
+
+$$\partial_{H_{k\ell}}^2F(H) = \partial_{H_{k\ell}}\left[ 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)\right]=$$
+$$= -2p \partial_{H_{k\ell}}\left[|W_{ij}|^{2p-2}\right]\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\partial_{H_{k\ell}} \left[\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\right]$$
+The derivative in the first term is: $$\partial_{H_{k\ell}}\left[|W_{ij}|^{2p-2}\right] = (2p-2)|W_{ij}|^{2p-4}\partial_{H_{k\ell}}\left[|W_{ij}|^2\right] = (2p-2)|W_{ij}|^{2p-4}\left(\partial_{H_{k\ell}} W_{ij}\cdot \overline{W}_{ij}+W_{ij}\cdot \partial_{H_{k\ell}} \overline{W}_{ij}\right)=$$
+$$= -(2p-2)|W_{ij}|^{2p-4}\left(G_{ik}G_{\ell j}\cdot \overline{W}_{ij}+W_{ij}\cdot \overline{G_{ik}G_{\ell j}}\right) = -(4p-4)|W_{ij}|^{2p-4} \text{Re}\left(W_{ij}\cdot \overline{G_{ik}G_{\ell j}}\right)$$
+For the second term, we have: $$\partial_{H_{k\ell}}\left[\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\right] = \text{Re}\left(\partial_{H_{k\ell}} W_{ij} \overline{G_{ik}G_{\ell j}}+W_{ij} \partial_{H_{k\ell}} \overline{G_{ik}G_{\ell j}}\right)=$$
+$$=\text{Re}\left(-G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\partial_{H_{k\ell}}\left[\overline{G_{ik}G_{\ell j}}\right]\right) =-\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}+\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right) $$
+As such, by combining the terms, we get the second derivative expansion: 
+$$(8p^2-8p)|W_{ij}|^{2p-4}\text{Re}^2\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right) +2p|W_{ij}|^{2p-2}\left(|G_{ik}G_{\ell j}|^2+\text{Re}\left(W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}\right)+\text{Re}\left(\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right)\right)$$
+In order to derive the third derivative, we need to differentiate each of the terms above. By applying the chain rule and using our previous calculations, we have: 
+\[-48p(p-1)(p-2)|W_{ij}|^{2p-6}\text{Re}^3\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)+24p(p-1)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-\]
+\[-4p(2p-2)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)|G_{ik}G_{\ell j}|^2-2p|W_{ij}|^{2p-2}\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ii}G_{kk}G_{\ell j}}+G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-\]
+\[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ii}G_{kk}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ik}G_{\ell\ell}G_{jj}}\right)-\]
+\[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell k}G_{\ell\ell}G_{jj}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jk}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell i}G_{kk}G_{\ell j}}\right)-\]
+\[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{k\ell}G_{\ell k}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{k k}G_{\ell\ell}G_{j\ell}}\right)\]
+\subsection*{Generalization}
+As we can see, continuing with the explicit calculation of the derivatives is going to be quite unruly due to the factorial growth. For this reason, we would like to instead abstract away the  estimates, focusing on the primary terms. Let us first make several observations before we prove them rigorously. We posit that the general form is along the lines of: $$\partial_{H_{k\ell}}^{(n)} F(H) = \sum_{s=1}^{n}c_s(p)|W_{ij}|^{2p-2s}\cdot R_s^{(n)} (G, W),$$
+where $s$ indexes the power of $|W_{ij}|$, $c_s(p)$ is the polynomial coefficient in $p$ and $T_s(G, W)$ represents the real terms from the product of $G$ and $W$, i.e. the resolvent and its fluctuation, respectively. Pattern-matching for our earlier calculations we can observe that: 
+\begin{enumerate}
+\item First derivative $(s=1)$: $\partial_{H_{k\ell}}F(H) = -2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$:
+	\begin{itemize}
+		\item $c_1(p)=1$ with $R_1^{(1)} = \text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$
+	\end{itemize}
+\item Second Derivative $\partial_{H_{k\ell}}^{(2)}F(H) $:
+	\begin{itemize}
+		\item $c_1(p) = 2p$ with $R_1^{(2)}=|G_{ik}G_{\ell j}|^2+\text{Re}\left(W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}+\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right)$
+		\item $c_2(p)=8p(p-1)$ with $R_2 = \left(R^{(1)}\right)^2$. 
+	\end{itemize}
+	\item Third derivative $\partial_{H_{k\ell}}^{(3)}F(H)$: 
+	\begin{itemize}
+		\item $c_1(p) = -2^1\cdot 1!\cdot p$ with $R_1^{(3)}$ being  the sum of terms of the form $\text{Re}(W_{ij}\overline{G_1, G_2, G_3, G_4})$
+		\item $c_2(p) = 8p(p-1) = 2^2\cdot 2!(p)_2$ with $R_2^{(3)} = \text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)$
+		\item $c_3(p) -48p(p-1)(p-2) = -2^3 \cdot 3!(p)_3$ with $R_3^{(3)} = \left(R_1^{(1)}\right)^3$
+	\end{itemize}
+\end{enumerate}
+Let us verify the following coefficient formula rigorously $c_n = (-1)^n 2^n \cdot n!(p)_n$. The base case is clearly satisfied, so assume it holds for $n$. Observe that it necessarily comes from the first term and as such, we need to worry about only two of its components. Namely,  By differentiating the $|W_{ij}|^{2p-2n}$, we get a factor of $-(2p-2n)$ that reduces the power by $2$ and differentiating $\text{Re}^{n}(W_{ij}\overline{G_{ik}G_{\ell j}})$, we get and additional factor. As such, the combined result becomes $c_{n+1} = -2(n+1)(p-n)c_n = (-1)^{n+1} 2^{n+1})(n+1)!(p)_{n+1}$
+\subsection{Replacement}
+Let $\rho\in [0, 1]$. Define: $$H(\rho) = H(H_{k\ell}, H_{\ell k}\mapsto \rho H_{k\ell}, \rho H_{\ell k})$$
+$$H'(\rho) = H'(H'_{k\ell}, H'_{\ell k}\mapsto \rho H'_{k\ell}, \rho H_{\ell k}')$$
+Let us now consider the Taylor expansion w.r.t. to the latter scaling variable $\rho$ up to exponent $n$: 
+$$F(H) = F(H)(0) + \left.\frac{d}{dp}F(H(\rho))\right\vert_{\rho=0}+\left.\frac{d^2}{dp^2}F(H(\rho))\right\vert_{\rho=0} + \cdots + \left.\frac{d^{n+1}}{dp^{n+1}}F(H(\rho))\right\vert_{\rho=0}$$
+Focusing on the last term, we have: $$\frac{d^{n+1}}{dp^{n+1}}  F(H(\rho))= \sum_{\alpha=0}^{n-1}H_{k\ell}^\alpha H_{\ell k}^{n+1-\alpha}C_\alpha,$$
+where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textcolor{red}{justify}) $C_{n+1}$
+
+
+\begin{thebibliography}{99}
+
+\bibitem{wigner} E. Wigner. Distribution of neutron resonance level spacing. \textit{Columbia University Report CU175}, 1957.
+
+\bibitem{dynamic} L. Erdős, H.-T. Yau. A Dynamical Approach to Random Matrix Theory. \textit{American Mathematical Society}, 2017.
+
+\bibitem{mehta} M. L. Mehta. Random Matrices and the Statistical Theory of Energy Levels. \textit{Academic Press},
+New York, NY, 1967.
+
+\bibitem{taoWDM} T. Tao and V. Vu. The Wigner-Dyson-Mehta Bulk Universality Conjecture for Wigner Matrices. \textit{Electronic Journal of Probability} 16:2104-2121, 2011
+
+\bibitem{taoRMT} T. Tao. Topics in random matrix theory. \textit{American Mathematical Society}, 2012.
+
+\bibitem{anderson} P. W. Anderson. Absence of diffusion in certain random lattices. \textit{Physical Review Letters}, 109: 1492-1505, 1958.
+
+\bibitem{randomoperators} M. Aizenman and S. Warzel. Random Operators: Disorder Effects on Quantum Spectra and Dynamics. \textit{American Mathematical Society}, 2015.
+
+\bibitem{24} J. Frölich and T. Spencer. Absence of diffusion in the anderson tight binding model for large disorder or low energy. \textit{Communications in Mathematical Physics}, 83:151-184, 1988.
+
+\bibitem{1} M. Aizenman and S. Molchanov. Localization at large disorder and at extreme energies: an elementary derivation. \textit{Communications in Mathematical Physics}, 157: 245-278, 1993. 
+
+\bibitem{backer2019} A. Bäcker, et al. Multifractal Dimensions for Random Matrices, Chaotic Quantum Maps, and Many-Body Systems. \textit{Physical Review}, 100: 032117–032117, 2019.
+
+
+\bibitem{bandSDE} S. Dubova and K. Yang. Quantum diffusion and delocalization in one-dimensional band matrices via the flow method. \textit{arXiv.2412.15207}, 2024.
+
+\bibitem{7} P. Bourgade. Random band matrices. \textit{Proceedings of the International Congress of Mathematicians}, p. 2759-2783, 2018.
+
+\bibitem{9} P. Bourgade, H.-T. Yau, and J. Yin. Random band matrices in the delocalized phase, I: Quantum unique ergodicity and universality. \textit{Communications on Pure and Applied Mathematics}, 73: 1526-1596, 2020.
+
+\bibitem{8} P. Bourgade, F. Yang, H.-T. Yau, and J. Yin. Random band matrices in the delocalized phase, II: Generalized resolvent estimates. \textit{Communications on Pure and Applied Mathematics}, 174: 1189-1221, 2019.
+
+\bibitem{mirlin1996} A. D. Mirlin, Y. V. Fyodorov, F. M. Dittes, et al. Transition from localized to extended eigenstates in the ensemble
+of power-law random banded matrices.\textit{ Physical Review} 54: 3221, 1996.
+
+\bibitem{kravtsov2009}  V. E. Kravtsov. Random Matrix Representations of Critical Statistics. \textit{The Oxford Handbook of Random Matrix Theory}, 2011
+
+
+\bibitem{knowles2019} F. Beynach-Georges and A. Knowles. Lectures on the local semicircle law for Wigner matrices. \textit{arxiv.1601.04055}, 2016.
+
+\bibitem{arbm1} C. Casati, L. Molinari, and F. Izrailev. Scaling properties of band random matrices. \textit{Physical Review Letters}, 64: 1851-1854, 1990.
+
+\bibitem{arbm2} Y. V. Fyodorov and A.D. Mirlin. Scaling properties of localization in random band matrices: a sigma-model approach . \textit{Physical Review}, 67, 1991.
+
+\bibitem{13} C. Cipolloni, R. Peled, J. Schenker, and J, Shapiro. Dynamical localization for random band matrices up to {$W\ll N^{1/4}$}. \textit{Communications in Mathematical Physics}, 205, 2024. 
+
+\bibitem{porter1960}  N. Rosenzweig and C. E. Porter. Repulsion of Energy Levels in Complex Atomic Spectra. \textit{Physical Review}, 120: 1698-1714, 1960.
+
+\bibitem{RP} P. von Soosten and S. Warzel. Non-Ergodic Delocalization in the Rosenzweig–Porter Model.\textit{Letters in Mathematical Physics}, 109, 2019.
+
+\bibitem{bdg} D.L. Burkholder, B. Davis, R.F. Gundy. Integral inequalities for convex functions of operators on martingales. \textit{Berkeley Symp. on Math. Statistics and Probability}, 2: 223–240, 1972.
+
+\bibitem{knowles2013} L. Erdős, A. Knowles, H.-T. Yau, and J.Yin. Delocalization and Diffusion Profile for Random Band Matrices. \textit{Communications in Mathematical Physics}, 323: 367-416, 2013.
+
+\bibitem{yau2011} L. Erdős, H.-T. Yau , and J. Yin. Universality for generalized Wigner matrices with Bernoulli distribution. \textit{Journal of Combinatorics}, Vol. 2, 1: 15–81, 2011.
+
+\bibitem{38} F.Yang, H.-T. Yau, and J. Yin. Delocalization and quantum diffusion of random band matrices in high dimensions I: Self-energy renormalization. \textit{arXiv:2104.12048}, 2021.
+
+\bibitem{39} F.Yang, H.-T. Yau, and J. Yin. Delocalization and quantum diffusion of random band matrices in high dimensions II: T-expansion. \textit{Communications in Mathematical Physics}, 396: 527-622, 2022.
+
+\bibitem{40} F.Yang, H.-T. Yau, and J. Yin. Delocalization and quantum diffusion of random band matrices in high dimensions III: averaging fluctuations. \textit{Probability Theory and Related Fields}, 179: 451-540, 2021.
+
+
+\bibitem{soosten} P. von Soosten and S. Warzel. Random characteristics for Wigner matrices.  \textit{Electronic Communications in Probability} 24: 1-12 , 2019.
+
+\bibitem{lindeberg} J.W. Lindeberg. Eine neue Herleitung des Exponentialgesetzes in der Wahrscheinlichkeitsrechnung, Math. Z. 15 (1922), 211-225. 
+dimensions I: Self-energy renormalization. \textit{arXiv:2103.12048}, 2021.
+
+\bibitem{chatterjee} S. Chatterjee. A generalization of the Lindenberg principle. \textit{The Annals of Probability}, 34: 2061-2076, 2006.
+\bibitem{tao} T. Tao and V. Vu. Random Matrices: The Universality Phenomenon for Wigner Ensembles. \textit{ Proceedings of Symposia in Applied Mathematics} 72:01, 2011.
+
+\bibitem{tao2} T. Tao and V. Vu. Random Matrices: Universal Properties of Eigenvectors. \textit{Random Matrices: Theory and Applications} 01:01, 2012.
+
+
+\end{thebibliography}
+
+
+\end{document}
