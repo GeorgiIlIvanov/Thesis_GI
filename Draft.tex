@@ -209,7 +209,7 @@ c_\beta B, & B \ll 1
 where \( B = b \pi \beta/2 \), and \( c_\beta \) is a constant specific to the symmetry class. Notably, this leads to a duality relationship \( d_2(B) + d_2(B^{-1}) = 1 \) that has been numerically verified with high precision \cite{kravtsov2009}. The level spacing distribution \( P(s) \) of CRMT exhibits hybrid behavior, combining a Poisson tail with Wigner-Dyson statistics in the bulk. While this model effectively captures key aspects of multifractality and the coexistence of localized and delocalized phases, it lacks the rigor necessary to fully characterize the critical behaviors and universal properties of these transitions. Particularly helpful will be the aforementioned fact that the CRMT is a critical value instantiation of an random band matrix with power-law entires. Given the rich and active topic of RBMs, it will serve as our main object of study.  
 
 \subsection*{Random Band Matrices (RBM)}
-The Random band matrix model is of great interest by itself because it serves as an interpolation between Wigner matrices and the random Schrödinger operator $H_{RS}$ \cite{dynamic}. A RBM $(H_{xy})_{x, y\in \Gamma}$, with centered entries independent up to symmetry $H_{ij} = \overline{H_{ji}}$, can represent a $d$-dimensional quantum system on a graph $\Gamma = \llbracket 1, N\rrbracket ^d$ with the effective distance being of order $W<\frac{N}{2}$, defined to the band width of the model \cite{7, knowles2013}.  What this means is that for $|i-j|_{N} = \min\left([x-y]_N, [y-x]_N\right)>W$ we have $H_{ij}=0$. It is standard to also normalize the covariance matrix $S_{xy} = \mathbb{E} |H_{xy}|^2$, s.t. $\sum_x S_{xy}=1$ for any $x\in \Gamma$. The model is conjectured to exhibit both localization for $W\ll W_c$ and delocalization for $W\gg W_c$ w.r.t a critical transition band $W_c$ that depends on the band width $W$ and the dimension $d$ \cite{7}:  \[
+The Random band matrix model is of great interest by itself because it serves as an interpolation between Wigner matrices and the random Schrödinger operator $H_{RS}$ \cite{dynamic}. A RBM $(H_{xy})_{x, y\in \Gamma}$, with centered complex random variables (r.v.), independent up to symmetry $H_{ij} = \overline{H_{ji}}$, can represent a $d$-dimensional quantum system on a graph $\Gamma = \llbracket 1, N\rrbracket ^d$ with the effective distance being of order $W<\frac{N}{2}$, defined to the band width of the model \cite{7, knowles2013}.  What this means is that for $|i-j|_{N} = \min\left([x-y]_N, [y-x]_N\right)>W$ we have $H_{ij}=0$. It is standard to also normalize the covariance matrix $S_{xy} = \mathbb{E} |H_{xy}|^2$, s.t. $\sum_x S_{xy}=1$ for any $x\in \Gamma$. The model is conjectured to exhibit both localization for $W\ll W_c$ and delocalization for $W\gg W_c$ w.r.t a critical transition band $W_c$ that depends on the band width $W$ and the dimension $d$ \cite{7}:  \[
 W_c = 
 \begin{cases} 
 \sqrt{N} & \text{for } d=1 \\ 
@@ -227,8 +227,8 @@ concluded a strong form of delocalization and GUE statistics for  $W\gg N^{3/4}$
 
 \subsection*{The Model}
 
-The matrix model that will be subject to our examination throughout this paper is defined as follows: identify $\Z_n$ with $\Gamma=\{1, \cdots, N\}$ and equip it with the aforementioned periodic distance $|i-j|_N$. Now, for a symmetric and compactly supported probability density function (PDF) on $\mathbb{R}$, define the doubly stochastic matrix as: $$S_{xy} := Z_{N, W}^{-1}f\left(\frac{|x-y|_N}{W}\right),$$
-where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically above and below by $W$. A technical, but necessary assumption is for $S$ to admit a matrix square root $S^{1/2}$, satisfying the same properties for a similarly symmetric and compactly supported PDF $f'$. \vspace{0.5 cm}
+The matrix model $(H_{ij})_{i, j\in \Gamma}$ that will be subject to our examination throughout this paper is defined as follows: identify $\Z_n$ with $\Gamma=\{1, \cdots, N\}$ and equip it with the aforementioned periodic distance $|i-j|_N$, s.t. $\forall_{|i-j|_N>W} H_{ij}=0$. Now, for a symmetric and compactly supported probability density function (PDF) on $\mathbb{R}$, define the doubly stochastic matrix $(S_{xy})_{x, y\in \Gamma}$ as: $$\mathbb{E}|H_{xy}|^2=S_{xy} := Z_{N, W}^{-1}f\left(\frac{|x-y|_N}{W}\right),$$
+where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically above and below by $W$. A technical, but necessary assumption is for $S$ to admit a matrix square root $S^{1/2}$, satisfying the same properties for a similarly symmetric and compactly supported PDF $f'$. \vspace{0.75 cm}
 \begin{center}
 \begin{tikzpicture}
     % Define parameters
@@ -261,10 +261,14 @@ where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically abo
         \node at (\n/4+0.5,\n/4-0.5) {$0$};
 \end{tikzpicture}
 \end{center}
+\vspace{0.25 cm}
+
+\noindent In our analysis, we will utilize the flow method (\hyperref[sec:flow]{Section 3}), where the spectral parameter $z=E+i\eta$ of the resolvent of $H$ (defined in \hyperref[sec:prereq]{Section 2}) is varied at constant-speed in the upper-half plane $\mathbb{H}$ ($E\in\mathbb{R}$ and $\eta>0$) as the entries of $H$ are realized as Brownian motion \cite{bandSDE}. 
 
 
 \newpage
 \section{Prerequisites}
+\label{sec:prereq}
 The main tool used to study both Anderson localization and random matrix statistics is the \textit{Green function} or \textit{resolvent}. For a random matrix $H$, it is defined as: $$G(z) := (H-zI_N)^{-1} = (H-z)^{-1},$$
 where $z\in \mathbb{C}\backslash \{\lambda_1, \cdots, \lambda_N\}$ is the spectral parameter ranging over the complement of the eigenvalues $\lambda_1(H)\leq \cdots \leq \lambda_N(H)$ of $H$. Observe that for any eigenvector $\mathbf{u}_\alpha$ we have:
 $$H\mathbf{u}_\alpha = \lambda_\alpha \mathbf{u}\Leftrightarrow (H - z)\mathbf{u}_\alpha = (\lambda_\alpha-z)\mathbf{u}_\alpha$$
@@ -280,10 +284,14 @@ m(z) = -\frac{1}{z+m(z)} \Leftrightarrow m(z) + \frac{1}{m(z)} + z=0
 \end{equation}
 Observe that: $$m(z)(m(z)+z) = \frac{1}{4}(-z+\sqrt{z^2-4})(z+\sqrt{z^2-4})=\frac{1}{4}(-z^2+z^2-4)=-1$$
 $$\Rightarrow |m(z)| = \frac{1}{|m(z)+z|^{-1}}$$
-Now, take the imaginary part of $(2)$: $$\text{Im}(m(z)) + \text{Im}\left(\frac{1}{m(z)}\right)+\eta=0=\text{Im}(m(z)) + \frac{\text{Im}}{|m(z)|^2}+\eta$$
+Now, take the imaginary part of $(2)$: $$\text{Im}(m(z)) + \text{Im}\left(\frac{1}{m(z)}\right)+\eta=0$$
+We can calculate the second term by simply expanding: $$\frac{1}{m(z)} = \frac{1}{\text{Re}(m(z))+\text{Im}(m(z))i} = \frac{\text{Re}(m(z))-\text{Im}(m(z))i}{|m(z)|^2}\Leftrightarrow \text{Im}\left(\frac{1}{m(z)}\right) = -\frac{\text{Im}(m(z))}{|m(z)|^2}$$
+$$\Rightarrow\text{Im}(m(z)) + \text{Im}\left(\frac{1}{m(z)}\right)+\eta=\text{Im}(m(z)) -\frac{\text{Im}(m(z))}{|m(z)|^2}+\eta=0$$
 $$\Rightarrow \text{Im}(m(z))\left(1-\frac{1}{|m(z)|^2}\right)=-\eta$$
-And since $\text{Im}(m(z))>0$ and $\eta>0$, we must have $1-\frac{1}{|m(z)|^2}<0$, i.e $|m(z)|<1$. 
-$$\Rightarrow \text{Im }m \asymp 1\quad 1-|m|^2 \asymp \eta$$
+And since $\text{Im}(m(z))>0$ and $\eta>0$, we must have $1-\frac{1}{|m(z)|^2}<0$, i.e $|m(z)|<1$, which is equivalent to $\text{Im }m \asymp 1$, where $\asymp$ means being bounded above and below up to a fixed, positive factor. Furthermore, let us rewrite the latter equation as the following identity: \begin{equation}1-|m(z)|^2 = \frac{\eta|m(z)|^2}{\text{Im}(m(z))}
+\end{equation}
+
+$$ 1-|m|^2 \asymp \eta$$
 
 
 
@@ -300,7 +308,7 @@ G_{xy}^{(\alpha)} = \left\{\begin{array}{cc}
   \end{array}
   \right.
 \end{equation}
-Before we derive the estimate, let us first establish several identities:\newpage
+Before we derive the estimate, let us first establish several identities:
 
 \begin{boxt}{Matrix Identities}
 Let $A$ and $B$ be arbitrary matrices. Provided that the inverses exist, we can derive the following identities: 
