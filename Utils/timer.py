@@ -2,7 +2,7 @@ import time
 import datetime
 
 # Calculate total seconds for 136 hours
-total_hours = 136
+total_hours = 130
 total_minutes = total_hours * 60
 total_seconds = total_minutes * 60
 
