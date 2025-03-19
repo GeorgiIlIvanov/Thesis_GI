@@ -282,14 +282,22 @@ Let $m(z)=m_N(z) = \int_\R \frac{\varrho_N(x)}{x-z}dx$ be its Stieltjes transfor
 From the moments method \cite{dynamic} we know that the Stieltjes transform $m_N(z)$ of the empirical distribution converges in probability to the Stieltjes transform $m_{SC} = \frac{1}{2}(-z+\sqrt{z^2-4})$ of the semicircle law as $N\rightarrow\infty$. This means that in the limit, with probability one the self-consistent equation holds: \begin{equation}
 m(z) = -\frac{1}{z+m(z)} \Leftrightarrow m(z) + \frac{1}{m(z)} + z=0
 \end{equation}
-Observe that: $$m(z)(m(z)+z) = \frac{1}{4}(-z+\sqrt{z^2-4})(z+\sqrt{z^2-4})=\frac{1}{4}(-z^2+z^2-4)=-1$$
+\subsection*{Useful identities}
+Let us establish several facts and lemmas that we will need throughout our later work. We can begin by observing that: $$m(z)(m(z)+z) = \frac{1}{4}(-z+\sqrt{z^2-4})(z+\sqrt{z^2-4})=\frac{1}{4}(-z^2+z^2-4)=-1$$
 $$\Rightarrow |m(z)| = \frac{1}{|m(z)+z|^{-1}}$$
 Now, take the imaginary part of $(2)$: $$\text{Im}(m(z)) + \text{Im}\left(\frac{1}{m(z)}\right)+\eta=0$$
 We can calculate the second term by simply expanding: $$\frac{1}{m(z)} = \frac{1}{\text{Re}(m(z))+\text{Im}(m(z))i} = \frac{\text{Re}(m(z))-\text{Im}(m(z))i}{|m(z)|^2}\Leftrightarrow \text{Im}\left(\frac{1}{m(z)}\right) = -\frac{\text{Im}(m(z))}{|m(z)|^2}$$
 $$\Rightarrow\text{Im}(m(z)) + \text{Im}\left(\frac{1}{m(z)}\right)+\eta=\text{Im}(m(z)) -\frac{\text{Im}(m(z))}{|m(z)|^2}+\eta=0$$
 $$\Rightarrow \text{Im}(m(z))\left(1-\frac{1}{|m(z)|^2}\right)=-\eta$$
-And since $\text{Im}(m(z))>0$ and $\eta>0$, we must have $1-\frac{1}{|m(z)|^2}<0$, i.e $|m(z)|<1$, which is equivalent to $\text{Im }m \asymp 1$, where $\asymp$ means being bounded above and below up to a fixed, positive factor. Furthermore, let us rewrite the latter equation as the following identity: \begin{equation}1-|m(z)|^2 = \frac{\eta|m(z)|^2}{\text{Im}(m(z))}
-\end{equation}
+And since $\text{Im}(m(z))>0$ and $\eta>0$, we must have $1-\frac{1}{|m(z)|^2}<0$, i.e $|m(z)|<1$, which is equivalent to $\text{Im }m \asymp 1$, where $\asymp$ means being bounded above and below up to a fixed, positive factor. Furthermore, let us rewrite the latter equation as the following two identities: \begin{equation*}1-|m(z)|^2 = \frac{\eta|m(z)|^2}{\text{Im}(m(z))}
+\tag{3.1}
+\end{equation*}
+\begin{equation*}\text{Im}(m(z))= \frac{\eta|m(z)|^2}{1-|m(z)|^2 }
+\tag{3.2}
+\end{equation*}
+Now, let $E\in [-10, 10]$ and $\eta(0, 10]$. First observe that $m_{SC}(z)$ can never be zero, since that would imply that: $$$$ 
+
+Then, clearly $\exists c\in \mathbb{R}_+$, s.t. $|$
 
 $$ 1-|m|^2 \asymp \eta$$
 
