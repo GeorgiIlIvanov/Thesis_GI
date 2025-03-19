@@ -295,11 +295,10 @@ And since $\text{Im}(m(z))>0$ and $\eta>0$, we must have $1-\frac{1}{|m(z)|^2}<0
 \begin{equation*}\text{Im}(m(z))= \frac{\eta|m(z)|^2}{1-|m(z)|^2 }
 \tag{3.2}
 \end{equation*}
-Now, let $E\in [-10, 10]$ and $\eta(0, 10]$. First observe that $m_{SC}(z)$ can never be zero, since that would imply that: $$$$ 
+Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. First observe that $m(z)$ can never be zero, since it implies: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
+$$\Rightarrow z^2-4=z^2\Leftrightarrow -4=0$$ 
+Then, clearly $\exists c>0$, s.t. $|m(z)|\geq c$.
 
-Then, clearly $\exists c\in \mathbb{R}_+$, s.t. $|$
-
-$$ 1-|m|^2 \asymp \eta$$
 
 
 
@@ -413,11 +412,15 @@ $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s
 
 We will need the following definition for the statement of delocalization and quantum diffusion:
 \begin{boxt}{Definition 1: Stochastic Domination}
-
+\noindent Consider two sequences of r.v.s parametrized by $s\in S_N$:\vspace{-0.25 cm}
+$$X = \{X_N(s): N\in \mathbb{Z}_+, s\in S_N\}, \quad Y = \{Y_N(s): N\in \mathbb{Z}_+, s\in S_N\},$$
+Then if for any $\epsilon, D>0$, $\exists N_{\epsilon, D}$, s.t. $\sup_{s\in S_N}\mathbb{P}\left(X_N(s)>N^\epsilon Y_N(s)\right)<N^{-D}$ for $N\geq N_{\epsilon, D}$, 
+we write $X \prec Y$ and say that $X$ is \textbf{stochastically dominated} by $Y$ uniformly in $s$. 
 \end{boxt}
 
 
 \subsection{Delocalization}
+Assume that $|E|<2$ is fixed and that $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq N^{8/11+\nu}$. Fix any index $x$ and any integer $\ell\geq 1$. Define $P_{x, \ell}(y):=\mathbf{1}[|x-y|\geq \ell]$, i.e the projection on the complement of the open ball $B_\ell(x) = \{y:|x-y|<\ell \}$. Given any $\epsilon, \kappa>0$, define the labeling set for the localized to scale $\ell$ eigenvectors in the bulk as: $$\mathcal{A}_{\epsilon, \ell, \kappa} = \left\{\alpha: \lambda_\alpha \in [-E+\kappa, E-\kappa]: \sum_x |\mathbf{u}_\alpha(x)\|\right\}$$
 
 
 \subsection{Quantum Diffusion}
@@ -2528,6 +2531,9 @@ where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textco
 
 
 \section{Appendix}
+
+\label{La1}
+\textbf{Lemma A.1} $$ 1-|m|^2 \asymp \eta$$ (Lemma 3.5 \cite{21} and Lemma 6.2 \cite{dynamic})
 
 \begin{thebibliography}{99}
 
