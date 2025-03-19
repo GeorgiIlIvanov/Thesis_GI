@@ -1,0 +1,17 @@
+\babel@toc {russian}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Prerequisites}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Resolvent Identities}{6}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Flow Method}{8}{section.3}%
+\contentsline {section}{\numberline {4}Resolvent Estimates }{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Off-diagonal $G_{xy}$ estimate}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Diagonal $|G_{xx}-m(z)|$ estimate}{13}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Bounds on Flow Terms}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Estimates for term $\mathcal {E}_t^{D}(z)_{ab}$}{17}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Estimation of $\mathcal {E}_t^M(z)$ term}{31}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Non-Gaussian case}{36}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Lindeberg exchange strategy}{36}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Four Moment Theorem for Green's function}{37}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Application}{37}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Old notes}{39}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Replacement}{41}{subsection.6.5}%
