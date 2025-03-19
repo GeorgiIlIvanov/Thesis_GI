@@ -113,7 +113,7 @@
                 \begin{center}
     \Large{\textsc{Advised by Dr. Kevin Yang}}
     \end{center}
-    \vspace{1cm}
+    \vspace{0.5cm}
         \includegraphics[scale=1.25]{harvard_logo.png}
         
         \Large{\textsc{Harvard University\\ \vspace{-0.5cm}
@@ -279,9 +279,10 @@ Similarly, we can derive our second resolvent identity, by applying again the sa
 \begin{equation*}
 G_{xy} = G_{xy}^{(x)} - G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)} =- G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)}\quad x\neq y
 \end{equation*}
-Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entry $H_{ij}$ using the limit definition. Let us define the perturbed matrix $H' = H(H_{ij}, H_{ji}\mapsto H_{ij}+\epsilon , H_{ji}+\epsilon)$ at entries $H_{ij}, H_{ji}$, where $G' = (H'-z)^{-1}$ and let $\epsilon_{ij} = \mathbf{0}(0_{ij}, 0_{ij}\mapsto \epsilon, \epsilon)$ be the perturbed zero matrix and write it as $\mathbf{1}_{ij}$ when $\epsilon=1$. Observe then that by our matrix identities, we have: $$\partial_{H_{ij}}G(z)_{xy}=\lim_{\epsilon\rightarrow 0} \frac{G_{xy}'-G_{xy}}{\epsilon} = \lim_{\epsilon\rightarrow 0}\frac{\left[G'(H-H')G\right]_{xy}}{\epsilon} = -\lim_{\epsilon\rightarrow 0}\frac{\left[G'\epsilon_{ij}G\right]_{xy}}{\epsilon} = -[G'\mathbf{1}_{ij}G]_{xy} = -G_{xi}G_{jy}$$
-
- $$\partial_{H_{ij}}\overline{G(z)_{xy}}=\lim_{\epsilon\rightarrow 0} \frac{\overline{G(z)_{xy}'}-\overline{G(z)_{xy}}}{\epsilon} = \lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}(H^\intercal-H'^\intercal)\overline{G}\right]_{xy}}{\epsilon} = -\lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}\epsilon_{ji}\overline{G}\right]_{xy}}{\epsilon} = -[\overline{G'}\mathbf{1}_{ji}\overline{G}]_{xy} = -\overline{G_{xj}}\overline{G_{iy}}$$
+Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entry $H_{ij}$ using the limit definition. Let us define the perturbed matrix $H' = H(H_{ij}\mapsto H_{ij}+\epsilon)$ at entry $H_{ij}$, where $G' = (H'-z)^{-1}$ and let $\epsilon_{ij} = \mathbf{0}(0_{ij}\mapsto \epsilon)$ be the perturbed zero matrix, which we can write as $\mathbf{1}_{ij}$ when $\epsilon=1$. By our matrix identities, we have: $$\partial_{H_{ij}}G(z)_{xy}=\lim_{\epsilon\rightarrow 0} \frac{G_{xy}'-G_{xy}}{\epsilon} = \lim_{\epsilon\rightarrow 0}\frac{\left[G'(H-H')G\right]_{xy}}{\epsilon} = -\lim_{\epsilon\rightarrow 0}\frac{\left[G'\epsilon_{ij}G\right]_{xy}}{\epsilon} = -[G'\mathbf{1}_{ij}G]_{xy} = -G_{xi}G_{jy}$$
+\begin{equation*}
+\partial_{H_{ij}}\overline{G(z)_{xy}}= \lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}(H^\intercal-H'^\intercal)\overline{G}\right]_{xy}}{\epsilon} =\\\\= -\lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}\epsilon_{ji}\overline{G}\right]_{xy}}{\epsilon} = -[\overline{G'}\mathbf{1}_{ji}\overline{G}]_{xy} = -\overline{G_{xj}}\ \overline{G_{iy}}
+\end{equation*}
 
 \newpage
 \section{Flow Method}
@@ -606,8 +607,8 @@ By applying the loop expansion at edge $v$, we get the following four subgraphs:
 \draw[wavy, blue] (v) to (alpha);
 \draw[wavy] (alpha) to (beta);
 \end{tikzpicture}
-\begin{equation*}
-\mathcal{G}_{1, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}}G_{xu}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)G_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\begin{equation*}\scalebox{0.95}{$
+\mathcal{G}_{1, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}}G_{xu}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)G_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
 
 \begin{tikzpicture}[
@@ -1081,7 +1082,7 @@ $\mathcal{G}_{21, s}\lesssim W^{-2}\eta_s^{-1}\times $
 \draw[blue, ->] (gamma) to (y);
 \draw[blue, ->] (alpha) to [bend right=28](gamma);
 \end{tikzpicture}
-\begin{equation*}\scalebox{0.95}{$
+\begin{equation*}\scalebox{0.92}{$
 \mathcal{G}_{31, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{x\beta}B_{u\gamma}S_{\gamma \delta}G_{\alpha \gamma}(G_{\delta\delta}-m)G_{\gamma y}S_{uv} B_{v\alpha}  S_{\alpha\beta}G_{\beta\alpha}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
 \end{center}
@@ -1136,7 +1137,7 @@ $\mathcal{G}_{21, s}\lesssim W^{-2}\eta_s^{-1}\times $
 \draw[blue, ->] (delta) to[out=320, in=280, loop] (delta);
 
 \end{tikzpicture}
-\begin{equation*}\scalebox{0.95}{$
+\begin{equation*}\scalebox{0.92}{$
 \mathcal{G}_{41, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} B_{u\gamma}S_{\gamma \delta}G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma\beta} S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}G_{\alpha y}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
 \end{center}
@@ -1186,7 +1187,7 @@ $$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t}|\mathcal{G}_{i1, a}|ds\lesssim W
 $$= 2W^{-2}\eta_t^{-3/2}-2W^{-2}\eta_t^{-1}-W^{-2}\eta_t^{-1}\ln \eta_t\in  O(W^{-2}\eta_t^{-3/2})$$
 
 \subsubsection*{Size estimates for $\mathcal{G}_{12, s}$}
-Following the regular vertex expansion, we have to now represent the subgraphs of the form $\mathcal{G}_{i2, s}=B_{u\gamma} S_{\gamma \delta} G_{x_i\delta} (G_{\gamma\gamma}-m)G_{\delta y_i} f(G)$, s.t. by applying the graphical representation we get: 
+Following the regular vertex expansion, we have to now represent each of the subgraphs that has the form $\mathcal{G}_{i2, s}=B_{u\gamma} S_{\gamma \delta} G_{x_i\delta} (G_{\gamma\gamma}-m)G_{\delta y_i} f(G)$. By applying the graphical representation we get: 
 \begin{center}
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -1273,10 +1274,10 @@ $\mathcal{G}_{12, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[red, ->] (beta) to (y);
 \end{tikzpicture}
 \end{center}
-\begin{equation*}
+\begin{equation*}\scalebox{0.95}{$
 \mathcal{G}_{22, s} = 
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
-\overline{G_{x\alpha}} B_{u\gamma} S_{\gamma \delta} G_{x\delta} (G_{\gamma\gamma}-m)G_{\delta y}\overline{G_{\beta y}} S_{uv} B_{v\alpha} S_{\alpha\beta}G_{\beta\alpha}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\overline{G_{x\alpha}} B_{u\gamma} S_{\gamma \delta} G_{x\delta} (G_{\gamma\gamma}-m)G_{\delta y}\overline{G_{\beta y}} S_{uv} B_{v\alpha} S_{\alpha\beta}G_{\beta\alpha}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
 Here we cancel the loop at $\gamma$ and the directed edges $x\textcolor{red}{\rightarrow}\alpha$, $\beta\textcolor{red}{\rightarrow}y$ and $\beta\textcolor{blue}{\rightarrow}\alpha$. With this, we are again left with a term $O(W^{-2}\eta_s^{-1})$, s.t. after summing out the wavy lines using estimate $(5)$, we get the same bound:
 $\mathcal{G}_{22, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
@@ -1330,10 +1331,10 @@ $\mathcal{G}_{22, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[red, ->] (x) to [bend right=20] (y);
 \end{tikzpicture}
 \end{center}
-\begin{equation*}
+\begin{equation*}\scalebox{0.95}{$
 \mathcal{G}_{32, s} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
 \overline{G_{xy}}G_{x\beta} B_{u\gamma} S_{\gamma \delta} G_{\alpha \delta} (G_{\gamma\gamma}-m)G_{\delta y}S_{uv}B_{v\alpha}S_{\alpha\beta}G_{\beta \alpha} 
-\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
 For this subgraph, we start by eliminating the loop at $\gamma$ and the edges $\beta\textcolor{blue}{\rightarrow}\alpha$, $\alpha\textcolor{blue}{\rightarrow}\delta$, and $x\textcolor{red}{\rightarrow}y$. This means that we have 5 instead of 4 terms per estimate $(2)$, i.e we get a combined term $O(W^{-5/2}\eta_s^{-5/4})$. With this, we have a similar subgraph remaining with a few extra wavy edges that will sum out to $O(1)$ per estimate 5, hence the total estimate will be equivalent to:
 $\mathcal{G}_{32, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
@@ -1386,12 +1387,12 @@ $\mathcal{G}_{32, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[blue, ->] (alpha) to [bend left=30](y);
 \end{tikzpicture}
 \end{center}
-\begin{equation*}
+\begin{equation*}\scalebox{0.95}{$
 \mathcal{G}_{42, s} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
 \overline{G_{xy}}B_{u\gamma} S_{\gamma \delta}  G_{x\delta} (G_{\gamma \gamma}-m)G_{\delta \beta}S_{uv} B_{v\alpha} S_{\alpha \beta} G_{\beta \alpha} G_{\alpha y}
-\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
-Here, we eliminate the loop at $\gamma$ and the edges $\delta\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $x\textcolor{red}{\rightarrow}y$, all contributing a term $O(W^{-1/2}\eta_s^{-1/4})$. By summing over $\beta\rightsquigarrow \alpha$ for an $O(1)$ term, we again have a bound that is equivalent to the previous ones, since all the wavy lines sum up to contribute $O(1)$. As such, we have a bound, equivalent to:
+Here, we eliminate the loop at $\gamma$ and the edges $\delta\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $x\textcolor{red}{\rightarrow}y$, all contributing $O(W^{-1/2}\eta_s^{-1/4})$. By summing over $\beta\rightsquigarrow \alpha$ for an $O(1)$ term, we again have a bound that is equivalent to the previous ones, since all the wavy lines sum up to contribute $O(1)$. As such, we have a bound, equivalent to:
 $\mathcal{G}_{42, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -1500,10 +1501,10 @@ $\mathcal{G}_{13, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[blue, ->] (alpha) to[bend left=20] (delta);
 \end{tikzpicture}
 \end{center}
-\begin{equation*}
+\begin{equation*}\scalebox{0.95}{$
 \mathcal{G}_{13, s}^{(2)} =  \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
 \overline{G_{xy}}S_{uv}B_{v\alpha}G_{\alpha\delta}G_{\gamma\alpha}S_{\alpha\beta}(G_{\beta\beta}-m)B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
-\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
+\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
 We start by eliminating the loop at $\beta$ and then the edges $x\textcolor{red}{\rightarrow}\gamma$, $\gamma\textcolor{blue}{\rightarrow}\alpha$, and $\alpha\textcolor{blue}{\rightarrow}\delta$, getting back $O(W^{-2}\eta_s^{-1})$ by estimate $(2)$. Observe that with this we have almost the same subgraph as before with an additional wavy line $\gamma\rightsquigarrow \delta$, i.e our estimate looks like: 
 $\mathcal{G}_{13, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
@@ -2204,8 +2205,10 @@ $$=\int_0^t\left[\text{Id}+(t-s)\Theta_t\right]S^{1/2}\left\{\sum_{u, v}\left[\o
 $$\int_0^t \left[\text{Id}+(t-s)\Theta_t\right]S^{1/2}\left\{\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\overline{G_{vy}}\right]\right\}S^{1/2}\left[\text{Id}+(t-s)\Theta_t\right] = \mathcal{E}_t^{M, 1}+\mathcal{E}_t^{M, 2}$$ 
 Observe that we can split each of the components into 4 separate parts by simply expanding the square brackets. We will this explicitly for $\mathcal{E}_{t}^{M, 1}$, whereas the second term is equivalent up to complex conjugation:
 
-$$\mathcal{E}_t^{M, 1} = \int_0^t(t-s)^2S^{1/2}\Theta_t\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+\int_0^t(t-s)S^{1/2}\Theta_t\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}+$$
-$$+\int_0^t(t-s)S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+ \int_0^t2S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2} =$$
+$$\mathcal{E}_t^{M, 1} = \int_0^t(t-s)^2S^{1/2}\Theta_t\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+$$
+$$+\int_0^t(t-s)S^{1/2}\Theta_t\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}+$$
+$$+\int_0^t(t-s)S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+$$
+$$+ \int_0^t2S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2} =$$
 $$= \mathcal{E}_t^{M, 11}+\mathcal{E}_t^{M, 12}+\mathcal{E}_t^{M, 13}+\mathcal{E}_t^{M, 14}$$
 Now, instead of applying the BDG inequality to the entire term, we can bound the individual $\mathcal{E}_t^{M, 1i}$ entries:
 
@@ -2470,6 +2473,7 @@ New York, NY, 1967.
 
 \bibitem{bandSDE} S. Dubova and K. Yang. Quantum diffusion and delocalization in one-dimensional band matrices via the flow method. \textit{arXiv.2412.15207}, 2024.
 
+
 \bibitem{7} P. Bourgade. Random band matrices. \textit{Proceedings of the International Congress of Mathematicians}, p. 2759-2783, 2018.
 
 \bibitem{9} P. Bourgade, H.-T. Yau, and J. Yin. Random band matrices in the delocalized phase, I: Quantum unique ergodicity and universality. \textit{Communications on Pure and Applied Mathematics}, 73: 1526-1596, 2020.
@@ -2478,6 +2482,10 @@ New York, NY, 1967.
 
 \bibitem{mirlin1996} A. D. Mirlin, Y. V. Fyodorov, F. M. Dittes, et al. Transition from localized to extended eigenstates in the ensemble
 of power-law random banded matrices.\textit{ Physical Review} 54: 3221, 1996.
+
+\bibitem{yauyin} H.-T. Yau and J. Yin. Delocalization of One-Dimensional Random Band Matrices. \textit{arxiv.2501.01718}, 2025.
+
+\bibitem{twodim} S. Dubova, K. Yang, H.-T. Yau, J. Yin. Delocalization of Two-Dimensional Random Band Matrices. \textit{arxiv.2503.07606}, 2025. 
 
 \bibitem{kravtsov2009}  V. E. Kravtsov. Random Matrix Representations of Critical Statistics. \textit{The Oxford Handbook of Random Matrix Theory}, 2011
 
