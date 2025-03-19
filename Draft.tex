@@ -190,7 +190,7 @@ The topic of random matrix theory (RMT) was originally motivated by the study of
 
 \noindent Localization for large values of $\lambda$ was first rigorously demonstrated using multiscale analysis \cite{24} with alternative approaches, such as the fractional moment method \cite{1}, later ensuing. The conjectured delocalization for small $\lambda$ is supported by extensive numerical evidence, yet a rigorous proof has remained out of reach \cite{bandSDE}. The primary reason for the scarcity of rigorous results has been in the general lack of exactly solvable models of sufficient generality. \cite{kravtsov2009}.  To address these gaps, it is crucial to explore systems that interpolate between localized and delocalized regimes while preserving analytical tractability. One such ensemble, supported by extensive numerical evidence, provides a promising case study for establishing the coexistence of localized and delocalized regimes. Two examples that we will consider more in depth in this paper are the non-invariant Gaussian random matrix ensemble and the Random Band Matrix model (RBM).
 
-\subsection*{Non-Invariant Gaussian Model}
+\subsection*{Non-Invariant Gaussian Matrix}
 The non-invariant Gaussian random matrix ensemble, called also the critical random matrix ensemble (CRMT) \cite{mirlin1996}, is defined for Hermitian matrices \( H \) with independent Gaussian-distributed off-diagonal elements \cite{kravtsov2009}:$$
 \langle H_{nm} \rangle = 0, \quad \langle |H_{nm}|^2 \rangle = 
 \begin{cases} 
@@ -228,9 +228,39 @@ concluded a strong form of delocalization and GUE statistics for  $W\gg N^{3/4}$
 \subsection*{The Model}
 
 The matrix model that will be subject to our examination throughout this paper is defined as follows: identify $\Z_n$ with $\Gamma=\{1, \cdots, N\}$ and equip it with the aforementioned periodic distance $|i-j|_N$. Now, for a symmetric and compactly supported probability density function (PDF) on $\mathbb{R}$, define the doubly stochastic matrix as: $$S_{xy} := Z_{N, W}^{-1}f\left(\frac{|x-y|_N}{W}\right),$$
-where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically above and below by $W$. A technical, but necessary assumption is for $S$ to admit a matrix square root $S^{1/2}$, satisfying the same properties for a similarly symmetric and compactly supported PDF $f'$. 
-
-\subsection*{Delocalization and Quantum Diffusion}
+where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically above and below by $W$. A technical, but necessary assumption is for $S$ to admit a matrix square root $S^{1/2}$, satisfying the same properties for a similarly symmetric and compactly supported PDF $f'$. \vspace{0.5 cm}
+\begin{center}
+\begin{tikzpicture}
+    % Define parameters
+    \def\n{4} % Matrix dimension
+    \def\w{0.5} % Half-width of the band
+    
+    % Draw the proper matrix brackets
+    \draw[line width=1.5pt] (-0.1,-0.1) -- (-0.1,\n+0.1);
+    \draw[line width=1.5pt] (\n+0.1,-0.1) -- (\n+0.1,\n+0.1);
+    % Left bracket extensions (CORRECTED DIRECTION)
+    \draw[line width=1.5pt] (-0.1,-0.1) -- (0.4,-0.1);
+    \draw[line width=1.5pt] (-0.1,\n+0.1) -- (0.4,\n+0.1);
+    % Right bracket extensions (CORRECTED DIRECTION)
+    \draw[line width=1.5pt] (\n+0.1,-0.1) -- (\n-0.4,-0.1);
+    \draw[line width=1.5pt] (\n+0.1,\n+0.1) -- (\n-0.4,\n+0.1);
+    
+    % Shade the band region along the diagonal
+    \fill[gray!50] (0,\n) -- (\w,\n) -- (\n,\w) -- (\n,0) -- (\n-\w,0) -- (0,\n-\w) -- cycle;
+    
+    % Write the label
+    \node at (-0.8,\n/2) {$H =$};
+    
+    % Add text label for band width
+    \draw[<->] (\n/2+\w/2,\n/2+\w/2) -- (\n/2-\w/2,\n/2-\w/2) node[midway,sloped,above] {$2W$};
+    
+    % Add zeros in the correct regions (outside the band)
+    \node at (\n/4*3+0.5,\n/4*3-0.5) {$0$};
+     \node at (\n/4*3-0.5,\n/4*3+0.5) {$0$};
+    \node at (\n/4-0.5,\n/4+0.5) {$0$};
+        \node at (\n/4+0.5,\n/4-0.5) {$0$};
+\end{tikzpicture}
+\end{center}
 
 
 \newpage
@@ -254,13 +284,12 @@ Now, take the imaginary part of $(2)$: $$\text{Im}(m(z)) + \text{Im}\left(\frac{
 $$\Rightarrow \text{Im}(m(z))\left(1-\frac{1}{|m(z)|^2}\right)=-\eta$$
 And since $\text{Im}(m(z))>0$ and $\eta>0$, we must have $1-\frac{1}{|m(z)|^2}<0$, i.e $|m(z)|<1$. 
 $$\Rightarrow \text{Im }m \asymp 1\quad 1-|m|^2 \asymp \eta$$
-Hence, our $\Theta$ term simplify $$\Theta \sim \frac{S}{1-|m(z)|^2+|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta+(S-\text{Id})}$$
 
 
 
 
 
-\subsection{Resolvent Identities}
+\subsection*{Resolvent Identities}
 We can define the augmented minor Green function for any index $\alpha$ as $G(z)^{(\alpha)} = (H^{(\alpha)}-w_t)^{-1}$, where: $$\left(H^{(\alpha)}\right):=H_{ab}\cdot \mathbf{1}(a\neq \alpha)\cdot \mathbf{1}(b\neq \alpha),$$ 
 so the augmented matrix is still $N\times N$ with the $\alpha$-row and -column set to zero \cite{dynamic}. As a consequence: 
 \begin{equation}
@@ -320,7 +349,7 @@ $$=\sum_{\alpha, \beta}G_{x\alpha}\sqrt{S_{\alpha \beta}}db_{\beta(t)}G_{\beta y
 This provides us with the decomposition of a stochastic term $dI(t)$ and a deterministic term $dII(t)dt$. 
 
 
-\section*{Dynamical T- equation}
+\subsection{Dynamical $T$-equation}
 Now, define $F_{xy} = |G(t)_{xy}|^2 = G(t)_{xy}\overline{G(t)_{xy}}$. 
  Applying Itô's formula to \( F(t)_{xy} \), we have:
 \[
@@ -359,11 +388,29 @@ $$\E_t^{D}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \
 $$\E_t^{M}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}+ \{\text{Id} + (t-s)\Theta_t\}ds,$$
 $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$
 
-
+\subsection{Stopping time}
 
 \newpage
 
+\section{Quantum Diffusion and Delocalization}
+\label{sec:deloc}
+
+We will need the following definition for the statement of delocalization and quantum diffusion:
+\begin{boxt}{Definition 1: Stochastic Domination}
+
+\end{boxt}
+
+
+\subsection{Delocalization}
+
+
+\subsection{Quantum Diffusion}
+
+Hence, our $\Theta$ term simplify $$\Theta \sim \frac{S}{1-|m(z)|^2+|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta+(S-\text{Id})}$$
+
+\newpage
 \section{Resolvent Estimates }
+\label{sec:estimates}
 
 Throughout this section we will state or derive all of the inequalities and stochastic bounds we will need for control of the resolvent. Starting with a particularly important large deviation estimate (Theorem 7.7 \cite{dynamic}), which we will need as a Lemma for the estimates:
 
@@ -554,7 +601,7 @@ the resolvent derivatives w.r.t. to $H_{\beta\alpha}$. To be clear, the exact nu
 \end{enumerate}
 \end{boxt}
 
-\subsection{Estimates for term $\mathcal{E}_t^{D}(z)_{ab}$} 
+\subsection{Estimate for $\mathcal{E}_t^{D, \text{stop}}(z)$} 
 The goal for this subsection is to bound the drift term, which we can expand and rewrite as follows: 
 $$\mathcal{E}_t^{D}(z)_{ab}=\int_0^{ t}\{\text{Id}+(t-s)\Theta_t\}S^{\frac{1}{2}}\Omega_s(z)S^{\frac{1}{2}}\{\text{Id}+(t-s)\Theta_t\}$$
 $$=\int_0^t \{\text{Id}+(t-s)\Theta_t\}\left\{
@@ -2130,7 +2177,7 @@ $\mathcal{G}_{43, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \end{tikzpicture}. With this, we have in fact verified that all of the partial derivative terms satisfy the estimate:$O(W^{-2}\eta_t^{-3/2})$. 
 \subsubsection*{Combined bound}
 
-\subsection{Estimation of $\E_t^M(z)$ term}
+\subsection{Estimate for $\E_t^{M, \text{stop}}(z)$}
 
 $$\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2}dM(s)S^{1/2} \{\text{Id} + (t-s)\Theta_t\}= $$$$=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\{\text{Id} + (t-s)\Theta_t\}+$$
 $$+ \int_0^t \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\overline{G_{vy}}\right]\{\text{Id} + (t-s)\Theta_t\}$$
@@ -2295,6 +2342,8 @@ $$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] \leq  \int_0^t (t-s)^2\sum_u \|\U
 $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] \leq \int_0^t \sum_u \|\Gamma^u\|_{op}\sum_y \Xi_{yy'}^uds\lesssim N^{-4}\int_{\text{Im}w_t}^0\sigma^{-5}\lesssim N^{-4}|\text{Im}w_t|^{-4}$$
 
 
+\subsection{Estimate for $\E_t^{S, \text{stop}}(z)$}
+
 \newpage
 \section{Non-Gaussian case}
 \label{sec:non-gaussian}
@@ -2333,7 +2382,7 @@ for some constant $c_0 > 0$ independent of $n$.
 
 
 
-\subsection{Application}
+\subsection{Result}
 In order to apply the Lindeberg expansion strategy to our case, let us consider the following function: $$F(H) = \left\vert
 (H-z)_{ij}^{-1} - m(z)S_{ij}
 \right\vert ^{2p} = \left\vert 
@@ -2412,7 +2461,7 @@ Where:
     \item $\text{Re}()$ denotes the real part of the complex expression
 \end{itemize}
 
-\subsection{Old notes}
+\subsection*{Old notes}
 
  $H_{k\ell}$: 
 $$\partial_{H_{k\ell}}F(H) = \partial_{H_{k\ell}} |W_{ij}|^{2p} = 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)= -2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$$
@@ -2432,7 +2481,7 @@ In order to derive the third derivative, we need to differentiate each of the te
 \[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ii}G_{kk}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ik}G_{\ell\ell}G_{jj}}\right)-\]
 \[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell k}G_{\ell\ell}G_{jj}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jk}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell i}G_{kk}G_{\ell j}}\right)-\]
 \[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{k\ell}G_{\ell k}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{k k}G_{\ell\ell}G_{j\ell}}\right)\]
-\subsection*{Generalization}
+\subsection**{Generalization}
 As we can see, continuing with the explicit calculation of the derivatives is going to be quite unruly due to the factorial growth. For this reason, we would like to instead abstract away the  estimates, focusing on the primary terms. Let us first make several observations before we prove them rigorously. We posit that the general form is along the lines of: $$\partial_{H_{k\ell}}^{(n)} F(H) = \sum_{s=1}^{n}c_s(p)|W_{ij}|^{2p-2s}\cdot R_s^{(n)} (G, W),$$
 where $s$ indexes the power of $|W_{ij}|$, $c_s(p)$ is the polynomial coefficient in $p$ and $T_s(G, W)$ represents the real terms from the product of $G$ and $W$, i.e. the resolvent and its fluctuation, respectively. Pattern-matching for our earlier calculations we can observe that: 
 \begin{enumerate}
@@ -2453,7 +2502,7 @@ where $s$ indexes the power of $|W_{ij}|$, $c_s(p)$ is the polynomial coefficien
 	\end{itemize}
 \end{enumerate}
 Let us verify the following coefficient formula rigorously $c_n = (-1)^n 2^n \cdot n!(p)_n$. The base case is clearly satisfied, so assume it holds for $n$. Observe that it necessarily comes from the first term and as such, we need to worry about only two of its components. Namely,  By differentiating the $|W_{ij}|^{2p-2n}$, we get a factor of $-(2p-2n)$ that reduces the power by $2$ and differentiating $\text{Re}^{n}(W_{ij}\overline{G_{ik}G_{\ell j}})$, we get and additional factor. As such, the combined result becomes $c_{n+1} = -2(n+1)(p-n)c_n = (-1)^{n+1} 2^{n+1})(n+1)!(p)_{n+1}$
-\subsection{Replacement}
+\subsection*{Replacement}
 Let $\rho\in [0, 1]$. Define: $$H(\rho) = H(H_{k\ell}, H_{\ell k}\mapsto \rho H_{k\ell}, \rho H_{\ell k})$$
 $$H'(\rho) = H'(H'_{k\ell}, H'_{\ell k}\mapsto \rho H'_{k\ell}, \rho H_{\ell k}')$$
 Let us now consider the Taylor expansion w.r.t. to the latter scaling variable $\rho$ up to exponent $n$: 
@@ -2461,6 +2510,8 @@ $$F(H) = F(H)(0) + \left.\frac{d}{dp}F(H(\rho))\right\vert_{\rho=0}+\left.\frac{
 Focusing on the last term, we have: $$\frac{d^{n+1}}{dp^{n+1}}  F(H(\rho))= \sum_{\alpha=0}^{n-1}H_{k\ell}^\alpha H_{\ell k}^{n+1-\alpha}C_\alpha,$$
 where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textcolor{red}{justify}) $C_{n+1}$
 
+
+\section{Appendix}
 
 \begin{thebibliography}{99}
 
