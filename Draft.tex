@@ -214,12 +214,23 @@ W_c =
 \begin{cases} 
 \sqrt{N} & \text{for } d=1 \\ 
 \sqrt{\log N} & \text{for } d=2 \\
-O(1) & \text{for } d=3
+O(1) & \text{for } d\geq 3
 
 \end{cases}
 \]
-Our focus will be exclusively on the $d=1$ case. The primary motivation being that the Anderson model and the RBM are expected to have the same properties when $\lambda  \approx \frac{1}{W}$ \cite{7}, an observation supported with extensive numerical evidence \cite{arbm1, arbm2}. For localization, the current best bound is up to $W\ll N^{1/4}$ \cite{13}. On the other side of the transition, there is a long line of work of iterative improvements. Relevant examples include the work by Bourgade, Yang, Yau and Yin, which established for $W\gg N^{3/4}$ a strong form of delocalization and GUE statistics \cite{8, 9, 40}. Most recently, Dubova and Yang have rigorously proved quantum diffusion for Gaussian random band matrices, assuming $W\gg N^{8/11}$ \cite{bandSDE}. Sections \hyperref[sec:flow]{3} through \hyperref[sec:drift]{6} are dedicated exclusively to their work. The matrix model is defined as follows: identify $\Z_n$ with $\Gamma=\{1, \cdots, N\}$ and equip it with the aforementioned periodic distance $|i-j|_N$. Now, for a symmetric and compactly supported probability density function (PDF) on $\mathbb{R}$, define the doubly stochastic matrix as: $$S_{xy} := Z_{N, W}^{-1}f\left(\frac{|x-y|_N}{W}\right),$$
+The Anderson model and the RBM are expected to have the same properties when $\lambda  \approx \frac{1}{W}$ \cite{7}, an observation supported with extensive numerical evidence \cite{arbm1, arbm2}. For localization, the current best bound is up to $W\ll N^{1/4}$ \cite{13}. On the other side of the transition, there is a long line of work of iterative improvements.\vspace{0.25 cm}
+
+\noindent Delocalization and quantum diffusion, explained in detailed below, have been rigorously established for the case of $d\geq 7$ \cite{8, 9, 40, highdim} using diagrammatic representations. The first two papers also 
+concluded a strong form of delocalization and GUE statistics for  $W\gg N^{3/4}$ \cite{8, 9} in the one-dimensional case. More recently, Dubova and Yang improved on the latter bound for $1d$ Gaussian random band matrices, assuming $W\gg N^{8/11}$ \cite{bandSDE}, by using the flow method \cite{RP, soosten}. Sections \hyperref[sec:flow]{2} through \hyperref[sec:drift]{5} are dedicated exclusively to their work. Their contribution of a controlled truncation of observable dynamics is what lead to the conclusive work by Yau and Yin, establishing delocalization for $W\geq N^{{1/2}+\epsilon}$ in the one-dimensional Gaussian case \cite{yauyin}. The continued success of this approach has allowed for establishing delocalization in the two-dimensional Gaussian case for $W\geq N^\epsilon$ \cite{twodim}. The latter sequence of notable results is the reason for dedicating the bulk of this thesis to the detailed examination of the tools utilized by the stochastic flow method. Furthermore, given the underlying Gaussian assumption in all previous work, we have determined that the question of the non-Gaussian case is a highly motivated one. As such, the remainder of our work (\hyperref[sec:6]{Section 6}) will be focused on relaxing the Gaussian assumption by proving a Five Moment Matching theorem. With this said, we can begin with our primary model of focus:
+
+\newpage
+
+\subsection*{The Model}
+
+The matrix model that will be subject to our examination throughout this paper is defined as follows: identify $\Z_n$ with $\Gamma=\{1, \cdots, N\}$ and equip it with the aforementioned periodic distance $|i-j|_N$. Now, for a symmetric and compactly supported probability density function (PDF) on $\mathbb{R}$, define the doubly stochastic matrix as: $$S_{xy} := Z_{N, W}^{-1}f\left(\frac{|x-y|_N}{W}\right),$$
 where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically above and below by $W$. A technical, but necessary assumption is for $S$ to admit a matrix square root $S^{1/2}$, satisfying the same properties for a similarly symmetric and compactly supported PDF $f'$. 
+
+\subsection*{Delocalization and Quantum Diffusion}
 
 
 \newpage
@@ -489,6 +500,9 @@ $$\Rightarrow \max_x|G_{xx}-m|^2\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{
 \newpage
 \section{Bounds on Flow Terms}
 \label{sec:drift}
+\textit{Give backstory} \cite{RP, soosten}.
+
+
 In this section, our goal is to control the three terms of the fluctuations between the $T_{xy}$ and $\Theta_{xy}$ matrices. The squared $\mathcal{E}_t^S$ and $M$-term $\mathcal{E}_t^M$ of the flow SDE can be handled using the resolvent bounds we derived earlier, along with standard martingale calculus. However, the drift term $\mathcal{E}^{D}_t$ requires extra care. For it, we will follow Dubova and Yang's derivation closely, which employs the graphical perturbation methods developed by Bourgade, Yau and Yin, in their self-energy renormalization paper \cite{38}. More specifically, we will use Definition 17  \cite{bandSDE} for the diagrammatic notation of a standard oriented graph:
 \vspace{0.25 cm}
 \begin{boxt}{Diagrammatic notation}
@@ -2480,6 +2494,12 @@ New York, NY, 1967.
 
 \bibitem{8} P. Bourgade, F. Yang, H.-T. Yau, and J. Yin. Random band matrices in the delocalized phase, II: Generalized resolvent estimates. \textit{Communications on Pure and Applied Mathematics}, 174: 1189-1221, 2019.
 
+
+\bibitem{40} F.Yang, H.-T. Yau, and J. Yin. Random band matrices in the delocalized phase, III: averaging fluctuations. \textit{Probability Theory and Related Fields}, 179: 451-540, 2021.
+
+\bibitem{highdim} C. Xu et al. Bulk universality and quantum unique ergodicity for random band matrices in high dimensions. \textit{The Annals of Probability} 52.3:765–837, 2024.
+
+
 \bibitem{mirlin1996} A. D. Mirlin, Y. V. Fyodorov, F. M. Dittes, et al. Transition from localized to extended eigenstates in the ensemble
 of power-law random banded matrices.\textit{ Physical Review} 54: 3221, 1996.
 
@@ -2511,9 +2531,6 @@ of power-law random banded matrices.\textit{ Physical Review} 54: 3221, 1996.
 \bibitem{38} F.Yang, H.-T. Yau, and J. Yin. Delocalization and quantum diffusion of random band matrices in high dimensions I: Self-energy renormalization. \textit{arXiv:2104.12048}, 2021.
 
 \bibitem{39} F.Yang, H.-T. Yau, and J. Yin. Delocalization and quantum diffusion of random band matrices in high dimensions II: T-expansion. \textit{Communications in Mathematical Physics}, 396: 527-622, 2022.
-
-\bibitem{40} F.Yang, H.-T. Yau, and J. Yin. Delocalization and quantum diffusion of random band matrices in high dimensions III: averaging fluctuations. \textit{Probability Theory and Related Fields}, 179: 451-540, 2021.
-
 
 \bibitem{soosten} P. von Soosten and S. Warzel. Random characteristics for Wigner matrices.  \textit{Electronic Communications in Probability} 24: 1-12 , 2019.
 
