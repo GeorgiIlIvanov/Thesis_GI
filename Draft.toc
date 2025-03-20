@@ -13,13 +13,13 @@
 \contentsline {section}{\numberline {6}Bounds on Flow Terms}{21}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Estimate for $\mathcal {E}_t^{D, \text {stop}}(z)$}{22}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Estimate for $\mathcal {E}_t^{M, \text {stop}}(z)$}{36}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{40}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Proof of Theorems}{41}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Theorem 1 - Stopping time}{41}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Theorem 2 - Quantum Diffusion}{41}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Theorem 3 - Delocalization}{41}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Non-Gaussian case}{42}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Lindeberg exchange strategy}{42}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Four Moment Theorem for Green's function}{43}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Result}{43}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Appendix}{47}{section.9}%
+\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{41}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Proof of Theorems}{42}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Theorem 1 - Stopping time}{42}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Theorem 2 - Quantum Diffusion}{42}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Theorem 3 - Delocalization}{42}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Non-Gaussian case}{43}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Lindeberg exchange strategy}{43}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Four Moment Theorem for Green's function}{44}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Result}{44}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Appendix}{48}{section.9}%

@@ -438,24 +438,24 @@ While the three terms we achieved in the previous section are a good start, we h
 \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}\tag{3.2.2}
 \end{equation*}
 
-\noindent The reasoning behind the latter definitions is simple - informally, our goal is to establish a bootstrapping mechanism that will allow us to propagate forward the stopping time through a self-reinforcement (continuity) argument. While the particular choices for constants may seem arbitrary at the moment, they are informed by the bounds we get on the maximal entries of the diffusion profile $\Theta_t$ (\hyperref[diffusion]{Sec. 4.1}), the assumption of $\eta\gg W^{-3/4}$, as well as the technical steps in our analytic argument. That said, we can still gain some intuition as to the meaning of each. With $\tau_{\text{stop},1}$ we have control over the size the error term $E_s(z) = T_s(z) - \Theta_s$, whereas $\tau_{\text{stop},2}$ is w.r.t to the deviation of the resolvent entries from the semicircle law $m(z)$, normalized by appropriate terms. The self-reinforcing argument works as follows:
+\noindent The reasoning behind the latter definitions is simple - informally, our goal is to establish a bootstrapping mechanism that will allow us to propagate forward the stopping time through a self-reinforcement (continuity) argument. While the particular choices for constants may seem arbitrary at the moment, they are informed by the bounds we get on the maximal entries of the diffusion profile $\Theta_t$ (\hyperref[diffusion]{Sec. 4.1}), the assumption of $\eta\gg W^{-3/4}$, as well as the technical steps in our analytic argument. That said, we can still gain some intuition as to the meaning of each. With $\tau_{\text{stop},1}$ we have control over the size the error term $\E_s(z) = T_s(z) - \Theta_s$, whereas $\tau_{\text{stop},2}$ is w.r.t to the deviation of the resolvent entries from the semicircle law $m(z)$, normalized by appropriate terms. The self-reinforcing argument works as follows:
 
   
 
 \begin{enumerate}
 
-\item Initially, we know $E_0(z) = 0$, so $\tau_{\text{stop}} > 0$ with probability 1.
+\item Initially, we know $\E_0(z) = 0$, so $\tau_{\text{stop}} > 0$ with probability 1.
 
 
-\item For any $s \leq \tau_{\text{stop}}$, we can control the error terms in the flow SDE for $E_s(z)$ and $G_s(z)$ by means of martingale inequalities. 
+\item For any $s \leq \tau_{\text{stop}}$, we can control the error terms in the flow SDE by means of martingale inequalities, since we will be working with the stopped martingales $\E_t^{D, \sto}$, $\E_t^{M, \sto}$, and $\E_t^{S, \sto}$. 
 
 
-\item These estimates will allow us to prove the following theorem in \hyperref[proof-stop]{Section 7.1}:
+\item This will allow us to prove the following theorem in \hyperref[proof-stop]{Section 7.1}:
 
 \begin{boxtheorem}{Theorem 1: (Stopping time).} $\mathbb{P}[\tau_{\text{stop}, i} \neq  1] \lesssim_D N^{-D}$ for any $i=1, 2$ and $D > 0$.
 \end{boxtheorem}
 
-\item Therefore, the error bounds hold for all $s \in [0,1]$, allowing us to prove that $\tau_\sto =1$ with high probability. 
+\item Then we can prove that $\forall s \in [0,1]$, $\tau_\sto =1$ with high probability. 
 
 \end{enumerate}
 
@@ -2445,6 +2445,12 @@ $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] \leq \int_0^t \sum_u \|\Gamma^u\|
 
 \subsection{Estimate for $\E_t^{S, \text{stop}}(z)$}
 
+Let us us continue using the notation $\eta_t = |\im w_t|^{-1}$ and $\eta_s=|\im w_s|$ for brevity. Now, in order to bound the squared term $\E_t^{S, \sto}(z)$, we will use \hyperref[cor-a3]{Corollary A.3} of \hyperref[lemma-a2]{Lemma A.2} to state the following  bound: $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy}+\sup_y \sum_x \{\text{Id}+(t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
+Then by Hölder's inequality and the bound above, we have: $$|\E_t^{S}(z)_{ab}|=\left\vert\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds\right\vert \leq$$
+$$\leq \int \left[1+O(\eta_t^{-1}\eta_s)\right]^2 \max_{a, b}|\E_s(z)_{ab}^2|ds \lesssim \int_0^{\tau_\sto \wedge t} \max_{a, b}|\E_s(z)_{ab}^2|ds + \int_0^{\tau_\sto \wedge t}\eta_t^{-2}\eta_s^{2} \max_{a, b}|\E_s(z)^2_{ab}|ds$$
+We can bound $\max_{a, b}|\E_s(z)_{ab}^2|ds$ by using the definition of our stopping time. Since $s\leq \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}$, by property of $\tau_{\sto, 1}$ and given a bound $N\leq W^{\frac{11}{8}-\nu}$, we have: $$\max_{a, b}|\E_s(z)_{ab}|<W^{\delta_\sto} W^{-\frac{3}{4}} \eta_s^{-1}\cdot W^{-1}\eta_s^{-\frac{1}{2}}$$
+$$\max_{a, b}|\E_s(z)_{ab}^2|<W^{2\delta_\sto} W^{-\frac{3}{2}} \eta_s^{-2}\cdot W^{-2}\eta_s^{-1}$$
+
 \newpage
 
 \section{Proof of Theorems}
@@ -2631,7 +2637,9 @@ where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textco
 \label{lemma-a1}
 \textbf{Lemma A.1} $$ 1-|m|^2 \asymp \eta$$ (Lemma 3.5 \cite{21} and Lemma 6.2 \cite{dynamic})
 
-\textbf{Lemma A2} \label{lemma-a2} - Lemma 23
+\textbf{Lemma A.2} \label{lemma-a2} - Lemma 23 \cite{bandSDE}
+
+\textbf{Corollary A.3} \label{cor-a3} - Expression $(3.7)$ in \cite{bandSDE}
 
 \begin{thebibliography}{99}
 
