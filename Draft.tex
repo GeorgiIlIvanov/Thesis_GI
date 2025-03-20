@@ -2448,24 +2448,34 @@ $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] \leq \int_0^t \sum_u \|\Gamma^u\|
 Let us us continue using the notation $\eta_t = |\im w_t|$ and $\eta_s=|\im w_s|$ for brevity. Now, in order to bound the squared term $\E_t^{S, \sto}(z)$, we will use \hyperref[cor-a3]{Corollary A.3} of \hyperref[lemma-a2]{Lemma A.2} (Display $(3.7)$ and Lemma 23 in \cite{bandSDE}, respectively) to state the following  bound: $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy}+\sup_y \sum_x \{\text{Id}+(t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
 Then by Hölder's inequality and the bound above, we have: $$|\E_t^{S}(z)_{ab}|=\left\vert\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds\right\vert \leq$$
 $$\leq \int \left[1+O(\eta_t^{-1}\eta_s)\right]^2 \max_{a, b}|\E_s(z)_{ab}^2|ds \lesssim \int_0^{\tau_\sto \wedge t} \max_{a, b}|\E_s(z)_{ab}^2|ds + \int_0^{\tau_\sto \wedge t}\eta_t^{-2}\eta_s^{2} \max_{a, b}|\E_s(z)^2_{ab}|ds$$
-We can bound $\max_{a, b}|\E_s(z)_{ab}^2|ds$ by using the definition of our stopping time. Since $s\leq \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}$, by property of $\tau_{\sto, 1}$ and given a bound $N\leq W^{\frac{11}{8}-\nu}$, we have: $$\max_{a, b}|\E_s(z)_{ab}|<W^{\delta_\sto} W^{-\frac{3}{4}} \eta_s^{-1}\cdot W^{-1}\eta_s^{-\frac{1}{2}}$$
+We can bound $\max_{a, b}|\E_s(z)_{ab}^2|ds$ by using the definition of our stopping time. Since $s\leq \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}$, by property of $\tau_{\sto, 1}$ and given a \textcolor{red}{bound $N\leq W^{\frac{11}{8}-\nu}$}, we have: $$\max_{a, b}|\E_s(z)_{ab}|<W^{\delta_\sto} W^{-\frac{3}{4}} \eta_s^{-1}\cdot W^{-1}\eta_s^{-\frac{1}{2}}$$
 $$\max_{a, b}|\E_s(z)_{ab}|^2<W^{2\delta_\sto} W^{-\frac{3}{2}} \eta_s^{-2}\cdot W^{-2}\eta_s^{-1}=W^{2\delta_{\sto}} W^{-\frac{7}{2}}\eta_s^{-3} $$
 Now, observe that by matrix multiplication, for any $a, b\in \Gamma$, we have: $$\E_s(z)^2_{ab} = \sum_{j=1}^N \E_s(z)_{aj}\E_s(z)_{jb}$$
 $$\Rightarrow |\E_s(z)_{ab}^2|\leq \sum_{j=1}^N |\E_s(z)_{aj}||\E_s(z)_{jb}|\leq \sum_{j=1}^N \max_{x,y}|\E_s(z)_{xy}|^2 = N\max_{x,y}|\E_s(z)_{xy}|^2$$
 $$\Rightarrow \max_{a,b}|\E_s(z)^2_{ab}|\leq W^{2\delta_\sto}W^{-\frac{28-11}{8}-\nu}\eta_s^{-2} = W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_s^{-2}$$
 Putting the last two results together gives us the following bound on $|\E_t^S(z)_{ab}|$:
 $$|\E_t^S(z)_{ab}|\lesssim \int_0^t W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_s^{-2}ds + \int_0^t \eta_t^{-2}W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_s^{-1}ds$$
-Since for any $s\in [0, 1]$ we have $\im w_s = \im w_t+(t-s)\im m(z)\geq \im w_t$
-and \hyperref[3.1]{$\im m\asymp 1$}, then:
-
-$$\im w_s = \eta+(1-s)\im m(z)\leq \eta+ \im m(z) = \im w_0\lesssim 1$$
 By doing a change of variable for $\sigma = \im w_s$, we get: 
 \begin{equation*}
-|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu}\int_{\eta_t}^{\im w_0}\sigma^{-3}d\sigma + \eta_t^{-2} W^{2\delta_\sto} W^{-\frac{17}{8}-\nu}\int_{\eta_t}^{\im w_0}\sigma^{-1}d\sigma \lesssim
+|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu}\int_{\eta_t}^{\im w_0}\sigma^{-3}d\sigma + \eta_t^{-2} W^{2\delta_\sto} W^{-\frac{17}{8}-\nu}\int_{\eta_t}^{\im w_0}\sigma^{-1}d\sigma
 \end{equation*}
 \begin{equation*}
-\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu} \eta_t^{-2}+W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\log \eta_t^{-1} \lesssim W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\log \eta_t^{-1}
+\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu} \left(\frac{\im w_0^{-2}-\eta_t^{-2}}{-2}\right)+W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\left(\log \im w_0-\log \eta_t\right)
 \end{equation*}
+By \hyperref[lemma-a12]{Lemma A.1.2} for any $s\in [0, t]$, we have $\im w_s = \im w_t+(t-s)\im m(z)\geq \im w_t$
+and \hyperref[3.1]{$\im m(z)\asymp 1$}:
+$$\Rightarrow \im w_s = \eta+(1-s)\im m(z)\leq \eta+ \im m(z) = \im w_0 = \frac{\im m(z)}{|m(z)|^2}\leq \im m(z)\lesssim 1\Leftrightarrow \log \im w_0\lesssim 0$$
+Hence, we can drop the negative term w.r.t. $\im w_0^{-2}$ and bound above by $\log \im w_0\lesssim 0$:
+\begin{equation*}
+|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu} \eta_t^{-2}+W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\log \eta_t^{-1} \lesssim W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\log \eta_t^{-1}
+\end{equation*}
+Observe that the latter expression can be split in the following terms: $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{2\delta_\sto} W^{-\frac{3}{8}-\nu} \eta_t^{-\frac{1}{2}}\log \eta_t^{-1}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\cdot W^{-1}\eta_t^{-\frac{1}{2}}$$
+In this context, since \textcolor{red}{$\eta_t \geq \eta\geq W^{-3/4}$}, the first term is: $$W^{2\delta_\sto} W^{-\frac{3}{8}-\eta}\eta_t^{-\frac{1}{2}}\log \eta_t^{-1}\lesssim W^{2\delta_\sto-\nu}\log W,$$
+But since $\eta>0$ is fixed, we can pick $\delta_\sto$ small, s.t. the latter term is $\lesssim 1$, meaning that our result above can be stated as: 
+\begin{boxtheorem}{Theorem 6.3. }There $\exists \delta>0$, s.t.:
+$$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{-\delta}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\cdot W^{-1}\eta_t^{-\frac{1}{2}}$$
+\end{boxtheorem}
+
 \newpage
 
 \section{Proof of Theorems}
