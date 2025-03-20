@@ -431,7 +431,36 @@ While the three terms we achieved in the previous section are a good start, we h
 \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}\tag{3.2.2}
 \end{equation*}
 
-\noindent The intuition behind the latter stopping times is simple - informally, our goal is to establish a bootstrapping mechanism that will allow for us to propagate forward the stopping time through a self-reinforcement (continuity) argument:
+\noindent The reasoning behind the latter definitions is simple - informally, our goal is to establish a bootstrapping mechanism that will allow us to propagate forward the stopping time through a self-reinforcement (continuity) argument. While the particular choices for constants may seem arbitrary at the moment, they are informed by the bounds we get on the maximal entries of the diffusion profile $\Theta_t$ (\hyperref[diffusion]{Sec. 4.2}), the assumption of $\eta\gg W^{-3/4}$, as well as the technical steps in our analytic argument. That said, we can still gain some intuition as to the meaning of each. With $\tau_{\text{stop},1}$ we have control over the size the error term $E_s(z) = T_s(z) - \Theta_s$, whereas $\tau_{\text{stop},2}$ is w.r.t to the deviation of the resolvent entries from the semicircle law $m(z)$, normalized by appropriate terms. The self-reinforcing argument works as follows:
+
+  
+
+\begin{enumerate}
+
+\item Initially, we know $E_0(z) = 0$, so $\tau_{\text{stop}} > 0$ with probability 1.
+
+
+\item For any $s \leq \tau_{\text{stop}}$, we can control the error terms in the flow SDE for $E_s(z)$ and $G_s(z)$ by means of martingale inequalities. 
+
+
+\item These estimates will allow us to prove that $\mathbb{P}[\tau_{\text{stop}} < 1] \leq N^{-D}$ for any $D > 0$.
+
+
+\item Therefore, the error bounds hold for all $s \in [0,1]$, allowing us to prove that $\tau_\sto =1$ with high probability. 
+
+\end{enumerate}
+
+\noindent The particular delocalization bound for $W \gg N^{8/11}$ emerges from the need of ensuring that the combined error term $W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$ in equation $(3.2.1)$ is much smaller than the typical size of the $\Theta$ entries of $O( W^{-1}\eta^{-\frac{1}{2}})$, while maintaining he diffusion time scale $\eta \approx W^2N^{-2}$ (\hyperref[diffusion]{Sec. 4.2}) :
+
+$$W^{-\frac{7}{4}}\eta^{-\frac{3}{2}} \ll W^{-1}\eta^{-\frac{1}{2}}$$
+ 
+$$W^{-\frac{7}{4}}(W^2N^{-2})^{-\frac{3}{2}} \ll W^{-1}(W^2N^{-2})^{-\frac{1}{2}}$$
+
+$$\Rightarrow W^{-\frac{7}{4}}W^{-3}N^3 \ll W^{-1}W^{-1}N$$
+$$\quad W^{-\frac{11}{4}} \ll N^{-2}\quad\Leftrightarrow W \gg N^{\frac{8}{11}}$$
+
+\noindent Therefore, by demonstrating that $\tau_{\sto}=1$, we will have established control on the diffusion profile of the band matrix. We will now continue on to the next section, where we present the technical definition of delocalization and explore in more detail the nature of quantum diffusion and the origin of the corresponding bounds on $\Theta_t$ and the size of $\eta$. 
+
 
 \newpage
 \section{Quantum Diffusion and Delocalization}
@@ -451,6 +480,7 @@ Assume that $|E|<2$ is fixed and that $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{
 
 
 \subsection{Quantum Diffusion}
+\label{diffusion}
 
 Hence, our $\Theta$ term simplify $$\Theta \sim \frac{S}{1-|m(z)|^2+|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta+(S-\text{Id})}$$
 
