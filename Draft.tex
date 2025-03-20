@@ -342,7 +342,9 @@ Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entr
 \newpage
 \section{Flow Method}
 \label{sec:flow}
-Consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)\sim \mathcal{N}(0, t)$ represents the Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where: $$w(t) = -\frac{1}{m(z)}-tm(z) = z+(1-t)m(z)$$
+At the heart of the most recent advances in the theory of delocalization lies the flow method, a dynamic technique that will be the primary tool of our exploration. First appearing in the paper of von Soosten and Warzel \cite{RP}, it was used to prove non-ergodic delocalization in the Rozenzweig-Porter model \cite{porter1960}. Subsequent work \cite{soosten} extended the methodology to general Wigner matrices \cite{dynamic}, allowing for a simplified proof of the local semicricle law. The primary idea is to trace the evolution of the Green's function (resolvent) along random characteristic curves, enabling direct concentration estimates and more refined spectral control. More recently, it was used to prove delocalization for the one- and two-dimensional band matrices \cite{yauyin, twodim}\vspace{0.25cm}.
+
+\noindent The argument goes as following: consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)_{xy}\sim \mathcal{N}(0, t)$ represents the component Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where: $$w(t) = -\frac{1}{m(z)}-tm(z) = z+(1-t)m(z)$$
 by the self-consistent equation \hyperref[self-consistent]{(2)}. In order to study this system and its transition from $t=0$ with $G(0) = m(z)$, to $t=1$ with $G(1)=G(z)$, we will employ stochastic calculus. For this purpose, observe that our differentials are $dH(t)_{xy} = \sqrt{S_{xy}}db_{xy}(t)$ and $\partial_tw(t) = -m(z)$. Recall the Îto equation, namely, the statement that a function $f(\vec{b}(t), t)$, dependent on a Brownian random walk  $\vec{b}(t) = (b(t)_1, \cdots, b(t)_d)$ w.r.t to time $t$, has derivative:
 $$df(\vec{b}(t), t) = \frac{\partial f}{\partial t}dt + \sum_{i=1}^d \frac{\partial f}{\partial b_i}db_i(t) + \frac{1}{2}\sum_{i=1}^d \frac{\partial^2 f}{\partial b_i^2} dt$$
 In our case, by taking the function to be $G(t)$ and using restriction of a symmetric matrix and the latter differentials, we get the following expression:
@@ -418,7 +420,7 @@ $$\E_t^{M}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}+ \{\tex
 $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$
 
 \subsection{Stopping time}
-While the three terms we achieved in the previous section are a good start, we have non-linear powers w.r.t to term $\E_t(z)$ itself, which is what we are trying to bound. This means that we have to be more careful in our analysis. For this purpose, we will have to use a stopping time argument \cite{bandSDE}. More specifically, for a fixed $\delta_\sto>0$ and $D\lesssim 1$ ($a\lesssim b\equiv a = O(b))$, independent of $N$, let us define the following:
+While the three terms we achieved in the previous section are a good start, we have non-linear powers w.r.t to term $\E_t(z)$ itself, which is what we are trying to bound. This means that we have to be more careful in our analysis. For this purpose, we will have to use a stopping time argument \cite{bandSDE}. More specifically, for a fixed $\delta_\sto>0$ and $D\lesssim 1$ ($a\lesssim b\equiv a = O(b))$, independent of $N$, define:
 \begin{equation*}
 \tau_{\text{stop}, 1}=\inf \left\{s\geq 0: \max_{a, b} |\E_s(z)_{ab}|\geq W^{\delta_{\sto}}W^{-\frac{3}{4}}|\im w_s|^{-1}\cdot W^{-1}|\im w_s|^{-\frac{1}{2}}\right\}\wedge 1
 \tag{3.2.1}
@@ -480,6 +482,9 @@ we write $X \prec Y$ and say that $X$ is \textbf{stochastically dominated} by $Y
 \subsection{Quantum Diffusion}
 \label{diffusion}
 Recall our time-dependent $T$-equation $T(t)$ and diffusion profile $\Theta_t$. The $T$-matrix and diffusion profile $\Theta$ are just the latter two for $t=1$, i.e: $$T(z)_{ab} = T_{ab} = \sum_{x,y}S_{ax}^{\frac{1}{2}} |G_{xy}|^2S_{yb}^{\frac{1}{2}}$$
+
+$$\Theta := \frac{|m(z)|^2S}{1-|m(z)|^2S}$$
+Then, the first result that we will sh
 Hence, our $\Theta$ term simplify $$\Theta \sim \frac{S}{1-|m(z)|^2+|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta+(S-\text{Id})}$$
 
 \subsection{Delocalization}
@@ -626,9 +631,6 @@ $$\Rightarrow \max_x|G_{xx}-m|^2\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{
 \newpage
 \section{Bounds on Flow Terms}
 \label{sec:drift}
-\textit{Give backstory} \cite{RP, soosten}.
-
-
 In this section, our goal is to control the three terms of the fluctuations between the $T_{xy}$ and $\Theta_{xy}$ matrices. The squared $\mathcal{E}_t^S$ and $M$-term $\mathcal{E}_t^M$ of the flow SDE can be handled using the resolvent bounds we derived earlier, along with standard martingale calculus. However, the drift term $\mathcal{E}^{D}_t$ requires extra care. For it, we will follow Dubova and Yang's derivation closely, which employs the graphical perturbation methods developed by Bourgade, Yau and Yin, in their self-energy renormalization paper \cite{38}. More specifically, we will use Definition 17  \cite{bandSDE} for the diagrammatic notation of a standard oriented graph:
 \vspace{0.25 cm}
 \begin{boxt}{Diagrammatic notation}
