@@ -1,6 +1,3 @@
-
-
-
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsfonts,amssymb}
@@ -225,7 +222,7 @@ concluded a strong form of delocalization and GUE statistics for  $W\gg N^{3/4}$
 \newpage
 
 \subsection*{The Model}
-
+\label{model}
 The matrix model $(H_{ij})_{i, j\in \Gamma}$ that will be subject to our examination throughout this paper is defined as follows: identify $\Z_n$ with $\Gamma=\{1, \cdots, N\}$ and equip it with the aforementioned periodic distance $|i-j|_N$, s.t. $\forall_{|i-j|_N>W} H_{ij}=0$. Now, for a symmetric and compactly supported probability density function (PDF) on $\mathbb{R}$, define the doubly stochastic matrix $(S_{xy})_{x, y\in \Gamma}$ as: $$\mathbb{E}|H_{xy}|^2=S_{xy} := Z_{N, W}^{-1}f\left(\frac{|x-y|_N}{W}\right),$$
 where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically above and below by $W$. A technical, but necessary assumption is for $S$ to admit a matrix square root $S^{1/2}$, satisfying the same properties for a similarly symmetric and compactly supported PDF $f'$. \vspace{0.75 cm}
 \begin{center}
@@ -301,7 +298,7 @@ which is also equivalent to $\text{Im }m \asymp 1$, where $\asymp$ means being b
 \begin{equation*}\label{3.2}\text{Im}(m(z))= \frac{\eta|m(z)|^2}{1-|m(z)|^2 }
 \tag{3.3}
 \end{equation*}
- \textcolor{red}{Write \hyperref[lemma-a1]{Lemma A.1} here or transfer}. Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. First observe that $|m(z)|\geq c>0$ can never be zero, since it implies: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
+Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. First observe that $|m(z)|\geq c>0$ can never be zero, since it implies: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
 $$\Rightarrow z^2-4=z^2\Leftrightarrow -4=0$$ 
 
 
@@ -489,9 +486,15 @@ we write $X \prec Y$ and say that $X$ is \textbf{stochastically dominated} by $Y
 Recall our time-dependent $T$-equation $T(t)$ and diffusion profile $\Theta_t$. The standard $T$-matrix and diffusion profile $\Theta$ are just the latter two at the end of the spectral curve when $t=1$, i.e: $$T(z)_{ab} = T_{ab} = \sum_{x,y}S_{ax}^{\frac{1}{2}} |G_{xy}|^2S_{yb}^{\frac{1}{2}}$$
 
 $$\Theta := \frac{|m(z)|^2S}{1-|m(z)|^2S}$$
-For $z$ in the bulk ($|E|<2$), by \hyperref[3.1]{(3.1)} and  \hyperref[lemma-a1]{Lemma A.1}, $1-|m(z)|^2\asymp \eta\Leftrightarrow \exists \alpha, 1-|m(z)|^2\leq \alpha\eta$, we have that: 
- $$\Theta =\frac{|m(z)|^2S}{1-|m(z)|^2S} = \frac{|m(z)|^2S}{1-|m(z)|^2+|m(z)|^2(S-\text{Id})}\leq   \frac{S}{1-|m(z)|^2+|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta+(S-\text{Id})}$$
- 
+The first theorem established by Dubova and Yang (Theorem 2 \cite{bandSDE}) shows that in the bulk $T\approx \Theta$:
+\begin{boxtheorem}{Theorem 1: Quantum Diffusion}
+For $|E|<2$ fixed, assume $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq W^{8/11+\eta}$. Then: $$\max_{x, y}|T_{xy}-\Theta_{xy}|\prec W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$$
+\end{boxtheorem}
+This result has a physical interpretation. First, observe
+that by \hyperref[3.1]{(3.1)} and  \hyperref[lemma-a1]{Lemma A.1}, $1-|m(z)|^2\asymp \eta\Leftrightarrow \exists \alpha, 1-|m(z)|^2\leq \alpha\eta$, we have that: 
+ $$\Theta =\frac{|m(z)|^2S}{1-|m(z)|^2S} = \frac{|m(z)|^2S}{1-|m(z)|^2-|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta-(S-\text{Id})}$$
+\textcolor{red}{Shouldn't this be a minus sign? Theorem 2 in \cite{bandSDE} states it with a plus sign.}
+If we recall the phenomenology of our \hyperref[model]{model}
  
  ?\hyperref[lemma-a2]{Lemma A.2} have that $\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$,
 
