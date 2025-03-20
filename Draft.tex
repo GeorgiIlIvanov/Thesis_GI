@@ -391,8 +391,15 @@ $$+\overline{G_{xy}(t)}\left(\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)\rig
 \begin{equation}
 \Rightarrow d{T} = {T}^2 dt + S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt
 \end{equation}
-Now, define $\Theta(t)=\Theta_t$ and $\epsilon_t(z)$ as:$$\Theta(t) = \frac{|m(z)|^2}{1-t|m(z)|^2S}\Leftrightarrow d\Theta_t = \Theta_t^2 dt$$
+Now, define the \textit{time-dependent diffusion profile} as:$$\Theta_t = \frac{|m(z)|^2S}{1-t|m(z)|^2S}$$
+Let us take its derivative w.r.t to $t$: 
+$$\frac{d\Theta_t}{dt} = \frac{d}{dt}\frac{|m(z)|^2S}{1-t|m(z)|^2S} = \frac{-|m(z)|^2S(-|m(z)|^2S)}{(1-t|m(z)|^2S)^2} = \Theta_t^2 \Leftrightarrow d\Theta_t = \Theta_t^2 dt$$
+
+$$\partial_{t}\{\text{Id}+(t-s)\Theta_t\} = \Theta_t+(t-s)\Theta_t^2=\Theta_t\frac{1-t|m(z)|^2S+(t-s)|m(z)|^2S}{1-t|m(z)|^2S}=$$
+$$=\Theta_t \frac{1-s|m(z)|^2S}{1-t|m(z)|^2S}=\Theta_t\{\text{Id}+(t-s)\Theta_t\}$$
+Let $\mathcal{E}_t(z)$ be the fluctuation term, i.e the difference between our $T$-matrix and the diffusion profile:
 $$\E_t(z):T_t(z)-\Theta_t$$
+Let us compute its evolution equation: 
 $$\Rightarrow d\E_t(z) = T_t(z)^2dt + \Theta_t^2dt-S^{1/2}dM_t(z)S^{1/2}+S^{1/2}\Omega_t(z)S^{1/2}dt=$$
  $$=\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt +\E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$$
 by observing that $T_t(z)^2-\Theta_t^2=\Theta_t\E_t(z)+\E_t(z)\Theta_t+\E_t(z)^2$. Integrating $\E_t(z)$ over $s$:
@@ -404,6 +411,7 @@ $$\E_t^{M}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}+ \{\tex
 $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$
 
 \subsection{Stopping time}
+If we examine the three terms in the last section, we can see that 
 
 \newpage
 
