@@ -275,9 +275,13 @@ $$H\mathbf{u}_\alpha = \lambda_\alpha \mathbf{u}\Leftrightarrow (H - z)\mathbf{u
 $$G(z) =\sum_{i=1}^N \frac{\mathbf{u}_\alpha\mathbf{u}_\alpha^*}{\lambda_\alpha-z}.$$
 Now, recall that their empirical measure for $H$ is defined as \cite{dynamic}: $$\varrho_N(dx):=\frac{1}{N}\sum_{j=1}^N \delta(x-\lambda_j)dx,$$
 Let $m(z)=m_N(z) = \int_\R \frac{\varrho_N(x)}{x-z}dx$ be its Stieltjes transform for $z = E+i\eta$, where $E\in \R$ and $\eta>0$. By the relationship we found above, we have the following  identity, which follows from the definition of the Dirac delta function: $$m(z)= \int_\R \frac{\varrho_N(x)}{x-z}dx = \int_\mathbb{R} \frac{1}{N}\frac{\sum_{j=1}^N \delta(x-\lambda_j)dx}{x-z}dx = \frac{1}{N}\sum_{j=1}^N\int_\R\frac{\delta(x-\lambda_j)}{x-z}dx =\frac{1}{N} \sum_{j=1}^N \frac{1}{\lambda_j-z} = \frac{1}{N}\text{Tr}(G(z))$$
-From the moments method \cite{dynamic} we know that the Stieltjes transform $m_N(z)$ of the empirical distribution converges in probability to the Stieltjes transform $m_{SC} = \frac{1}{2}(-z+\sqrt{z^2-4})$ of the semicircle law as $N\rightarrow\infty$. This means that in the limit, with probability one the self-consistent equation holds: \begin{equation}
+From the moments method \cite{dynamic} we know that the Stieltjes transform $m_N(z)$ of the empirical distribution converges in probability to the Stieltjes transform $m_{SC} = \frac{1}{2}(-z+\sqrt{z^2-4})$ of the semicircle law as $N\rightarrow\infty$. This means that in the limit, with probability one the self-consistent equation holds: 
+\label{self-consistent}
+\begin{equation}
 m(z) = -\frac{1}{z+m(z)} \Leftrightarrow m(z) + \frac{1}{m(z)} + z=0
 \end{equation}
+
+
 \subsection*{Useful identities}
 Let us establish several facts and lemmas that we will need throughout our later work. We can begin by observing that: $$m(z)(m(z)+z) = \frac{1}{4}(-z+\sqrt{z^2-4})(z+\sqrt{z^2-4})=\frac{1}{4}(-z^2+z^2-4)=-1$$
 $$\Rightarrow |m(z)| = \frac{1}{|m(z)+z|^{-1}}$$
@@ -338,7 +342,8 @@ Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entr
 \newpage
 \section{Flow Method}
 \label{sec:flow}
-Consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)\sim \mathcal{N}(0, t)$ represents the Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where $w(t) = -\frac{1}{m(z)}-tm(z)$. In order to study this system and its transition from $t=0$ with $G(0) = m(z)$, to $t=1$ with $G(1)=G(z)$, we will employ stochastic calculus. For this purpose, observe that our differentials are $dH(t)_{xy} = \sqrt{S_{xy}}db_{xy}(t)$ and $\partial_tw(t) = -m(z)$. Recall the Îto equation, namely, the statement that a function $f(\vec{b}(t), t)$, dependent on a Brownian random walk  $\vec{b}(t) = (b(t)_1, \cdots, b(t)_d)$ w.r.t to time $t$, has derivative:
+Consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)\sim \mathcal{N}(0, t)$ represents the Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where: $$w(t) = -\frac{1}{m(z)}-tm(z) = z+(1-t)m(z)$$
+by the self-consistent equation \hyperref[self-consistent]{(2)}. In order to study this system and its transition from $t=0$ with $G(0) = m(z)$, to $t=1$ with $G(1)=G(z)$, we will employ stochastic calculus. For this purpose, observe that our differentials are $dH(t)_{xy} = \sqrt{S_{xy}}db_{xy}(t)$ and $\partial_tw(t) = -m(z)$. Recall the Îto equation, namely, the statement that a function $f(\vec{b}(t), t)$, dependent on a Brownian random walk  $\vec{b}(t) = (b(t)_1, \cdots, b(t)_d)$ w.r.t to time $t$, has derivative:
 $$df(\vec{b}(t), t) = \frac{\partial f}{\partial t}dt + \sum_{i=1}^d \frac{\partial f}{\partial b_i}db_i(t) + \frac{1}{2}\sum_{i=1}^d \frac{\partial^2 f}{\partial b_i^2} dt$$
 In our case, by taking the function to be $G(t)$ and using restriction of a symmetric matrix and the latter differentials, we get the following expression:
 
@@ -361,19 +366,17 @@ This provides us with the decomposition of a stochastic term $dI(t)$ and a deter
 
 
 \subsection{Dynamical $T$-equation}
-Now, define $F_{xy} = |G(t)_{xy}|^2 = G(t)_{xy}\overline{G(t)_{xy}}$. 
- Applying Itô's formula to \( F(t)_{xy} \), we have:
+Having found the differential of the resolvent, we will now proceed with defining the time-dependent $T$-matrix as:
+$$T(t)_{ab} = \sum_{x,y}S_{ax}^{\frac{1}{2}}F(t)_{xy}S_{yb}^{\frac{1}{2}},$$
+where $F(t)_{xy} = |G(t)_{xy}|^2 = G(t)_{xy}\overline{G(t)_{xy}}$. 
+\textcolor{red}{Applying Itô's formula}(show it explicitly) to \( F(t)_{xy} \), we have:
 \[
 dF(t)_{xy}= d|G_{xy}|^2= G(t)_{xy} d\overline{G(t)}_{xy} + \overline{G(t)}_{xy} dG(t)_{xy} + dG(t)_{xy} d\overline{G(t)}_{xy}.
 \]
 $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} + d\left[G_{xy}, \overline{G}_{xy}\right]$$
  $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} +d\left[\sum_{\alpha, \beta} G_{x\alpha}d H_{\alpha \beta}\overline{G}_{xy}\right]$$
 $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} +\sum_{\alpha,\beta, \gamma, \delta}G_{x\alpha}G_{\beta\gamma}\overline{G_{xy}}\overline{G_{\delta \gamma}}$$
-To get the $T$-equation, define it as:
-\[
-T(t) =  S^{1/2}F(t)S^{1/2}=\sum_{x,y} S_{xy} F(t)_{xy} = \sum_{x,y} S_{xy} |G(t)_{xy}|^2,
-\]
-In order to find its derivative, we need to substitute for the earlier terms we found, namely \( dG(t)_{xy} = dI(t)_{xy} + dII(t)_{xy} dt \) and its conjugate, noting that \( dI(t)_{xy} d\overline{I(t)}_{xy} \) contributes to the quadratic variation, we obtain
+In order to find the derivative of the $T$-matrix, we need to substitute for the earlier terms we found, namely \( dG(t)_{xy} = dI(t)_{xy} + dII(t)_{xy} dt \) and its conjugate, noting that \( dI(t)_{xy} d\overline{I(t)}_{xy} \) contributes to the quadratic variation, we obtain
 \(
 dF(t)_{xy} = dM(t)_{xy} + \Omega(t)_{xy} dt
 \), where
@@ -388,7 +391,7 @@ $$dM(t)_{xy} = \sum_{\alpha, \beta}\overline{G_{xy}}G_{x\alpha}{S_{\alpha\beta}}
 
 $$\Omega(t)_{xy}=G_{xy}(t)\left(\overline{\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)}\right)+$$
 $$+\overline{G_{xy}(t)}\left(\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)\right)+\sum_{\alpha, \beta}|G_{xa}(t)|^2S_{\alpha, \beta}|G_{x\beta}(t)|^2$$
-Where by Itô, the $T$-equation becomes: 
+Hence, by Itô the $T$-equation becomes: 
 \begin{equation}
 \Rightarrow d{T} = {T}^2 dt + S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt
 \end{equation}
@@ -431,7 +434,7 @@ While the three terms we achieved in the previous section are a good start, we h
 \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}\tag{3.2.2}
 \end{equation*}
 
-\noindent The reasoning behind the latter definitions is simple - informally, our goal is to establish a bootstrapping mechanism that will allow us to propagate forward the stopping time through a self-reinforcement (continuity) argument. While the particular choices for constants may seem arbitrary at the moment, they are informed by the bounds we get on the maximal entries of the diffusion profile $\Theta_t$ (\hyperref[diffusion]{Sec. 4.2}), the assumption of $\eta\gg W^{-3/4}$, as well as the technical steps in our analytic argument. That said, we can still gain some intuition as to the meaning of each. With $\tau_{\text{stop},1}$ we have control over the size the error term $E_s(z) = T_s(z) - \Theta_s$, whereas $\tau_{\text{stop},2}$ is w.r.t to the deviation of the resolvent entries from the semicircle law $m(z)$, normalized by appropriate terms. The self-reinforcing argument works as follows:
+\noindent The reasoning behind the latter definitions is simple - informally, our goal is to establish a bootstrapping mechanism that will allow us to propagate forward the stopping time through a self-reinforcement (continuity) argument. While the particular choices for constants may seem arbitrary at the moment, they are informed by the bounds we get on the maximal entries of the diffusion profile $\Theta_t$ (\hyperref[diffusion]{Sec. 4.1}), the assumption of $\eta\gg W^{-3/4}$, as well as the technical steps in our analytic argument. That said, we can still gain some intuition as to the meaning of each. With $\tau_{\text{stop},1}$ we have control over the size the error term $E_s(z) = T_s(z) - \Theta_s$, whereas $\tau_{\text{stop},2}$ is w.r.t to the deviation of the resolvent entries from the semicircle law $m(z)$, normalized by appropriate terms. The self-reinforcing argument works as follows:
 
   
 
@@ -450,8 +453,8 @@ While the three terms we achieved in the previous section are a good start, we h
 
 \end{enumerate}
 
-\noindent The particular delocalization bound for $W \gg N^{8/11}$ emerges from the need of ensuring that the combined error term $W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$ in equation $(3.2.1)$ is much smaller than the typical size of the $\Theta$ entries of $O( W^{-1}\eta^{-\frac{1}{2}})$, while maintaining he diffusion time scale $\eta \approx W^2N^{-2}$ (\hyperref[diffusion]{Sec. 4.2}) :
-
+\noindent The particular delocalization bound for $W \gg N^{8/11}$ emerges from the need of ensuring that the combined error term $W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$ in equation $(3.2.1)$ is much smaller than the typical size of the $\Theta$ entries of $O( W^{-1}\eta^{-\frac{1}{2}})$, while maintaining he diffusion time scale $\eta \approx W^2N^{-2}$ (\hyperref[diffusion]{Sec. 4.1}) :
+	
 $$W^{-\frac{7}{4}}\eta^{-\frac{3}{2}} \ll W^{-1}\eta^{-\frac{1}{2}}$$
  
 $$W^{-\frac{7}{4}}(W^2N^{-2})^{-\frac{3}{2}} \ll W^{-1}(W^2N^{-2})^{-\frac{1}{2}}$$
@@ -474,15 +477,15 @@ Then if for any $\epsilon, D>0$, $\exists N_{\epsilon, D}$, s.t. $\sup_{s\in S_N
 we write $X \prec Y$ and say that $X$ is \textbf{stochastically dominated} by $Y$ uniformly in $s$. 
 \end{boxt}
 
+\subsection{Quantum Diffusion}
+\label{diffusion}
+Recall our time-dependent $T$-equation $T(t)$ and diffusion profile $\Theta_t$. The $T$-matrix and diffusion profile $\Theta$ are just the latter two for $t=1$, i.e: $$T(z)_{ab} = T_{ab} = \sum_{x,y}S_{ax}^{\frac{1}{2}} |G_{xy}|^2S_{yb}^{\frac{1}{2}}$$
+Hence, our $\Theta$ term simplify $$\Theta \sim \frac{S}{1-|m(z)|^2+|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta+(S-\text{Id})}$$
 
 \subsection{Delocalization}
 Assume that $|E|<2$ is fixed and that $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq N^{8/11+\nu}$. Fix any index $x$ and any integer $\ell\geq 1$. Define $P_{x, \ell}(y):=\mathbf{1}[|x-y|\geq \ell]$, i.e the projection on the complement of the open ball $B_\ell(x) = \{y:|x-y|<\ell \}$. Given any $\epsilon, \kappa>0$, define the labeling set for the localized to scale $\ell$ eigenvectors in the bulk as: $$\mathcal{A}_{\epsilon, \ell, \kappa} = \left\{\alpha: \lambda_\alpha \in [-E+\kappa, E-\kappa]: \sum_x |\mathbf{u}_\alpha(x)\|\right\}$$
 
 
-\subsection{Quantum Diffusion}
-\label{diffusion}
-
-Hence, our $\Theta$ term simplify $$\Theta \sim \frac{S}{1-|m(z)|^2+|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta+(S-\text{Id})}$$
 
 \newpage
 \section{Resolvent Estimates }
