@@ -53,11 +53,11 @@
 \newtheorem{theorem}{Theorem}
 
 \newenvironment{boxtheorem}[1]
-  {\begin{mdframed}\noindent\textbf{#1}\itshape\par}
+  {\begin{mdframed}\noindent\textbf{#1}\itshape\space}
   {\end{mdframed}}
   
  \newenvironment{boxt}[1]
-  {\begin{mdframed}\noindent\textbf{#1}\normalfont\par}
+  {\begin{mdframed}\noindent\textbf{#1}\normalfont\space}
   {\end{mdframed}}
   
 \newcommand{\E}{\mathcal{E}}
@@ -205,7 +205,7 @@ c_\beta B, & B \ll 1
 where \( B = b \pi \beta/2 \), and \( c_\beta \) is a constant specific to the symmetry class. Notably, this leads to a duality relationship \( d_2(B) + d_2(B^{-1}) = 1 \) that has been numerically verified with high precision \cite{kravtsov2009}. The level spacing distribution \( P(s) \) of CRMT exhibits hybrid behavior, combining a Poisson tail with Wigner-Dyson statistics in the bulk. While this model effectively captures key aspects of multifractality and the coexistence of localized and delocalized phases, it lacks the rigor necessary to fully characterize the critical behaviors and universal properties of these transitions. Particularly helpful will be the aforementioned fact that the CRMT is a critical value instantiation of an random band matrix with power-law entires. Given the rich and active topic of RBMs, it will serve as our main object of study.  
 
 \subsection*{Random Band Matrices (RBM)}
-The Random band matrix model is of great interest by itself because it serves as an interpolation between Wigner matrices and the random Schrödinger operator $H_{RS}$ \cite{dynamic}. A RBM $(H_{xy})_{x, y\in \Gamma}$, with centered complex random variables (r.v.), independent up to symmetry $H_{ij} = \overline{H_{ji}}$, can represent a $d$-dimensional quantum system on a graph $\Gamma = \llbracket 1, N\rrbracket ^d$ with the effective distance being of order $W<\frac{N}{2}$, defined to the band width of the model \cite{7, knowles2013}.  What this means is that for $|i-j|_{N} = \min\left([x-y]_N, [y-x]_N\right)>W$ we have $H_{ij}=0$. It is standard to also normalize the covariance matrix $S_{xy} = \mathbb{E} |H_{xy}|^2$, s.t. $\sum_x S_{xy}=1$ for any $x\in \Gamma$. The model is conjectured to exhibit both localization for $W\ll W_c$ and delocalization for $W\gg W_c$ w.r.t a critical transition band $W_c$ that depends on the band width $W$ and the dimension $d$ \cite{7}:  \[
+The Random band matrix model is of great interest by itself because it serves as an interpolation between Wigner matrices and the random Schrödinger operator $H_{RS}$ \cite{dynamic}. A RBM $(H_{xy})_{x, y\in \Gamma}$, with centered complex random variables (r.v.), independent up to symmetry $H_{ij} = \overline{H_{ji}}$, can represent a $d$-dimensional quantum system on a graph $\Gamma = \llbracket 1, N\rrbracket ^d$ with the effective distance being of order $W<\frac{N}{2}$, defined to the band width of the model \cite{7, 21}.  What this means is that for $|i-j|_{N} = \min\left([x-y]_N, [y-x]_N\right)>W$ we have $H_{ij}=0$. It is standard to also normalize the covariance matrix $S_{xy} = \mathbb{E} |H_{xy}|^2$, s.t. $\sum_x S_{xy}=1$ for any $x\in \Gamma$. The model is conjectured to exhibit both localization for $W\ll W_c$ and delocalization for $W\gg W_c$ w.r.t a critical transition band $W_c$ that depends on the band width $W$ and the dimension $d$ \cite{7}:  \[
 W_c = 
 \begin{cases} 
 \sqrt{N} & \text{for } d=1 \\ 
@@ -259,7 +259,7 @@ where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically abo
 \end{center}
 \vspace{0.25 cm}
 
-\noindent In our analysis, we will utilize the flow method (\hyperref[sec:flow]{Section 3}), where the spectral parameter $z=E+i\eta$ of the resolvent of $H$ (defined in \hyperref[sec:prereq]{Section 2}) is varied at constant-speed in the upper-half plane $\mathbb{H}$ ($E\in\mathbb{R}$ and $\eta>0$) as the entries of $H$ are realized as Brownian motion \cite{bandSDE}.  \textcolor{red}{After writing up Quantum Diffusion, justify assumption }$\eta\gg W^{-3/4}$ 
+\noindent In our analysis, we will utilize the flow method (\hyperref[sec:flow]{Section 3}), where the spectral parameter $z=E+i\eta$ of the resolvent of $H$ (defined in \hyperref[sec:prereq]{Section 2}) is varied at constant-speed in the upper-half plane $\mathbb{H}$ ($E\in\mathbb{R}$ and $\eta>0$) as the entries of $H$ are realized as Brownian motion \cite{bandSDE}.  
 
 
 \newpage
@@ -319,7 +319,7 @@ G_{xy}^{(\alpha)} = \left\{\begin{array}{cc}
 \end{equation}
 Before we derive the estimate, let us first establish several identities:
 
-\begin{boxt}{Matrix Identities}
+\begin{boxt}{(Matrix Identities).}
 Let $A$ and $B$ be arbitrary matrices. Provided that the inverses exist, we can derive the following identities: 
 $$\frac{1}{A}=A^{-1} =A^{-1}(A+B)(A+B)^{-1}=(A+B)^{-1}+A^{-1}B(A+B)^{-1} = \frac{1}{A+B}-\frac{1}{A}B\frac{1}{A+B}$$
 $$\Rightarrow \frac{1}{A+B}=\frac{1}{A}-\frac{1}{A}B\frac{1}{A+B} = \frac{1}{A}-\frac{1}{A+B}B\frac{1}{A},$$
@@ -373,7 +373,7 @@ This provides us with the decomposition of a stochastic term $dI(t)$ and a deter
 Having found the differential of the resolvent, we will now proceed with defining the time-dependent $T$-matrix as:
 $$T(t)_{ab} = \sum_{x,y}S_{ax}^{\frac{1}{2}}F(t)_{xy}S_{yb}^{\frac{1}{2}},$$
 where $F(t)_{xy} = |G(t)_{xy}|^2 = G(t)_{xy}\overline{G(t)_{xy}}$. 
-\textcolor{red}{Applying Itô's formula}(show it explicitly) to \( F(t)_{xy} \), we have:
+Applying Itô's formula to \( F(t)_{xy} \), we have:
 \[
 dF(t)_{xy}= d|G_{xy}|^2= G(t)_{xy} d\overline{G(t)}_{xy} + \overline{G(t)}_{xy} dG(t)_{xy} + dG(t)_{xy} d\overline{G(t)}_{xy}.
 \]
@@ -450,8 +450,10 @@ While the three terms we achieved in the previous section are a good start, we h
 \item For any $s \leq \tau_{\text{stop}}$, we can control the error terms in the flow SDE for $E_s(z)$ and $G_s(z)$ by means of martingale inequalities. 
 
 
-\item These estimates will allow us to prove that $\mathbb{P}[\tau_{\text{stop}} < 1] \leq N^{-D}$ for any $D > 0$.
+\item These estimates will allow us to prove the following theorem in \hyperref[proof-stop]{Section 7.1}:
 
+\begin{boxtheorem}{Theorem 1: (Stopping time).} $\mathbb{P}[\tau_{\text{stop}, i} \neq  1] \lesssim_D N^{-D}$ for any $i=1, 2$ and $D > 0$.
+\end{boxtheorem}
 
 \item Therefore, the error bounds hold for all $s \in [0,1]$, allowing us to prove that $\tau_\sto =1$ with high probability. 
 
@@ -474,7 +476,7 @@ $$\quad W^{-\frac{11}{4}} \ll N^{-2}\quad\Leftrightarrow W \gg N^{\frac{8}{11}}$
 \label{sec:deloc}
 
 We will need the following definition for the statement of delocalization and quantum diffusion:
-\begin{boxt}{Definition 1: Stochastic Domination}
+\begin{boxt}{Definition 1: (Stochastic Domination).}
 \noindent Consider two sequences of r.v.s parametrized by $s\in S_N$:\vspace{-0.25 cm}
 $$X = \{X_N(s): N\in \mathbb{Z}_+, s\in S_N\}, \quad Y = \{Y_N(s): N\in \mathbb{Z}_+, s\in S_N\},$$
 Then if for any $\epsilon, D>0$, $\exists N_{\epsilon, D}$, s.t. $\sup_{s\in S_N}\mathbb{P}\left(X_N(s)>N^\epsilon Y_N(s)\right)<N^{-D}$ for $N\geq N_{\epsilon, D}$, 
@@ -483,23 +485,32 @@ we write $X \prec Y$ and say that $X$ is \textbf{stochastically dominated} by $Y
 
 \subsection{Quantum Diffusion}
 \label{diffusion}
-Recall our time-dependent $T$-equation $T(t)$ and diffusion profile $\Theta_t$. The standard $T$-matrix and diffusion profile $\Theta$ are just the latter two at the end of the spectral curve when $t=1$, i.e: $$T(z)_{ab} = T_{ab} = \sum_{x,y}S_{ax}^{\frac{1}{2}} |G_{xy}|^2S_{yb}^{\frac{1}{2}}$$
-
-$$\Theta := \frac{|m(z)|^2S}{1-|m(z)|^2S}$$
+Recall our time-dependent $T$-equation $T(t)$ and diffusion profile $\Theta_t$. The standard $T$-matrix and diffusion profile $\Theta$ are just the latter two at the end of the spectral curve when $t=1$, i.e: $$T(z)_{ab} = T_{ab} = \sum_{x,y}S_{ax}^{\frac{1}{2}} |G_{xy}|^2S_{yb}^{\frac{1}{2}}, \quad \Theta := \frac{|m(z)|^2S}{1-|m(z)|^2S}$$
 The first theorem established by Dubova and Yang (Theorem 2 \cite{bandSDE}) shows that in the bulk $T\approx \Theta$:
-\begin{boxtheorem}{Theorem 1: Quantum Diffusion}
+\begin{boxtheorem}{Theorem 2: (Quantum Diffusion)}
 For $|E|<2$ fixed, assume $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq W^{8/11+\eta}$. Then: $$\max_{x, y}|T_{xy}-\Theta_{xy}|\prec W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$$
 \end{boxtheorem}
 This result has a physical interpretation. First, observe
-that by \hyperref[3.1]{(3.1)} and  \hyperref[lemma-a1]{Lemma A.1}, $1-|m(z)|^2\asymp \eta\Leftrightarrow \exists \alpha, 1-|m(z)|^2\leq \alpha\eta$, we have that: 
+that by \hyperref[3.1]{(3.1)} and  \hyperref[lemma-a1]{Lemma A.1}, $1-|m(z)|^2\asymp \eta\Leftrightarrow \exists \alpha>0, 1-|m(z)|^2\geq \alpha\eta$, we have that: 
  $$\Theta =\frac{|m(z)|^2S}{1-|m(z)|^2S} = \frac{|m(z)|^2S}{1-|m(z)|^2-|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta-(S-\text{Id})}$$
 \textcolor{red}{Shouldn't this be a minus sign? Theorem 2 in \cite{bandSDE} states it with a plus sign.}
-If we recall the phenomenology of our \hyperref[model]{model}
- 
- ?\hyperref[lemma-a2]{Lemma A.2} have that $\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$,
+If we recall the phenomenology of our \hyperref[model]{model}, we can interpret the band width $W$ as the range of interactions in the particle system $\Z_N = \{1, \cdots, N\}$. In this context, since the doubly stochastic matrix is normalized as $\sum_x S_{xy}=1$ and $\sum_y S_{xy}=1$ for fixed $x, y\in \Gamma$, it has a unique interpretation as the transition matrix for a random walk on $\Z_N$. In this context, $S-\text{Id}$ is then clearly its generator, which allows us to consider $\Theta$ as its \textcolor{red}{resolvent?(neg. sign?)}. The spectral gap of this random walk on $\Gamma$ with steps of variance $W^2$ is of order $W^2N^{-2}$ (\textcolor{red}{reference?}). Standard bounds for diffusion \hyperref[lemma-a2]{Lemma A.2} imply that $\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$, whereas the latter theorem reveals a distinct scaling  $W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}\ll W^{-1}\eta^{-1/2}$. This in fact is precisely what characterized quantum diffusion, because instead of following standard resolvent bounds, the maximal entry of the diffusion profile $\Theta$ exhibits different scaling behavior, akin to the phenomenon of interference in quantum systems. Moreover, this quantum correction persists until the relaxation time $\eta^{-1}\asymp N^2W^{-2}$ (Thouless time \cite{17, 32, 33}), allowing us to prove delocalization (\hyperref[proof-deloc]{Theorem 2}).
 
 \subsection{Delocalization}
-Assume that $|E|<2$ is fixed and that $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq N^{8/11+\nu}$. Fix any index $x$ and any integer $\ell\geq 1$. Define $P_{x, \ell}(y):=\mathbf{1}[|x-y|\geq \ell]$, i.e the projection on the complement of the open ball $B_\ell(x) = \{y:|x-y|<\ell \}$. Given any $\epsilon, \kappa>0$, define the labeling set for the localized to scale $\ell$ eigenvectors in the bulk as: $$\mathcal{A}_{\epsilon, \ell, \kappa} = \left\{\alpha: \lambda_\alpha \in [-E+\kappa, E-\kappa]: \sum_x |\mathbf{u}_\alpha(x)\|\right\}$$
+The following (Thm. 4 \cite{bandSDE}) is a direct consequence of Theorem 2, discussed at length in \hyperref[proof-deloc]{Section 7.3}:
+
+\begin{boxtheorem}{Theorem 3}
+\noindent Assume $|E|<2$ is fixed and that $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq N^{8/11+\nu}$. Then:
+\begin{center}$\max_{x, y}|G_{xy} - \delta_{xy}m(z)|^2\prec W^{-1}\eta^{-\frac{1}{2}}$\end{center}
+\end{boxtheorem}
+
+\noindent A direct corollary of this result is the "complete delocalization of (bulk) eigenvectors" \cite{bandSDE, 21}, for which we need some notation. Firstly, for any index $x$ and integer $\ell\geq 1$,  define $P_{x, \ell}(y):=\mathbf{1}[|x-y|\geq \ell]$, i.e the component projection for any indices $x, y$ on the complement of the open ball $B_\ell(x) = \{y:|x-y|<\ell \}$. Given any $\epsilon, \kappa>0$, define the labeling set for the localized to scale $\ell$ eigenvectors in the bulk as: $$\mathcal{A}_{\epsilon, \ell, \kappa} = \left\{\alpha: \lambda_\alpha \in [-E+\kappa, E-\kappa]: \sum_x |\mathbf{u}_\alpha(x)|\|P_{x, \ell}\mathbf{u}_\alpha\|\leq \epsilon\right\}$$
+As we will see in \hyperref[proof-deloc]{Section 7.3}, Theorem 3 this implies directly the following (Corollary 5 \cite{bandSDE}): 
+
+\begin{boxtheorem}{Theorem 4: (Delocalization).}
+For any $\ell\ll N$ and fixed $\epsilon, \kappa, c>0$: $$\frac{|\mathcal{A}_{\epsilon, \ell, \kappa}|}{N}\lesssim \sqrt{\epsilon}+\mathcal{O}(N^{-c})$$
+\end{boxtheorem}
+The notation for $\mathcal{A}_{\epsilon, \ell, \kappa}$ contains all indices that are of exponentially localized eigenvectors in $B_{O(\ell)}(x)$ (Remark 7.2 \cite{21}). As such, what the result above implies is that the set of such vectors is vanishingly small up to an error term $\sqrt \epsilon$, i.e all vectors in the bulk are "delocalized". 
 
 
 
@@ -599,7 +610,7 @@ $$|G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\prec\sum_{w\neq
 
   
 
-\noindent Then for $M :=\left(\max_{i, j}S_{i,j}\right)^{-1}\gtrsim N$, by Lemma 3.8 from \cite{knowles2013}, we have that:
+\noindent Then for $M :=\left(\max_{i, j}S_{i,j}\right)^{-1}\gtrsim N$, by Lemma 3.8 from \cite{21}, we have that:
 
 $$G_{xx} = m+m^2 Z_x + O_{\prec}\left(\Psi^2+M^{-1/2}\right), \quad Z_i\prec \Psi$$
 
@@ -2437,6 +2448,20 @@ $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] \leq \int_0^t \sum_u \|\Gamma^u\|
 \subsection{Estimate for $\E_t^{S, \text{stop}}(z)$}
 
 \newpage
+
+\section{Proof of Theorems}
+
+\subsection{Theorem 1 - Stopping time}
+\label{proof-stop}
+
+\subsection{Theorem 2 - Quantum Diffusion}
+
+\subsection{Theorem 3 - Delocalization}
+\label{proof-deloc}
+
+
+\newpage
+
 \section{Non-Gaussian case}
 \label{sec:non-gaussian}
 Up to this point, our work on non-mean field models, specifically band matrices, has been focused on the case with Gaussian entries. Given that the delocalization behavior is conjectured to extend beyond the latter case, our last section has has t
@@ -2673,7 +2698,7 @@ of power-law random banded matrices.\textit{ Physical Review} 54: 3221, 1996.
 
 \bibitem{bdg} D.L. Burkholder, B. Davis, R.F. Gundy. Integral inequalities for convex functions of operators on martingales. \textit{Berkeley Symp. on Math. Statistics and Probability}, 2: 223–240, 1972.
 
-\bibitem{knowles2013} L. Erdős, A. Knowles, H.-T. Yau, and J.Yin. Delocalization and Diffusion Profile for Random Band Matrices. \textit{Communications in Mathematical Physics}, 323: 367-416, 2013.
+\bibitem{21} L. Erdős, A. Knowles, H.-T. Yau, and J.Yin. Delocalization and Diffusion Profile for Random Band Matrices. \textit{Communications in Mathematical Physics}, 323: 367-416, 2013.
 
 \bibitem{yau2011} L. Erdős, H.-T. Yau , and J. Yin. Universality for generalized Wigner matrices with Bernoulli distribution. \textit{Journal of Combinatorics}, Vol. 2, 1: 15–81, 2011.
 
@@ -2682,6 +2707,16 @@ of power-law random banded matrices.\textit{ Physical Review} 54: 3221, 1996.
 \bibitem{39} F.Yang, H.-T. Yau, and J. Yin. Delocalization and quantum diffusion of random band matrices in high dimensions II: T-expansion. \textit{Communications in Mathematical Physics}, 396: 527-622, 2022.
 
 \bibitem{soosten} P. von Soosten and S. Warzel. Random characteristics for Wigner matrices.  \textit{Electronic Communications in Probability} 24: 1-12 , 2019.
+
+\bibitem{17} J. Edwards and D. Thouless. Numerical studies of localization in disordered systems. \textit{Journal of Physics
+C: Solid State Physics}, 5:807–820, 1972.
+
+\bibitem{32} T. Spencer. Random banded and sparse matrices. \textit{Oxford handbook of random matrix theory}, pages
+471–488, 2015.
+
+\bibitem{33} D. Thouless. Maximum metallic resistance in thin wires. \textit{Physical Review Letters}, pages 1167–1169,
+1977.
+
 
 \bibitem{lindeberg} J.W. Lindeberg. Eine neue Herleitung des Exponentialgesetzes in der Wahrscheinlichkeitsrechnung, Math. Z. 15 (1922), 211-225. 
 dimensions I: Self-energy renormalization. \textit{arXiv:2103.12048}, 2021.
