@@ -356,11 +356,11 @@ Similarly, we can carry out the calculation for the second term, using the indep
 
 $$\frac{\partial G(t)_{xy}}{\partial b(t)_{ij}}= \lim_{\epsilon\rightarrow 0}\frac{(\sqrt{S_{xy}}b(t+\epsilon)_{ij}+w(t))^{-1}_{xy}-(\sqrt{S_{xy}}b(t)_{ij}+w(t))^{-1}_{xy}}{\epsilon}=$$
 $$ =\lim_{\epsilon\rightarrow 0}\frac{[G(t)\sqrt{S}(b(t+\epsilon)-b(t))G(t)]_{xy}}{\epsilon}=\sum_{\alpha, \beta}G(t)_{x\alpha}\sqrt{S_{\alpha \beta}}db(t)_{\alpha\beta}G(t)_{\beta y}$$
-Lastly, carrying out the equivalent summation and using the fact that $(d(b)(t))^2=dt$, we get:
+Lastly, using the Brownian motion fact that $|db(t)|^2=dt$ and carrying out the summation, we get:
 $$dG(t)_{xy}=-m(z)\sum_j G_{xj}G_{jy}dt+\sum_{\alpha, \beta}G_{x, \alpha}\sqrt{S_{\alpha, \beta}}db_{\alpha, \beta}(t)G_{\beta, t}+\sum_j G_{xj}\left(\sum_yS_{jy}G_{yy}\right)G_{jy}dt=$$
 
 
-$$=\sum_{\alpha, \beta}G_{x\alpha}\sqrt{S_{\alpha \beta}}db_{\beta(t)}G_{\beta y}+\sum_j G_{xj}\left(S_{jy}(G_{yy}-m(z))\right)G_{jy}dt = dI(t) + dII(t)dt$$
+$$=\sum_{\alpha, \beta}G_{x\alpha}\sqrt{S_{\alpha \beta}}db_{\beta(t)}G_{\beta y}+\sum_j G_{xj}S_{jy}\left[G_{yy}-m(z)\right]G_{jy}dt = dI(t) + dII(t)dt$$
 This provides us with the decomposition of a stochastic term $dI(t)$ and a deterministic term $dII(t)dt$. 
 
 
@@ -368,7 +368,7 @@ This provides us with the decomposition of a stochastic term $dI(t)$ and a deter
 Now, define $F_{xy} = |G(t)_{xy}|^2 = G(t)_{xy}\overline{G(t)_{xy}}$. 
  Applying Itô's formula to \( F(t)_{xy} \), we have:
 \[
-dF(t)_{xy} = G(t)_{xy} d\overline{G(t)}_{xy} + \overline{G(t)}_{xy} dG(t)_{xy} + dG(t)_{xy} d\overline{G(t)}_{xy}.
+dF(t)_{xy}= d|G_{xy}|^2= G(t)_{xy} d\overline{G(t)}_{xy} + \overline{G(t)}_{xy} dG(t)_{xy} + dG(t)_{xy} d\overline{G(t)}_{xy}.
 \]
 $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} + d\left[G_{xy}, \overline{G}_{xy}\right]$$
  $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} +d\left[\sum_{\alpha, \beta} G_{x\alpha}d H_{\alpha \beta}\overline{G}_{xy}\right]$$
@@ -377,17 +377,22 @@ To get the $T$-equation, define it as:
 \[
 T(t) =  S^{1/2}F(t)S^{1/2}=\sum_{x,y} S_{xy} F(t)_{xy} = \sum_{x,y} S_{xy} |G(t)_{xy}|^2,
 \]
-On the other hand, by substituting \( dG(t)_{xy} = dI(t)_{xy} + dII(t)_{xy} dt \) and its conjugate, and noting that \( dI(t)_{xy} d\overline{I(t)}_{xy} \) contributes to the quadratic variation, we obtain:
-\[
-dF(t)_{xy} = dM(t)_{xy} + \Omega(t)_{xy} dt, \quad \text{where}
-\]
-\[
-dM(t)_{xy} = \overline{G(t)}_{xy} dI(t)_{xy} + G(t)_{xy} \overline{dI(t)}_{xy}.
-\]
-$$
-\Omega(t)_{xy} = G_{xy}\frac{\overline{dII(t)}_{xy}}{dt}+\overline{G_{xy}}\frac{dII(t)_{xy}}{dt}+\frac{d\left[G_{xy}, \overline{G_{xy}}\right]}{dt}=G_{xy}(t)\left(\overline{\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)}\right)+$$
-$$+\overline{G_{xy}(t)}\left(\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)\right)+\sum_{\alpha, \beta}|G_{xa}(t)|^2S_{\alpha, \beta}|G_{x\beta}(t)|^2$$
+In order to find its derivative, we need to substitute for the earlier terms we found, namely \( dG(t)_{xy} = dI(t)_{xy} + dII(t)_{xy} dt \) and its conjugate, noting that \( dI(t)_{xy} d\overline{I(t)}_{xy} \) contributes to the quadratic variation, we obtain
+\(
+dF(t)_{xy} = dM(t)_{xy} + \Omega(t)_{xy} dt
+\), where
+\begin{equation*}
+dM(t)_{xy} = \overline{G(t)}_{xy} dI(t)_{xy} + G(t)_{xy} \overline{dI(t)}_{xy} \end{equation*}
+\begin{equation*}
+\Omega(t)_{xy} = G_{xy}\frac{\overline{dII(t)}_{xy}}{dt}+\overline{G_{xy}}\frac{dII(t)_{xy}}{dt}+\frac{d\left[G_{xy}, \overline{G_{xy}}\right]}{dt}
+\end{equation*}
+and when expanded w.r.t to $dI(t)$ and $dII(t)dt$:
+$$dM(t)_{xy} = \sum_{\alpha, \beta}\overline{G_{xy}}G_{x\alpha}{S_{\alpha\beta}}^{1/2}G_{\beta y}dB_{\beta(t)}+\sum_{\alpha, \beta}{G}_{xy}\overline{G_{x\alpha}}{S_{\alpha\beta}}^{1/2}\,\overline{G_{\beta y}}dB_{\beta(t)}$$
 
+
+$$\Omega(t)_{xy}=G_{xy}(t)\left(\overline{\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)}\right)+$$
+$$+\overline{G_{xy}(t)}\left(\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)\right)+\sum_{\alpha, \beta}|G_{xa}(t)|^2S_{\alpha, \beta}|G_{x\beta}(t)|^2$$
+Where by Itô, the $T$-equation becomes: 
 \begin{equation}
 \Rightarrow d{T} = {T}^2 dt + S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt
 \end{equation}
@@ -399,10 +404,13 @@ $$\partial_{t}\{\text{Id}+(t-s)\Theta_t\} = \Theta_t+(t-s)\Theta_t^2=\Theta_t\fr
 $$=\Theta_t \frac{1-s|m(z)|^2S}{1-t|m(z)|^2S}=\Theta_t\{\text{Id}+(t-s)\Theta_t\}$$
 Let $\mathcal{E}_t(z)$ be the fluctuation term, i.e the difference between our $T$-matrix and the diffusion profile:
 $$\E_t(z):T_t(z)-\Theta_t$$
-Let us compute its evolution equation: 
-$$\Rightarrow d\E_t(z) = T_t(z)^2dt + \Theta_t^2dt-S^{1/2}dM_t(z)S^{1/2}+S^{1/2}\Omega_t(z)S^{1/2}dt=$$
- $$=\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt +\E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$$
-by observing that $T_t(z)^2-\Theta_t^2=\Theta_t\E_t(z)+\E_t(z)\Theta_t+\E_t(z)^2$. Integrating $\E_t(z)$ over $s$:
+Let us compute its evolution equation $d\E_t(z) = dT_t(z)-d\Theta_t$ by substituting for what we found before:
+$$\Rightarrow d\E_t(z) = T_t(z)^2dt + \Theta_t^2dt-S^{1/2}dM_t(z)S^{1/2}+S^{1/2}\Omega_t(z)S^{1/2}dt$$
+But observe that:
+$$T_t(z)^2-\Theta_t^2 =(\E_t(z)+\Theta_t(z))^2- \Theta_t(z)^2=\E_t(z)^2+\Theta_t\E_t(z)+\E_t(z)\Theta_t$$
+
+ $$\Rightarrow d\E_t(z)=\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt +\E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$$
+Integrating $\E_t(z)$ over $s$:
 $$\E_t(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\left\{\E^2(s)ds +S^{1/2} dM(s)S^{1/2}+  S^{1/2} \Omega(s) S^{1/2}\right\} \{\text{Id} + (t-s)\Theta_t\}ds,$$
 whereas we can split the terms in three separate components, each of which we will individually bound in the following section:
 
@@ -411,7 +419,7 @@ $$\E_t^{M}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}+ \{\tex
 $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$
 
 \subsection{Stopping time}
-If we examine the three terms in the last section, we can see that 
+While the three terms we achieved in the previous section are a good start, we have non-linear powers w.r.t to term $\E_t(z)$ itself, which is what we are trying to bound. This means that we have to be more careful in our analysis. For this purpose, we will have to use a stopping time argument. More specifically, let us define:
 
 \newpage
 
