@@ -23,14 +23,9 @@
 \usetikzlibrary{arrows.meta, positioning, decorations.pathmorphing}
 \usepackage[a4paper, margin=0.75in]{geometry}
 \usepackage{afterpage}
+\usepackage{titlesec}
 
 \usepackage{titlesec}
-%\titleformat{\section}[display]
-  %{\normalfont\centering}
-  %{\huge\bfseries ---\thesection---}  % Number with lines on both sides
-  %{0.2ex}                            % Reduced space between number and title
- % {\Large\bfseries}                 
-%  [\vspace{1ex}\titlerule\vspace{1.5ex}] 
 
 \usepackage{fancyhdr}
 
@@ -69,7 +64,8 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
-\usepackage{titlesec}
+\newcommand{\sto}{\text{stop}}
+\newcommand{\im}{\text{Im}}
 
 
 
@@ -263,7 +259,7 @@ where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically abo
 \end{center}
 \vspace{0.25 cm}
 
-\noindent In our analysis, we will utilize the flow method (\hyperref[sec:flow]{Section 3}), where the spectral parameter $z=E+i\eta$ of the resolvent of $H$ (defined in \hyperref[sec:prereq]{Section 2}) is varied at constant-speed in the upper-half plane $\mathbb{H}$ ($E\in\mathbb{R}$ and $\eta>0$) as the entries of $H$ are realized as Brownian motion \cite{bandSDE}. 
+\noindent In our analysis, we will utilize the flow method (\hyperref[sec:flow]{Section 3}), where the spectral parameter $z=E+i\eta$ of the resolvent of $H$ (defined in \hyperref[sec:prereq]{Section 2}) is varied at constant-speed in the upper-half plane $\mathbb{H}$ ($E\in\mathbb{R}$ and $\eta>0$) as the entries of $H$ are realized as Brownian motion \cite{bandSDE}.  \textcolor{red}{After writing up Quantum Diffusion, justify assumption }$\eta\gg W^{-3/4}$ 
 
 
 \newpage
@@ -297,7 +293,7 @@ And since $\text{Im}(m(z))>0$ and $\eta>0$, we must have $1-\frac{1}{|m(z)|^2}<0
 \end{equation*}
 Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. First observe that $m(z)$ can never be zero, since it implies: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
 $$\Rightarrow z^2-4=z^2\Leftrightarrow -4=0$$ 
-Then, clearly $\exists c>0$, s.t. $|m(z)|\geq c$.
+Then, clearly $\exists c>0$, s.t. $|m(z)|\geq c$. \textcolor{red}{Write lemma A.1 here or transfer the latter to the appendix}.
 
 
 
@@ -419,7 +415,21 @@ $$\E_t^{M}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}+ \{\tex
 $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$
 
 \subsection{Stopping time}
-While the three terms we achieved in the previous section are a good start, we have non-linear powers w.r.t to term $\E_t(z)$ itself, which is what we are trying to bound. This means that we have to be more careful in our analysis. For this purpose, we will have to use a stopping time argument. More specifically, let us define:
+While the three terms we achieved in the previous section are a good start, we have non-linear powers w.r.t to term $\E_t(z)$ itself, which is what we are trying to bound. This means that we have to be more careful in our analysis. For this purpose, we will have to use a stopping time argument \cite{bandSDE}. More specifically, for a fixed $\delta_\sto>0$ and $D\lesssim 1$ ($a\lesssim b\equiv a = O(b))$, independent of $N$, let us define the following:
+\begin{equation*}
+\tau_{\text{stop}, 1}=\inf \left\{s\geq 0: \max_{a, b} |\E_s(z)_{ab}|\geq W^{\delta_{\sto}}W^{-\frac{3}{4}}\cdot W^{-1}|\im w_s|^{-1}|\im w_s|^{-\frac{1}{2}}\right\}\wedge 1
+\tag{3.2.1}
+\end{equation*}
+
+\begin{equation*}
+\tau_{\text{stop}, 2}=\inf \left\{s\geq 0: \max_{a, b} 
+\frac{|G_s(z)_{ab}-\delta_{ab}m(z)|^2}{(S^{1/2}T_s(z)S^{1/2})_{ab}+S_{ab}^{1/2}+W^{-D}}\geq W^{\delta_{\sto/10}}
+\right\}\wedge 1
+\tag{3.2.2}
+\end{equation*}
+\begin{equation*}
+\tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}\tag{3.2.2}
+\end{equation*}
 
 \newpage
 
