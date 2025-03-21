@@ -341,7 +341,7 @@ Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entr
 \end{equation*}
 
 \noindent Lastly, the following result is ubiquitous in RMT literature (8.3.iii \cite{dynamic}), and as such has its own name: 
-\begin{boxtheorem}{Ward identity: } $$\sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$\end{boxtheorem}
+\begin{boxtheorem}{Ward identity: }\label{ward} $$\sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$\end{boxtheorem}
 The proof follows directly from the spectral decomposition of the resolvent we showed in $(1)$, by which:
 $$G_{ij} = \sum_{\alpha} \frac{\mathbf{u}_\alpha(i) \mathbf{u}_\alpha^*(j)}{\lambda_\alpha - z}\quad \Leftrightarrow \sum_j G_{ij} G_{ji}^* = \sum_{j, \alpha, \beta}\frac{\mathbf{u}_\alpha(i) \mathbf{u}_\alpha^*(j)}{\lambda_\alpha - z} \frac{\mathbf{u}_\beta(j) \mathbf{u}_\beta^*(i)}{\lambda_\beta - z^*}
 $$
@@ -553,7 +553,7 @@ for all $p\in \N$ and some constants $\mu_p$. Then, we have the bounds:
 
 \subsection{Off-diagonal $G_{xy}$ estimate}
 
-There will be two important observations used throughout the following estimations. First, per the covariance normalization, ofthe generalized Wigner matrix \cite{dynamic} , we have $S_{ab}\lesssim N^{-1}$. Secondly, $\sum_{y}|B_{xy}|$, $\sum_{y}|S_{xy}|$ have size $O(1)$ per Lemma 25 \cite{bandSDE}. Now, having established that, we can use estimate $(1.3)$ from the Lemma above, along with resolvent identity $(3)$, s.t. we get:
+There will be two important observations used throughout the following estimations. First, per the covariance normalization, we have $S_{ab}\lesssim W^{-1}$. Second, $\sum_{y}|B_{xy}|$, $\sum_{y}|S_{xy}|$ have size $O(1)$ per Lemma 25 \cite{bandSDE}. Now, having established that, we can use estimate $(1.3)$ from the Lemma above, along with resolvent identity $(3)$, s.t. we get:
 
 $$|G_{xy}| = \left\vert G_{xx}\sum_{w\neq x}H_{xw}G^{(x)}_{wy}\right\vert= |G_{xx}|\left\vert\sum_{w\neq x}\sqrt{S_{xy}}B(t)_{xy}G^{(x)}_{wy}\right\vert\prec  |G_{xx}|\left(\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\right)^{1/2}\quad (x\neq y)$$
 
@@ -2429,19 +2429,14 @@ $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} \sum
 We can estimate the latter bounds by using the fact that $\vert G\vert^2 = GG^*$ and $|G|^4=|G|^2|G|^2$:
 $$\sum_{u, y}\Omega_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'} =$$
 $$= \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'}\leq 4 \sum_{x}|G|_{xx}^2 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2,$$
-following from the Schwarz inequality, since $|G|_{xx'}^2|G|^2_{x'x}=||G|_{xx'}^2|^2$ by virtue of $|G|^2$ being Hermitian. On the other hand, by the \hyperref[ward]{Ward identity}:
-$$|G_{xx}|^2\im w_s = \im G_{xx} \Leftrightarrow |G_{xx}|^4 |$$
-
-$$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 |\text{Im}w_s|^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 |\text{Im}w_s|^{-2}|\max_{k}\text{Im}G_{kk}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq$$
-
-$$\textcolor{red}{?\lesssim} |\text{Im} w_s|^{-3}\max_k \text{Im}G_{kk}\sum_{x} |(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq N^{-1}|\text{Im}w_s|^{-3}|\text{Im}w_t|^{-3/2},$$
-
-using estimates $(4)$ and $(5)$. By the same logic, we have that: $$\sum_{u, y}\Xi_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'} = \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'}\leq $$
-$$\leq 4 \sum_{x}|G|_{xx}^4 |S^{\frac{1}{2}}_{ax}|^2\lesssim |\text{Im}w_s|^{-3}\max_k\text{Im}G_{kk}\sum_x|S_{ax}^{1/2}|^2\lesssim N^{-1}|\text{Im}w_s|^{-3}$$
-Lastly, we need to bound the other two matrices, which we can do by using the fact that the diagonal matrix $S^u$ is of the same order as estimate $6$, i.e by bounding with the maximal value and Wald's identity, we have: 
-$$\|\Upsilon^u\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2 N^{-1}|\text{Im}w_s|^{-2}\lesssim N^{-1}|\text{Im}w_s|^{-2}|\text{Im}w_t|^{-1}$$
-
-$$\|\Gamma^u\|_{op}\leq\max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2N^{-1}|\text{Im}w_s|^{-2}\lesssim N^{-3}|\text{Im}w_s|^{-2}$$
+following from the Schwarz inequality, since $|G|_{xx'}^2|G|^2_{x'x}=||G|_{xx'}^2|^2$ by virtue of $|G|^2$ being Hermitian. On the other hand, by the \hyperref[ward]{Ward identity}, \hyperref[lemma-a2]{Lemma A.2}, the stopping time $s\leq \tau_\sto$ and the fact we showed earlier of $(t-s)\lesssim \eta_s$, we get:
+$$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 |\text{Im}w_s|^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 |\text{Im}w_s|^{-2}|\max_{k}\text{Im}G_{kk}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2$$
+$$\lesssim |\text{Im} w_s|^{-3}\max_k \text{Im}G_{kk}\sum_{x} |(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq W^{\delta_\sto}|\text{Im}w_s|^{-3}|W^{-1}\text{Im}w_t|^{-3/2},$$
+By the same logic, we have that: $$\sum_{u, y}\Xi_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'} = \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'}\leq $$
+$$\leq 4 \sum_{x}|G|_{xx}^4 |S^{\frac{1}{2}}_{ax}|^2\lesssim |\text{Im}w_s|^{-3}\max_k\text{Im}G_{kk}\sum_x|S_{ax}^{1/2}|^2\lesssim W^{\frac{\delta_\sto}{10}}W^{-1}|\text{Im}w_s|^{-3}$$
+Lastly, we need to bound the other two matrices, which we can do by using the fact that the diagonal matrix $S^u$ is of the same order as \hyperref[cor-a3]{Corollary A.3}, i.e by the same approach: 
+$$\|\Upsilon^u\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2 W^{-1}|\text{Im}w_s|^{-2}\lesssim W^{-1}|\text{Im}w_s|^{-2}|\text{Im}w_t|^{-1}$$
+$$\|\Gamma^u\|_{op}\leq\max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2W^{-1}|\text{Im}w_s|^{-2}\lesssim W^{-3}|\text{Im}w_s|^{-2}$$
 Lastly, recall estimate 9 that $(t-s)\lesssim |\text{Im}w_s|^{-1}$, with which we have all the necessary pieces to complete the estimation of all the QV terms $\mathcal{E}^{M, 1i}_t$, by again changing the variable of integration w.r.t $\sigma = |\text{Im}w_s|$:
 
 
@@ -2463,7 +2458,7 @@ $$\mathbb{P}\left(\left\vert \E_t^{M, 1j}(z)_{ab}\geq N^\delta [\E_t^{M, 1j}(z)_
 Let us us continue using the notation $\eta_t = |\im w_t|$ and $\eta_s=|\im w_s|$ for brevity. Now, in order to bound the squared term $\E_t^{S, \sto}(z)$, we will use \hyperref[cor-a3]{Corollary A.3} of \hyperref[lemma-a2]{Lemma A.2} (Display $(3.7)$ and Lemma 23 in \cite{bandSDE}, respectively) to state the following  bound: $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy}+\sup_y \sum_x \{\text{Id}+(t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
 Then by Hölder's inequality and the bound above, we have: $$|\E_t^{S}(z)_{ab}|=\left\vert\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds\right\vert \leq$$
 $$\leq \int \left[1+O(\eta_t^{-1}\eta_s)\right]^2 \max_{a, b}|\E_s(z)_{ab}^2|ds \lesssim \int_0^{\tau_\sto \wedge t} \max_{a, b}|\E_s(z)_{ab}^2|ds + \int_0^{\tau_\sto \wedge t}\eta_t^{-2}\eta_s^{2} \max_{a, b}|\E_s(z)^2_{ab}|ds$$
-We can bound $\max_{a, b}|\E_s(z)_{ab}^2|ds$ by using the definition of our stopping time. Since $s\leq \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}$, by property of $\tau_{\sto, 1}$ and given a \textcolor{red}{bound $N\leq W^{\frac{11}{8}-\nu}$}, we have: $$\max_{a, b}|\E_s(z)_{ab}|<W^{\delta_\sto} W^{-\frac{3}{4}} \eta_s^{-1}\cdot W^{-1}\eta_s^{-\frac{1}{2}}$$
+We can bound $\max_{a, b}|\E_s(z)_{ab}^2|ds$ by using the definition of our stopping time. Since $s\leq \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}$, by property of $\tau_{\sto, 1}$ and given a bound $N\leq W^{\frac{11}{8}-\nu}$ we have: $$\max_{a, b}|\E_s(z)_{ab}|<W^{\delta_\sto} W^{-\frac{3}{4}} \eta_s^{-1}\cdot W^{-1}\eta_s^{-\frac{1}{2}}$$
 $$\max_{a, b}|\E_s(z)_{ab}|^2<W^{2\delta_\sto} W^{-\frac{3}{2}} \eta_s^{-2}\cdot W^{-2}\eta_s^{-1}=W^{2\delta_{\sto}} W^{-\frac{7}{2}}\eta_s^{-3} $$
 Now, observe that by matrix multiplication, for any $a, b\in \Gamma$, we have: $$\E_s(z)^2_{ab} = \sum_{j=1}^N \E_s(z)_{aj}\E_s(z)_{jb}$$
 $$\Rightarrow |\E_s(z)_{ab}^2|\leq \sum_{j=1}^N |\E_s(z)_{aj}||\E_s(z)_{jb}|\leq \sum_{j=1}^N \max_{x,y}|\E_s(z)_{xy}|^2 = N\max_{x,y}|\E_s(z)_{xy}|^2$$
@@ -2485,7 +2480,7 @@ Hence, we can drop the negative term w.r.t. $\im w_0^{-2}$ and bound above by $\
 |\E_t^{S, \sto}(z)_{ab}|\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu} \eta_t^{-2}+W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\log \eta_t^{-1} \lesssim W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\log \eta_t^{-1}
 \end{equation*}
 Observe that the latter expression can be split in the following terms: $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{2\delta_\sto} W^{-\frac{3}{8}-\nu} \eta_t^{-\frac{1}{2}}\log \eta_t^{-1}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\cdot W^{-1}\eta_t^{-\frac{1}{2}}$$
-In this context, since \textcolor{red}{$\eta_t \geq \eta\geq W^{-3/4}$}, the first term is: $$W^{2\delta_\sto} W^{-\frac{3}{8}-\eta}\eta_t^{-\frac{1}{2}}\log \eta_t^{-1}\lesssim W^{2\delta_\sto-\nu}\log W,$$
+In this context, since $\eta_t \geq \eta\geq W^{-3/4}$, the first term is: $$W^{2\delta_\sto} W^{-\frac{3}{8}-\eta}\eta_t^{-\frac{1}{2}}\log \eta_t^{-1}\lesssim W^{2\delta_\sto-\nu}\log W,$$
 But since $\eta>0$ is fixed, we can pick $\delta_\sto$ small, s.t. the latter term is $\lesssim 1$, meaning that our result above can be stated as: 
 \begin{boxtheorem}{Theorem 6.3. }There $\exists \delta>0$, s.t.:
 $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{-\delta}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\cdot W^{-1}\eta_t^{-\frac{1}{2}}$$
@@ -2677,14 +2672,28 @@ where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textco
 
 \textbf{Lemma A.1.1} \label{lemma-a11} $$ 1-|m|^2 \asymp \eta$$ (Lemma 3.5 \cite{21} and Lemma 6.2 \cite{dynamic})
 
-\begin{boxt}{Lemma A.1.2} \label{lemma-a12} $ \im w_s = \im w_t + (t-s)\im m(z)$ \\
+\begin{boxt}{Lemma A.1.2} \label{lemma-a12} 
+
+$ \im w_s = \im w_t + (t-s)\im m(z)$ \\
 \textit{Proof}- Recall the definition $w_s = -\frac{1}{m(z)} - sm(z)$, where $m(z)$ is the stieltjes transform. By taking its imaginary part, we have: $$\im w_s = -\im \left( \frac{1}{m(z)}\right)-s\im m(z)= -\im \left( \frac{1}{m(z)}\right)-t\im m(z) + (t-s)\im m(z)$$
 $$=\im w_t + (t-s)\im m(z)$$
 \end{boxt}
+Since $|\im m(z)|$ is bounded uniformly away from $0$ in the bulk (Lemma 6.2. in \cite{dynamic}) - \textcolor{red}{deduce} that $(t-s)\lesssim \eta_s ?$
 
-\textbf{Lemma A.2} \label{lemma-a2} - Lemma 23 \cite{bandSDE}
+\textbf{Lemma A.2} \label{lemma-a2} -$\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$
 
-\textbf{Corollary A.3} \label{cor-a3} - Expression $(3.7)$ in \cite{bandSDE}
+ Lemma 23 \cite{bandSDE} - For $|E|<2$ fixed and $\eta\gtrsim W^2/N^2$, then $$(\Theta_t)_{ab} + |(\Theta_tS^{\frac{1}{2}})_{ab}| + |\left(S^{\frac{1}{2}}\Theta_t S^{\frac{1}{2}}\right)_{ab}|\lesssim W^{-1}\eta_t^{-\frac{1}{2}}, $$
+ $$\max_a \sum_b |(\Theta_t)_{ab}|+\max_a \sum_b |(\Theta_tS^{\frac{1}{2}})_{ab}|\lesssim \eta_t^{-1}$$
+
+\textbf{Corollary A.3} \label{cor-a3} -
+$$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy} + \sup_y \sum_x \{\text{Id} + (t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
+
+
+ Expression $(3.7)$ in \cite{bandSDE}
+
+\textbf{Lemma A.4} \label{lemma-a4} -) $\sum_y |B_{xy}|$ and $\sum_y |S_{xy}|$ have size $O(1)$. )
+
+ Lemma 25 \cite{bandSDE} - For $|E|<2$ fixed and arbitrary $a, b$, we have: $$\sum_\alpha |(B_t)_{\alpha b}| + \sum_{\beta}|(B_t)_{a\beta}|\lesssim 1$$
 
 \begin{thebibliography}{99}
 
