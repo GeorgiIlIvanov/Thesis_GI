@@ -549,7 +549,7 @@ In this section we will state all of the inequalities and stochastic bounds we w
 
 \item $\sum_{x}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\lesssim \eta_t^{-1}\eta_s$ per \hyperref[cor-a3]{Corollary A.3}
 
-\item $(t-s)\lesssim \eta_s$ \hyperref[lemma-a12]{Lemma A.1.2}. 
+\item $(t-s)\lesssim \eta_s$ per \hyperref[lemma-a12]{Lemma A.1.2}. 
 \end{enumerate}
 \end{boxt}
 
@@ -589,17 +589,17 @@ the resolvent derivatives w.r.t. to $H_{\beta\alpha}$. To be clear, the exact nu
 
 \subsection{Estimate for $\mathcal{E}_t^{D, \text{stop}}(z)$} 
 The goal for this subsection is to bound the drift term, which we can expand and rewrite as follows: 
-$$\mathcal{E}_t^{D}(z)_{ab}=\int_0^{ t}\{\text{Id}+(t-s)\Theta_t\}S^{\frac{1}{2}}\Omega_s(z)S^{\frac{1}{2}}\{\text{Id}+(t-s)\Theta_t\}$$
-$$=\int_0^t \{\text{Id}+(t-s)\Theta_t\}\left\{
+$$\mathcal{E}_t^{D, \sto}(z)_{ab}=\int_0^{t\wedge \tau_\sto}\{\text{Id}+(t-s)\Theta_t\}S^{\frac{1}{2}}\Omega_s(z)S^{\frac{1}{2}}\{\text{Id}+(t-s)\Theta_t\}ds$$
+$$=\int_0^{t\wedge \tau_\sto} \{\text{Id}+(t-s)\Theta_t\}\left\{
 \overline{G_s(z)}_{xy} G_s(z)_{xu} S_{uv} 
 \left[ G_s(z)_{vv} - m(z) \right] G_s(z)_{uy}
-\right\}\{\text{Id}+(t-s)\Theta_t\}+
+\right\}\{\text{Id}+(t-s)\Theta_t\}ds+
 $$
 $$
-\int_0^t \{\text{Id}+(t-s)\Theta_t\}\left\{
+\int_0^{t\wedge \tau_\sto} \{\text{Id}+(t-s)\Theta_t\}\left\{
  G_s(z)_{xy} \overline{G_s(z)}_{xu} S_{uv} 
 \left[ \overline{G_s(z)}_{vv} - m(z) \right] \overline{G_s(z)}_{uy} 
-\right\} \{\text{Id}+(t-s)\Theta_t\} = 
+\right\} \{\text{Id}+(t-s)\Theta_t\}ds = 
 $$
 Observe that we can represent the first term with the diagrammatic notation defined earlier, whereas its complex conjugate has the exact same structure, with only the colors of the straight edges being flipped. Since this doesn't change the underlying estimates we have from the previous section, WLOG we can pick the first term and write it out as follows:
 
@@ -795,7 +795,7 @@ Following diagrammatic notation, each of the $B_{uy_i}G_{x_iy_i}f(G)$ terms beco
 \mathcal{G}_{10, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 \end{center}
-We can apply estimate $(2)$ to the two loops around $\alpha$ and $\beta$, as well as estimate $(1)$ to the red edge connecting $x$ and $y$. From this, we receive three multiplicative terms $W^{-1/2}\eta_s^{-1/4}$, i.e combined it yields a term $W^{-3/2}\eta_s^{-3/4}$. By estimate $(5)$, we can sum all the wavy lines out in order $\beta, \alpha, v,$ and finally $u$ for a $O(1)$ term, keeping our earlier estimate. We can stop here by leaving the connected component that is a double line from $a$ to $x$, a blue line from $x$ to $y$ and another double line from $y$ to $b$, i.e: $\mathcal{G}_{10, s}\lesssim W^{-3/2}\eta_s^{-1/4}\times $
+We can apply estimate $(2)$ to the two loops around $\alpha$ and $\beta$, as well as estimate $(1)$ to the red edge connecting $x$ and $y$. From this, we receive three multiplicative terms $O(W^{\delta_\sto/20}W^{-1/2}\eta_s^{-1/4})$, i.e combined it yields a term $O(W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4})$. By estimate $(5)$, we can sum all the wavy lines out in order $\beta, \alpha, v,$ and finally $u$ for a $O(1)$ term, keeping our earlier estimate. We can stop here by leaving the connected component that is a double line from $a$ to $x$, a blue line from $x$ to $y$ and another double line from $y$ to $b$, i.e: $\mathcal{G}_{10, s}\lesssim W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -842,8 +842,8 @@ We can apply estimate $(2)$ to the two loops around $\alpha$ and $\beta$, as wel
 \mathcal{G}_{20, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{x\alpha}}G_{xy} \overline{G_{\beta y}} S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 \end{center}
-Repeating the same process as before, we bound all three red lines using estimate $(2)$ and sum over the wavy edges in the same order $(\beta, \alpha, v$, and $u$), s.t. we get the same bound as above:
-$\mathcal{G}_{20, s}\lesssim W^{-3/2}\eta_s^{-1/4}\times $
+Repeating the same process as before, we bound all three red lines using estimate $(2)$ and sum over the wavy edges in the same order $(\beta, \alpha, v$, and $u$), s.t. we get the same bound as above:\\
+$\mathcal{G}_{20, s}\lesssim W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -891,7 +891,7 @@ $\mathcal{G}_{20, s}\lesssim W^{-3/2}\eta_s^{-1/4}\times $
 \mathcal{G}_{30, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{x\beta}S_{uv} B_{v\alpha}  S_{\alpha\beta}G_{\beta\alpha}G_{uy} B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 \end{center}
-Here, we eliminate first the edges  $\beta\textcolor{red}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow} y$ using estimate $(2)$, giving us a combined $W^{-1}\eta_s^{-1/2}$ term. Due to the edge from $x\textcolor{blue}{\rightarrow}\beta$, we are not going to be summing $\alpha\leadsto\beta$ over row/column $S_{ab}$ entries because it instead serves as a multiplicative term to the blue edge $x\textcolor{blue}{\rightarrow}\beta$. For this reason, we will apply the individual $S_{ab}\lesssim W^{-1}$ bound, s.t now summing over $x\textcolor{blue}{\rightarrow}\beta$ with estimate $(1)$ gives us a combined bound $W^{3/2}\eta_s^{-3/4}$. Finally, by summing over the remaining wavy edges, starting with $\alpha, v$ and then $u$, due to the $O(1)$ term (estimate $(5)$), we get an estimate of the form:$\mathcal{G}_{30, s}\lesssim W^{1/2}\eta_s^{-5/4}\times $
+Here, we eliminate first the edges  $\beta\textcolor{red}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow} y$ using estimate $(2)$, giving us a $O(W^{\delta_\sto/10}W^{-1}\eta_s^{-1/2})$ term. Due to the edge from $x\textcolor{blue}{\rightarrow}\beta$, we are not going to be summing $\alpha\leadsto\beta$ over $S_{ab}$ entries because it serves as a multiplicative term to the blue edge $x\textcolor{blue}{\rightarrow}\beta$. For this reason, we will apply the individual $S_{ab}\lesssim W^{-1}$ bound, s.t now summing over $x\textcolor{blue}{\rightarrow}\beta$ with estimate $(1)$ gives us a combined bound $O(W^{\delta_\sto/20}W^{1/2}\eta_s^{-3/4})$. Finally, by summing over the remaining wavy edges, starting with $\alpha, v$ and then $u$, due to the $O(1)$ term (estimate $(5)$), we get an estimate of the form:$\mathcal{G}_{30, s}\lesssim W^{3\delta_\sto/20}W^{-1/2}\eta_s^{-5/4}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -2244,7 +2244,7 @@ In order to express the Quadratic Variation (QV) on the RHS, we will need to rew
 
 \end{tikzpicture}
 \end{center}
-If we are to approach the bounding in the same fashion as before, we will no get appropriate bounds: By eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim N^{-1/2}$ per estimate $(4)$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(2)$ to all red lines, we get a combined term $O(W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, each of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms.\textcolor{red}{FINISH THE BOUND AFTER THE OTHER TWO}.
+If we are to approach the bounding in the same fashion as before, we will no get appropriate bounds: By eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim W^{-1/2}$ per estimate $(4)$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(2)$ to all red lines, we get a combined term $O(W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, each of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms.\textcolor{red}{FINISH THE BOUND AFTER THE OTHER TWO}.
 
 
 \subsubsection*{Alternative bound}
