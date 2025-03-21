@@ -2429,18 +2429,21 @@ $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} \sum
 We can estimate the latter bounds by using the fact that $\vert G\vert^2 = GG^*$ and $|G|^4=|G|^2|G|^2$:
 $$\sum_{u, y}\Omega_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'} =$$
 $$= \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'}\leq 4 \sum_{x}|G|_{xx}^2 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2,$$
-following from the Schwarz inequality, since $|G|_{xx'}^2|G|^2_{x'x}=||G|_{xx'}^2|^2$ by virtue of $|G|^2$ being Hermitian. On the other hand, by the \hyperref[ward]{Ward identity}, \hyperref[lemma-a2]{Lemma A.2}, the stopping time $s\leq \tau_\sto$ and the fact we showed earlier of $(t-s)\lesssim \eta_s$, we get:
-$$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 |\text{Im}w_s|^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 |\text{Im}w_s|^{-2}|\max_{k}\text{Im}G_{kk}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2$$
+following from the Schwarz inequality, since $|G|_{xx'}^2|G|^2_{x'x}=||G|_{xx'}^2|^2$ by virtue of $|G|^2$ being Hermitian. On the other hand, by the \hyperref[ward]{Ward identity}, $\max_{a, b}\Theta_{ab}\lesssim W^{-1}\eta^{-1/2}$ (\hyperref[lemma-a2]{Lemma A.2}), the stopping time $s\leq \tau_\sto$ and $(t-s)\lesssim \eta_s$ (\hyperref[lemma-a2]{Lemma A.2}) , we get: $$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 |\text{Im}w_s|^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 |\text{Im}w_s|^{-2}|\max_{k}\text{Im}G_{kk}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2$$
 $$\lesssim |\text{Im} w_s|^{-3}\max_k \text{Im}G_{kk}\sum_{x} |(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq W^{\delta_\sto}|\text{Im}w_s|^{-3}|W^{-1}\text{Im}w_t|^{-3/2},$$
-By the same logic, we have that: $$\sum_{u, y}\Xi_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'} = \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'}\leq $$
+
+\noindent By the same logic as for $\Omega^u_{yy}$, along with the fact that $S_{ab}^{1/2}\lesssim W^{-1}\Rightarrow \sum_b S_{ab}^{1/2} \lesssim 1$, we have that: 
+
+$$\sum_{u, y}\Xi_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'} = \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'}\leq $$
 $$\leq 4 \sum_{x}|G|_{xx}^4 |S^{\frac{1}{2}}_{ax}|^2\lesssim |\text{Im}w_s|^{-3}\max_k\text{Im}G_{kk}\sum_x|S_{ax}^{1/2}|^2\lesssim W^{\frac{\delta_\sto}{10}}W^{-1}|\text{Im}w_s|^{-3}$$
-Lastly, we need to bound the other two matrices, which we can do by using the fact that the diagonal matrix $S^u$ is of the same order as \hyperref[cor-a3]{Corollary A.3}, i.e by the same approach: 
-$$\|\Upsilon^u\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2 W^{-1}|\text{Im}w_s|^{-2}\lesssim W^{-1}|\text{Im}w_s|^{-2}|\text{Im}w_t|^{-1}$$
-$$\|\Gamma^u\|_{op}\leq\max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2W^{-1}|\text{Im}w_s|^{-2}\lesssim W^{-3}|\text{Im}w_s|^{-2}$$
-Lastly, recall estimate 9 that $(t-s)\lesssim |\text{Im}w_s|^{-1}$, with which we have all the necessary pieces to complete the estimation of all the QV terms $\mathcal{E}^{M, 1i}_t$, by again changing the variable of integration w.r.t $\sigma = |\text{Im}w_s|$:
 
+\noindent We need to bound the other two matrices, which we can do by using the fact that $S^u$ is the diagonal matrix $S^u_{ij} = \delta_{ij}S_{ui} = O(W^{-1})$, along with the fact that $\|G\|_{op} = \sup_{\lambda_i}\frac{1}{|\lambda -z|}  = \eta_s^{-1}$,
+hence we get the following bounds:
+$$\|\Upsilon^u\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2\|G^* S^u G\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2 W^{-1}|\text{Im}w_s|^{-2}$$
+$$\|\Gamma^u\|_{op}\leq\max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2\|G^* S^u G\|_{op}\lesssim W^{-3}|\text{Im}w_s|^{-2}$$
 
-$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right] \leq \int_0^t (t-s)^4\sum_u \|\Upsilon^u\|_{op}\sum_y \Omega_{yy'}^uds \lesssim N^{-4}|\text{Im}w_t|^{-5/2}\int_{\text{Im}w_t}^0\sigma^{-1}\lesssim N^{-4}|\text{Im}w_t|^{-5/2}\log|\text{Im}w_t| $$
+\noindent With this we have all the necessary pieces to complete the estimation of all the QV terms $\mathcal{E}^{M, 1i}_t$, by changing the variable of integration w.r.t $\sigma = |\text{Im}w_s|$.
+$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right]\lesssim \int_0^{\tau_\sto\wedge t} $$
 
 $$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] \leq \int_0^t (t-s)^2\sum_u \|\Gamma^u\|_{op}\sum_y \Omega_{yy'}^uds\lesssim N^{-4}|\text{Im}w_t|^{-3/2}\int_{\text{Im}w_t}^0 \sigma^{-3}\lesssim N^{-4}|\text{Im}w_t|^{-7/2}$$
 
