@@ -290,13 +290,13 @@ We can calculate the second term by simply expanding: $$\frac{1}{m(z)} = \frac{1
 $$\Rightarrow\text{Im}(m(z)) + \text{Im}\left(\frac{1}{m(z)}\right)+\eta=\text{Im}(m(z)) -\frac{\text{Im}(m(z))}{|m(z)|^2}+\eta=0$$
 $$\Rightarrow \text{Im}(m(z))\left(1-\frac{1}{|m(z)|^2}\right)=-\eta$$
 And since $\text{Im}(m(z))>0$ and $\eta>0$, we must have:
-\begin{equation*}\label{3.1} 1-\frac{1}{|m(z)|^2}<0\quad \Leftrightarrow\quad |m(z)|<1, \tag{3.1}
+\begin{equation*}\label{2.1} 1-\frac{1}{|m(z)|^2}<0\quad \Leftrightarrow\quad |m(z)|<1, \tag{2.1}
 \end{equation*}
-which is also equivalent to $\text{Im }m \asymp 1$, where $\asymp$ means being bounded above and below up to a fixed, positive factor. Furthermore, let us rewrite the latter equation as the following two identities: \begin{equation*}\label{3.2}1-|m(z)|^2 = \frac{\eta|m(z)|^2}{\text{Im}(m(z))}
-\tag{3.2}
+which is also equivalent to $\text{Im }m \asymp 1$, where $\asymp$ means being bounded above and below up to a fixed, positive factor. Furthermore, let us rewrite the latter equation as the following two identities: \begin{equation*}\label{2.2}1-|m(z)|^2 = \frac{\eta|m(z)|^2}{\text{Im}(m(z))}
+\tag{2.2}
 \end{equation*}
-\begin{equation*}\label{3.2}\text{Im}(m(z))= \frac{\eta|m(z)|^2}{1-|m(z)|^2 }
-\tag{3.3}
+\begin{equation*}\label{2.3}\text{Im}(m(z))= \frac{\eta|m(z)|^2}{1-|m(z)|^2 }
+\tag{2.3}
 \end{equation*}
 Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. First observe that $|m(z)|\geq c>0$ can never be zero, since it implies: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
 $$\Rightarrow z^2-4=z^2\Leftrightarrow -4=0$$ 
@@ -308,14 +308,14 @@ $$\Rightarrow z^2-4=z^2\Leftrightarrow -4=0$$
 \subsection*{Resolvent Identities}
 We can define the augmented minor Green function for any index $\alpha$ as $G(z)^{(\alpha)} = (H^{(\alpha)}-w_t)^{-1}$, where: $$\left(H^{(\alpha)}\right):=H_{ab}\cdot \mathbf{1}(a\neq \alpha)\cdot \mathbf{1}(b\neq \alpha),$$ 
 so the augmented matrix is still $N\times N$ with the $\alpha$-row and -column set to zero \cite{dynamic}. As a consequence: 
-\begin{equation}
+\begin{equation*}
 G_{xy}^{(\alpha)} = \left\{\begin{array}{cc}
   (-z)^{-1}  & x=y=i\\
   0 & x=\alpha\ \text{XOR } y = \alpha\\
   G_{xy}^{[\alpha]} = (H^{[\alpha]}-z)_{xy}^{-1} & x\neq \alpha, y\neq \alpha
   \end{array}
   \right.
-\end{equation}
+\end{equation*}
 Before we derive the estimate, let us first establish several identities:
 
 \begin{boxt}{(Matrix Identities).}
@@ -330,7 +330,7 @@ But observe that by definition of the augmented minor, the $xy$ entry of our ide
 \begin{equation*}
 G_{xy}=G_{xy}^{(\alpha)}-\sum_{j=1}^N\sum_{k=1}^NG_{xj}(H_{jk}-H^{(\alpha)}_{jk})G_{ky}^{(\alpha)} = G_{xy}^{(\alpha)} - G_{x\alpha}\sum_{k\neq \alpha} H_{\alpha k}G_{ky}^{(\alpha)} = G_{xy}^{\alpha}+\frac{G_{x\alpha}G_{\alpha y}}{G_{\alpha\alpha}}
 \end{equation*}
-Similarly, we can derive our second resolvent identity, by applying again the same properties $(3)$, with the special case of $\alpha = x$, s.t. we get:
+Similarly, we can derive our second resolvent identity, by applying again the same properties, with the special case of $\alpha = x$, s.t. we get:
 
 \begin{equation*}
 G_{xy} = G_{xy}^{(x)} - G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)} =- G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)}\quad x\neq y
@@ -361,7 +361,9 @@ $$\Rightarrow \sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$
 \label{sec:flow}
 At the heart of the most recent advances in the theory of delocalization lies the flow method, a dynamic technique that will be the primary tool of our exploration. First appearing in the paper of von Soosten and Warzel \cite{RP}, it was used to prove non-ergodic delocalization in the Rozenzweig-Porter model \cite{porter1960}. Subsequent work \cite{soosten} extended the methodology to general Wigner matrices \cite{dynamic}, allowing for a simplified proof of the local semicricle law. The primary idea is to trace the evolution of the Green's function (resolvent) along random characteristic curves, enabling direct concentration estimates and more refined spectral control. More recently, it was used to prove delocalization for the one- and two-dimensional band matrices \cite{yauyin, twodim}\vspace{0.25cm}.
 \subsection{Construction}
-\noindent Consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)_{xy}\sim \mathcal{N}(0, t)$ represents the component Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where: $$w(t) = -\frac{1}{m(z)}-tm(z) = z+(1-t)m(z)$$
+\noindent Consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)_{xy}\sim \mathcal{N}(0, t)$ represents the component Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where: \begin{equation*}
+w(t) = -\frac{1}{m(z)}-tm(z) = z+(1-t)m(z) \tag{3}
+\end{equation*}
 by the self-consistent equation \hyperref[self-consistent]{(2)}. In order to study this system and its transition from $t=0$ with $G(0) = m(z)$, to $t=1$ with $G(1)=G(z)$, we will employ stochastic calculus. For this purpose, observe that our differentials are $dH(t)_{xy} = \sqrt{S_{xy}}db_{xy}(t)$ and $\partial_tw(t) = -m(z)$. Recall the Îto equation, namely, the statement that a function $f(\vec{b}(t), t)$, dependent on a Brownian random walk  $\vec{b}(t) = (b(t)_1, \cdots, b(t)_d)$ w.r.t to time $t$, has derivative:
 $$df(\vec{b}(t), t) = \frac{\partial f}{\partial t}dt + \sum_{i=1}^d \frac{\partial f}{\partial b_i}db_i(t) + \frac{1}{2}\sum_{i=1}^d \frac{\partial^2 f}{\partial b_i^2} dt$$
 In our case, by taking the function to be $G(t)$ and using restriction of a symmetric matrix and the latter differentials, we get the following expression:
@@ -411,9 +413,9 @@ $$dM(t)_{xy} = \sum_{\alpha, \beta}\overline{G_{xy}}G_{x\alpha}{S_{\alpha\beta}}
 $$\Omega(t)_{xy}=G_{xy}(t)\left(\overline{\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)}\right)+$$
 $$+\overline{G_{xy}(t)}\left(\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)\right)+\sum_{\alpha, \beta}|G_{xa}(t)|^2S_{\alpha, \beta}|G_{x\beta}(t)|^2$$
 Hence, by Itô the $T$-equation becomes: 
-\begin{equation}
-d{T} = {T}^2 dt + S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt
-\end{equation}
+\begin{equation*}
+d{T} = {T}^2 dt + S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt \tag{3.1}
+\end{equation*}
 Now, define the \textit{time-dependent diffusion profile} as:$$\Theta_t = \frac{|m(z)|^2S}{1-t|m(z)|^2S}$$
 Let us take its derivative w.r.t to $t$: 
 $$\frac{d\Theta_t}{dt} = \frac{d}{dt}\frac{|m(z)|^2S}{1-t|m(z)|^2S} = \frac{-|m(z)|^2S(-|m(z)|^2S)}{(1-t|m(z)|^2S)^2} = \Theta_t^2 \Leftrightarrow d\Theta_t = \Theta_t^2 dt$$
@@ -422,7 +424,9 @@ $$\E_t(z):T_t(z)-\Theta_t$$
 We can compute its evolution equation $d\E_t(z) = dT_t(z)-d\Theta_t$ by substituting for what we found before:
 $$\Rightarrow d\E_t(z) = T_t(z)^2dt - \Theta_t^2dt-S^{1/2}dM_t(z)S^{1/2}+S^{1/2}\Omega_t(z)S^{1/2}dt$$
 But observe that:
-$$T_t(z)^2-\Theta_t^2 =(\E_t(z)+\Theta_t(z))^2- \Theta_t(z)^2=\E_t(z)^2+\Theta_t\E_t(z)+\E_t(z)\Theta_t$$ $$\Rightarrow d\E_t(z)=\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt +\E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$$
+$$T_t(z)^2-\Theta_t^2 =(\E_t(z)+\Theta_t(z))^2- \Theta_t(z)^2=\E_t(z)^2+\Theta_t\E_t(z)+\E_t(z)\Theta_t$$
+\begin{equation*}\Rightarrow d\E_t(z)=\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt +\E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2}
+ \Omega_t(z) S^{1/2}dt\tag{3.2}\end{equation*}
 Now, observe that the first term $\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt$ makes this equation a matrix-valued linear SDE with a nonlinear stochastic term $W(t) = \E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$. This means that we have to apply a method of variation of parameters (a matrix-valued Duhamel formula \cite{bandSDE}). For this, let us identify an integrating factor $U(t, s)$. Observe that: 
 $$\partial_{t}\{\text{Id}+(t-s)\Theta_t\} = \Theta_t+(t-s)\Theta_t^2=\Theta_t\frac{1-t|m(z)|^2S+(t-s)|m(z)|^2S}{1-t|m(z)|^2S}=$$
 $$=\Theta_t \frac{1-s|m(z)|^2S}{1-t|m(z)|^2S}=\Theta_t\{\text{Id}+(t-s)\Theta_t\}$$
@@ -431,7 +435,7 @@ $$d\E_t(z) = U(t, t) W(t) U(t, t)dt + \int_0^t d\left[U(t, s)W(s)U(t, s)\right]d
 $$=W(t)dt + \int_0^t\left[\Theta_t U(t, s) W(s) U(t, s) + U(t, s)W(s)U(t, s)\Theta_t\right]dtds =$$
 $$= \E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt + \{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt$$
 Therefore, by the pathwise uniqueness of solutions to SDEs (Thm. 9.1 \cite{steele}), the following expression satisfies the same SDE:
-$$\E_t(z)=\E_t^{D}(z)+\E_t^{M}(z)+\E_t^{S}(z)$$
+\begin{equation*}\E_t(z)=\E_t^{D}(z)+\E_t^{M}(z)+\E_t^{S}(z)\tag{3.3}\end{equation*}
 $$\E_t^{D}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds,$$
 $$\E_t^{M}(z)=-\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}ds,$$
 $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$
@@ -440,17 +444,17 @@ $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s
 While the three terms we achieved in the previous section are a good start, we have non-linear powers w.r.t to term $\E_t(z)$ itself, which is what we are trying to bound. This means that we have to be more careful in our analysis. For this purpose, we will have to use a stopping time argument \cite{bandSDE}. More specifically, for a fixed $\delta_\sto>0$ and $D\lesssim 1$ ($a\lesssim b\equiv a = O(b))$, independent of $N$, define:
 \begin{equation*}
 \tau_{\text{stop}, 1}=\inf \left\{s\geq 0: \max_{a, b} |\E_s(z)_{ab}|\geq W^{\delta_{\sto}}W^{-\frac{3}{4}}|\im w_s|^{-1}\cdot W^{-1}|\im w_s|^{-\frac{1}{2}}\right\}\wedge 1
-\tag{3.2.1}
+\tag{3.4.1}
 \end{equation*}
 
 \begin{equation*}
 \tau_{\text{stop}, 2}=\inf \left\{s\geq 0: \max_{a, b} 
 \frac{|G_s(z)_{ab}-\delta_{ab}m(z)|^2}{(S^{1/2}T_s(z)S^{1/2})_{ab}+S_{ab}^{1/2}+W^{-D}}\geq W^{\delta_{\sto/10}}
 \right\}\wedge 1
-\tag{3.2.2}
+\tag{3.4.2}
 \end{equation*}
 \begin{equation*}
-\tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}\tag{3.2.2}
+\tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}\tag{3.4.2}
 \end{equation*}
 
 \noindent The reasoning behind the latter definitions is simple - informally, our goal is to establish a bootstrapping mechanism that will allow us to propagate forward the stopping time through a self-reinforcement (continuity) argument. While the particular choices for constants may seem arbitrary at the moment, they are informed by the bounds we get on the maximal entries of the diffusion profile $\Theta_t$ (\hyperref[diffusion]{Sec. 4.1}), the assumption of $\eta\gg W^{-3/4}$, as well as the technical steps in our analytic argument. That said, we can still gain some intuition as to the meaning of each. With $\tau_{\text{stop},1}$ we have control over the size the error term $\E_s(z) = T_s(z) - \Theta_s$, whereas $\tau_{\text{stop},2}$ is w.r.t to the deviation of the resolvent entries from the semicircle law $m(z)$, normalized by appropriate terms. The self-reinforcing argument works as follows:
@@ -474,7 +478,7 @@ While the three terms we achieved in the previous section are a good start, we h
 
 \end{enumerate}
 
-\noindent The particular delocalization bound for $W \gg N^{8/11}$ emerges from the need for the combined error term $W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$ in equation $(3.2.1)$ to be much smaller than the typical size of the $\Theta$ entries of $O( W^{-1}\eta^{-\frac{1}{2}})$, while maintaining he diffusion time scale $\eta \approx W^2N^{-2}$ (\hyperref[diffusion]{Sec. 4.1}) :
+\noindent The particular delocalization bound for $W \gg N^{8/11}$ emerges from the need for the combined error term $W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$ in equation $(3.4.1)$ to be much smaller than the typical size of the $\Theta$ entries of $O( W^{-1}\eta^{-\frac{1}{2}})$, while maintaining he diffusion time scale $\eta \approx W^2N^{-2}$ (\hyperref[diffusion]{Sec. 4.1}) :
 	
 $$W^{-\frac{7}{4}}\eta^{-\frac{3}{2}} \ll W^{-1}\eta^{-\frac{1}{2}}$$
 $$W^{-\frac{7}{4}}(W^2N^{-2})^{-\frac{3}{2}} \ll W^{-1}(W^2N^{-2})^{-\frac{1}{2}}$$
@@ -504,7 +508,7 @@ The first theorem established by Dubova and Yang (Theorem 2 \cite{bandSDE}) show
 For $|E|<2$ fixed, assume $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq W^{8/11+\eta}$. Then: $$\max_{x, y}|T_{xy}-\Theta_{xy}|\prec W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$$
 \end{boxtheorem}
 This result has a physical interpretation. First, observe
-that by \hyperref[3.1]{(3.1)} and  \hyperref[lemma-a11]{Lemma A.1.1}, $1-|m(z)|^2\asymp \eta\Leftrightarrow \exists \alpha>0, 1-|m(z)|^2\geq \alpha\eta$, we have that: 
+that by \hyperref[2.1]{(2.1)} and  \hyperref[lemma-a11]{Lemma A.1.1}, $1-|m(z)|^2\asymp \eta\Leftrightarrow \exists \alpha>0, 1-|m(z)|^2\geq \alpha\eta$, we have that: 
  $$\Theta =\frac{|m(z)|^2S}{1-|m(z)|^2S} = \frac{|m(z)|^2S}{1-|m(z)|^2-|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta-(S-\text{Id})}$$
 \textcolor{red}{Shouldn't this be a minus sign? Theorem 2 in \cite{bandSDE} states it with a plus sign.}
 If we recall the phenomenology of our \hyperref[model]{model}, we can interpret the band width $W$ as the range of interactions in the particle system $\Z_N = \{1, \cdots, N\}$. In this context, since the doubly stochastic matrix is normalized as $\sum_x S_{xy}=1$ and $\sum_y S_{xy}=1$ for fixed $x, y\in \Gamma$, it has a unique interpretation as the transition matrix for a random walk on $\Z_N$. In this context, $S-\text{Id}$ is then clearly its generator, which allows us to consider $\Theta$ as its \textcolor{red}{resolvent?(neg. sign?)}. The spectral gap of this random walk on $\Gamma$ with steps of variance $W^2$ is of order $W^2N^{-2}$ (\textcolor{red}{reference?}). Standard bounds for diffusion \hyperref[lemma-a2]{Lemma A.2} imply that $\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$, whereas the latter theorem reveals a distinct scaling  $W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}\ll W^{-1}\eta^{-1/2}$. This in fact is precisely what characterized quantum diffusion, because instead of following standard resolvent bounds, the maximal entry of the diffusion profile $\Theta$ exhibits different scaling behavior, akin to the phenomenon of interference in quantum systems. Moreover, this quantum correction persists until the relaxation time $\eta^{-1}\asymp N^2W^{-2}$ (Thouless time \cite{17, 32, 33}), allowing us to prove delocalization (\hyperref[proof-deloc]{Theorem 2}).
@@ -1154,7 +1158,7 @@ $\mathcal{G}_{21, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \end{equation*}
 \end{center}
 
-\noindent Let us start by bounding the loop at $\delta$, as well as the $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$. In total, this contributes $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. However, here we don't have the same structure as before, since $\gamma$ no longer has an ingoing edge from $x$. Regardless, observe that by preserving $x\textcolor{blue}{\rightarrow}\beta$, when we are performing the total estimation at the end, the wavy lines (abstracted away with the orange wavy line) will be contributing only with $O(1)$ per estimate $(5)$, so we can expect for the result to be equivalent to the two prior two. That said, the bound is of the form: $\mathcal{G}_{31, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times $
+\noindent Let us start by bounding the loop at $\delta$, as well as the $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$. In total, this contributes $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. However, here we don't have the same structure as before, since $\gamma$ no longer has an ingoing edge from $x$. We can abstract away the wavy lines (blue and red) with an orange wavy line, and handle the individual terms, which will be contributing only with $O(1)$ per estimate $(5)$. As such, the bound is of the form: $\mathcal{G}_{31, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -1210,7 +1214,7 @@ $\mathcal{G}_{21, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \mathcal{G}_{41, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} B_{u\gamma}S_{\gamma \delta}G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma\beta} S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}G_{\alpha y}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
 \end{center}
-\noindent Here the logic is the same as above, namely, after eliminating the loop at $\delta$ and the edges $x\textcolor{red}{\rightarrow} y$, $\gamma\textcolor{blue}{\rightarrow} \beta$, and $\beta\textcolor{blue}{\rightarrow} \alpha$ we get a term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. The remaining graph is of similar form as the one before with two additional wavy lines that contribute only $O(1)$ at the end. The bound is of the form: $\mathcal{G}_{41, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
+\noindent Here the logic is the same as above, namely, after eliminating the loop at $\delta$ and the edges $x\textcolor{red}{\rightarrow} y$, $\gamma\textcolor{blue}{\rightarrow} \beta$, and $\beta\textcolor{blue}{\rightarrow} \alpha$ we get a term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. The remaining graph is of similar form as the one before, with the wavy edges being abstracted away with the orange one: $\mathcal{G}_{41, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -1235,7 +1239,7 @@ $\mathcal{G}_{21, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 As such, all our graphs are bounded by:
  
 \begin{center}
-$\max_{i=1, \cdots, 4} \mathcal{G}_{i1, s}\lesssim W^{-2}\eta_s^{-1}\times $
+$\max_{i=1, \cdots, 4} \mathcal{G}_{i1, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times \left\{\begin{array}{l}
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -1250,10 +1254,29 @@ $\max_{i=1, \cdots, 4} \mathcal{G}_{i1, s}\lesssim W^{-2}\eta_s^{-1}\times $
 \draw[thick, double] (y) -- (b);
 \draw[blue, ->](x) to (gamma);
 \draw[blue, ->] (gamma) to (y);
+\end{tikzpicture}
+\\[1cm]
+\begin{tikzpicture}[
+    thick, % Line thickness
+    wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
+    ]
+\node (a) at (0,0) {a};
+\node (x) at (1, 0) {x};
+\node (gamma) at (2,0) {$\gamma$};
+\node (alpha) at (3, 0) {$\alpha$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
+
+\draw[thick, double] (a) -- (x);
+\draw[thick, double] (y) -- (b);
+\draw[wavy, orange] (alpha) to (gamma);
+\draw[blue, ->](x) to (gamma);
+\draw[blue, ->] (alpha) to (y);
 
 \end{tikzpicture}
+\end{array}\right.$
 \end{center}
-Observe that the latter subgraph is almost identical to the one we calculate for the $\mathcal{G}_{i0, s}$ estimates with the addition of a solid line. This means that we will have an additional term $O(W^{1/2}\eta_s^{-3/4})$ from estimate $(1)$. As such, the subgraph is bounded by the sum of terms $O(\eta_t^{-3/2}\eta_s^{1/2})$ and $O(\eta_t^{-1})$, i.e combined with the multiplicative term, we get:$$\max_{i=1, \cdots, 4}| \mathcal{G}_{i1, s}|\lesssim W^{-2}\eta_t^{-3/2}\eta_s^{-1/2}+W^{-2}\eta_t^{-1}\eta_s^{-1}$$
+Observe that the latter subgraphs are almost identical to the one we calculate for the $\mathcal{G}_{i0, s}$ estimates with the addition of a solid line. This means that we will have an additional term $O(W^{1/2}\eta_s^{-3/4})$ from estimate $(1)$. As such, the subgraph is bounded by the sum of terms $O(\eta_t^{-3/2}\eta_s^{1/2})$ and $O(\eta_t^{-1})$, i.e combined with the multiplicative term, we get:$$\max_{i=1, \cdots, 4}| \mathcal{G}_{i1, s}|\lesssim W^{-2}\eta_t^{-3/2}\eta_s^{-1/2}+W^{-2}\eta_t^{-1}\eta_s^{-1}$$
 $$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t}|\mathcal{G}_{i1, a}|ds\lesssim W^{-2}\eta_t^{-3/2}\int_{\eta_t}^{O(1)}\sigma^{-1/2}d\sigma + W^{-2}\eta_t^{-1}\int_{\eta_t}^{O(1)}\sigma^{-1}d\sigma=$$
 $$= 2W^{-2}\eta_t^{-3/2}-2W^{-2}\eta_t^{-1}-W^{-2}\eta_t^{-1}\ln \eta_t\in  O(W^{-2}\eta_t^{-3/2})$$
 
@@ -2374,7 +2397,7 @@ By doing a change of variable for $\sigma = \im w_s$, we get:
 \lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu} \left(\frac{\im w_0^{-2}-\eta_t^{-2}}{-2}\right)+W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\left(\log \im w_0-\log \eta_t\right)
 \end{equation*}
 By \hyperref[lemma-a12]{Lemma A.1.2} for any $s\in [0, t]$, we have $\im w_s = \im w_t+(t-s)\im m(z)\geq \im w_t$
-and \hyperref[3.1]{$\im m(z)\asymp 1$}:
+and \hyperref[2.1]{$\im m(z)\asymp 1$}:
 $$\Rightarrow \im w_s = \eta+(1-s)\im m(z)\leq \eta+ \im m(z) = \im w_0 = \frac{\im m(z)}{|m(z)|^2}\leq \im m(z)\lesssim 1\Leftrightarrow \log \im w_0\lesssim 0$$
 Hence, we can drop the negative term w.r.t. $\im w_0^{-2}$ and bound above by $\log \im w_0\lesssim 0$:
 \begin{equation*}
@@ -2690,7 +2713,7 @@ Let us extend the assumption from the previous section for some $\delta?>0$ as:
 
  $$\max_{a, b}|G_{xy}-m(z)\mathbf{1}_{(x=y)}| = \Psi \leq N^{-\delta}$$
 
-Assume the existence of a family of admissible control parameters $\Omega_{ij}^2$, s.t $T_{ij}\prec \Omega_{i, j}^2$. Using our earlier estimates, namely $(3.1)$ and $(3.2)$,  we have: 
+Assume the existence of a family of admissible control parameters $\Omega_{ij}^2$, s.t $T_{ij}\prec \Omega_{i, j}^2$. Using our earlier estimates, namely $(2.1)$ and $(2.2)$,  we have: 
 
 $$|G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\prec\sum_{w\neq x} S_{xw}\left(|G_{wy}|^2+O_{\prec}(|G_{wx}G_{xy}|^2)\right)=$$
 
