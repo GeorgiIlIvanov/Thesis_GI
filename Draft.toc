@@ -2,8 +2,9 @@
 \contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {section}{\numberline {2}Prerequisites}{5}{section.2}%
 \contentsline {section}{\numberline {3}Flow Method}{9}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Dynamical $T$-equation}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Stopping time}{13}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.1}Construction}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Dynamical $T$-equation}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Stopping time}{13}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Quantum Diffusion and Delocalization}{15}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Quantum Diffusion}{15}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Delocalization}{16}{subsection.4.2}%
@@ -13,7 +14,7 @@
 \contentsline {section}{\numberline {6}Bounds on Flow Terms}{22}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Estimate for $\mathcal {E}_t^{D, \text {stop}}(z)$}{23}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Estimate for $\mathcal {E}_t^{M, \text {stop}}(z)$}{37}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{42}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{41}{subsection.6.3}%
 \contentsline {section}{\numberline {7}Proof of Theorems}{44}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Theorem 1 - Stopping time}{44}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Theorem 2 - Quantum Diffusion}{44}{subsection.7.2}%

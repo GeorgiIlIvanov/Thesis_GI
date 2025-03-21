@@ -345,8 +345,8 @@ Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entr
 \section{Flow Method}
 \label{sec:flow}
 At the heart of the most recent advances in the theory of delocalization lies the flow method, a dynamic technique that will be the primary tool of our exploration. First appearing in the paper of von Soosten and Warzel \cite{RP}, it was used to prove non-ergodic delocalization in the Rozenzweig-Porter model \cite{porter1960}. Subsequent work \cite{soosten} extended the methodology to general Wigner matrices \cite{dynamic}, allowing for a simplified proof of the local semicricle law. The primary idea is to trace the evolution of the Green's function (resolvent) along random characteristic curves, enabling direct concentration estimates and more refined spectral control. More recently, it was used to prove delocalization for the one- and two-dimensional band matrices \cite{yauyin, twodim}\vspace{0.25cm}.
-
-\noindent The argument goes as following: consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)_{xy}\sim \mathcal{N}(0, t)$ represents the component Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where: $$w(t) = -\frac{1}{m(z)}-tm(z) = z+(1-t)m(z)$$
+\subsection{Construction}
+\noindent Consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)_{xy}\sim \mathcal{N}(0, t)$ represents the component Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where: $$w(t) = -\frac{1}{m(z)}-tm(z) = z+(1-t)m(z)$$
 by the self-consistent equation \hyperref[self-consistent]{(2)}. In order to study this system and its transition from $t=0$ with $G(0) = m(z)$, to $t=1$ with $G(1)=G(z)$, we will employ stochastic calculus. For this purpose, observe that our differentials are $dH(t)_{xy} = \sqrt{S_{xy}}db_{xy}(t)$ and $\partial_tw(t) = -m(z)$. Recall the Îto equation, namely, the statement that a function $f(\vec{b}(t), t)$, dependent on a Brownian random walk  $\vec{b}(t) = (b(t)_1, \cdots, b(t)_d)$ w.r.t to time $t$, has derivative:
 $$df(\vec{b}(t), t) = \frac{\partial f}{\partial t}dt + \sum_{i=1}^d \frac{\partial f}{\partial b_i}db_i(t) + \frac{1}{2}\sum_{i=1}^d \frac{\partial^2 f}{\partial b_i^2} dt$$
 In our case, by taking the function to be $G(t)$ and using restriction of a symmetric matrix and the latter differentials, we get the following expression:
@@ -397,7 +397,7 @@ $$\Omega(t)_{xy}=G_{xy}(t)\left(\overline{\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))
 $$+\overline{G_{xy}(t)}\left(\sum_j G_{xj}(t)S_{jy}(G_{yy}(t)-m(z))G_{jy}(t)\right)+\sum_{\alpha, \beta}|G_{xa}(t)|^2S_{\alpha, \beta}|G_{x\beta}(t)|^2$$
 Hence, by Itô the $T$-equation becomes: 
 \begin{equation}
-\Rightarrow d{T} = {T}^2 dt + S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt
+d{T} = {T}^2 dt + S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt
 \end{equation}
 Now, define the \textit{time-dependent diffusion profile} as:$$\Theta_t = \frac{|m(z)|^2S}{1-t|m(z)|^2S}$$
 Let us take its derivative w.r.t to $t$: 
@@ -520,7 +520,7 @@ Throughout this section we will state or derive all of the inequalities and stoc
 
   
 
-\begin{boxtheorem}{Lemma 1: Large Deviation estimates}
+\begin{boxtheorem}{Lemma 1: (Large Deviation estimates)}
 
   
 
@@ -653,7 +653,7 @@ $$\Rightarrow \max_x|G_{xx}-m|^2\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{
 \label{sec:drift}
 In this section, our goal is to control the three terms of the fluctuations between the $T_{xy}$ and $\Theta_{xy}$ matrices. The squared $\mathcal{E}_t^S$ and $M$-term $\mathcal{E}_t^M$ of the flow SDE can be handled using the resolvent bounds we derived earlier, along with standard martingale calculus. However, the drift term $\mathcal{E}^{D}_t$ requires extra care. For it, we will follow Dubova and Yang's derivation closely, which employs the graphical perturbation methods developed by Bourgade, Yau and Yin, in their self-energy renormalization paper \cite{38}. More specifically, we will use Definition 17  \cite{bandSDE} for the diagrammatic notation of a standard oriented graph:
 \vspace{0.25 cm}
-\begin{boxt}{Diagrammatic notation}
+\begin{boxt}{Definition 2: (Diagrammatic notation)}\label{def2}
 \begin{itemize}
 \item Each vertex will be assigned a label, corresponding to a matrix index $\alpha \in \{1, \cdots, N\}$. 
 \item Each blue-colored loop \textcolor{blue}{$\circlearrowright$}, regardless of direction, represents a term $G_s(z)_{\alpha\alpha} - m(z)$;
@@ -2280,10 +2280,10 @@ $\mathcal{G}_{43, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 
 \subsection{Estimate for $\E_t^{M, \text{stop}}(z)$}
 
-$$\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\} S^{1/2}dM(s)S^{1/2} \{\text{Id} + (t-s)\Theta_t\}= $$$$=\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\{\text{Id} + (t-s)\Theta_t\}+$$
-$$+ \int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\overline{G_{vy}}\right]\{\text{Id} + (t-s)\Theta_t\}$$
+$$\E_t^{M, \text{stop}}(z)=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\} S^{1/2}dM(s)S^{1/2} \{\text{Id} + (t-s)\Theta_t\}= $$$$=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\{\text{Id} + (t-s)\Theta_t\}-$$
+$$- \int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\overline{G_{vy}}\right]\{\text{Id} + (t-s)\Theta_t\}$$
 
-\noindent After rewriting the fractions as $\left[\text{Id}+(t-s)\Theta_t\right]_{ax}$ and with index $yb$, respectively, the latter two terms can be written in diagrammatically using our familiar notation:
+\noindent The latter two terms can be written diagrammatically using the same notation as before (\hyperref[def2]{Def. 2}):
 \begin{center}
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -2327,7 +2327,7 @@ where the purple wavy line represents $dH_{uv}$ and the red wavy line is its com
 \begin{boxtheorem}{\centering BDG inequality}
 $$\mathbb{E}\left[\sup_{0\leq s\leq t}\left\vert M_{xy}(s)\right\vert^{2p}\right]\leq C_p\mathbb{E}\left[ M_{xy} \right]_t^p$$
 \end{boxtheorem}
-In order to apply the Quadratic Variation (QV) on the RHS, we will need to rewrite our separate graphs into one combined QV graph. To do this, we will use that fact that the Brownian increments $dB_{\alpha\beta}(t)$ are mutually uncorrelated, s.t. we clearly have that the cross-terms in the quadratic variation vanish unless we have $(u, v) = (u', v')$, i.e we can identify the latter pairs, getting a combined graph of the form:
+In order to express the Quadratic Variation (QV) on the RHS, we will need to rewrite our separate graphs into one combined QV graph. To do this, we will use that fact that the Brownian increments $dB_{\alpha\beta}(t)$ are mutually uncorrelated, s.t. we clearly have that the cross-terms in the quadratic variation vanish unless we have $(u, v) = (u', v')$, i.e we can identify the latter pairs, getting a combined graph:
 
 
 \begin{center}
@@ -2358,7 +2358,7 @@ In order to apply the Quadratic Variation (QV) on the RHS, we will need to rewri
 
 \end{tikzpicture}
 \end{center}
-Now, if we are to approach the bounding carelessly, we will quickly stumble into problems. For example, by applying our standard estimates, first eliminating the wavy line, from which we have $\sqrt{S_{uv}}\lesssim N^{-1/2}$ per estimate $4$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'\Rightarrow a\Rightarrow x\textcolor{blue}{\rightarrow }y\Rightarrow b\Rightarrow y'$. By applying the already familiar estimate $2$ to the 4 red lines, we get a combined term $O(N^{-2}\eta_s^{-1})$. Now, to get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$, using estimate 1 (since the edge is not "free") with which we get $O(N^{1/2}\eta_s^{-3/4})$. By observing what remains, we can quickly see this will prove to be unruly due to the fact that we will have to split double lines into the respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, which will each be of the form $O\left(N^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$ (we have an additional estimate from the blue line that is $N^{1/2}\eta_s^{-3/4}$). We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms, hence the bound quickly becomes unruly as we take the limit $\eta_t\rightarrow 0$. 
+If we are to approach the bounding in the same fashion as before, we will no get appropriate bounds: By eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim N^{-1/2}$ per estimate $(4)$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(2)$ to all red lines, we get a combined term $O(W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, which will each be of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms.
 
 
 \subsubsection*{Alternative bound}
