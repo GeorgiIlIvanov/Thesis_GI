@@ -2280,8 +2280,9 @@ $\mathcal{G}_{43, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 
 \subsection{Estimate for $\E_t^{M, \text{stop}}(z)$}
 
-$$\E_t^{M, \text{stop}}(z)=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\} S^{1/2}dM(s)S^{1/2} \{\text{Id} + (t-s)\Theta_t\}= $$$$=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\{\text{Id} + (t-s)\Theta_t\}-$$
-$$- \int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\overline{G_{vy}}\right]\{\text{Id} + (t-s)\Theta_t\}$$
+$$\E_t^{M, \text{stop}}(z)=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\} S^{1/2}dM(s)S^{1/2} \{\text{Id} + (t-s)\Theta_t\}= $$$$=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}S^{\frac{1}{2}}\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]S^{\frac{1}{2}}\{\text{Id} + (t-s)\Theta_t\}-$$
+$$- \int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}S^{\frac{1}{2}}\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\,\overline{G_{vy}}\right]S^{\frac{1}{2}}\{\text{Id} + (t-s)\Theta_t\}=$$
+$$=\E_t^{M, 1}(z)+\E_t^{M, 2}(z)$$
 
 \noindent The latter two terms can be written diagrammatically using the same notation as before (\hyperref[def2]{Def. 2}):
 \begin{center}
@@ -2358,35 +2359,33 @@ In order to express the Quadratic Variation (QV) on the RHS, we will need to rew
 
 \end{tikzpicture}
 \end{center}
-If we are to approach the bounding in the same fashion as before, we will no get appropriate bounds: By eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim N^{-1/2}$ per estimate $(4)$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(2)$ to all red lines, we get a combined term $O(W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, which will each be of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms.
+If we are to approach the bounding in the same fashion as before, we will no get appropriate bounds: By eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim N^{-1/2}$ per estimate $(4)$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(2)$ to all red lines, we get a combined term $O(W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, each of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms.\textcolor{red}{FINISH THE BOUND AFTER THE OTHER TWO}.
 
 
 \subsubsection*{Alternative bound}
-The latter calculations demonstrate that we need to be more thoughtful with our estimates. Let us come back to our original form of the $S^{1/2}dM(s)S^{1/2}$ term:
-$$=\int_0^t\left[\text{Id}+(t-s)\Theta_t\right]S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\left[\text{Id}+(t-s)\Theta_t\right] +$$
-$$\int_0^t \left[\text{Id}+(t-s)\Theta_t\right]S^{1/2}\left\{\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\overline{G_{vy}}\right]\right\}S^{1/2}\left[\text{Id}+(t-s)\Theta_t\right] = \mathcal{E}_t^{M, 1}+\mathcal{E}_t^{M, 2}$$ 
-Observe that we can split each of the components into 4 separate parts by simply expanding the square brackets. We will this explicitly for $\mathcal{E}_{t}^{M, 1}$, whereas the second term is equivalent up to complex conjugation:
+The latter calculations demonstrate that we need to be more thoughtful with our estimates. Let us come back to our original form of the $S^{1/2}dM(s)S^{1/2}$ term. Observe that we can split the components $\E_t^{M, 1}$ and $\E_t^{M, 2}$ into 4 separate parts each by expanding the square brackets. We will this explicitly for $\mathcal{E}_{t}^{M, 1}$, whereas the second term is equivalent up to complex conjugation:
 
-$$\mathcal{E}_t^{M, 1} = \int_0^t(t-s)^2S^{1/2}\Theta_t\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+$$
-$$+\int_0^t(t-s)S^{1/2}\Theta_t\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}+$$
-$$+\int_0^t(t-s)S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+$$
-$$+ \int_0^t2S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2} =$$
+$$\mathcal{E}_t^{M, 1} = -\int_0^{t\wedge \tau_\sto}(t-s)^2\Theta_tS^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+$$
+$$-\int_0^{t\wedge \tau_\sto}(t-s)\Theta_tS^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}$$
+$$-\int_0^{t\wedge \tau_\sto}(t-s)S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+$$
+$$-\int_0^{t\wedge \tau_\sto}S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2} =$$
 $$= \mathcal{E}_t^{M, 11}+\mathcal{E}_t^{M, 12}+\mathcal{E}_t^{M, 13}+\mathcal{E}_t^{M, 14}$$
-Now, instead of applying the BDG inequality to the entire term, we can bound the individual $\mathcal{E}_t^{M, 1i}$ entries:
+Now, we will apply the BDG inequality to the individual $\mathcal{E}_t^{M, 1i}$ terms for $j=1, 2, 3, 4$:
 
-$$\mathbb{E}\left\vert \mathcal{E}^{M, 1i}_{ab}(s)\right\vert^{2p}\leq C_p\mathbb{E}\left[ \mathcal{E}^{M, 1i}_{ab}(s) \right]_t^p$$
+$$\mathbb{E}\left\vert \mathcal{E}^{M, 1i}_t(z)_{ab}\right\vert^{2p}\leq C_p\mathbb{E}\left[ \mathcal{E}^{M, 1i}_t(z)_{ab} \right]^p$$
 
-\noindent Hence, we need to calculate the quadratic variation for each term. To do this, recall from before that the Brownian increments $dB_{\alpha\beta}(t)$ are mutually uncorrelated, i.e our term $dH_s = \sum_{u, v} \sqrt{S_{u, v}}dB_{u, v}(s)$ has covariance structure: $$\mathbb{E}\left[dH_s\overline{dH_s}\right] = \mathbb{E}\left[\sum_{u, u', v, v'}\sqrt{S_{uv}}dB_{uv}(s)\sqrt{S_{u'v'}}dB_{u'v'}(s)\right]_{ab}=S_{ab}ds$$
-Hence the QV of each of the latter terms is:
-$$\Rightarrow\left[\mathcal{E}^{M, 11}\right]_{ab} = \int_0^t(t-s)^4\sum_{x, x', y, y', u, v}(\Theta_tS^{1/2})_{ax}(\Theta_tS^{1/2})_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}(S^{1/2}\Theta_t)_{yb}(S^{1/2}\Theta_t)_{yb'}ds$$
 
-$$\left[\mathcal{E}^{M, 12}\right]_{ab} = \int_0^t(t-s)^2\sum_{x, x', y, y', u, v}(\Theta_tS^{1/2})_{ax}(\Theta_tS^{1/2})_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}S^{1/2}_{yb}S^{1/2}_{yb'}ds$$
+\noindent To calculate the quadratic variation (QV) on the RHS, recall from before that the Brownian increments $dB_{\alpha\beta}(t)$ are mutually uncorrelated, i.e our term $dH_s = \sum_{u, v} \sqrt{S_{u, v}}dB_{u, v}(s)$ has covariance structure: $$\mathbb{E}\left[dH_s\overline{dH_s}\right] = \mathbb{E}\left[\sum_{u, u', v, v'}\sqrt{S_{uv}}dB_{uv}(s)\sqrt{S_{u'v'}}dB_{u'v'}(s)\right]_{ab}=S_{ab}ds$$
+Hence the QV of $\left[\mathcal{E}^{M, 11}\right]_{ab}$ and the other terms is:
+$$ \int_0^{t\wedge \tau_\sto}(t-s)^4\sum_{x, x', y, y', u, v}(\Theta_tS^{1/2})_{ax}(\Theta_tS^{1/2})_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}(S^{1/2}\Theta_t)_{yb}(S^{1/2}\Theta_t)_{yb'}ds$$
 
-$$\left[\mathcal{E}^{M, 13}\right]_{ab} = \int_0^t(t-s)^2\sum_{x, x', y, y', u, v}S^{1/2}_{ax}S^{1/2}_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}(S^{1/2}\Theta_t)_{yb}(S^{1/2}\Theta_t)_{yb'}ds$$
+$$\left[\mathcal{E}^{M, 12}\right]_{ab} = \int_0^{t\wedge \tau_\sto}(t-s)^2\sum_{x, x', y, y', u, v}(\Theta_tS^{1/2})_{ax}(\Theta_tS^{1/2})_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}S^{1/2}_{yb}S^{1/2}_{yb'}ds$$
 
-$$\left[\mathcal{E}^{M, 14}\right]_{ab} = \int_0^t\sum_{x, x', y, y', u, v}S^{1/2}_{ax}S^{1/2}_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}S^{1/2}_{yb}S^{1/2}_{yb'}ds$$
+$$\left[\mathcal{E}^{M, 13}\right]_{ab} = \int_0^{t\wedge \tau_\sto}(t-s)^2\sum_{x, x', y, y', u, v}S^{1/2}_{ax}S^{1/2}_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}(S^{1/2}\Theta_t)_{yb}(S^{1/2}\Theta_t)_{yb'}ds$$
 
-\noindent Observe that we have the same primary components of the separate terms, differing up to the utmost left and right terms. Hence, we can abstract away four separate matrices, to represent this two-by-two  overlap: 
+$$\left[\mathcal{E}^{M, 14}\right]_{ab} = \int_0^{t\wedge \tau_\sto}\sum_{x, x', y, y', u, v}S^{1/2}_{ax}S^{1/2}_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}S^{1/2}_{yb}S^{1/2}_{yb'}ds$$
+
+\noindent Observe that we have the same primary components differing up to the utmost left and right terms. Hence, we can abstract away four separate matrices, to represent this two-by-two  overlap: 
 
 $$
 \Upsilon_{yy}^u := \sum_v S_{uv} G_{vy} \overline{G}_{vy'} (\Theta_t S^{\frac{1}{2}})_{yb} (\Theta_t S^{\frac{1}{2}})_{y'b},
@@ -2442,6 +2441,10 @@ $$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] \leq  \int_0^t (t-s)^2\sum_u \|\U
 
 $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] \leq \int_0^t \sum_u \|\Gamma^u\|_{op}\sum_y \Xi_{yy'}^uds\lesssim N^{-4}\int_{\text{Im}w_t}^0\sigma^{-5}\lesssim N^{-4}|\text{Im}w_t|^{-4}$$
 
+
+\subsubsection*{Result}
+(3.14) \cite{bandSDE}. By Chebyshev inequality, we have that for any $\delta>0$ and $p\geq 1$, the following holds: 
+$$\mathbb{P}\left(\left\vert \E_t^{M, 1j}(z)_{ab}\geq N^\delta [\E_t^{M, 1j}(z)_{ab}]^{1/2}\right\vert\right)\leq C_p N^{-2p\delta}$$
 
 \subsection{Estimate for $\E_t^{S, \text{stop}}(z)$}
 
