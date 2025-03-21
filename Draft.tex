@@ -282,7 +282,7 @@ m(z) = -\frac{1}{z+m(z)} \Leftrightarrow m(z) + \frac{1}{m(z)} + z=0
 \end{equation}
 
 
-\subsection*{Useful identities}
+\subsection*{Stieltjes transform identities}
 Let us establish several facts and lemmas that we will need throughout our later work. We can begin by observing that: $$m(z)(m(z)+z) = \frac{1}{4}(-z+\sqrt{z^2-4})(z+\sqrt{z^2-4})=\frac{1}{4}(-z^2+z^2-4)=-1$$
 $$\Rightarrow |m(z)| = \frac{1}{|m(z)+z|^{-1}}$$
 Now, take the imaginary part of $(2)$: $$\text{Im}(m(z)) + \text{Im}\left(\frac{1}{m(z)}\right)+\eta=0$$
@@ -300,7 +300,6 @@ which is also equivalent to $\text{Im }m \asymp 1$, where $\asymp$ means being b
 \end{equation*}
 Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. First observe that $|m(z)|\geq c>0$ can never be zero, since it implies: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
 $$\Rightarrow z^2-4=z^2\Leftrightarrow -4=0$$ 
-
 
 
 
@@ -340,6 +339,22 @@ Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entr
 \begin{equation*}
 \partial_{H_{ij}}\overline{G(z)_{xy}}= \lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}(H^\intercal-H'^\intercal)\overline{G}\right]_{xy}}{\epsilon} =\\\\= -\lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}\epsilon_{ji}\overline{G}\right]_{xy}}{\epsilon} = -[\overline{G'}\mathbf{1}_{ji}\overline{G}]_{xy} = -\overline{G_{xj}}\ \overline{G_{iy}}
 \end{equation*}
+
+\noindent Lastly, the following result is ubiquitous in RMT literature (8.3.iii \cite{dynamic}), and as such has its own name: 
+\begin{boxtheorem}{Ward identity: } $$\sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$\end{boxtheorem}
+The proof follows directly from the spectral decomposition of the resolvent we showed in $(1)$, by which:
+$$G_{ij} = \sum_{\alpha} \frac{\mathbf{u}_\alpha(i) \mathbf{u}_\alpha^*(j)}{\lambda_\alpha - z}\quad \Leftrightarrow \sum_j G_{ij} G_{ji}^* = \sum_{j, \alpha, \beta}\frac{\mathbf{u}_\alpha(i) \mathbf{u}_\alpha^*(j)}{\lambda_\alpha - z} \frac{\mathbf{u}_\beta(j) \mathbf{u}_\beta^*(i)}{\lambda_\beta - z^*}
+$$
+And since the eigenvectors are orthogonal $\sum_j \mathbf{u}_\alpha^*(j) \mathbf{u}_\beta(j) = \delta_{\alpha\beta}$, we have: $$\sum_j |G_{ij}|^2=\sum_j G_{ij} G_{ji}^* = \sum_\alpha \frac{|\mathbf{u}_\alpha(i)|^2}{|\lambda_\alpha - z|^2}$$ 
+We can also take the imaginary part of the first identity:
+$$\text{Im}[G_{ii}] = \text{Im}\left[\sum_\alpha \frac{|\mathbf{u}_\alpha(i)|^2}{\lambda_\alpha - z}\right]
+= \sum_\alpha \text{Im}\left[\frac{|\mathbf{u}_\alpha(i)|^2}{\lambda_\alpha - E - i\eta}\right]=\sum_\alpha \text{Im}\left[\frac{|\mathbf{u}_\alpha(i)|^2(\lambda_\alpha - E + i\eta)}{(\lambda_\alpha - E)^2 + \eta^2}\right]= $$
+$$= \sum_\alpha \text{Im}\left[\frac{|\mathbf{u}_\alpha(i)|^2(\lambda_\alpha - E)}{(\lambda_\alpha - E)^2 + \eta^2} + \frac{|\mathbf{u}_\alpha(i)|^2 \cdot i\eta}{(\lambda_\alpha - E)^2 + \eta^2}\right] 
+= \sum_\alpha \frac{|\mathbf{u}_\alpha(i)|^2 \cdot \eta}{(\lambda_\alpha - E)^2 + \eta^2} = \frac{1}{\eta} \sum_\alpha \frac{|\mathbf{u}_\alpha(i)|^2}{|\lambda_\alpha - z|^2}$$
+$$\Rightarrow \sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$
+
+
+
 
 \newpage
 \section{Flow Method}
@@ -2414,9 +2429,10 @@ $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} \sum
 We can estimate the latter bounds by using the fact that $\vert G\vert^2 = GG^*$ and $|G|^4=|G|^2|G|^2$:
 $$\sum_{u, y}\Omega_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'} =$$
 $$= \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'}\leq 4 \sum_{x}|G|_{xx}^2 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2,$$
-following from the Schwarz inequality, since $|G|_{xx'}^2|G|^2_{x'x}=||G|_{xx'}^2|^2$ by virtue of $|G|^2$ being Hermitian. On the other hand, by the Ward identity for the resolvent $|G_{xx}|^2 =  \frac{\text{Im}G_{xx}}{\eta}=\frac{\text{Im}G_{xx}}{\text{Im}w_s}$ (7.23 in \cite{dynamic}):
+following from the Schwarz inequality, since $|G|_{xx'}^2|G|^2_{x'x}=||G|_{xx'}^2|^2$ by virtue of $|G|^2$ being Hermitian. On the other hand, by the \hyperref[ward]{Ward identity}:
+$$|G_{xx}|^2\im w_s = \im G_{xx} \Leftrightarrow |G_{xx}|^4 |$$
 
-$$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 |\text{Im}w_s|^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 |\text{Im}w_s|^{-2}|\max_{k}\text{Im}G_{xx}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq$$
+$$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 |\text{Im}w_s|^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 |\text{Im}w_s|^{-2}|\max_{k}\text{Im}G_{kk}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq$$
 
 $$\textcolor{red}{?\lesssim} |\text{Im} w_s|^{-3}\max_k \text{Im}G_{kk}\sum_{x} |(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq N^{-1}|\text{Im}w_s|^{-3}|\text{Im}w_t|^{-3/2},$$
 
