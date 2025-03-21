@@ -408,16 +408,15 @@ We can compute its evolution equation $d\E_t(z) = dT_t(z)-d\Theta_t$ by substitu
 $$\Rightarrow d\E_t(z) = T_t(z)^2dt - \Theta_t^2dt-S^{1/2}dM_t(z)S^{1/2}+S^{1/2}\Omega_t(z)S^{1/2}dt$$
 But observe that:
 $$T_t(z)^2-\Theta_t^2 =(\E_t(z)+\Theta_t(z))^2- \Theta_t(z)^2=\E_t(z)^2+\Theta_t\E_t(z)+\E_t(z)\Theta_t$$ $$\Rightarrow d\E_t(z)=\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt +\E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$$
-This means in fact that we can identify an integrating factor $U(t, s)$ in order to use Itô's lemma. Observe that: 
+Now, observe that the first term $\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt$ makes this equation a matrix-valued linear SDE with a nonlinear stochastic term $W(t) = \E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$. This means that we have to apply a method of variation of parameters (a matrix-valued Duhamel formula \cite{bandSDE}). For this, let us identify an integrating factor $U(t, s)$. Observe that: 
 $$\partial_{t}\{\text{Id}+(t-s)\Theta_t\} = \Theta_t+(t-s)\Theta_t^2=\Theta_t\frac{1-t|m(z)|^2S+(t-s)|m(z)|^2S}{1-t|m(z)|^2S}=$$
 $$=\Theta_t \frac{1-s|m(z)|^2S}{1-t|m(z)|^2S}=\Theta_t\{\text{Id}+(t-s)\Theta_t\}$$
-This is equivalent to $\partial_t U(t, s) = \Theta_t U(t, s)$, which makes $U(t, s)$ our evolution operator, since also $U(t, t) = \text{Id}$. Observe then that we can define the following integral form: $\E_t(z) = \int_0^t U(t, s) W(s) U(t, s)ds,$
-where $W(s)$ includes our non-linear stochastic terms. 
- 
-\textcolor{red}{Integrating $\E_t(z)$ over $s$}:
-$$\E_t(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\left\{\E^2(_sz)ds -S^{1/2} dM(s)S^{1/2}+  S^{1/2} \Omega(s) S^{1/2}\right\} \{\text{Id} + (t-s)\Theta_t\}ds,$$
-whereas we can split the terms in three separate components, each of which we will individually bound in the following section:
-
+This is equivalent to $\partial_t U(t, s) = \Theta_t U(t, s)$, which makes $U(t, s)$ our evolution operator, since also $U(t, t) = \text{Id}$. We can then define the integral form: $\E_t(z) = \int_0^t U(t, s) W(s) U(t, s)ds,$ and verify that it satisfies our SDE by using Leibniz's integral rule, we get:
+$$d\E_t(z) = U(t, t) W(t) U(t, t)dt + \int_0^t d\left[U(t, s)W(s)U(t, s)\right]ds=$$
+$$=W(t)dt + \int_0^t\left[\Theta_t U(t, s) W(s) U(t, s) + U(t, s)W(s)U(t, s)\Theta_t\right]dtds =$$
+$$= \E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt + \{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt$$
+Therefore, by the pathwise uniqueness of solutions to SDEs (Thm. 9.1 \cite{steele}), the following expression satisfies the same SDE:
+$$\E_t(z)=\E_t^{D}(z)+\E_t^{M}(z)+\E_t^{S}(z)$$
 $$\E_t^{D}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds,$$
 $$\E_t^{M}(z)=-\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}ds,$$
 $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$
@@ -2732,6 +2731,8 @@ of power-law random banded matrices.\textit{ Physical Review} 54: 3221, 1996.
 \bibitem{porter1960}  N. Rosenzweig and C. E. Porter. Repulsion of Energy Levels in Complex Atomic Spectra. \textit{Physical Review}, 120: 1698-1714, 1960.
 
 \bibitem{RP} P. von Soosten and S. Warzel. Non-Ergodic Delocalization in the Rosenzweig–Porter Model.\textit{Letters in Mathematical Physics}, 109, 2019.
+
+\bibitem{steele} J. M. Steele. Stochastic Calculus and Financial Applications.\textit{ Springer New York}, 2001.
 
 \bibitem{bdg} D.L. Burkholder, B. Davis, R.F. Gundy. Integral inequalities for convex functions of operators on martingales. \textit{Berkeley Symp. on Math. Statistics and Probability}, 2: 223–240, 1972.
 
