@@ -244,6 +244,9 @@ where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically abo
     % Shade the band region along the diagonal
     \fill[gray!50] (0,\n) -- (\w,\n) -- (\n,\w) -- (\n,0) -- (\n-\w,0) -- (0,\n-\w) -- cycle;
     
+	\fill[gray!50] (0,0) -- (\w,0) -- (0,\w) -- cycle; % Lower left triangle
+    \fill[gray!50] (\n-\w,\n) -- (\n,\n) -- (\n,\n-\w) -- cycle; % Upper right triangle    
+    
     % Write the label
     \node at (-0.8,\n/2) {$H =$};
     
@@ -2590,7 +2593,12 @@ $$F(H) = F(H)(0) + \left.\frac{d}{dp}F(H(\rho))\right\vert_{\rho=0}+\left.\frac{
 Focusing on the last term, we have: $$\frac{d^{n+1}}{dp^{n+1}}  F(H(\rho))= \sum_{\alpha=0}^{n-1}H_{k\ell}^\alpha H_{\ell k}^{n+1-\alpha}C_\alpha,$$
 where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textcolor{red}{justify}) $C_{n+1}$
 
+\section{Combined formula}
+$$\sum_{\beta=0}^{2p+d}\sum_{\vec i, \vec j, \vec \sigma} c_{\vec i, \vec j, \vec \sigma} \prod_{\alpha =1}^\beta G_{\vec j_{\alpha\alpha}}$$
+
 \newpage
+
+
 \section{Appendix}
 \label{sec:appendix}
 
