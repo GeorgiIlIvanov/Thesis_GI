@@ -2429,26 +2429,29 @@ $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} \sum
 We can estimate the latter bounds by using the fact that $\vert G\vert^2 = GG^*$ and $|G|^4=|G|^2|G|^2$:
 $$\sum_{u, y}\Omega_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'} =$$
 $$= \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'}\leq 4 \sum_{x}|G|_{xx}^2 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2,$$
-following from the Schwarz inequality, since $|G|_{xx'}^2|G|^2_{x'x}=||G|_{xx'}^2|^2$ by virtue of $|G|^2$ being Hermitian. On the other hand, by the \hyperref[ward]{Ward identity}, $\max_{a, b}\Theta_{ab}\lesssim W^{-1}\eta^{-1/2}$ (\hyperref[lemma-a2]{Lemma A.2}), the stopping time $s\leq \tau_\sto$ and $(t-s)\lesssim \eta_s$ (\hyperref[lemma-a2]{Lemma A.2}) , we get: $$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 |\text{Im}w_s|^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 |\text{Im}w_s|^{-2}|\max_{k}\text{Im}G_{kk}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2$$
-$$\lesssim |\text{Im} w_s|^{-3}\max_k \text{Im}G_{kk}\sum_{x} |(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq W^{\delta_\sto}|\text{Im}w_s|^{-3}|W^{-1}\text{Im}w_t|^{-3/2},$$
+following from the Schwarz inequality, since $|G|_{xx'}^2|G|^2_{x'x}=||G|_{xx'}^2|^2$ by virtue of $|G|^2$ being Hermitian. On the other hand, by the \hyperref[ward]{Ward identity}, $\max_{a, b}|(\Theta_t)_{ab}|\lesssim W^{-1}\eta_t^{-1/2}$ and $\sum_\beta |(\Theta_t S^{1/2})_{\alpha\beta}|\lesssim \eta_t^{-1}$ (\hyperref[lemma-a2]{Lemma A.2}), the stopping time $s\leq \tau_\sto$ and $(t-s)\lesssim \eta_s$ (\hyperref[lemma-a21]{Lemma A.1.2}) , we get: $$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 \eta_s^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 \eta_s^{-2}|\max_{k}\text{Im}G_{kk}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2$$
+$$\lesssim\eta_s^{-3}\max_k \text{Im}G_{kk}\sum_{x} |(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq W^{\delta_\sto}\eta_s^{-3}W^{-1}\eta_t^{-3/2},$$
 
 \noindent By the same logic as for $\Omega^u_{yy}$, along with the fact that $S_{ab}^{1/2}\lesssim W^{-1}\Rightarrow \sum_b S_{ab}^{1/2} \lesssim 1$, we have that: 
 
 $$\sum_{u, y}\Xi_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'} = \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'}\leq $$
-$$\leq 4 \sum_{x}|G|_{xx}^4 |S^{\frac{1}{2}}_{ax}|^2\lesssim |\text{Im}w_s|^{-3}\max_k\text{Im}G_{kk}\sum_x|S_{ax}^{1/2}|^2\lesssim W^{\frac{\delta_\sto}{10}}W^{-1}|\text{Im}w_s|^{-3}$$
+$$\leq 4 \sum_{x}|G|_{xx}^4 |S^{\frac{1}{2}}_{ax}|^2\lesssim \eta_s^{-3}\max_k\text{Im}G_{kk}\sum_x|S_{ax}^{1/2}|^2\lesssim W^{\frac{\delta_\sto}{10}}W^{-1}\eta_s^{-3}$$
 
 \noindent We need to bound the other two matrices, which we can do by using the fact that $S^u$ is the diagonal matrix $S^u_{ij} = \delta_{ij}S_{ui} = O(W^{-1})$, along with the fact that $\|G\|_{op} = \sup_{\lambda_i}\frac{1}{|\lambda -z|}  = \eta_s^{-1}$,
 hence we get the following bounds:
-$$\|\Upsilon^u\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2\|G^* S^u G\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2 W^{-1}|\text{Im}w_s|^{-2}$$
-$$\|\Gamma^u\|_{op}\leq\max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2\|G^* S^u G\|_{op}\lesssim W^{-3}|\text{Im}w_s|^{-2}$$
+$$\|\Upsilon^u\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2\|G^* S^u G\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2 W^{-1}\eta_s^{-2}$$
+$$\|\Gamma^u\|_{op}\leq\max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2\|G^* S^u G\|_{op}\lesssim W^{-3}\eta_s^{-2}$$
 
 \noindent With this we have all the necessary pieces to complete the estimation of all the QV terms $\mathcal{E}^{M, 1i}_t$, by changing the variable of integration w.r.t $\sigma = |\text{Im}w_s|$.
 $$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right]\lesssim \int_0^{\tau_\sto\wedge t} \eta_s^{-1} W^{\delta_\sto}W^{-2}\eta_t^{-\frac{3}{2}}\max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2ds$$
-$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right]\lesssim W^{\delta_\sto}W^{-2}\eta_t^{-\frac{3}{2}} \max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \int_{\eta_t}^{\eta_0} \sigma^{-1}ds\lesssim W^{-4+\delta+\delta_\sto}\eta_t^{-\frac{5}{2}}$$
+$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right]\lesssim W^{\delta_\sto}W^{-2}\eta_t^{-\frac{3}{2}} \max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \int_{\eta_t}^{\eta_0} \sigma^{-1}ds\lesssim W^{-4+\delta+\delta_\sto}\eta_t^{-\frac{5}{2}},$$
+since $\max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \lesssim W^{-2}\eta_t^{-1}$ (\hyperref[lemma-a2]{Lemma A.2})and $\log \eta_t^{-1}\lesssim \log \eta^{-1}\lesssim W^{\delta}$ for any $\delta>0$. The second term is: 
 
-$$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] \leq \int_0^t (t-s)^2\sum_u \|\Gamma^u\|_{op}\sum_y \Omega_{yy'}^uds\lesssim N^{-4}|\text{Im}w_t|^{-3/2}\int_{\text{Im}w_t}^0 \sigma^{-3}\lesssim N^{-4}|\text{Im}w_t|^{-7/2}$$
+$$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] \lesssim   W^{-3}W^{\delta_\sto}W^{-1}\eta_t^{-3/2}\int_0^{t}\eta_s^{-3}ds$$
+$$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] \lesssim W^{\delta_\sto}W^{-4}\eta_t^{-3/2}\int_{\eta_t}^{\eta_0}\sigma^{-3}ds\lesssim W^{\delta_\sto} W^{-4}\eta_t^{-\frac{7}{2}}$$
 
-$$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] \leq  \int_0^t (t-s)^2\sum_u \|\Upsilon^u\|_{op}\sum_y \Xi_{yy'}^uds\lesssim N^{-4}|\text{Im}w_s|^{-1}\int_{\text{Im}w_t}^0\sigma^{-3} \lesssim N^{-4}|\text{Im}w_t|^{-3}$$
+$$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] \lesssim W^{\frac{\delta_\sto}{10}}W^{-2} \max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \int_0^{t} (t-s)^2 \eta_s^{-5}ds\lesssim $$
+$$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] \lesssim W^{\frac{\delta_\sto}{10}}W^{-2} \max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \int_{\eta_t}^{\eta_0}\sigma^{-3}ds\lesssim W^{\frac{\delta_\sto}{10}}W^{-2} W^{-2}\eta_t^{-1}\eta_t^{-2}$$
 
 $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] \leq \int_0^t \sum_u \|\Gamma^u\|_{op}\sum_y \Xi_{yy'}^uds\lesssim N^{-4}\int_{\text{Im}w_t}^0\sigma^{-5}\lesssim N^{-4}|\text{Im}w_t|^{-4}$$
 
