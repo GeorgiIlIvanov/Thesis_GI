@@ -2443,7 +2443,8 @@ $$\|\Upsilon^u\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2\|G^* S^u G\
 $$\|\Gamma^u\|_{op}\leq\max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2\|G^* S^u G\|_{op}\lesssim W^{-3}|\text{Im}w_s|^{-2}$$
 
 \noindent With this we have all the necessary pieces to complete the estimation of all the QV terms $\mathcal{E}^{M, 1i}_t$, by changing the variable of integration w.r.t $\sigma = |\text{Im}w_s|$.
-$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right]\lesssim \int_0^{\tau_\sto\wedge t} \eta_s^4 $$
+$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right]\lesssim \int_0^{\tau_\sto\wedge t} \eta_s^{-1} W^{\delta_\sto}W^{-2}\eta_t^{-\frac{3}{2}}\max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2ds$$
+$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right]\lesssim W^{\delta_\sto}W^{-2}\eta_t^{-\frac{3}{2}} \max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \int_{\eta_t}^{\eta_0} \sigma^{-1}ds\lesssim W^{-4+\delta+\delta_\sto}\eta_t^{-\frac{5}{2}}$$
 
 $$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] \leq \int_0^t (t-s)^2\sum_u \|\Gamma^u\|_{op}\sum_y \Omega_{yy'}^uds\lesssim N^{-4}|\text{Im}w_t|^{-3/2}\int_{\text{Im}w_t}^0 \sigma^{-3}\lesssim N^{-4}|\text{Im}w_t|^{-7/2}$$
 
