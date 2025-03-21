@@ -8,19 +8,19 @@
 \contentsline {section}{\numberline {4}Quantum Diffusion and Delocalization}{15}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Quantum Diffusion}{15}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Delocalization}{16}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Resolvent Estimates }{17}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Off-diagonal $G_{xy}$ estimate}{17}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Diagonal $|G_{xx}-m(z)|$ estimate}{19}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Bounds on Flow Terms}{22}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Estimate for $\mathcal {E}_t^{D, \text {stop}}(z)$}{23}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Estimate for $\mathcal {E}_t^{M, \text {stop}}(z)$}{37}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{42}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Proof of Theorems}{44}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Theorem 1 - Stopping time}{44}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Theorem 2 - Quantum Diffusion}{44}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Theorem 3 - Delocalization}{44}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Non-Gaussian case}{45}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Lindeberg exchange strategy}{45}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Four Moment Theorem for Green's function}{46}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Result}{46}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Appendix}{51}{section.9}%
+\contentsline {section}{\numberline {5}Estimates }{17}{section.5}%
+\contentsline {section}{\numberline {6}Bounds on Flow Terms}{18}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Estimate for $\mathcal {E}_t^{D, \text {stop}}(z)$}{19}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Estimate for $\mathcal {E}_t^{M, \text {stop}}(z)$}{32}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{37}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Proof of Theorems}{40}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Theorem 1 - Stopping time}{40}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Theorem 2 - Quantum Diffusion}{40}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Theorem 3 - Delocalization}{40}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Non-Gaussian case}{41}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Lindeberg exchange strategy}{41}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Four Moment Theorem for Green's function}{42}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Result}{42}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Appendix}{47}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Resolvent estimates}{48}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Diagonal $|G_{xx}-m(z)|$ estimate}{50}{subsection.9.2}%

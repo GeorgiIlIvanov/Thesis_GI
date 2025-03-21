@@ -528,140 +528,30 @@ The notation for $\mathcal{A}_{\epsilon, \ell, \kappa}$ contains all indices tha
 
 
 \newpage
-\section{Resolvent Estimates }
+\section{Estimates }
 \label{sec:estimates}
 
-Throughout this section we will state or derive all of the inequalities and stochastic bounds we will need for control of the resolvent. Starting with a particularly important large deviation estimate (Theorem 7.7 \cite{dynamic}), which we will need as a Lemma for the estimates:
+In this section we will state all of the inequalities and stochastic bounds we will need for control of our SDE terms. Their rigorous justification is presented in the \hyperref[sec:appendix]{Appendix}.
 
-  
+\begin{boxt}{Estimates}
 
-\begin{boxtheorem}{Lemma 1: (Large Deviation estimates)}
+\begin{enumerate}
 
-  
+\item  $\sup_x\sum_{y}|G_{xy}|\lesssim W^{\frac{1}{2}+\epsilon}\eta_{s}^{-\frac{3}{4}}$ per \hyperref[lemma-b1]{Lemma B.1}.
 
-Let $\left(X_i^{(N)}\right)$ and $\left(Y_i^{(N)}\right)$ are independent families of random variables and $\left(a_{ij}^{(N)}\right)$ and $\left(b_{ij}^{(N)}\right)$ be deterministic. Suppose all entrires $X_{i}^{(N)}$ and $Y_{i}^{(N)}$ are independent and satisfy: $$\E X = 0, \quad \E |X|^2=1, \quad \|X\|_p:=(\E |X|^p)^{1/p}\leq \mu_p$$
+\item $\max_{x,y}\left\vert G_{xy} - \delta_{xy}m(z)\right\vert\lesssim W^{-\frac{1}{2}}\eta_s^{-\frac{1}{4}}$ per  \hyperref[lemma-b2]{Lemma B.2}. 
 
-for all $p\in \N$ and some constants $\mu_p$. Then, we have the bounds: 
 
-\begin{equation*}\sum_i b_i X_i \prec \left(\sum_i |b_i|^2\right)^{1/2}\tag{1.1}\end{equation*}
+\item  The entries of $\Theta_{t}$ are  $O\left(W^{-1}\eta_{t}^{-\frac{1}{2}}\right)$ per \hyperref[lemma-a2]{Lemma A.2}
+    
+\item Per the covariance normalization, $S_{ab}\lesssim W^{-1}$
+\item $\sum_{y}|B_{xy}|$, $\sum_{y}|S_{xy}|$ have size $O(1)$ per \hyperref[lemma-a4]{Lemma A.4}.
 
-\begin{equation*}\sum_{i, j} a_{ij}X_iY_j \prec \left(\sum_{i,j} |a_{ij}|^2\right)^{1/2}\tag{1.2}\end{equation*}
+\item $\sum_{x}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\lesssim \eta_t^{-1}\eta_s$ per \hyperref[cor-a3]{Corollary A.3}
 
-\begin{equation*}\sum_{i\neq j} a_{ij}X_iY_j \prec \left(\sum_{i\neq j} |a_{ij}|^2\right)^{1/2}\tag{1.3}\end{equation*}
-
-\end{boxtheorem}
-
-\subsection{Off-diagonal $G_{xy}$ estimate}
-
-There will be two important observations used throughout the following estimations. First, per the covariance normalization, we have $S_{ab}\lesssim W^{-1}$. Second, $\sum_{y}|B_{xy}|$, $\sum_{y}|S_{xy}|$ have size $O(1)$ per Lemma 25 \cite{bandSDE}. Now, having established that, we can use estimate $(1.3)$ from the Lemma above, along with resolvent identity $(3)$, s.t. we get:
-
-$$|G_{xy}| = \left\vert G_{xx}\sum_{w\neq x}H_{xw}G^{(x)}_{wy}\right\vert= |G_{xx}|\left\vert\sum_{w\neq x}\sqrt{S_{xy}}B(t)_{xy}G^{(x)}_{wy}\right\vert\prec  |G_{xx}|\left(\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\right)^{1/2}\quad (x\neq y)$$
-
-\begin{equation*}\Rightarrow |G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\quad x\neq y\tag{3.1}\end{equation*}
-
-On the other hand, we can rewrite identity $(3)$ as $$G_{wy}^{(x)} = G_{wy}-\frac{G_{wx}G_{xy}}{G_{xx}},$$
-
-s.t. we can bound the latter result using the Cauchy-Schwarz inequality: 
-
-$$|G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2 \lesssim |G_{xx}|^2\sum_{w\neq x}S_{xw}|G_{wy}|^2+|G_{xx}|^2\sum_{w\neq x} S_{xw}\frac{|G_{wx}G_{xy}|^2}{|G_{xx}|^2}$$
-
-\begin{equation*}\Rightarrow |G_{xy}|^2 \lesssim |G_{xx}|^2\sum_{w\neq x}S_{xy}^2|G_{wy}|^2+|G_{xy}|^2\sum_{w\neq x}S_{xw}|G_{wx}|^2 \tag{4}\end{equation*}
-
-\begin{equation*}|G_{xy}|^2\lesssim \sum_{w\neq x}S_{xw}|G_{wy}|^2+N^{-2\delta}|G_{xy}|^2,\tag{4.1}\end{equation*}
-
-where $(4.1)$ follows from $(4)$ under assumptions $|G_{xx}|\prec 1$ and $\sup_{w\neq x}|G_{wx}|^2\prec N^{-\delta}$. By the same logic as above, using $G^*$ instead of $G$ for any $w\neq y$, we have:
-
-$$|G_{wy}|^2 =|G_{yw}^*|^2 \prec |G_{yy}^*|^2\sum_{u\neq y}S_{yu}|G^{*,(y)}_{uw}|^2 \lesssim $$
-
-$$\lesssim |G_{yy}^*|^2\sum_{u\neq y}S_{yu}|G^{*}_{uw}|^2 +|G_{yw}^*|^2\sum_{u\neq y}S_{yu}|G^{*}_{uy}|^2 =$$
-
-  
-
-$$=|G_{yy}|^2\sum_{u\neq y}S_{yu}|G_{wu}|^2 +|G_{wy}|^2\sum_{u\neq y}S_{yu}|G_{yu}|^2 $$
-
-Let us now multiply the latter result by $S_{xw}$ and sum over $w\neq x$, isolating the term $w=y$: 
-
-$$\sum_{w\neq x} S_{xw}|G_{wy}|^2\prec |G_{yy}|^2S_{xy}+\sum_{w\neq x,y}S_{xw}|G_{wy}|^2$$
-
-Now, by using $(4)$, we have:
-
-$$\sum_{w\neq x} S_{xw}|G_{wy}|^2 \lesssim S_{xy}|G_{yy}|^2+\sum_{w\neq z}S_{xw}|G_{yy}|^2\sum_{u\neq y}|G_{wu}|^2S_{uy}+\sum_{w\neq x}|G_{wy}|^2\sum_{u\neq y}|G_{yu}|^2S_{uy}\prec$$
-
-$$\prec S_{xy}|G_{yy}|^2 + \sum_{w, u}S_{xw}|G_{wu}|^2S_{uy}+\sum_{w\neq x}|G_{wy}|^2\sum_{u\neq y}|G_{yu}|^2S_{uy}\prec $$
-
-$$\prec S_{xy} + \sum_{w, u}S_{xw}|G_{wu}|^2S_{uy}+N^{-2\delta}\sum_{w\neq x} S_{xw}|G_{wy}|^2=$$
-
-$$=S_{xy}+\left(S^{1/2}TS^{1/2}\right)_{xy}+N^{-2\delta}\sum_{w\neq x}S_{xw}|G_{wy}|^2$$
-
-\begin{equation*}\Rightarrow \sum_{w\neq x} S_{xw}|G_{wy}|^2\prec S_{xy}+(S^{1/2}T S^{1/2})_{xy}\tag{5}\end{equation*}
-
-Hence, by putting together $(4)$ and $(5)$, we get: $$|G_{xy}|^2\prec S_{xy} + (S^{1/2}TS^{1/2})_{xy}+ N^{-2\delta}|G_{xy}|^2 \Rightarrow \frac{|G_{xy}|^2}{S_{xy} + (S^{1/2}TS^{1/2})_{xy}}\prec 1$$
-
-  
-
-  
-
-\subsection{Diagonal $|G_{xx}-m(z)|$ estimate}
-
-Let us extend the assumption from the previous section for some $\delta?>0$ as:
-
- $$\max_{a, b}|G_{xy}-m(z)\mathbf{1}_{(x=y)}| = \Psi \leq N^{-\delta}$$
-
-Assume the existence of a family of admissible control parameters $\Omega_{ij}^2$, s.t $T_{ij}\prec \Omega_{i, j}^2$. Using our earlier estimates, namely $(3.1)$ and $(3.2)$,  we have: 
-
-$$|G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\prec\sum_{w\neq x} S_{xw}\left(|G_{wy}|^2+O_{\prec}(|G_{wx}G_{xy}|^2)\right)=$$
-
-\begin{equation*}= T_{xy}-S_{xx}|G_{xy}|^2+O_{\prec \Psi^4}\prec \Omega_{xy}^2+\Psi^4\tag{6}\end{equation*}
-
-  
-
-\noindent Using Definition 8.1 \cite{dynamic} for operations $P_iX:= \E[X|H^{(i)}]$ and $Q_i = X-P_iX$, we can define the following quantity:
-
-  
-
-\begin{equation*}Z_x:=\sum_{k, l\neq x}Q_{x}\left(H_{xk}G_{kl}^{(x)}H_{lx}\right)\tag{7}\end{equation*}
-
-  
-
-\noindent Then for $M :=\left(\max_{i, j}S_{i,j}\right)^{-1}\gtrsim N$, by Lemma 3.8 from \cite{21}, we have that:
-
-$$G_{xx} = m+m^2 Z_x + O_{\prec}\left(\Psi^2+M^{-1/2}\right), \quad Z_i\prec \Psi$$
-
-$$\Rightarrow |G_{xx}-m|^2\leqslant|Z_i|^2+O_{\prec}(\Psi^2+M^{-1}),$$
-
-using $|m(z)|\leqslant 1$ from Lemma 6.2 \cite{dynamic}. In order to estimate $|Z_i|^2$, we can rewrite the resolvent identity $(3)$ in a form of an inequality, which holds for $\forall k, \ell$:
-
-$$|G_{k\ell}^{(x)}|\leq |G_{k\ell}|+\frac{|G_{kx}||G_{x\ell}|}{|G_{xx}|}$$
-
-When applied to $(6)$ along with the assumptions $G_{kk}^{(i)}\prec 1$, we get: 
-
-\begin{equation*}\Rightarrow \sum_{k, l\neq x, k\neq l}S_{xk}|G_{kl}^{(x)}|^2S_{lx}\prec \sum_{k}\Omega_{xk}^2S_{kx}+\Psi^4\tag{8}\end{equation*}
-
-\noindent Similarly, applying it to $(7)$ along with $(1.1)$ and $(1.2)$ from the Lemma gives us: 
-
-\begin{equation*}|Z_x|^2\leqslant \left\vert\sum_{k\neq x}(|H_{xk}|^2-S_{xk})G_{kk}^{(x)}\right\vert^2+\left\vert\sum_{k, \ell\neq x\\ k\neq \ell}H_{xk}G_{k\ell}^{(x)}H_{\ell x}\right\vert^2 \tag{9}\end{equation*}
-
-Hence, by putting $(8)$ and $(9)$ together, we get:
-
-\begin{equation*}\Rightarrow |G_{xx}-m|^2\prec \sum_{k}\Omega_{xk}^2S_{kx}+\Psi^4 + M^{-1}\tag{10}\end{equation*}
-
-Recall that $|G_{kk}^{(x)}|\prec 1$ and $S_{ab}\lesssim N^{-1}$, hence, we can bound the first term using $(1.3)$ from the Lemma:
-
-$$\left\vert\sum_{k\neq x}(|H_{xk}|^2-S_{xk})G_{kk}^{(x)}\right\vert^2\prec\left\vert\sum_{k\neq x}S_{xk}(|B_{xk}|^2-1)\right\vert^2 \prec  \sum_{k\neq x}|S_{xk}|^2\prec N^{-1}$$
-
-Similarly, we can bound the second term by applying $(1.3)$ from the Lemma:
-
-$$\left\vert\sum_{k, \ell\neq x, k\neq \ell}H_{xk}G_{k\ell}^{(x)}H_{\ell x}\right\vert^2 = \left\vert\sum_{k, \ell\neq x, k\neq \ell}\sqrt{S_{xk}}B_{xk}G_{k\ell}^{(x)}\sqrt{S_{\ell x}}B_{\ell x}\right\vert^2 \prec \sum_{k, l\neq x, k\neq l}S_{xk}|G_{kl}^{(x)}|^2S_{lx} \lesssim$$
-
-$$\lesssim \sum_{k, l\neq x, k\neq l}S_{xk}|G_{kl}|^2S_{lx}+|G_{xx}|^{-2}\sum_{k, l\neq x, k\neq l}S_{xk}|G_{kx}|^2|G_{xl}|^2S_{lx}\lesssim \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}+\max_{a, b}|S_{a, b}^{1/2}|$$
-
-$$\Rightarrow \max_x|G_{xx}-m|^2\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|+\max_{a, b}|G_{ab}-m\mathbf{1}_{a=b}|^4+N^{-1}\prec$$
-
-$$\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}| +\max_{a\neq b}|G_{ab}|^4 + N^{-\delta}\max_x|G_{xx}-m|^2+N^{-1}\prec$$
-
-$$ \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|+N^{-\delta}\max_x|G_{xx}-m|^2+N^{-1}$$
-
-$$\Rightarrow \max_x|G_{xx}-m|^2\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|+N^{-1}$$
+\item $(t-s)\lesssim \eta_s$ \hyperref[lemma-a12]{Lemma A.1.2}. 
+\end{enumerate}
+\end{boxt}
 
 \newpage
 \section{Bounds on Flow Terms}
@@ -695,27 +585,7 @@ G_{xu}G_{uy}f(G) = mB_{uy}G_{xy} f(G) + sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_
 $$+sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{x\delta}(G_{\gamma\gamma}-m)G_{\delta y}f(G)-sm\sum_{\gamma\beta=1}^N B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}\partial_{H_{\delta \gamma}}(f(G))$$
 $$= m\mathcal{G}_{i0, s}+sm\mathcal{G}_{i1,s}+sm\mathcal{G}_{i2, s}-sm\mathcal{G}_{i3,s}^{(1)}-sm\mathcal{G}_{i3,s}^{(2)}-sm\mathcal{G}_{i3,s}^{(3)},$$
 where $\mathcal{G}_{i0, s}$, $\mathcal{G}_{i1, s}$ and $\mathcal{G}_{i2, s}$ represent the first three terms, respectively, and $\mathcal{G}_{i3, s}^{(i)}$ are the resulting elements from applying 
-the resolvent derivatives w.r.t. to $H_{\beta\alpha}$. To be clear, the exact number of the latter do not follow from the lemma itself and are rather a feature of our particular diagrammatic structure. The explicit results will be verified when we apply the lemma to each respective term. Now, in order to bound each term from the flow SDE, we will use the following estimates:
-
-\begin{boxt}{Estimates}
-
-\begin{enumerate}
-
-\item  $\sup_x\sum_{y}|G_{xy}|\lesssim W^{\frac{1}{2}+\epsilon}\eta_{s}^{-\frac{3}{4}}$ (Result $4.5$ \cite{bandSDE}).
-
-\item $\max_{x,y}\left\vert G_{xy} - \delta_{xy}m(z)\right\vert\lesssim W^{-\frac{1}{2}}\eta_s^{-\frac{1}{4}}$ (Result $4.6$ \cite{bandSDE})). 
-
-
-\item  The entries of $\Theta_{t}$ are  $O\left(W^{-1}\eta_{t}^{-\frac{1}{2}}\right)$ per Lemma 23 \cite{bandSDE}
-    
-\item Per the covariance normalization, $S_{ab}\lesssim W^{-1}$
-\item $\sum_{y}|B_{xy}|$, $\sum_{y}|S_{xy}|$ have size $O(1)$ per Lemma 25 \cite{bandSDE}.
-
-\item $\sum_{x}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\lesssim \eta_t^{-1}\eta_s$ per (3.7) from \cite{bandSDE})
-
-\item $(t-s)\lesssim \eta_s$
-\end{enumerate}
-\end{boxt}
+the resolvent derivatives w.r.t. to $H_{\beta\alpha}$. To be clear, the exact number of the latter do not follow from the lemma itself and are rather a feature of our particular diagrammatic structure. The explicit results will be verified when we apply the lemma to each respective term.
 
 \subsection{Estimate for $\mathcal{E}_t^{D, \text{stop}}(z)$} 
 The goal for this subsection is to bound the drift term, which we can expand and rewrite as follows: 
@@ -2675,9 +2545,11 @@ where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textco
 
 \newpage
 \section{Appendix}
-\label{sec:app}
+\label{sec:appendix}
 
-\textbf{Lemma A.1.1} \label{lemma-a11} $$ 1-|m|^2 \asymp \eta$$ (Lemma 3.5 \cite{21} and Lemma 6.2 \cite{dynamic})
+\begin{boxt}{Lemma A.1.1} \label{lemma-a11} $$ 1-|m|^2 \asymp \eta$$ (Lemma 3.5 \cite{21} and Lemma 6.2 \cite{dynamic})
+
+\end{boxt}
 
 \begin{boxt}{Lemma A.1.2} \label{lemma-a12} 
 
@@ -2685,22 +2557,170 @@ $ \im w_s = \im w_t + (t-s)\im m(z)$ \\
 \textit{Proof}- Recall the definition $w_s = -\frac{1}{m(z)} - sm(z)$, where $m(z)$ is the stieltjes transform. By taking its imaginary part, we have: $$\im w_s = -\im \left( \frac{1}{m(z)}\right)-s\im m(z)= -\im \left( \frac{1}{m(z)}\right)-t\im m(z) + (t-s)\im m(z)$$
 $$=\im w_t + (t-s)\im m(z)$$
 \end{boxt}
-Since $|\im m(z)|$ is bounded uniformly away from $0$ in the bulk (Lemma 6.2. in \cite{dynamic}) - \textcolor{red}{deduce} that $(t-s)\lesssim \eta_s ?$
+Since $|\im m(z)|$ is bounded uniformly away from $0$ in the bulk (Lemma 6.2. in \cite{dynamic}) - \textcolor{red}{deduce} that $(t-s)\lesssim \eta_s $
 
-\textbf{Lemma A.2} \label{lemma-a2} -$\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$
+\begin{boxt}{Lemma A.2} \label{lemma-a2} -$\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$
 
  Lemma 23 \cite{bandSDE} - For $|E|<2$ fixed and $\eta\gtrsim W^2/N^2$, then $$(\Theta_t)_{ab} + |(\Theta_tS^{\frac{1}{2}})_{ab}| + |\left(S^{\frac{1}{2}}\Theta_t S^{\frac{1}{2}}\right)_{ab}|\lesssim W^{-1}\eta_t^{-\frac{1}{2}}, $$
  $$\max_a \sum_b |(\Theta_t)_{ab}|+\max_a \sum_b |(\Theta_tS^{\frac{1}{2}})_{ab}|\lesssim \eta_t^{-1}$$
+\end{boxt}
 
-\textbf{Corollary A.3} \label{cor-a3} -
+\begin{boxt}{Corollary A.3} \label{cor-a3} -
 $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy} + \sup_y \sum_x \{\text{Id} + (t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
 
 
  Expression $(3.7)$ in \cite{bandSDE}
+ \end{boxt}
 
-\textbf{Lemma A.4} \label{lemma-a4} -) $\sum_y |B_{xy}|$ and $\sum_y |S_{xy}|$ have size $O(1)$. )
+\begin{boxt}{Lemma A.4} \label{lemma-a4} -) $\sum_y |B_{xy}|$ and $\sum_y |S_{xy}|$ have size $O(1)$. )
 
  Lemma 25 \cite{bandSDE} - For $|E|<2$ fixed and arbitrary $a, b$, we have: $$\sum_\alpha |(B_t)_{\alpha b}| + \sum_{\beta}|(B_t)_{a\beta}|\lesssim 1$$
+ \end{boxt}
+ 
+  
+
+\begin{boxtheorem}{Lemma A5: (Large Deviation estimates)}   (Theorem 7.7 \cite{dynamic}) \label{lemma-a5}
+
+  
+
+Let $\left(X_i^{(N)}\right)$ and $\left(Y_i^{(N)}\right)$ are independent families of random variables and $\left(a_{ij}^{(N)}\right)$ and $\left(b_{ij}^{(N)}\right)$ be deterministic. Suppose all entrires $X_{i}^{(N)}$ and $Y_{i}^{(N)}$ are independent and satisfy: $$\E X = 0, \quad \E |X|^2=1, \quad \|X\|_p:=(\E |X|^p)^{1/p}\leq \mu_p$$
+
+for all $p\in \N$ and some constants $\mu_p$. Then, we have the bounds: 
+
+\begin{equation*}\sum_i b_i X_i \prec \left(\sum_i |b_i|^2\right)^{1/2}\tag{1.1}\end{equation*}
+
+\begin{equation*}\sum_{i, j} a_{ij}X_iY_j \prec \left(\sum_{i,j} |a_{ij}|^2\right)^{1/2}\tag{1.2}\end{equation*}
+
+\begin{equation*}\sum_{i\neq j} a_{ij}X_iY_j \prec \left(\sum_{i\neq j} |a_{ij}|^2\right)^{1/2}\tag{1.3}\end{equation*}
+
+\end{boxtheorem}
+
+\subsection{Resolvent estimates}
+
+
+\begin{boxt}{Lemma B.1} \label{lemma-b1}
+
+(Result $4.5$ \cite{bandSDE})
+$$\sup_x \sum_y |G_{xy}|\lesssim W^{\frac{1}{2}+\epsilon} \eta_s^{-\frac{3}{4}}$$
+\end{boxt}
+
+\begin{boxt}{Lemma B.2} \label{lemma-b2}
+(Result $4.6ri$ \cite{bandSDE})
+$$\max_{x, y} |G_{xy} - \delta_{xy}m(z)|\lesssim W^{-\frac{1}{2}} \eta_s^{-\frac{1}{4}}
+$$
+\end{boxt}
+
+
+\subsubsection*{Off-diagonal $G_{xy}$ estimate}
+There will be two important observations used throughout the following estimations. First, per the covariance normalization, we have $S_{ab}\lesssim W^{-1}$. Second, $\sum_{y}|B_{xy}|$, $\sum_{y}|S_{xy}|$ have size $O(1)$ per Lemma 25 \cite{bandSDE}. Now, having established that, we can use estimate $(1.3)$ from the Lemma above, along with resolvent identity $(3)$, s.t. we get:
+
+$$|G_{xy}| = \left\vert G_{xx}\sum_{w\neq x}H_{xw}G^{(x)}_{wy}\right\vert= |G_{xx}|\left\vert\sum_{w\neq x}\sqrt{S_{xy}}B(t)_{xy}G^{(x)}_{wy}\right\vert\prec  |G_{xx}|\left(\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\right)^{1/2}\quad (x\neq y)$$
+
+\begin{equation*}\Rightarrow |G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\quad x\neq y\tag{3.1}\end{equation*}
+
+On the other hand, we can rewrite identity $(3)$ as $$G_{wy}^{(x)} = G_{wy}-\frac{G_{wx}G_{xy}}{G_{xx}},$$
+
+s.t. we can bound the latter result using the Cauchy-Schwarz inequality: 
+
+$$|G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2 \lesssim |G_{xx}|^2\sum_{w\neq x}S_{xw}|G_{wy}|^2+|G_{xx}|^2\sum_{w\neq x} S_{xw}\frac{|G_{wx}G_{xy}|^2}{|G_{xx}|^2}$$
+
+\begin{equation*}\Rightarrow |G_{xy}|^2 \lesssim |G_{xx}|^2\sum_{w\neq x}S_{xy}^2|G_{wy}|^2+|G_{xy}|^2\sum_{w\neq x}S_{xw}|G_{wx}|^2 \tag{4}\end{equation*}
+
+\begin{equation*}|G_{xy}|^2\lesssim \sum_{w\neq x}S_{xw}|G_{wy}|^2+N^{-2\delta}|G_{xy}|^2,\tag{4.1}\end{equation*}
+
+where $(4.1)$ follows from $(4)$ under assumptions $|G_{xx}|\prec 1$ and $\sup_{w\neq x}|G_{wx}|^2\prec N^{-\delta}$. By the same logic as above, using $G^*$ instead of $G$ for any $w\neq y$, we have:
+
+$$|G_{wy}|^2 =|G_{yw}^*|^2 \prec |G_{yy}^*|^2\sum_{u\neq y}S_{yu}|G^{*,(y)}_{uw}|^2 \lesssim $$
+
+$$\lesssim |G_{yy}^*|^2\sum_{u\neq y}S_{yu}|G^{*}_{uw}|^2 +|G_{yw}^*|^2\sum_{u\neq y}S_{yu}|G^{*}_{uy}|^2 =$$
+
+  
+
+$$=|G_{yy}|^2\sum_{u\neq y}S_{yu}|G_{wu}|^2 +|G_{wy}|^2\sum_{u\neq y}S_{yu}|G_{yu}|^2 $$
+
+Let us now multiply the latter result by $S_{xw}$ and sum over $w\neq x$, isolating the term $w=y$: 
+
+$$\sum_{w\neq x} S_{xw}|G_{wy}|^2\prec |G_{yy}|^2S_{xy}+\sum_{w\neq x,y}S_{xw}|G_{wy}|^2$$
+
+Now, by using $(4)$, we have:
+
+$$\sum_{w\neq x} S_{xw}|G_{wy}|^2 \lesssim S_{xy}|G_{yy}|^2+\sum_{w\neq z}S_{xw}|G_{yy}|^2\sum_{u\neq y}|G_{wu}|^2S_{uy}+\sum_{w\neq x}|G_{wy}|^2\sum_{u\neq y}|G_{yu}|^2S_{uy}\prec$$
+
+$$\prec S_{xy}|G_{yy}|^2 + \sum_{w, u}S_{xw}|G_{wu}|^2S_{uy}+\sum_{w\neq x}|G_{wy}|^2\sum_{u\neq y}|G_{yu}|^2S_{uy}\prec $$
+
+$$\prec S_{xy} + \sum_{w, u}S_{xw}|G_{wu}|^2S_{uy}+N^{-2\delta}\sum_{w\neq x} S_{xw}|G_{wy}|^2=$$
+
+$$=S_{xy}+\left(S^{1/2}TS^{1/2}\right)_{xy}+N^{-2\delta}\sum_{w\neq x}S_{xw}|G_{wy}|^2$$
+
+\begin{equation*}\Rightarrow \sum_{w\neq x} S_{xw}|G_{wy}|^2\prec S_{xy}+(S^{1/2}T S^{1/2})_{xy}\tag{5}\end{equation*}
+
+Hence, by putting together $(4)$ and $(5)$, we get: $$|G_{xy}|^2\prec S_{xy} + (S^{1/2}TS^{1/2})_{xy}+ N^{-2\delta}|G_{xy}|^2 \Rightarrow \frac{|G_{xy}|^2}{S_{xy} + (S^{1/2}TS^{1/2})_{xy}}\prec 1$$
+
+  
+
+  
+
+\subsection{Diagonal $|G_{xx}-m(z)|$ estimate}
+
+Let us extend the assumption from the previous section for some $\delta?>0$ as:
+
+ $$\max_{a, b}|G_{xy}-m(z)\mathbf{1}_{(x=y)}| = \Psi \leq N^{-\delta}$$
+
+Assume the existence of a family of admissible control parameters $\Omega_{ij}^2$, s.t $T_{ij}\prec \Omega_{i, j}^2$. Using our earlier estimates, namely $(3.1)$ and $(3.2)$,  we have: 
+
+$$|G_{xy}|^2\prec |G_{xx}|^2\sum_{w\neq x}S_{xw}|G^{(x)}_{wy}|^2\prec\sum_{w\neq x} S_{xw}\left(|G_{wy}|^2+O_{\prec}(|G_{wx}G_{xy}|^2)\right)=$$
+
+\begin{equation*}= T_{xy}-S_{xx}|G_{xy}|^2+O_{\prec \Psi^4}\prec \Omega_{xy}^2+\Psi^4\tag{6}\end{equation*}
+
+  
+
+\noindent Using Definition 8.1 \cite{dynamic} for operations $P_iX:= \E[X|H^{(i)}]$ and $Q_i = X-P_iX$, we can define the following quantity:
+
+  
+
+\begin{equation*}Z_x:=\sum_{k, l\neq x}Q_{x}\left(H_{xk}G_{kl}^{(x)}H_{lx}\right)\tag{7}\end{equation*}
+
+  
+
+\noindent Then for $M :=\left(\max_{i, j}S_{i,j}\right)^{-1}\gtrsim N$, by Lemma 3.8 from \cite{21}, we have that:
+
+$$G_{xx} = m+m^2 Z_x + O_{\prec}\left(\Psi^2+M^{-1/2}\right), \quad Z_i\prec \Psi$$
+
+$$\Rightarrow |G_{xx}-m|^2\leqslant|Z_i|^2+O_{\prec}(\Psi^2+M^{-1}),$$
+
+using $|m(z)|\leqslant 1$ from Lemma 6.2 \cite{dynamic}. In order to estimate $|Z_i|^2$, we can rewrite the resolvent identity $(3)$ in a form of an inequality, which holds for $\forall k, \ell$:
+
+$$|G_{k\ell}^{(x)}|\leq |G_{k\ell}|+\frac{|G_{kx}||G_{x\ell}|}{|G_{xx}|}$$
+
+When applied to $(6)$ along with the assumptions $G_{kk}^{(i)}\prec 1$, we get: 
+
+\begin{equation*}\Rightarrow \sum_{k, l\neq x, k\neq l}S_{xk}|G_{kl}^{(x)}|^2S_{lx}\prec \sum_{k}\Omega_{xk}^2S_{kx}+\Psi^4\tag{8}\end{equation*}
+
+\noindent Similarly, applying it to $(7)$ along with $(1.1)$ and $(1.2)$ from the Lemma gives us: 
+
+\begin{equation*}|Z_x|^2\leqslant \left\vert\sum_{k\neq x}(|H_{xk}|^2-S_{xk})G_{kk}^{(x)}\right\vert^2+\left\vert\sum_{k, \ell\neq x\\ k\neq \ell}H_{xk}G_{k\ell}^{(x)}H_{\ell x}\right\vert^2 \tag{9}\end{equation*}
+
+Hence, by putting $(8)$ and $(9)$ together, we get:
+
+\begin{equation*}\Rightarrow |G_{xx}-m|^2\prec \sum_{k}\Omega_{xk}^2S_{kx}+\Psi^4 + M^{-1}\tag{10}\end{equation*}
+
+Recall that $|G_{kk}^{(x)}|\prec 1$ and $S_{ab}\lesssim N^{-1}$, hence, we can bound the first term using $(1.3)$ from the Lemma:
+
+$$\left\vert\sum_{k\neq x}(|H_{xk}|^2-S_{xk})G_{kk}^{(x)}\right\vert^2\prec\left\vert\sum_{k\neq x}S_{xk}(|B_{xk}|^2-1)\right\vert^2 \prec  \sum_{k\neq x}|S_{xk}|^2\prec N^{-1}$$
+
+Similarly, we can bound the second term by applying $(1.3)$ from the Lemma:
+
+$$\left\vert\sum_{k, \ell\neq x, k\neq \ell}H_{xk}G_{k\ell}^{(x)}H_{\ell x}\right\vert^2 = \left\vert\sum_{k, \ell\neq x, k\neq \ell}\sqrt{S_{xk}}B_{xk}G_{k\ell}^{(x)}\sqrt{S_{\ell x}}B_{\ell x}\right\vert^2 \prec \sum_{k, l\neq x, k\neq l}S_{xk}|G_{kl}^{(x)}|^2S_{lx} \lesssim$$
+
+$$\lesssim \sum_{k, l\neq x, k\neq l}S_{xk}|G_{kl}|^2S_{lx}+|G_{xx}|^{-2}\sum_{k, l\neq x, k\neq l}S_{xk}|G_{kx}|^2|G_{xl}|^2S_{lx}\lesssim \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}+\max_{a, b}|S_{a, b}^{1/2}|$$
+
+$$\Rightarrow \max_x|G_{xx}-m|^2\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|+\max_{a, b}|G_{ab}-m\mathbf{1}_{a=b}|^4+N^{-1}\prec$$
+
+$$\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}| +\max_{a\neq b}|G_{ab}|^4 + N^{-\delta}\max_x|G_{xx}-m|^2+N^{-1}\prec$$
+
+$$ \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|+N^{-\delta}\max_x|G_{xx}-m|^2+N^{-1}$$
+
+$$\Rightarrow \max_x|G_{xx}-m|^2\prec \max_{a, b}|(S^{1/2}TS^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|+N^{-1}$$
 
 \begin{thebibliography}{99}
 
