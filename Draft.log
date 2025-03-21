@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.14)  20 MAR 2025 19:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.14)  20 MAR 2025 19:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1400,6 +1400,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [11]
+Overfull \hbox (1.9418pt too wide) in paragraph at lines 413--416
+\OML/cmm/m/it/10.95 U\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t; t\OT1/cmr/m/n/1
+0.95 ) = []$\T2A/cmr/m/n/10.95 . Observe then that we can define the following 
+integral form: $\OMS/cmsy/m/n/10.95 E[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 
+z\OT1/cmr/m/n/10.95 ) = [][] \OML/cmm/m/it/10.95 U\OT1/cmr/m/n/10.95 (\OML/cmm/
+m/it/10.95 t; s\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 W\OT1/cmr/m/n/10.95 (\OM
+L/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 U\OT1/cmr/m/n/10.95 (
+\OML/cmm/m/it/10.95 t; s\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ds;$
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1411,7 +1421,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [12]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 455.
+(mdframed)              on input line 456.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1424,12 +1434,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [13]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 477.
+(mdframed)              on input line 478.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 488.
+(mdframed)              on input line 489.
 
-Overfull \hbox (1.65477pt too wide) in paragraph at lines 493--496
+Overfull \hbox (1.65477pt too wide) in paragraph at lines 494--497
 []\T2A/cmr/m/n/10.95 Shouldn't this be a minus sign? Theorem 2 in [[]] states i
 t with a plus sign.[] If we recall the phenomenology
  []
@@ -1445,10 +1455,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [14]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 500.
+(mdframed)              on input line 501.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 508.
+(mdframed)              on input line 509.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1461,19 +1471,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [15]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 523.
+(mdframed)              on input line 524.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 539.
+(hyperref)                removing `math shift' on input line 540.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 539.
+(hyperref)                removing `subscript' on input line 540.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 539.
+(hyperref)                removing `math shift' on input line 540.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1495,15 +1505,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [17]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 589.
+(hyperref)                removing `math shift' on input line 590.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 589.
+(hyperref)                removing `subscript' on input line 590.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 589.
+(hyperref)                removing `math shift' on input line 590.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1534,7 +1544,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [20]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 656.
+(mdframed)              on input line 657.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1548,23 +1558,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 c}]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 685.
+(mdframed)              on input line 686.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 705.
+(hyperref)                removing `math shift' on input line 706.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 705.
+(hyperref)                removing `subscript' on input line 706.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 705.
+(hyperref)                removing `superscript' on input line 706.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 705.
+(hyperref)                removing `math shift' on input line 706.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1685,19 +1695,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [34]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2281.
+(hyperref)                removing `math shift' on input line 2282.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2281.
+(hyperref)                removing `subscript' on input line 2282.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 2281.
+(hyperref)                removing `superscript' on input line 2282.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2281.
+(hyperref)                removing `math shift' on input line 2282.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1710,7 +1720,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [35]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2327.
+(mdframed)              on input line 2328.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1730,7 +1740,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.8739pt}.
 
 [37]
-Overfull \hbox (31.87918pt too wide) detected at line 2381
+Overfull \hbox (31.87918pt too wide) detected at line 2382
 \OMS/cmsy/m/n/10.95 ) [][] \OT1/cmr/m/n/10.95 = [][](\OML/cmm/m/it/10.95 t \OMS
 /cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95 )[] [](^^B[]\OML/cm
 m/m/it/10.95 S[]\OT1/cmr/m/n/10.95 )[](^^B[]\OML/cmm/m/it/10.95 S[]\OT1/cmr/m/n
@@ -1748,14 +1758,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.8739pt}.
 
 [38]
-Overfull \hbox (24.8714pt too wide) in paragraph at lines 2409--2411
+Overfull \hbox (24.8714pt too wide) in paragraph at lines 2410--2412
 \T2A/cmr/m/n/10.95 singular values $[] \OMS/cmsy/m/n/10.95 ^^T [][] \OML/cmm/m/
 it/10.95 []^^L[]$\T2A/cmr/m/n/10.95 , hence by the positive-semidefiniteness, 
 we have that $[] \OT1/cmr/m/n/10.95 =
  []
 
 
-Overfull \hbox (11.17184pt too wide) detected at line 2424
+Overfull \hbox (11.17184pt too wide) detected at line 2425
 \OT1/cmr/m/n/10.95 4 [] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 G\OMS/cmsy/m/n
 /10.95 j[]j\OT1/cmr/m/n/10.95 (^^B[]\OML/cmm/m/it/10.95 S[]\OT1/cmr/m/n/10.95 )
 []\OMS/cmsy/m/n/10.95 j[] \OT1/cmr/m/n/10.95 = 4\OMS/cmsy/m/n/10.95 j[]\OML/cmm
@@ -1776,7 +1786,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.8739pt}.
 
 [39]
-Overfull \hbox (3.0011pt too wide) detected at line 2437
+Overfull \hbox (3.0011pt too wide) detected at line 2438
 [] \OMS/cmsy/m/n/10.95 ^^T [][]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t \OMS/c
 msy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95 )[] [] \OMS/cmsy/m/n/
 10.95 k\OT1/cmr/m/n/10.95 ^^G[]\OMS/cmsy/m/n/10.95 k[] [] \OT1/cmr/m/n/10.95 
@@ -1789,19 +1799,19 @@ sy/m/n/10.95 j
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2446.
+(hyperref)                removing `math shift' on input line 2447.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2446.
+(hyperref)                removing `subscript' on input line 2447.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 2446.
+(hyperref)                removing `superscript' on input line 2447.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2446.
+(hyperref)                removing `math shift' on input line 2447.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1823,7 +1833,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [41]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2475.
+(mdframed)              on input line 2476.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1879,7 +1889,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [47]
-Overfull \hbox (72.70705pt too wide) detected at line 2625
+Overfull \hbox (72.70705pt too wide) detected at line 2626
 \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 48\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/1
 0.95 (\OML/cmm/m/it/10.95 p \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1)(\OML/
 cmm/m/it/10.95 p \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 2)\OMS/cmsy/m/n/10.
@@ -1890,7 +1900,7 @@ cmm/m/it/10.95 p \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 2)\OMS/cmsy/m/n/10.
  []
 
 
-Overfull \hbox (5.9093pt too wide) detected at line 2626
+Overfull \hbox (5.9093pt too wide) detected at line 2627
 \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10
 .95 (2\OML/cmm/m/it/10.95 p \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 2)\OMS/c
 msy/m/n/10.95 j\OML/cmm/m/it/10.95 W[]\OMS/cmsy/m/n/10.95 j[][] [] j\OML/cmm/m/
@@ -1900,7 +1910,7 @@ it/10.95 G[]G[]\OMS/cmsy/m/n/10.95 j[] ^^@ \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10
  []
 
 
-Overfull \hbox (38.23982pt too wide) detected at line 2628
+Overfull \hbox (38.23982pt too wide) detected at line 2629
 \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 p\OMS/cmsy/m/n/1
 0.95 j\OML/cmm/m/it/10.95 W[]\OMS/cmsy/m/n/10.95 j[][] [] ^^@ \OT1/cmr/m/n/10.9
 5 2\OML/cmm/m/it/10.95 p\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 W[]\OMS/cmsy/m
@@ -1917,7 +1927,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [48]
-Overfull \hbox (5.04044pt too wide) in paragraph at lines 2646--2647
+Overfull \hbox (5.04044pt too wide) in paragraph at lines 2647--2648
 []$\OML/cmm/m/it/10.95 c[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 p\OT1/cmr/m/n
 /10.95 ) = 8\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 p \OMS
 /cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1) = 2[] \OMS/cmsy/m/n/10.95 ^^A \OT1/cm
@@ -1936,7 +1946,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [49]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2665.
+(mdframed)              on input line 2666.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1947,7 +1957,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [50]
-Underfull \hbox (badness 6412) in paragraph at lines 2716--2717
+Underfull \hbox (badness 6412) in paragraph at lines 2717--2718
 []\T2A/cmr/m/n/10.95 H.-T. Yau and J. Yin. Delocalization of One-Dimensional Ra
 ndom Band Matrices.
  []
@@ -1961,7 +1971,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [51]
-Underfull \hbox (badness 2173) in paragraph at lines 2745--2746
+Underfull \hbox (badness 2173) in paragraph at lines 2746--2747
 []\T2A/cmr/m/n/10.95 P. von Soosten and S. Warzel. Random characteristics for W
 igner matrices. \T2A/cmr/m/it/10.95 Electronic
  []
@@ -2027,7 +2037,7 @@ st/fonts/type1/public/cm-super/sfrm2488.pfb></usr/local/texlive/2023/texmf-dist
 /fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2023/texmf-dist/f
 onts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2023/texmf-dist/fon
 ts/type1/public/stmaryrd/stmary10.pfb>
-Output written on Draft.pdf (59 pages, 1016485 bytes).
+Output written on Draft.pdf (59 pages, 1017427 bytes).
 PDF statistics:
  749 PDF objects out of 1000 (max. 8388607)
  620 compressed objects within 7 object streams
