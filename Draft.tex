@@ -1043,7 +1043,7 @@ In order to represent $B_{u\gamma} S_{\gamma\delta} G_{x_i\gamma}(G_{\delta\delt
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}}B_{u\gamma} S_{\gamma \delta} G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma y}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 $}\end{equation*}
 \end{center}
-\noindent To estimate this graph, we will bound all loops $\textcolor{blue}{\circlearrowright}$ and $x\textcolor{red}{\rightarrow} y$ using estimate $(2)$ which yields in total $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. Then, we sum the wavy lines over $\beta, \alpha, v, u, \delta$ in that order, which is $O(1)$ by estimate 5. Then the combined bound is:
+\noindent To estimate this graph, we will bound all loops $\textcolor{blue}{\circlearrowright}$ and $x\textcolor{red}{\rightarrow} y$ using estimate $(2)$ which yields in total $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. Then, we sum the wavy lines over $\beta, \alpha, v, u, \delta$ in that order, which is $O(1)$ by estimate $(5)$.The combined bound is:
 $\mathcal{G}_{11, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -1098,7 +1098,7 @@ $\mathcal{G}_{11, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \end{equation*}
 \end{center}
 
-\noindent Here, we will repeat an equivalent procedure as above, bounding the loop at $\delta$ and the three edges $x\textcolor{red}{\rightarrow}\alpha$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\beta\textcolor{red}{\rightarrow}y$ , getting again a bound $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. Then, we can sum the wavy lines with estimate $(5)$, getting an equivalent bound as above:
+\noindent Here, we will repeat an equivalent procedure as above, bounding the loop at $\delta$ and the edges $x\textcolor{red}{\rightarrow}\alpha$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\beta\textcolor{red}{\rightarrow}y$ , getting a bound $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. Then, we can sum the wavy lines with estimate $(5)$, getting an equivalent bound as above:
 $\mathcal{G}_{21, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -1154,7 +1154,7 @@ $\mathcal{G}_{21, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \end{equation*}
 \end{center}
 
-\noindent Let us start by bounding the loop at $\delta$, as well as the $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$. In total, this contributes $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. However, here we don't have the same structure as before, since $\gamma$ no longer has an ingoing edge from $x$. Regardless, observe that by preserving $x\textcolor{blue}{\rightarrow}\beta$, when we are performing the total estimation at the end, the wavy lines will be contributing only with $O(1)$ per estimate $(5)$, hence we can expect for the result to be equivalent to the two prior two : $\mathcal{G}_{31, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times $
+\noindent Let us start by bounding the loop at $\delta$, as well as the $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$. In total, this contributes $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. However, here we don't have the same structure as before, since $\gamma$ no longer has an ingoing edge from $x$. Regardless, observe that by preserving $x\textcolor{blue}{\rightarrow}\beta$, when we are performing the total estimation at the end, the wavy lines (abstracted away with the orange wavy line) will be contributing only with $O(1)$ per estimate $(5)$, so we can expect for the result to be equivalent to the two prior two. That said, the bound is of the form: $\mathcal{G}_{31, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -1162,13 +1162,15 @@ $\mathcal{G}_{21, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \node (a) at (0,0) {a};
 \node (x) at (1, 0) {x};
 \node (beta) at (2, 0) {$\beta$};
-\node (y) at (3, 0) {y};
-\node (b) at (4, 0) {b};
+\node (gamma) at (3,0) {$\gamma$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
 
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
+\draw[wavy, orange] (beta) to (gamma);
 \draw[blue, ->](x) to (beta);
-\draw[blue, ->] (beta) to (y);
+\draw[blue, ->] (gamma) to (y);
 
 \end{tikzpicture}
 
@@ -1208,21 +1210,23 @@ $\mathcal{G}_{21, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \mathcal{G}_{41, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} B_{u\gamma}S_{\gamma \delta}G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma\beta} S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}G_{\alpha y}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
 \end{center}
-\noindent Here the logic is the same as above, namely, after eliminating the loop at $\delta$ and the edges $x\textcolor{red}{\rightarrow} y$, $\gamma\textcolor{blue}{\rightarrow} \beta$, and $\beta\textcolor{blue}{\rightarrow} \alpha$ we get a term $O(W^{-2}\eta_s^{-1})$. The remaining graph is of similar form to the first two with additional wavy lines that contribute only $O(1)$ at the end, i.e $\mathcal{G}_{41, s}\lesssim W^{-2}\eta_s^{-1}\times $
+\noindent Here the logic is the same as above, namely, after eliminating the loop at $\delta$ and the edges $x\textcolor{red}{\rightarrow} y$, $\gamma\textcolor{blue}{\rightarrow} \beta$, and $\beta\textcolor{blue}{\rightarrow} \alpha$ we get a term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. The remaining graph is of similar form as the one before with two additional wavy lines that contribute only $O(1)$ at the end. The bound is of the form: $\mathcal{G}_{41, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
 \node (a) at (0,0) {a};
 \node (x) at (1, 0) {x};
-\node (gamma) at (2, 0) {$\gamma$};
-\node (y) at (3, 0) {y};
-\node (b) at (4, 0) {b};
+\node (gamma) at (2,0) {$\gamma$};
+\node (alpha) at (3, 0) {$\alpha$};
+\node (y) at (4, 0) {y};
+\node (b) at (5, 0) {b};
 
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
+\draw[wavy, orange] (alpha) to (gamma);
 \draw[blue, ->](x) to (gamma);
-\draw[blue, ->] (gamma) to (y);
+\draw[blue, ->] (alpha) to (y);
 
 \end{tikzpicture}
 
