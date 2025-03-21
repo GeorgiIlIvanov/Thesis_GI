@@ -14,7 +14,7 @@
 \contentsline {section}{\numberline {6}Bounds on Flow Terms}{22}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Estimate for $\mathcal {E}_t^{D, \text {stop}}(z)$}{23}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Estimate for $\mathcal {E}_t^{M, \text {stop}}(z)$}{37}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{41}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{42}{subsection.6.3}%
 \contentsline {section}{\numberline {7}Proof of Theorems}{44}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Theorem 1 - Stopping time}{44}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Theorem 2 - Quantum Diffusion}{44}{subsection.7.2}%

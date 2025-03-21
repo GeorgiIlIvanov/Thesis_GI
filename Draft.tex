@@ -2385,40 +2385,36 @@ $$\left[\mathcal{E}^{M, 13}\right]_{ab} = \int_0^{t\wedge \tau_\sto}(t-s)^2\sum_
 
 $$\left[\mathcal{E}^{M, 14}\right]_{ab} = \int_0^{t\wedge \tau_\sto}\sum_{x, x', y, y', u, v}S^{1/2}_{ax}S^{1/2}_{ax'}\overline{G_{xy}}G_{x'y'}G_{xu}\overline{G}_{x'u}S_{uv}G_{vy}\overline{G_{vy'}}S^{1/2}_{yb}S^{1/2}_{yb'}ds$$
 
-\noindent Observe that we have the same primary components differing up to the utmost left and right terms. Hence, we can abstract away four separate matrices, to represent this two-by-two  overlap: 
+\noindent Observe that we have the same primary components, differing up to the utmost left and right terms. Hence, we can abstract away the following four separate matrices: 
 
-$$
-\Upsilon_{yy}^u := \sum_v S_{uv} G_{vy} \overline{G}_{vy'} (\Theta_t S^{\frac{1}{2}})_{yb} (\Theta_t S^{\frac{1}{2}})_{y'b},
-$$
-$$
-\Omega_{yy}^u := \sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'}.
-$$
-
-$$
-\Gamma_{yy}^u := \sum_v S_{uv} G_{vy} \overline{G}_{vy'} S^{\frac{1}{2}}_{yb} S^{\frac{1}{2}}_{y'b},
-$$
-
-$$
-\Xi_{yy}^u := \sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'}.
-$$
-$$ \left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right] = \int_0^t (t-s)^4\sum_{u, y} (\Omega^u\Upsilon^{u, *})_{yy'}ds \ , \ \left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] = \int_0^t (t-s)^2\sum_{u, y} (\Omega^u\Gamma^{u, *})_{yy'}ds$$
-$$\Rightarrow \left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] = \int_0^t \sum_{u, y} (t-s)^2(\Xi^u\Upsilon^{u, *})_{yy'}ds \ , \ \left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^t \sum_{u, y} (\Xi^u\Gamma^{u, *})_{yy'}ds$$
-Now, observe that both $\Omega^u$ and $\Xi^u$ are positive-semidefinite, since we can rewrite them as:
+$$\Upsilon_{yy}^u := \sum_v S_{uv} G_{vy} \overline{G}_{vy'} (\Theta_t S^{\frac{1}{2}})_{yb} (\Theta_t S^{\frac{1}{2}})_{y'b}$$
+$$\Omega_{yy}^u := \sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'}$$
+$$\Gamma_{yy}^u := \sum_v S_{uv} G_{vy} \overline{G}_{vy'} S^{\frac{1}{2}}_{yb} S^{\frac{1}{2}}_{y'b}$$
+$$\Xi_{yy}^u := \sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} S^{\frac{1}{2}}_{ax} S^{\frac{1}{2}}_{ax'}$$
+Now, observe that our terms become expressed simply as the two-by-two products:
+\begin{equation*}
+\begin{array}{ll}
+ \left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} (t-s)^4\sum_{u, y} (\Omega^u\Upsilon^{u, *})_{yy'}ds &  \left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} (t-s)^2\sum_{u, y} (\Omega^u\Gamma^{u, *})_{yy'}ds \\
+ \left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} \sum_{u, y} (t-s)^2(\Xi^u\Upsilon^{u, *})_{yy'}ds  & \left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} \sum_{u, y} (\Xi^u\Gamma^{u, *})_{yy'}ds
+\end{array}\end{equation*}
+Observe that both $\Omega^u$ and $\Xi^u$ are positive-semidefinite, since we can rewrite them as:
 $$\Omega^u = \left(\sum_x (\Theta_t S^{1/2})_{ax}G_{xu}\overline{G}_{xy}\right)\left(\sum_{x'} (\Theta_t S^{1/2})_{ax'}G_{x'u}\overline{G}_{x'y'}\right)^*$$
 $$\Xi^u = \left(\sum_x  S^{1/2}_{ax}G_{xu}\overline{G}_{xy}\right)\left(\sum_{x'} S^{1/2}_{ax'}G_{x'u}\overline{G}_{x'y'}\right)^*$$
-This means that we can apply the trace inequality, which states that the trace is bounded above by singular values $\left\vert\text{Tr}(AB)\right\vert\leq \sum_{i=1}^N \alpha_i\beta_i$, hence by the positive-semidefiniteness, we have that $\left\vert\sum_y\left(\Omega^u\Upsilon^{u, *}\right)_{yy}\right\vert = \left\vert\text{Tr}\left(\Omega^u\Upsilon^{u, *}\right)\right\vert\leq \left\|\Omega^u\right\|_{op}\sum_{y}\Omega_{yy'}^uds$. This means that we can bound each of the earlier terms as follows:
+This means that we can apply the von Neumann trace inequality, which states that the trace is bounded above by singular values $\left\vert\text{Tr}(AB)\right\vert\leq \sum_{i=1}^N \alpha_i\beta_i$, hence by the positive-semidefiniteness: 
+$$\left\vert\sum_y\left(\Omega^u\Upsilon^{u, *}\right)_{yy}\right\vert = \left\vert\text{Tr}\left(\Omega^u\Upsilon^{u, *}\right)\right\vert\leq \left\|\Omega^u\right\|_{op}\sum_{y}\Omega_{yy'}^uds.$$
+This means that we can bound each of the earlier terms as follows:
 
-$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right] = \int_0^t (t-s)^4\sum_{u, y} (\Omega^u\Upsilon^{u, *})_{yy}ds\leq \int_0^t (t-s)^4\sum_u \|\Upsilon^u\|_{op}\sum_y \Omega_{yy'}^uds$$
+$$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} (t-s)^4\sum_{u, y} (\Omega^u\Upsilon^{u, *})_{yy}ds\leq \int_0^{t\wedge \tau_\sto} (t-s)^4\sum_u \|\Upsilon^u\|_{op}\sum_y \Omega_{yy'}^uds$$
 
-$$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] = \int_0^t (t-s)^2\sum_{u, y} (\Omega^u\Gamma^{u, *})_{yy'}ds\leq \int_0^t (t-s)^2\sum_u \|\Gamma^u\|_{op}\sum_y \Omega_{yy'}^uds$$
+$$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} (t-s)^2\sum_{u, y} (\Omega^u\Gamma^{u, *})_{yy'}ds\leq \int_0^{t\wedge \tau_\sto} (t-s)^2\sum_u \|\Gamma^u\|_{op}\sum_y \Omega_{yy'}^uds$$
 
-$$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] = \int_0^t \sum_{u, y} (t-s)^2(\Xi^u\Upsilon^{u, *})_{yy'}ds \leq  \int_0^t (t-s)^2\sum_u \|\Upsilon^u\|_{op}\sum_y \Xi_{yy'}^uds$$
+$$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} \sum_{u, y} (t-s)^2(\Xi^u\Upsilon^{u, *})_{yy'}ds \leq  \int_0^{t\wedge \tau_\sto} (t-s)^2\sum_u \|\Upsilon^u\|_{op}\sum_y \Xi_{yy'}^uds$$
 
-$$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^t \sum_{u, y} (\Xi^u\Gamma^{u, *})_{yy'}ds\leq \int_0^t \sum_u \|\Gamma^u\|_{op}\sum_y \Xi_{yy'}^uds$$
+$$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] = \int_0^{t\wedge \tau_\sto} \sum_{u, y} (\Xi^u\Gamma^{u, *})_{yy'}ds\leq \int_0^{t\wedge \tau_\sto} \sum_u \|\Gamma^u\|_{op}\sum_y \Xi_{yy'}^uds$$
 We can estimate the latter bounds by using the fact that $\vert G\vert^2 = GG^*$ and $|G|^4=|G|^2|G|^2$:
 $$\sum_{u, y}\Omega_{yy}^u=\sum_{u,y}\sum_{x,x'} \overline{G}_{xy} G_{x'y'} G_{xu} \overline{G}_{x'u} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'} =$$
 $$= \sum_{x, x'}|G|^2_{xx'}|{G}|^2_{x'x} (\Theta_t S^{\frac{1}{2}})_{ax} (\Theta_t S^{\frac{1}{2}})_{ax'}\leq 4 \sum_{x}|G|_{xx}^2 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2,$$
-following from the Schwarz inequality. By the Ward's identity for the resolvent $|G_{xx}|^2 =  \frac{\text{Im}G_{xx}}{\eta}=\frac{\text{Im}G_{xx}}{\text{Im}w_s}$ (equation 7.23 in \cite{dynamic}), we have:
+following from the Schwarz inequality, since $|G|_{xx'}^2|G|^2_{x'x}=||G|_{xx'}^2|^2$ by virtue of $|G|^2$ being Hermitian. On the other hand, by the Ward identity for the resolvent $|G_{xx}|^2 =  \frac{\text{Im}G_{xx}}{\eta}=\frac{\text{Im}G_{xx}}{\text{Im}w_s}$ (7.23 in \cite{dynamic}):
 
 $$4 \sum_{x}|G|_{xx}^4 |(\Theta_t S^{\frac{1}{2}})_{ax}|^2=4 |\text{Im}w_s|^{-2}\sum_x|\text{Im}G_{xx}|^2|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq 4 |\text{Im}w_s|^{-2}|\max_{k}\text{Im}G_{xx}|^2\sum_x|(\Theta_t S^{\frac{1}{2}})_{ax}|^2\leq$$
 
