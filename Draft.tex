@@ -184,7 +184,7 @@ The topic of random matrix theory (RMT) was originally motivated by the study of
 \noindent Another subject of great importance is the \textit{Poisson universality class}, closely related to the phenomenon of localized eigenstates. While Wigner's original theory had no mention of eigenvectors \cite{7}, their properties are essential in studying the behavior of more general random operators. One historically relevant example is the Anderson localization model, introduced by Philip W. Anderson in 1958, which explores how disorder affects quantum transport \cite{anderson}. The author considered the behavior of a quantum particle moving on a lattice $\Z^d$ with random on-site energies, represented by the random Schrödinger operator \( H_{RS}=-\Delta + \lambda V \), where \( \Delta \) is the discrete Laplacian and \( \lambda V \) is a random diagonal perturbation \cite{randomoperators}. In his work, Anderson posited that there exists a \textit{mobility edge} that separates a transition between localized and delocalized eigenvector statistics. 
 \vspace{0.5 cm}
 
-\noindent Localization for large values of $\lambda$ was first rigorously demonstrated using multiscale analysis \cite{24} with alternative approaches, such as the fractional moment method \cite{1}, later ensuing. The conjectured delocalization for small $\lambda$ is supported by extensive numerical evidence, yet a rigorous proof has remained out of reach \cite{bandSDE}. The primary reason for the scarcity of rigorous results has been in the general lack of exactly solvable models of sufficient generality. \cite{kravtsov2009}.  To address these gaps, it is crucial to explore systems that interpolate between localized and delocalized regimes while preserving analytical tractability. One such ensemble, supported by extensive numerical evidence, provides a promising case study for establishing the coexistence of localized and delocalized regimes. Two examples that we will consider more in depth in this paper are the non-invariant Gaussian random matrix ensemble and the Random Band Matrix model (RBM).
+\noindent Localization for large values of $\lambda$ was first rigorously demonstrated using multiscale analysis \cite{24} with alternative approaches, such as the fractional moment method \cite{1}, later ensuing. The conjectured delocalization for small $\lambda$ is supported by extensive numerical evidence, yet a rigorous proof has remained out of reach \cite{bandSDE}. The primary reason for the scarcity of rigorous results has been in the general lack of exactly solvable models of sufficient generality. \cite{kravtsov2009}.  To address these gaps, it is crucial to explore systems that interpolate between localized and delocalized regimes while preserving analytical tractability. One such ensemble, supported by extensive numerical evidence, provides a promising case study for establishing the coexistence of localized and delocalized regimes. Two examples that we will consider more in depth in this thesis are the non-invariant Gaussian random matrix ensemble and the Random Band Matrix model (RBM).
 
 \subsection*{Non-Invariant Gaussian Matrix}
 The non-invariant Gaussian random matrix ensemble, called also the critical random matrix ensemble (CRMT) \cite{mirlin1996}, is defined for Hermitian matrices \( H \) with independent Gaussian-distributed off-diagonal elements \cite{kravtsov2009}:$$
@@ -217,13 +217,13 @@ O(1) & \text{for } d\geq 3
 The Anderson model and the RBM are expected to have the same properties when $\lambda  \approx \frac{1}{W}$ \cite{7}, an observation supported with extensive numerical evidence \cite{arbm1, arbm2}. For localization, the current best bound is up to $W\ll N^{1/4}$ \cite{13}. On the other side of the transition, there is a long line of work of iterative improvements.\vspace{0.25 cm}
 
 \noindent Delocalization and quantum diffusion, explained in detailed below, have been rigorously established for the case of $d\geq 7$ \cite{8, 9, 40, highdim} using diagrammatic representations. The first two papers also 
-concluded a strong form of delocalization and GUE statistics for  $W\gg N^{3/4}$ \cite{8, 9} in the one-dimensional case. More recently, Dubova and Yang improved on the latter bound for $1d$ Gaussian random band matrices, assuming $W\gg N^{8/11}$ \cite{bandSDE}, by using the flow method \cite{RP, soosten}. Sections \hyperref[sec:flow]{2} through \hyperref[sec:drift]{5} are dedicated exclusively to their work. Their contribution of a controlled truncation of observable dynamics is what lead to the conclusive work by Yau and Yin, establishing delocalization for $W\geq N^{{1/2}+\epsilon}$ in the one-dimensional Gaussian case \cite{yauyin}. The continued success of this approach has allowed for proving delocalization in two dimension when $W\geq N^\epsilon$ \cite{twodim}. The latter sequence of notable results is the reason for dedicating the bulk of this thesis to the detailed examination of the tools utilized by the stochastic flow method. Furthermore, given the underlying Gaussian assumption in all previous work, we have determined that the question of the non-Gaussian case is a highly motivated one. As such, the remainder of our work (\hyperref[sec:non-gaussian]{Section 6}) will be focused on relaxing the Gaussian assumption by proving a Five Moment Matching theorem. With this said, we can start with our model of interest:
+concluded a strong form of delocalization and GUE statistics for  $W\gg N^{3/4}$ \cite{8, 9} in the one-dimensional case. More recently, Dubova and Yang improved on the latter bound for $1d$ Gaussian random band matrices, assuming $W\gg N^{8/11}$ \cite{bandSDE}, by using the flow method \cite{RP, soosten}. Sections \hyperref[sec:flow]{2} through \hyperref[sec:drift]{5} are dedicated exclusively to their work. Their contribution of a controlled truncation of observable dynamics is what lead to the conclusive work by Yau and Yin, establishing delocalization for $W\geq N^{{1/2}+\epsilon}$ in the one-dimensional Gaussian case \cite{yauyin}. The continued success of this approach has allowed for proving delocalization in two dimension when $W\geq N^\epsilon$ \cite{twodim}. The latter sequence of notable results is the reason for dedicating the bulk of this thesis to the detailed examination of the tools utilized by the stochastic flow method. Furthermore, given the underlying Gaussian assumption in all previous work, the question of the non-Gaussian case is a highly motivated one. As such, the remainder of our work (\hyperref[sec:non-gaussian]{Section 6}) will be focused on relaxing the Gaussian assumption by proving a Five Moment Matching theorem. With this said, we can start with our model of interest:
 
 \newpage
 
 \subsection*{The Model}
 \label{model}
-The matrix model $(H_{ij})_{i, j\in \Gamma}$ that will be subject to our examination throughout this paper is defined as follows: identify $\Z_n$ with $\Gamma=\{1, \cdots, N\}$ and equip it with the aforementioned periodic distance $|i-j|_N$, s.t. $\forall_{|i-j|_N>W} H_{ij}=0$. Now, for a symmetric and compactly supported probability density function (PDF) on $\mathbb{R}$, define the doubly stochastic matrix $(S_{xy})_{x, y\in \Gamma}$ as: $$\mathbb{E}|H_{xy}|^2=S_{xy} := Z_{N, W}^{-1}f\left(\frac{|x-y|_N}{W}\right),$$
+The matrix model $(H_{ij})_{i, j\in \Gamma}$ that will be subject to our examination throughout this thesis is defined as follows: identify $\Z_n$ with $\Gamma=\{1, \cdots, N\}$ and equip it with the aforementioned periodic distance $|i-j|_N$, s.t. $\forall_{|i-j|_N>W} H_{ij}=0$. Now, for a symmetric and compactly supported probability density function (PDF) on $\mathbb{R}$, define the doubly stochastic matrix $(S_{xy})_{x, y\in \Gamma}$ as: $$\mathbb{E}|H_{xy}|^2=S_{xy} := Z_{N, W}^{-1}f\left(\frac{|x-y|_N}{W}\right),$$
 where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically above and below by $W$. A technical, but necessary assumption is for $S$ to admit a matrix square root $S^{1/2}$, satisfying the same properties for a similarly symmetric and compactly supported PDF $f'$. \vspace{0.75 cm}
 \begin{center}
 \begin{tikzpicture}
@@ -268,7 +268,7 @@ where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically abo
 \newpage
 \section{Prerequisites}
 \label{sec:prereq}
-The main tool used to study both Anderson localization and random matrix statistics is the \textit{Green function} or \textit{resolvent}. For a random matrix $H$, it is defined as: $$G(z) := (H-zI_N)^{-1} = (H-z)^{-1},$$
+The main tool used to study both Anderson localization and random matrix statistics is the \textit{Green's function} or \textit{resolvent}. For a random matrix $H$, it is defined as: $$G(z) := (H-zI_N)^{-1} = (H-z)^{-1},$$
 where $z\in \mathbb{C}\backslash \{\lambda_1, \cdots, \lambda_N\}$ is the spectral parameter ranging over the complement of the eigenvalues $\lambda_1(H)\leq \cdots \leq \lambda_N(H)$ of $H$. Observe that for any eigenvector $\mathbf{u}_\alpha$ we have:
 $$H\mathbf{u}_\alpha = \lambda_\alpha \mathbf{u}\Leftrightarrow (H - z)\mathbf{u}_\alpha = (\lambda_\alpha-z)\mathbf{u}_\alpha$$
 \begin{equation}
@@ -301,7 +301,7 @@ which is also equivalent to $\text{Im }m \asymp 1$, where $\asymp$ means being b
 \begin{equation*}\label{2.3}\text{Im}(m(z))= \frac{\eta|m(z)|^2}{1-|m(z)|^2 }
 \tag{2.3}
 \end{equation*}
-Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. First observe that $|m(z)|\geq c>0$ can never be zero, since it implies: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
+Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. First, we claim that $|m(z)|\geq c>0$ uniformly. Indeed, $m(z)$ is continuous, this is equivalent to $m(z)\neq 0$, which can be verified as follows: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
 $$\Rightarrow z^2-4=z^2\Leftrightarrow -4=0$$ 
 
 
@@ -309,7 +309,7 @@ $$\Rightarrow z^2-4=z^2\Leftrightarrow -4=0$$
 
 
 \subsection*{Resolvent Identities}
-We can define the augmented minor Green function for any index $\alpha$ as $G(z)^{(\alpha)} = (H^{(\alpha)}-w_t)^{-1}$, where: $$\left(H^{(\alpha)}\right):=H_{ab}\cdot \mathbf{1}(a\neq \alpha)\cdot \mathbf{1}(b\neq \alpha),$$ 
+We can define the augmented minor Green's function for any index $\alpha$ as $G(z)^{(\alpha)} = (H^{(\alpha)}-w_t)^{-1}$, where: $$\left(H^{(\alpha)}\right):=H_{ab}\cdot \mathbf{1}(a\neq \alpha)\cdot \mathbf{1}(b\neq \alpha),$$ 
 so the augmented matrix is still $N\times N$ with the $\alpha$-row and -column set to zero \cite{dynamic}. As a consequence: 
 \begin{equation*}
 G_{xy}^{(\alpha)} = \left\{\begin{array}{cc}
@@ -362,7 +362,7 @@ $$\Rightarrow \sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$
 \newpage
 \section{Flow Method}
 \label{sec:flow}
-At the heart of the most recent advances in the theory of delocalization lies the flow method, a dynamic technique that will be the primary tool of our exploration. First appearing in the paper of von Soosten and Warzel \cite{RP}, it was used to prove non-ergodic delocalization in the Rozenzweig-Porter model \cite{porter1960}. Subsequent work \cite{soosten} extended the methodology to general Wigner matrices \cite{dynamic}, allowing for a simplified proof of the local semicricle law. The primary idea is to trace the evolution of the Green's function (resolvent) along random characteristic curves, enabling direct concentration estimates and more refined spectral control. More recently, it was used to prove delocalization for the one- and two-dimensional band matrices \cite{yauyin, twodim}\vspace{0.25cm}.
+At the heart of the recent advances in the theory of delocalization lies the flow method, a dynamic technique that will be the primary tool of our exploration. First appearing in the paper of von Soosten and Warzel \cite{RP}, it was used to prove non-ergodic delocalization in the Rozenzweig-Porter model \cite{porter1960}. Subsequent work \cite{soosten} extended the methodology to general Wigner matrices \cite{dynamic}, allowing for a simplified proof of the local semicricle law. The primary idea is to trace the evolution of the Green's function (resolvent) along random characteristic curves, enabling direct concentration estimates and more refined spectral control. More recently, it was used to prove delocalization for the one- and two-dimensional band matrices \cite{yauyin, twodim}\vspace{0.25cm}.
 \subsection{Construction}
 \noindent Consider the Brownian perturbation of the standard deviation matrix defined as $H(t)_{xy} = \sqrt{S_{xy}}b(t)_{xy}$, where $b(t)_{xy}\sim \mathcal{N}(0, t)$ represents the component Brownian motion. For this system, the matrix resolvent is augmented as $G(t) = (H(t)-w(t))^{-1}$ , where: \begin{equation*}
 w(t) = -\frac{1}{m(z)}-tm(z) = z+(1-t)m(z) \tag{3}
@@ -385,8 +385,8 @@ Lastly, using the Brownian motion fact that $|db(t)|^2=dt$ and carrying out the 
 $$dG(t)_{xy}=-m(z)\sum_j G_{xj}G_{jy}dt+\sum_{\alpha, \beta}G_{x, \alpha}\sqrt{S_{\alpha, \beta}}db_{\alpha, \beta}(t)G_{\beta, t}+\sum_j G_{xj}\left(\sum_yS_{jy}G_{yy}\right)G_{jy}dt=$$
 
 
-$$=\sum_{\alpha, \beta}G_{x\alpha}\sqrt{S_{\alpha \beta}}db_{\beta(t)}G_{\beta y}+\sum_j G_{xj}S_{jy}\left[G_{yy}-m(z)\right]G_{jy}dt = dI(t) + dII(t)dt$$
-This provides us with the decomposition of a stochastic term $dI(t)$ and a deterministic term $dII(t)dt$. 
+$$=\sum_{\alpha, \beta}G_{x\alpha}\sqrt{S_{\alpha \beta}}db_{\beta(t)}G_{\beta y}+\sum_j G_{xj}S_{jy}\left[G_{yy}-m(z)\right]G_{jy}dt = d \mathrm{I}(t) + d \mathrm{II}(t)dt$$
+This provides us with the decomposition of a stochastic term $d \mathrm{I}(t)$ and a deterministic term $d \mathrm{II}(t)dt$. 
 
 
 \subsection{Dynamical $T$-equation}
@@ -400,16 +400,16 @@ dF(t)_{xy}= d|G_{xy}|^2= G(t)_{xy} d\overline{G(t)}_{xy} + \overline{G(t)}_{xy} 
 $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} + d\left[G_{xy}, \overline{G}_{xy}\right]$$
  $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} +d\left[\sum_{\alpha, \beta} G_{x\alpha}d H_{\alpha \beta}\overline{G}_{xy}\right]$$
 $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} +\sum_{\alpha,\beta, \gamma, \delta}G_{x\alpha}G_{\beta\gamma}\overline{G_{xy}}\overline{G_{\delta \gamma}}$$
-In order to find the derivative of the $T$-matrix, we need to substitute for the earlier terms we found, namely \( dG(t)_{xy} = dI(t)_{xy} + dII(t)_{xy} dt \) and its conjugate, noting that \( dI(t)_{xy} d\overline{I(t)}_{xy} \) contributes to the quadratic variation, we obtain
+In order to find the derivative of the $T$-matrix, we need to substitute for the earlier terms we found, namely \( dG(t)_{xy} = d\mathrm{I}(t)_{xy} + d\mathrm{II}(t)_{xy} dt \) and its conjugate, noting that \( d\mathrm{I}(t)_{xy} d\overline{\mathrm{I}(t)}_{xy} \) contributes to the quadratic variation, we obtain
 \(
 dF(t)_{xy} = dM(t)_{xy} + \Omega(t)_{xy} dt
 \), where
 \begin{equation*}
-dM(t)_{xy} = \overline{G(t)}_{xy} dI(t)_{xy} + G(t)_{xy} \overline{dI(t)}_{xy} \end{equation*}
+dM(t)_{xy} = \overline{G(t)}_{xy} d\mathrm{I}(t)_{xy} + G(t)_{xy} \overline{d\mathrm{I}(t)}_{xy} \end{equation*}
 \begin{equation*}
-\Omega(t)_{xy} = G_{xy}\frac{\overline{dII(t)}_{xy}}{dt}+\overline{G_{xy}}\frac{dII(t)_{xy}}{dt}+\frac{d\left[G_{xy}, \overline{G_{xy}}\right]}{dt}
+\Omega(t)_{xy} = G_{xy}\frac{\overline{d\mathrm{II}(t)}_{xy}}{dt}+\overline{G_{xy}}\frac{d\mathrm{II}(t)_{xy}}{dt}+\frac{d\left[G_{xy}, \overline{G_{xy}}\right]}{dt}
 \end{equation*}
-and when expanded w.r.t to $dI(t)$ and $dII(t)dt$:
+and when expanded w.r.t to $d\mathrm{I}(t)$ and $d\mathrm{II}(t)dt$:
 $$dM(t)_{xy} = \sum_{\alpha, \beta}\overline{G_{xy}}G_{x\alpha}{S_{\alpha\beta}}^{1/2}G_{\beta y}dB_{\beta(t)}+\sum_{\alpha, \beta}{G}_{xy}\overline{G_{x\alpha}}{S_{\alpha\beta}}^{1/2}\,\overline{G_{\beta y}}dB_{\beta(t)}$$
 
 
@@ -2294,7 +2294,7 @@ In order to express the Quadratic Variation (QV) on the RHS, we will need to rew
 
 \end{tikzpicture}
 \end{center}
-If we are to approach the bounding in the same fashion as before, we will no get appropriate bounds: By eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim W^{-1/2}$ per estimate $(4)$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(2)$ to all red lines, we get a combined term $O(W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, each of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms.\textcolor{red}{FINISH THE BOUND AFTER THE OTHER TWO}.
+If we are to approach the bounding in the same fashion as before, we will not get appropriate bounds: By eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim W^{-1/2}$ per estimate $(4)$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(2)$ to all red lines, we get a combined term $O(W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, each of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms.\textcolor{red}{FINISH THE BOUND AFTER THE OTHER TWO}.
 
 
 \subsubsection*{Alternative bound}
@@ -2430,7 +2430,7 @@ $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{-\delta}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\
 
 \section{Non-Gaussian case}
 \label{sec:non-gaussian}
-Up to this point, our work on non-mean field models, specifically band matrices, has been focused on the case with Gaussian entries. Given that the delocalization behavior is conjectured to extend beyond the latter case, our last section has has t
+Up to this point, our work on non-mean field models, specifically band matrices, has been focused on the case with Gaussian entries. Given that the delocalization behavior is conjectured to extend beyond the latter case, our last section has has t\textcolor{red}{Finish sentence}
 
 
 \subsection{Lindeberg exchange strategy}
@@ -2446,7 +2446,7 @@ The equivalent result for the spectral behavior of random matrices is known as t
 
 
 \subsection{Four Moment Theorem for Green's function}
- Let $M_n, M_n'$ be two Wigner random matrices satisfying \textbf{C0} that match to order 4 off the diagonal and to order 2 on the diagonal for some sufficiently large $C_0$. Let $z = E + i\eta$ for some $E \in \mathbb{R}$ and some $\eta > 0$. We assume the level repulsion hypothesis that for any $c > 0$, one has with high probability that
+ Let $M_n, M_n'$ be two Wigner random matrices satisfying \textcolor{red}{\textbf{C0}} (define it) that match to order 4 off the diagonal and to order 2 on the diagonal for some sufficiently large $C_0$. Let $z = E + i\eta$ for some $E \in \mathbb{R}$ and some $\eta > 0$. We assume the level repulsion hypothesis that for any $c > 0$, one has with high probability that
 \begin{equation}
     \inf_{1 \leq i \leq n} |\lambda_i(\sqrt{n}M_n) - nz| \geq n^{-c}
 \end{equation}
@@ -2455,7 +2455,7 @@ and
     \inf_{1 \leq i \leq n} |\lambda_i(\sqrt{n}M_n') - nz| \geq n^{-c}.
 \end{equation}
 
-Let $1 \leq p,q \leq n$. Then for any smooth function $G: \mathbb{C} \to \mathbb{C}$ obeying the bounds $\nabla^j G(x) = O(1)$ for all $x \in \mathbb{C}$ and $0 \leq j \leq 5$, one has
+\noindent Let $1 \leq p,q \leq n$. Then for any smooth function $G: \mathbb{C} \to \mathbb{C}$ obeying the bounds $\nabla^j G(x) = O(1)$ for all $x \in \mathbb{C}$ and $0 \leq j \leq 5$, one has
 \begin{equation}
     \mathbb{E} G \left( \left( \frac{1}{\sqrt{n}} M_n - zI \right)^{-1}_{pq} \right)
     - \mathbb{E} G \left( \left( \frac{1}{\sqrt{n}} M_n' - zI \right)^{-1}_{pq} \right)
@@ -2466,11 +2466,46 @@ for some constant $c_0 > 0$ independent of $n$.
 
 
 \subsection{Result}
-In order to apply the Lindeberg expansion strategy to our case, let us consider the following function: $$F(H) = \left\vert
+\begin{boxt}{Conditions}
+\begin{enumerate}[label=(8.\arabic*)]
+\item $\mathbb{E}\left[H_{ij}^\ell \left(\overline{H}_{ij}\right)^{k-\ell}\right] = \mathbb{E}\left[\left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right]$
+\item $\forall q\geq 1, \quad \mathbb{E}\left[H_{xy}\right]^{2q}\prec W^{-q}$
+\end{enumerate}
+\end{boxt}
+\textcolor{red}{elaborate on conditions}. In order to apply the Lindeberg expansion strategy to our case, let us consider the following function: $$F(H) = \left\vert
 (H-z)_{ij}^{-1} - m(z)S_{ij}
 \right\vert ^{2p} = \left\vert 
 G_{ij}(z)-m(z)S_{ij}
 \right\vert ^{2p} = |W_{ij}|^{2p}$$
+\textcolor{red}{give intuition}
+
+\noindent Consider the replacement at stage $ij$ for $t\in [0, 1]$: 
+
+$$F(H_{ij}) = F(H_{11}^G, \cdots, H_{i, j-1}^G, tH_{ij}, H_{i, j+1}, \cdots H_{NN})$$
+ By the chain rule: $$\partial_t F(tH_{ij}) = \partial_{H_{ij}} F(tH_{ij})H_{ij} + \partial_{H_{ji}} F(tH_{ij})\overline{H_{ij}}$$
+(\textcolor{red}{prove by induction? - also justify the first formula} - Similarly, we have: 
+$$\frac{d^k}{dt^k} F(tH_{ij}) = \sum_{k=0}^k c_{\ell, k}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}$$
+
+\noindent By Taylor expansion around $t=0$: 
+$$F(H_{ij}) =F(0) + \sum_{k=1}^5 \frac{1}{k!} \frac{d^k}{dt^k}\left. F(tH_{ij})\right\vert_{t=0?1}+ \frac{1}{720} \frac{d^6}{dt^6}\left.F(tH_{ij})\right\vert_{t=t_{ij}},$$
+where by Taylor's theorem? $t_{ij}\in [0, 1]$ reflects all of the remaining correlations. Similarly, 
+
+$$F(H_{ij}^G) =F(0) + \sum_{k=1}^5 \frac{1}{k!} \frac{d^k}{dt^k}\left. F(tH_{ij}^G)\right\vert_{t=0?1}+ \frac{1}{720} \frac{d^6}{dt^6}\left.F(tH_{ij}^G)\right\vert_{t=t_{ij}^G},$$
+for another such $t_{ij}^G\in[0, 1]$.
+Then, let us take their difference (\textcolor{red}{verify the matrix identity }$\{--\}$:
+$$F(H_{ij}) - F(H_{ij}^G) = \sum_{k=1}^5\frac{1}{k!}\sum_{\ell = 0}^k c_{\ell, k} \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0)\left\{H_{ij}^\ell \left(\overline{H}_{ij} \right)^{k-\ell}- \left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right\}+$$
+$$+\frac{1}{720} \left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}-\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}^G}\right]$$
+By the moment matching condition $(8.1)$, we have: $$\mathbb{E}\left\vert F(H_{ij} - F(H_{ij}^G)\right\vert\lesssim \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert+\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}^G}\right\vert$$
+Using the formula we found earlier:
+$$\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert\lesssim \sum_{k=0}^6 |H_{ij}|^k \left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij}|_{t=t_{ij}} \right\vert$$
+
+
+
+
+
+\subsection{Old Notes}
+
+
 We consider replacing the $(k, \ell)$ entry of the $H$ matrix with the corresponding entry from $H'$. If we define their difference to be $\Delta = H_{k\ell}-H'_{k\ell}$, the Taylor expansion becomes: $$F(H')-F(H) = \Delta \partial_{H_{k\ell}}F(H)  + \frac{\Delta^2}{2}\partial_{H_{k\ell}}^2F(H) +\frac{\Delta^3}{3!}\partial_{H_{k\ell}}^3F(H) +\frac{\Delta^4}{4!}\partial_{H_{k\ell}}^4F(H)+\frac{\Delta^5}{5!}\partial_{H_{k\ell}}^2F(H) +R_6$$
 When the distributions match up to the 4th moment, we have: $$\mathbb{E}[F(H')-F(H)] = \frac{\mathbb{E}[\Delta^5]}{2}\mathbb{E}\left[\partial_{H_{k\ell}}^5F(H)\right] +\mathbb{E}[R_6]$$
 In order to estimate this expression, we need to calculate the derivatives. Let us start with the first derivative of our function with respect to the matrix entry
@@ -2490,7 +2525,7 @@ I'll use the chain rule since $|W_{ij}|^{2p}$ depends on $H_{kl}$ through $G$:
 
 $$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = \frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}} \cdot \frac{\partial W_{ij}}{\partial G_{ij}} \cdot \frac{\partial G_{ij}}{\partial H_{kl}} + \frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}^*} \cdot \frac{\partial W_{ij}^*}{\partial G_{ij}^*} \cdot \frac{\partial G_{ij}^*}{\partial H_{kl}}$$
 
-The second term appears because we're dealing with complex numbers, and $|W_{ij}|^2 = W_{ij} \cdot W_{ij}^*$. This is why you're seeing real components emerge.
+The second term appears because we're dealing with complex numbers, and $|W_{ij}|^2 = W_{ij} \cdot W_{ij}^*$. T
 
 
 
