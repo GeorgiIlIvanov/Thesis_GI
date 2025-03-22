@@ -2491,7 +2491,7 @@ G_{ij}(z)-m(z)S_{ij}
 
 \noindent Consider the replacement at stage $ij$ for $t\in [0, 1]$: 
 
-$$F(H_{ij}) = F(H_{11}^G, \cdots, H_{i, j-1}^G, tH_{ij}, H_{i, j+1}, \cdots H_{NN})$$
+$$F(tH_{ij}) = F(H_{11}^G, \cdots, H_{i, j-1}^G, tH_{ij}, H_{i, j+1}, \cdots H_{NN})$$
  By the chain rule: $$\partial_t F(tH_{ij}) = \partial_{H_{ij}} F(tH_{ij})H_{ij} + \partial_{H_{ji}} F(tH_{ij})\overline{H_{ij}}$$
 (\textcolor{red}{prove by induction? - also justify the first formula} - Similarly, we have: 
 $$\frac{d^k}{dt^k} F(tH_{ij}) = \sum_{k=0}^k c_{\ell, k}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}$$
