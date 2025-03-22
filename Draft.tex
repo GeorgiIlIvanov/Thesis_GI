@@ -2430,64 +2430,65 @@ $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{-\delta}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\
 
 \section{Non-Gaussian case}
 \label{sec:non-gaussian}
-Up to this point, our work on non-mean field models, specifically band matrices, has been focused on the case with Gaussian entries. Given that the delocalization behavior is conjectured to extend beyond the latter case, our last section has has t\textcolor{red}{Finish sentence}
+Up to this point, the work presented on band matrices has been focused exclusively on the case with Gaussian entries. Given that the delocalization behavior is conjectured to extend beyond this restriction, the goal for the last section of this thesis will be to do exactly that, by proving a \textit{Five Moment} matching theorem with the help of the Lindeberg exchange strategy:
 
 
 \subsection{Lindeberg exchange strategy}
-The method developed by Lindeberg in his seminal proof for the generalized CLT \cite{lindeberg} and later generalized by Chatterjee \cite{chatterjee}. The argument proceeds as follows \cite{tao}: Suppose that $X_1, \cdots, X_n\sim [\mu, 1]$ are i.i.d, and let $Y_1, \cdots, Y_n\sim[\mu, 1]$ be another such set. One would like to show that for any smooth, compactly supported function $F$: $$\mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right) = \mathbb{E}F\left(\frac{Y_1+\cdots+Y_n}{\sqrt{n}}\right)+o(1)$$
-by swapping the entries one at a time. Define
-$S= \frac{X_1+\cdots+X_{n-1}}{\sqrt{n}}$, such that $S+n^{-1/2}X_n = \frac{X_1+\cdots+X_n}{\sqrt{n}}$. Using the smoothness and compact support of $F$, we can apply the Taylor expansion: $$F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right)=F(S)+n^{-1/2}X_nF'(S)+\frac{1}{2}n^{-1}X_n^2 F''(S) + O(n^{-3/2}|X_n|^3)$$
-$$\Rightarrow \mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right)=\mathbb{E}F(S)+n^{-1/2}(\mathbb{E}X_n)\mathbb{E}F'(S)+\frac{1}{2}n^{-1}(\mathbb{E}X_n^2)\mathbb{E}F''(S) + O(n^{-3/2})$$
-$$\Rightarrow \mathbb{E}F\left(\frac{X_1+\cdots+X_{n-1}+Y_n}{\sqrt{n}}\right)=\mathbb{E}F(S)+n^{-1/2}(\mathbb{E}Y_n)\mathbb{E}F'(S)+\frac{1}{2}n^{-1}(\mathbb{E}Y_n^2)\mathbb{E}F''(S) +O (n^{-3/2})$$
-$$\Rightarrow \mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right) = \mathbb{E}F\left(\frac{X_1+\cdots+X_{n-1}+Y_n}{\sqrt{n}}\right)+o\left(\frac{1}{n}\right)$$
-by the the fact $X_i$ and $Y_i$ have matching moments of second order. If we have higher matching moments, we could continue the Taylor expansion in order to refine the error term.
-This strategy can naturally be extended to the case of independent Wigner matrices $M_n, M_n'$ with the goal of obtaining bounds like: $$\mathbb{E}F(M_n)-\mathbb{E}F(\tilde{M}_n)=o(1/n)$$
-The equivalent result for the spectral behavior of random matrices is known as the \textit{Four Moment Theorem } \cite{tao2}:
+This method was developed by Lindeberg in his seminal proof for the generalized CLT \cite{lindeberg} and later generalized by Chatterjee \cite{chatterjee}. The argument proceeds as follows \cite{tao}: Suppose that $X_1, \cdots, X_n\sim [\mu, 1]$ are i.i.d, and let $Y_1, \cdots, Y_n\sim[\mu, 1]$ be another such set. One would like to show that for any smooth, compactly supported function $F$: $$\mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right) = \mathbb{E}F\left(\frac{Y_1+\cdots+Y_n}{\sqrt{n}}\right)+o(1)$$
+by swapping the entries one at a time, with the latter being the key step in this argument.  Define
+$S= \frac{X_1+\cdots+X_{n-1}}{\sqrt{n}}$, where clearly $ \frac{X_1+\cdots+X_n}{\sqrt{n}}=S+n^{-1/2}X_n $. Using the smoothness and compact support of $F$, we can apply the Taylor expansion around $S$: $$F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right)=F(S)+n^{-1/2}X_nF'(S)+\frac{1}{2}n^{-1}X_n^2 F''(S) + O(n^{-3/2}|X_n|^3)$$
+By taking the expectation, we get: 
+$$ \mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right)=\mathbb{E}F(S)+n^{-1/2}(\mathbb{E}X_n)\mathbb{E}F'(S)+\frac{1}{2}n^{-1}(\mathbb{E}X_n^2)\mathbb{E}F''(S) + O(n^{-3/2})$$
+The following step is to swap the last element $X_n$ with an independent $Y_n$ from the other set $S' = \frac{X_1+\cdots X_{n-1}+Y_n}{\sqrt{n}}$. By the same logic as above, we have that $\mathbb{E}F(S')$ is: 
+$$ \mathbb{E}F\left(\frac{X_1+\cdots+X_{n-1}+Y_n}{\sqrt{n}}\right)=\mathbb{E}F(S)+n^{-1/2}(\mathbb{E}Y_n)\mathbb{E}F'(S)+\frac{1}{2}n^{-1}(\mathbb{E}Y_n^2)\mathbb{E}F''(S) +O (n^{-3/2})$$
+By taking their difference and using the matching moments of second order, we get: 
+$$ \mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right) = \mathbb{E}F\left(\frac{X_1+\cdots+X_{n-1}+Y_n}{\sqrt{n}}\right)+o\left(\frac{1}{n}\right)$$
+If we have higher matching moments, we could simply continue the Taylor expansion in order to refine the error term.
+This strategy has been extended to the case of independent Wigner matrices $M_n, M_n'$ with the goal of obtaining similar bounds like: $$\mathbb{E}F(M_n)-\mathbb{E}F(\tilde{M}_n)=o(1/n).$$ 
+\noindent Given that up to this point, we have had the ample opportunity of exploring the powerful uses of Green's function, one may ask if there is an equivalent approach for the spectral behavior of random matrices. There is, indeed, such a result, also known as the \textit{Four Moment Theorem for Green's function} \cite{tao2}:
 
 
 \subsection{Four Moment Theorem for Green's function}
- Let $M_n, M_n'$ be two Wigner random matrices satisfying \textcolor{red}{\textbf{C0}} (define it) that match to order 4 off the diagonal and to order 2 on the diagonal for some sufficiently large $C_0$. Let $z = E + i\eta$ for some $E \in \mathbb{R}$ and some $\eta > 0$. We assume the level repulsion hypothesis that for any $c > 0$, one has with high probability that
-\begin{equation}
+Let $M_n, M_n'$ be two Wigner random matrices satisfying the following condition: $$P(|(M_n)_{ij}|\geq t^C)\leq \exp(-t)$$
+for all $1\leq i, j\leq n$ and $t\geq C'$ for some constants $C, C'$, independent of $i, j$ and $n$. Furthermore, assume that $M_n$ and $M_n'$ match in moments up to order 4 off the diagonal and up to order 2 on the diagonal for some sufficiently large $C_0$. Let $z = E + i\eta$ for some $E \in \mathbb{R}$ and some $\eta > 0$. We assume the level repulsion hypothesis that for any $c > 0$, one has with high probability that
+\begin{equation*}
     \inf_{1 \leq i \leq n} |\lambda_i(\sqrt{n}M_n) - nz| \geq n^{-c}
-\end{equation}
-and
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \inf_{1 \leq i \leq n} |\lambda_i(\sqrt{n}M_n') - nz| \geq n^{-c}.
-\end{equation}
+\end{equation*}
 
-\noindent Let $1 \leq p,q \leq n$. Then for any smooth function $G: \mathbb{C} \to \mathbb{C}$ obeying the bounds $\nabla^j G(x) = O(1)$ for all $x \in \mathbb{C}$ and $0 \leq j \leq 5$, one has
-\begin{equation}
+\noindent Let $1 \leq p,q \leq n$. Then for any smooth function $G: \mathbb{C} \to \mathbb{C}$ obeying the bounds $\nabla^j G(x) = O(1)$ for all $x \in \mathbb{C}$ and $0 \leq j \leq 5$, the theorem states that for some constant $c_0 > 0$ independent of $n$, we have:
+\begin{equation*}
     \mathbb{E} G \left( \left( \frac{1}{\sqrt{n}} M_n - zI \right)^{-1}_{pq} \right)
     - \mathbb{E} G \left( \left( \frac{1}{\sqrt{n}} M_n' - zI \right)^{-1}_{pq} \right)
     = O(n^{-c_0})
-\end{equation}
-for some constant $c_0 > 0$ independent of $n$.
+\end{equation*}
 
 
 
-\subsection{Result}
-At the root of the Lindeberg exchange strategy is to establish control at each step of the replacement. The matrix-equivalent for this is to swap one entry $H_{ij}$ at a time (up to the Hermitian control) with its matching Gaussian in the following sense: 
+\subsection{Replacement}
+The goal for the remainder of this thesis is to prove a theorem, similar to the one above, for the delocalization of RBMs with a relaxation on the Gaussian assumption. Recall that at the root of the Lindeberg exchange strategy is to establish stochastic control at each step of a replacement. While we are working with matrices instead of of vectors of random variables, the notion of replacement naturally extends when we consider a lexicographic ordering of the indices. Similar to how we swapped $X_n$ with $Y_n$, in this context we will also start with $H_{NN}$. We will work our way backwards by replacing consecutively $H_{N, N-1}, \cdots,H_{i, j+1},  H_{ij}, H_{i, j-1}\cdots$.  As such, at step $(i, j)$ of the replacement (accounting for the Hermitian constraint), we will have the following two matrices, represented in lexicographic vector form:
+$$H^{(i, j)}=(H_{11}, \cdots H_{i, j-1}, H_{ij}, H_{i, j+1}^G, \cdots, H_{NN}^G)$$
+$$H^{(i, j), G}=(H_{11}, \cdots H_{i, j-1}, H_{ij}^G, H_{i, j+1}^G, \cdots, H_{NN}^G),$$
+where $H_{N, N}^G, \cdots, H_{i, j+1}^G,  H_{ij}^G$ are the Gaussian replacement entries, matching in the sense of $(8.1)$ :
+
 \begin{boxt}{Conditions}
 \begin{enumerate}[label=(8.\arabic*)]
-\item $\mathbb{E}\left[H_{ij}^\ell \left(\overline{H}_{ij}\right)^{k-\ell}\right] = \mathbb{E}\left[\left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right]$
-\item $\forall q\geq 1, \quad \mathbb{E}\left[H_{xy}\right]^{2q}\prec W^{-q}$
+\item $\mathbb{E}\left[H_{ij}^\ell \left(\overline{H}_{ij}\right)^{k-\ell}\right] = \mathbb{E}\left[\left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right], \quad 0\leq \ell\leq k\leq 5$
+\item $\forall q\geq 1, \quad \mathbb{E}\left\vert H_{xy}\right\vert ^{2q}\prec W^{-q}$
 \end{enumerate}
 \end{boxt}
-
-\subsection*{Replacement}
-Let $\rho\in [0, 1]$. Define: $$H(\rho) = H(H_{k\ell}, H_{\ell k}\mapsto \rho H_{k\ell}, \rho H_{\ell k})$$
-$$H'(\rho) = H'(H'_{k\ell}, H'_{\ell k}\mapsto \rho H'_{k\ell}, \rho H_{\ell k}')$$
-Let us now consider the Taylor expansion w.r.t. to the latter scaling variable $\rho$ up to exponent $n$: 
-$$F(H) = F(H)(0) + \left.\frac{d}{dp}F(H(\rho))\right\vert_{\rho=0}+\left.\frac{d^2}{dp^2}F(H(\rho))\right\vert_{\rho=0} + \cdots + \left.\frac{d^{n+1}}{dp^{n+1}}F(H(\rho))\right\vert_{\rho=0}$$
-Focusing on the last term, we have: $$\frac{d^{n+1}}{dp^{n+1}}  F(H(\rho))= \sum_{\alpha=0}^{n-1}H_{k\ell}^\alpha H_{\ell k}^{n+1-\alpha}C_\alpha,$$
-where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textcolor{red}{justify}) $C_{n+1}$
-
-\textcolor{red}{elaborate on conditions}. In order to apply the Lindeberg expansion strategy to our case, let us consider the following function: $$F(H) = \left\vert
+The first condition $(8.1)$ is the $\textit{Five Moment}$ matching assumption that gives the name of our result. The second $(8.2)$ is a moment decay condition that allows us to relax the Gaussian assumption, while still providing sufficient strength of our bounds. However, we still have to verify that each consecutive replacement is manageable. For this purpose, we will define the following interpolation for $t\in [0, 1]$:
+$$tH^{(ij)} = H^{(i, j)}(H_{ij}, H_{ji}\mapsto t H_{ij}, tH_{ji})$$
+$$tH^{(i, j), G} = H^{(i, j), G}(H^G_{ij}, H^G_{ij}\mapsto t H^G_{ij}, t H^{G}_{ij}).$$
+Whenever the replacement step $(i, j)$ is implicit from context, we will drop the superscript. In order to make our theorem applicable to the context of delocalization, we want to consider the following function: 
+$$F(H) = \left\vert
 (H-z)_{ij}^{-1} - m(z)S_{ij}
 \right\vert ^{2p} = \left\vert 
 G_{ij}(z)-m(z)S_{ij}
 \right\vert ^{2p} = |W_{ij}|^{2p}$$
-\textcolor{red}{give intuition}
+Our reasoning is simple. Having familiarized ourselves with the flow method and the resolvent approach, it makes sense for us to choose a function that quantifies the deviation of resolvent entries form their deterministic approximations. By raising to power $2p$, we have better tools at our disposal, namely Chebyshev' and Markov's inequalities. 
 
 \noindent Consider the replacement at stage $ij$ for $t\in [0, 1]$: 
 
