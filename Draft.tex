@@ -2541,13 +2541,21 @@ $$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\mathbb{E}\left[\parti
 $$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\mathbb{E}\left[\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0) \right]\left\{\mathbb{E}\left[H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]-\mathbb{E}\left[(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]\right\}=0$$
 by condition $(8.1)$. This means that:
 $$\mathbb{E}\left[F(tH_{ij})-F(tH_{ij}^G)\right]=\frac{1}{720} \mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]-\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]$$
-This means that by the Hölder's and the triangle inequalities: 
+This means that by the Hölder' and the triangle inequalities: 
 $$\left\vert \mathbb{E}\left[ F(H_{ij} - F(H_{ij}^G)\right] \right\vert\leq \frac{1}{720} \left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]\right\vert+\frac{1}{720}\left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]\right\vert $$
 $$\lesssim \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert+\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right\vert = \mathcal{P} + \mathcal{P}^G$$
-Using formula $(8.4)$ we found earlier gives us:
-$$\mathcal{P} = \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert$$
+Applying formula $(8.4)$ to $\mathcal{P}$ (with $\mathcal{P}^G$ following WLOG), we get:
+$$\mathcal{P} = \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert  = \mathbb{E}\left\vert  \left.\sum_{\ell=0}^6 \binom{6}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{6-\ell}\right\vert_{t=t_{ij}}\right\vert\leq $$
+$$\leq \sum_{\ell=0}^6 \binom{6}{\ell}\mathbb{E}\left\vert \left.
+\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{6-\ell}\right\vert_{t=t_{ij}}
+\right\vert = \sum_{\ell=0}^6 \binom{6}{\ell}\mathbb{E}\left[\left\vert \left.
+\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})\right\vert _{t=t_{ij}}\right\vert
+\left\vert H_{ij}^\ell \right\vert \left\vert \left(\overline{H_{ij}}\right)^{6-\ell}
+\right\vert \right]$$
+$$\leq \sum_{k=0}^6\binom{6}{\ell} \mathbb{E}\left[ \left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\right] \mathbb{E}\left[|H_{ij}|^\ell \left\vert \overline{H_{ij}}\right\vert^{6-\ell}\right]\lesssim \sum_{k=0}^7 \mathbb{E}\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\mathbb{E}|H_{ij}|^6,$$
+where the first is the triangle inequality, the second is Hölder's $L^1$ inequality and the last step uses the fact that $|H_{ij}| = \left\vert\overline{H_{ij}}\right\vert$. Let us call the RHS $\mathcal{Q}$, i.e we just showed that $\mathcal{P}\lesssim \mathcal{Q}$. WLOG, we also have that $\mathcal{P}^G\lesssim \mathcal{Q}^G$. By condition $(8.2)$, we have that $\mathbb{E}|H_{ij}|^6\prec W^{-3}$, so our goal will be to establish a bound on the first multiple term, namely $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ for all $t\in [0, 1]$. 
 
-$$\lesssim \sum_{k=0}^6 |H_{ij}|^k \left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})|_{t=t_{ij}} \right\vert$$
+
 Let the LHS and RHS be $\mathcal{P}$ and $\mathrm{Q}$, respectively. We want $\mathcal{Q}\leq W^C$ for some $C \lesssim 1$ , s.t. $\mathcal{Q}\prec 1$ (\textcolor{red}{definition? - revisit}). \\
 
 If that were true, then $\exists$ event $\mathcal{A}$, s.t. $\mathcal{Q}\leq W^\epsilon$ on $\mathcal{A}$ with $P(\mathcal{A})\geq 1-W^{-D}$ (\textcolor{red}{workout the details of }$\epsilon$ and $D$- which one is given by the definition and which one do we retrieve?). Then: 
