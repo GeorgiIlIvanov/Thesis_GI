@@ -2494,7 +2494,7 @@ Our reasoning is simple. Having familiarized ourselves with the flow method and 
 $$F(tH_{ij}) = F(H_{11}, \cdots, H_{i, j-1}, tH_{ij}, H_{i, j+1}^G, \cdots H_{NN}^G)$$
 In order to apply the Taylor series for the error terms, let us calculate the derivatives: $$\partial_t F(tH_{ij}) = \partial_{H_{ij}} F(tH_{ij})H_{ij} + \partial_{H_{ji}} F(tH_{ij})\overline{H_{ij}}$$
 We claim that the following represents the $k$th derivative: 
-$$\frac{d^k}{dt^k} F(tH_{ij}) = \sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}$$
+\begin{equation*}\frac{d^k}{dt^k} F(tH_{ij}) = \sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\tag{8.4}\end{equation*}
 Assume the latter for an induction hypothesis, having already verified the base case. Then: 
 $$\frac{d^{k+1}}{dt^{k+1}} F(tH_{ij}) = \frac{d}{dt}\left[\frac{d^k}{dt^k} F(tH_{ij}) \right]=\frac{d}{dt}\left[ \sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]=$$
 $$=\sum_{\ell=0}^k\binom{k}{\ell}\frac{d}{dt}\left[\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right]H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}$$
@@ -2515,29 +2515,39 @@ $$=\binom{k}{0}\partial_{H_{ij}}^0\partial_{H_{ji}}^{k+1} F(tH_{ij})\left(\overl
 $$=+\sum_{\ell=1}^k \left(\binom{k}{\ell-1}+\binom{k}{\ell}\right)\partial_{H_{ij}}^{\ell} \partial_{H_{ji}}^{k+1-\ell} F(tH_{ij})H_{ij}^{\ell} \left(\overline{H_{ij}}\right)^{k+1-\ell} $$
 But since $\binom{k}{k} = \binom{k+1}{k+1}$ and $\binom{k}{\ell-1}+\binom{k}{\ell} = \binom{k+1}{\ell}$, this completes the induction:
 \begin{equation*}
-\frac{d^{k+1}}{dt^{k+1}} F(tH_{ij}) = \sum_{\ell=0}^{k+1} \binom{k+1}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k+1-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k+1-\ell}\tag{8.4}
+\frac{d^{k+1}}{dt^{k+1}} F(tH_{ij}) = \sum_{\ell=0}^{k+1} \binom{k+1}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k+1-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k+1-\ell}
 \end{equation*}
 
 \subsection*{Taylor series}
 Having derived the explicit derivatives, we can now continue with the next step in the Lindeberg exchange strategy. By the Lagrange form of Taylor's (quintic) theorem we know $\exists t_{ij}\in [0, 1]$, s.t.:
 $$F(H_{ij}) =F(0) + \sum_{k=1}^5 \frac{1}{k!}\left.  \frac{d^k}{dt^k}F(tH_{ij})\right\vert_{t=0}+ \left.\frac{1}{720} \frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}},$$
-where $F(sH_{ij})=F(0)$ for $s=0$ represents setting the $H_{ij}$ and $H_{ji}$ to zero. Similarly, $t_{ij}^G\in[0, 1]$, s.t.:
+where $F(sH_{ij})=F(0)$ for $s=0$ represents setting $H_{ij}$ and $H_{ji}$ to zero. Similarly, $\exists t_{ij}^G\in[0, 1]$, s.t.:
 $$F(H_{ij}^G) =F(0) + \sum_{k=1}^5 \frac{1}{k!} \left. \frac{d^k}{dt^k}F(tH_{ij}^G)\right\vert_{t=0}+ \frac{1}{720}\left. \frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}.$$
 Let us take their difference:
 \begin{equation*}\begin{array}{l}
 F(H_{ij}) - F(H_{ij}^G)=
 \end{array}
 \end{equation*}
-$$ =\sum_{k=1}^5 \frac{1}{k!} \left[\left. \frac{d^k}{dt^k}F(tH_{ij})\right\vert_{t=0}-\left. \frac{d^k}{dt^k}F(tH_{ij}^G)\right\vert_{t=0}\right\vert +\frac{1}{720} \left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}-\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}^G}\right]$$
-Focusing on the first term, we can u
-We can now recall our formula from before, s.t. our first term becomes:
-$$\sum_{k=1}^t \left[\right]$$
+\begin{equation*}=\sum_{k=1}^5 \frac{1}{k!} \left[\left. \frac{d^k}{dt^k}F(tH_{ij})\right\vert_{t=0}-\left. \frac{d^k}{dt^k}F(tH_{ij}^G)\right\vert_{t=0}\right\vert +\frac{1}{720} \left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}-\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right] \tag{8.5}
+\end{equation*}
+Focusing on the first term, we can use formula $(8.4)$ we derived earlier, s.t. the first term becomes:
+$$\sum_{k=1}^5\frac{1}{k!} \left[\sum_{\ell=0}^k \left.\binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right\vert_{t=0}-\sum_{\ell=0}^k \left.\binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij}^G)(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right\vert_{t=0}\right]=$$
 
-$$ \sum_{k=1}^5\frac{1}{k!}\sum_{\ell = 0}^k c_{\ell, k} \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0)\left\{H_{ij}^\ell \left(\overline{H}_{ij} \right)^{k-\ell}- \left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right\}+$$
-$$+\frac{1}{720} \left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}-\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}^G}\right]$$
-By the moment matching condition $(8.1)$, we have: $$\mathbb{E}\left\vert F(H_{ij} - F(H_{ij}^G)\right\vert\lesssim \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert+\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}^G}\right\vert$$
-Using the formula we found earlier (\textcolor{red}{write out the cancellation by absolute value}):
-$$\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert\lesssim \sum_{k=0}^6 |H_{ij}|^k \left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})|_{t=t_{ij}} \right\vert$$
+$$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0) \left\{H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}-(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right\}$$
+Let us take the expectation of $(8.4)$. We can use the independence of $F(0)$ from $H_{ij}$ and $H_{ij}^G$ to split the expectation of the first term as:
+
+$$\mathbb{E}\left[\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0) \left\{H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}-(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right\}\right]=$$
+$$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\mathbb{E}\left[\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0) \right]\mathbb{E}\left[H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}-(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]=$$
+$$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\mathbb{E}\left[\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0) \right]\left\{\mathbb{E}\left[H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]-\mathbb{E}\left[(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]\right\}=0$$
+by condition $(8.1)$. This means that:
+$$\mathbb{E}\left[F(tH_{ij})-F(tH_{ij}^G)\right]=\frac{1}{720} \mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]-\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]$$
+This means that by the Hölder's and the triangle inequalities: 
+$$\left\vert \mathbb{E}\left[ F(H_{ij} - F(H_{ij}^G)\right] \right\vert\leq \frac{1}{720} \left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]\right\vert+\frac{1}{720}\left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]\right\vert $$
+$$\lesssim \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert+\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right\vert = \mathcal{P} + \mathcal{P}^G$$
+Using formula $(8.4)$ we found earlier gives us:
+$$\mathcal{P} = \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert$$
+
+$$\lesssim \sum_{k=0}^6 |H_{ij}|^k \left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})|_{t=t_{ij}} \right\vert$$
 Let the LHS and RHS be $\mathcal{P}$ and $\mathrm{Q}$, respectively. We want $\mathcal{Q}\leq W^C$ for some $C \lesssim 1$ , s.t. $\mathcal{Q}\prec 1$ (\textcolor{red}{definition? - revisit}). \\
 
 If that were true, then $\exists$ event $\mathcal{A}$, s.t. $\mathcal{Q}\leq W^\epsilon$ on $\mathcal{A}$ with $P(\mathcal{A})\geq 1-W^{-D}$ (\textcolor{red}{workout the details of }$\epsilon$ and $D$- which one is given by the definition and which one do we retrieve?). Then: 
