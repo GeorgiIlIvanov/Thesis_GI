@@ -339,10 +339,10 @@ Similarly, we can derive our second resolvent identity, by applying again the sa
 G_{xy} = G_{xy}^{(x)} - G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)} =- G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)}\quad x\neq y
 \end{equation*}
 Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entry $H_{ij}$ using the limit definition. Let us define the perturbed matrix $H' = H(H_{ij}\mapsto H_{ij}+\epsilon)$ at entry $H_{ij}$, where $G' = (H'-z)^{-1}$ and let $\epsilon_{ij} = \mathbf{0}(0_{ij}\mapsto \epsilon)$ be the perturbed zero matrix, which we can write as $\mathbf{1}_{ij}$ when $\epsilon=1$. By our matrix identities, we have: $$\partial_{H_{ij}}G(z)_{xy}=\lim_{\epsilon\rightarrow 0} \frac{G_{xy}'-G_{xy}}{\epsilon} = \lim_{\epsilon\rightarrow 0}\frac{\left[G'(H-H')G\right]_{xy}}{\epsilon} = -\lim_{\epsilon\rightarrow 0}\frac{\left[G'\epsilon_{ij}G\right]_{xy}}{\epsilon} = -[G'\mathbf{1}_{ij}G]_{xy} = -G_{xi}G_{jy}$$
-\begin{equation*}
+\begin{equation*}\label{resolventderivative}
 \partial_{H_{ij}}\overline{G(z)_{xy}}= \lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}(H^\intercal-H'^\intercal)\overline{G}\right]_{xy}}{\epsilon} =\\\\= -\lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}\epsilon_{ji}\overline{G}\right]_{xy}}{\epsilon} = -[\overline{G'}\mathbf{1}_{ji}\overline{G}]_{xy} = -\overline{G_{xj}}\ \overline{G_{iy}}
 \end{equation*}
-
+By extension of the Hermitian property, we have $\partial_{\overline{H}_{ij}} \overline{G(z)_{xy}} = \partial_{{H}_{ji}} \overline{G(z)_{xy}}  = -\overline{G_{xi}}\ \overline{G_{jy}}$
 \noindent Lastly, the following result is ubiquitous in RMT literature (8.3.iii \cite{dynamic}), and as such has its own name: 
 \begin{boxtheorem}{Ward identity: }\label{ward} $$\sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$\end{boxtheorem}
 The proof follows directly from the spectral decomposition of the resolvent we showed in $(1)$, by which:
@@ -2556,72 +2556,39 @@ $$\leq \sum_{k=0}^6\binom{6}{\ell} \mathbb{E}\left[ \left\vert \partial_{H_{ij}}
 where the first is the triangle inequality, the second is Hölder's $L^1$ inequality and the last step uses the fact that $|H_{ij}| = \left\vert\overline{H_{ij}}\right\vert$. Let us call the RHS $\mathcal{Q}$, i.e we just showed that $\mathcal{P}\lesssim \mathcal{Q}$. WLOG, we also have that $\mathcal{P}^G\lesssim \mathcal{Q}^G$. By condition $(8.2)$, we have that $\mathbb{E}|H_{ij}|^6\prec W^{-3}$, so our goal will be to establish a bound on the first multiple term, namely $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ for all $t\in [0, 1]$. The delocalization argument will follow readily, so let us now direct our attention to the derivatives on $F(H)$ w.r.t. the entries $H_{ij}$. 
 
 \subsection{Derivatives of $F(tH_{ij})$}
-By looking at the general form of our target $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ , we can glean that a good place to start would be with the calculation of $\partial_{H_{xy}}^\ell F(tH_{xy})$. Given our definition of the interpolation $tH_{xy}$, we can tell in advance that term $t$ will only figure as a multiple after applying the chain rule, so we can focus exclusively on $\partial_{H_{xy}}^\ell F(tH_{xy})$. Recall our $(8.4)$ definition of $F(H)$definition Let us begin by abstracting slightly our notation, defining $W_{ij}$ as : 
-$$F(H) = \left\vert G_{ij}\right\vert
+By looking at the general form of our target $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ , we can glean that a good place to start would be with the calculation of $\partial_{H_{k\ell}}F(tH_{ij})$. Given our definition of the interpolation $tH_{ij}$, we can tell in advance that term $t$ will only appear as a multiple after we apply the chain rule, so we can focus exclusively on $\partial_{H_{xy}}^\ell F(tH_{xy})$. Recall our definition $(8.3)$ of $F(H)$: 
+$$F(H) = \left\vert
+(H-z)_{ij}^{-1} - m(z)S_{ij}
+\right\vert ^{2p} = \left\vert 
+G_{ij}(z)-m(z)S_{ij}
+\right\vert ^{2p} = |W_{ij}|^{2p}
 $$
+Let us apply the chain rule, by recognizing that $|W_{ij}|^{2p} = \left(W_{ij} \cdot \overline{W_{ij}}\right)^p$ :
 
-is the result of has several derivatives w.r.t to different entries, let us 
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = \frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}} \cdot \frac{\partial W_{ij}}{\partial G_{ij}} \cdot \frac{\partial G_{ij}}{\partial H_{kl}} + \frac{\partial |W_{ij}|^{2p}}{\partial \overline{W_{ij}}} \cdot \frac{\partial \overline{W_{ij}}}{\partial \overline{G_{ij}}} \cdot \frac{\partial \overline{G_{ij}}}{\partial H_{kl}}$$
+Using complex differentiation, we have:
+$$\frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}} = p|W_{ij}|^{2p-2} \cdot \overline{W_{ij}}, \quad\frac{\partial |W_{ij}|^{2p}}{\partial \overline{W_{ij}}} = p|W_{ij}|^{2p-2} \cdot W_{ij}$$
+And since $W_{ij} = G_{ij} - mS_{ij}$:
+$$\frac{\partial W_{ij}}{\partial G_{ij}} = 1, \quad \frac{\partial \overline{W_{ij}}}{\partial \overline{G_{ij}}} = 1$$
+Recall the resolvent identities we proved in \hyperref[resolventderivative]{Section 2}, namely $\partial_{H_{ij}}G_{xy} = -G_{xi}G_{jy}$ and $\partial_{\overline{H_{ij}}}\overline{G_{xy}} = -\overline{G_{xi}}\ \overline{G_{jy}}$ . Substituting the derivatives into our chain rule expression yields:
 
-I'll use the chain rule since $|W_{ij}|^{2p}$ depends on $H_{kl}$ through $G$:
-
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = \frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}} \cdot \frac{\partial W_{ij}}{\partial G_{ij}} \cdot \frac{\partial G_{ij}}{\partial H_{kl}} + \frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}^*} \cdot \frac{\partial W_{ij}^*}{\partial G_{ij}^*} \cdot \frac{\partial G_{ij}^*}{\partial H_{kl}}$$
-
-The second term appears because we're dealing with complex numbers, and $|W_{ij}|^2 = W_{ij} \cdot W_{ij}^*$. T
-
-
-
-For a complex number $W$, we have $|W|^{2p} = (W \cdot W^*)^p$
-
-Using complex differentiation:
-$$\frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}} = p|W_{ij}|^{2p-2} \cdot W_{ij}^*$$
-$$\frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}^*} = p|W_{ij}|^{2p-2} \cdot W_{ij}$$
-
-
-Since $W_{ij} = G_{ij} - mS_{ij}$:
-$$\frac{\partial W_{ij}}{\partial G_{ij}} = 1$$
-$$\frac{\partial W_{ij}^*}{\partial G_{ij}^*} = 1$$
-
-
-
-This is where the resolvent identity becomes crucial. For a resolvent $G = (H-zI)^{-1}$, we have:
-$$\frac{\partial G_{ij}}{\partial H_{kl}} = -G_{ik}G_{lj}$$
-
-This identity follows from differentiating the equation $(H-zI)G = I$ and applying the product rule.
-
-
-
-Since we're differentiating with respect to a real parameter $H_{kl}$ (assuming $H$ is Hermitian):
-$$\frac{\partial G_{ij}^*}{\partial H_{kl}} = -G_{ik}^*G_{lj}^*$$
-
-
-
-Now we can substitute all these derivatives into our chain rule expression:
-
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = p|W_{ij}|^{2p-2} \cdot W_{ij}^* \cdot 1 \cdot (-G_{ik}G_{lj}) + p|W_{ij}|^{2p-2} \cdot W_{ij} \cdot 1 \cdot (-G_{ik}^*G_{lj}^*)$$
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = p|W_{ij}|^{2p-2} \cdot \overline{W_{ij}} \cdot 1 \cdot (-G_{ik}G_{lj}) + p|W_{ij}|^{2p-2} \cdot W_{ij} \cdot 1 \cdot (-G_{ik}^*G_{lj}^*)$$
 
 Simplifying:
 
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [W_{ij}^* \cdot G_{ik}G_{lj} + W_{ij} \cdot G_{ik}^*G_{lj}^*]$$
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [\overline{W_{ij}} \cdot G_{ik}G_{lj} + W_{ij} \cdot G_{ik}^*G_{lj}^*]$$
 
 This can be rewritten as:
 
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [W_{ij}^* \cdot G_{ik}G_{lj} + (W_{ij}^* \cdot G_{ik}G_{lj})^*]$$
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [\overline{W_{ij}} \cdot G_{ik}G_{lj} + (\overline{W_{ij}} \cdot G_{ik}G_{lj})^*]$$
 
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(W_{ij}^* \cdot G_{ik}G_{lj})$$
-
-
-
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(W_{ij}^* \cdot G_{ik}G_{lj})$$
-
-Where:
-\begin{itemize}
-    \item $W_{ij} = G_{ij} - mS_{ij}$
-    \item $W_{ij}^*$ is the complex conjugate of $W_{ij}$
-    \item $\text{Re}()$ denotes the real part of the complex expression
-\end{itemize}
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(\overline{W_{ij}} \cdot G_{ik}G_{lj})$$
 
 
- $H_{k\ell}$: 
+
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(\overline{W_{ij}} \cdot G_{ik}G_{lj})$$
+
+
 $$\partial_{H_{k\ell}}F(H) = \partial_{H_{k\ell}} |W_{ij}|^{2p} = 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)= -2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$$
 Similarly, the second derivative is:
 
@@ -2708,7 +2675,7 @@ $$\mathcal{P}\lesssim \mathbb{E}|H_{ij}|^6W^\epsilon + \mathbb{E}|H_{ij}|^6 \mat
 $$\lesssim W^{-3+\epsilon} + W^C W^{-3} W^{-D_0}$$
 We can pick $D_0$, s.t. the stochastically dominating term is $W^{-3+\epsilon}$, s.t. we get $\mathcal{P}+\mathcal{P}^G\lesssim W^{-3+\epsilon}$, i.e: $$\left\vert \mathbb{E}\left(F(H_{ij}\right) - \mathbb{E}\left(F(H_{ij}^G\right)\right\vert\lesssim W^{-3+\epsilon},$$
 Then, by applying the triangle inequality to the telescoping sum of replacements, and accounting for the $NW$ non-zero entries in the band, we have: 
- \begin{equation*} \left\vert \mathbb{E}\left(F(H)\right) - \mathbb{E}\left(F(H^G)\right)\right\vert\lesssim NWW^{-3+\epsilon} = NW^{-2+\epsilon}\tag{8.3}
+ \begin{equation*} \left\vert \mathbb{E}\left(F(H)\right) - \mathbb{E}\left(F(H^G)\right)\right\vert\lesssim NWW^{-3+\epsilon} = NW^{-2+\epsilon}\tag{8.35?}
  \end{equation*}
 \noindent For the condition of delocalization, we need for any $\beta>0$ the following to hold:
  $$W\gg N^{\frac{1}{2}+\beta} = N^{\frac{1+2\beta}{2}}\Leftrightarrow N\ll W^{\frac{2}{1+2\beta}}$$
