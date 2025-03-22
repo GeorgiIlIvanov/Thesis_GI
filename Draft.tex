@@ -2482,11 +2482,13 @@ The first condition $(8.1)$ is the $\textit{Five Moment}$ matching assumption th
 $$tH_{ij} = H^{(i, j)}[H_{ij}, H_{ji}\mapsto t H_{ij}, tH_{ji}]$$
 $$tH_{ij}^{G} = H^{(i, j),G}[H^G_{ij}, H^G_{ij}\mapsto t H^G_{ij}, t H^{G}_{ij}].$$
 Whenever the replacement step $(i, j)$ is implicit from context, we will drop the superscript. In order to make our theorem applicable to the context of delocalization, we want to consider the following function: 
-$$F(H) = \left\vert
+\begin{equation*}
+F(H) = \left\vert
 (H-z)_{ij}^{-1} - m(z)S_{ij}
 \right\vert ^{2p} = \left\vert 
 G_{ij}(z)-m(z)S_{ij}
-\right\vert ^{2p} = |W_{ij}|^{2p}$$
+\right\vert ^{2p} = |W_{ij}|^{2p}\tag{8.3}
+\end{equation*}
 Our reasoning is simple. Having familiarized ourselves with the flow method and the resolvent approach, it makes sense for us to choose a function that quantifies the deviation of resolvent entries form their deterministic approximations. By raising to power $2p$, we have better tools at our disposal, namely Chebyshev' and Markov's inequalities. Let us apply our strategy to $F$ at step $ij$ for $t\in [0, 1]$: 
 
 $$F(tH_{ij}) = F(H_{11}, \cdots, H_{i, j-1}, tH_{ij}, H_{i, j+1}^G, \cdots H_{NN}^G)$$
@@ -2512,19 +2514,26 @@ But observe that we can split the sums and group it as follows:
 $$=\binom{k}{0}\partial_{H_{ij}}^0\partial_{H_{ji}}^{k+1} F(tH_{ij})\left(\overline{H_{ij}}\right)^{k+1}+\binom{k}{k}\partial_{H_{ij}}^{k+1}\partial_{H_{ji}}^{0} F(tH_{ij})\left(\overline{H_{ij}}\right)^{k+1}+$$
 $$=+\sum_{\ell=1}^k \left(\binom{k}{\ell-1}+\binom{k}{\ell}\right)\partial_{H_{ij}}^{\ell} \partial_{H_{ji}}^{k+1-\ell} F(tH_{ij})H_{ij}^{\ell} \left(\overline{H_{ij}}\right)^{k+1-\ell} $$
 But since $\binom{k}{k} = \binom{k+1}{k+1}$ and $\binom{k}{\ell-1}+\binom{k}{\ell} = \binom{k+1}{\ell}$, this completes the induction:
-$$\frac{d^{k+1}}{dt^{k+1}} F(tH_{ij}) = \sum_{\ell=0}^{k+1} \binom{k+1}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k+1-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k+1-\ell}$$
+\begin{equation*}
+\frac{d^{k+1}}{dt^{k+1}} F(tH_{ij}) = \sum_{\ell=0}^{k+1} \binom{k+1}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k+1-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k+1-\ell}\tag{8.4}
+\end{equation*}
 
 \subsection*{Taylor series}
+Having derived the explicit derivatives, we can now continue with the next step in the Lindeberg exchange strategy. By the Lagrange form of Taylor's (quintic) theorem we know $\exists t_{ij}\in [0, 1]$, s.t.:
+$$F(H_{ij}) =F(0) + \sum_{k=1}^5 \frac{1}{k!}\left.  \frac{d^k}{dt^k}F(tH_{ij})\right\vert_{t=0}+ \left.\frac{1}{720} \frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}},$$
+where $F(sH_{ij})=F(0)$ for $s=0$ represents setting the $H_{ij}$ and $H_{ji}$ to zero. Similarly, $t_{ij}^G\in[0, 1]$, s.t.:
+$$F(H_{ij}^G) =F(0) + \sum_{k=1}^5 \frac{1}{k!} \left. \frac{d^k}{dt^k}F(tH_{ij}^G)\right\vert_{t=0}+ \frac{1}{720}\left. \frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}.$$
+Let us take their difference:
+\begin{equation*}\begin{array}{l}
+F(H_{ij}) - F(H_{ij}^G)=
+\end{array}
+\end{equation*}
+$$ =\sum_{k=1}^5 \frac{1}{k!} \left[\left. \frac{d^k}{dt^k}F(tH_{ij})\right\vert_{t=0}-\left. \frac{d^k}{dt^k}F(tH_{ij}^G)\right\vert_{t=0}\right\vert +\frac{1}{720} \left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}-\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}^G}\right]$$
+Focusing on the first term, we can u
+We can now recall our formula from before, s.t. our first term becomes:
+$$\sum_{k=1}^t \left[\right]$$
 
-
-\noindent By Taylor expansion around $t=0$: 
-$$F(H_{ij}) =F(0) + \sum_{k=1}^5 \frac{1}{k!} \frac{d^k}{dt^k}\left. F(tH_{ij})\right\vert_{t=0?1}+ \frac{1}{720} \frac{d^6}{dt^6}\left.F(tH_{ij})\right\vert_{t=t_{ij}},$$
-where by Taylor's theorem? $t_{ij}\in [0, 1]$ reflects all of the remaining correlations. Similarly, 
-
-$$F(H_{ij}^G) =F(0) + \sum_{k=1}^5 \frac{1}{k!} \frac{d^k}{dt^k}\left. F(tH_{ij}^G)\right\vert_{t=0?1}+ \frac{1}{720} \frac{d^6}{dt^6}\left.F(tH_{ij}^G)\right\vert_{t=t_{ij}^G},$$
-for another such $t_{ij}^G\in[0, 1]$.
-Then, let us take their difference (\textcolor{red}{verify the matrix identity }$\{--\}$:
-$$F(H_{ij}) - F(H_{ij}^G) = \sum_{k=1}^5\frac{1}{k!}\sum_{\ell = 0}^k c_{\ell, k} \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0)\left\{H_{ij}^\ell \left(\overline{H}_{ij} \right)^{k-\ell}- \left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right\}+$$
+$$ \sum_{k=1}^5\frac{1}{k!}\sum_{\ell = 0}^k c_{\ell, k} \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0)\left\{H_{ij}^\ell \left(\overline{H}_{ij} \right)^{k-\ell}- \left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right\}+$$
 $$+\frac{1}{720} \left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}-\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}^G}\right]$$
 By the moment matching condition $(8.1)$, we have: $$\mathbb{E}\left\vert F(H_{ij} - F(H_{ij}^G)\right\vert\lesssim \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert+\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}^G}\right\vert$$
 Using the formula we found earlier (\textcolor{red}{write out the cancellation by absolute value}):
