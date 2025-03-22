@@ -151,11 +151,36 @@
 \clearpage
 
 \begin{center}
-    \Large{\textbf{Acknowledgments}}
+    \Large{\textbf{Acknowledgments}}\vspace{0.1cm}
 \end{center}
-\vspace{1cm}
 \begin{center}
-\justify{}
+\justify{\textsc{First, and foremost}, I would like to thank Kevin Yang, without whom this thesis would not have been possible. I could not have asked for a more supportive advisor - one who allowed me to explore ideas freely, whilst nudging me towards concrete steps that  gave them shape.\vspace{0.15 cm} 
+
+\noindent \textsc{I want to thank all those from whom I learned over the last 4 years}:\\
+My first teacher at Harvard, Hakim Walker, for inspiring me take the leap into world of pure mathematics. \\
+\noindent My concentration advisor, Denis Auroux, for giving me the confidence to venture into graduate courses.\\ 
+\noindent Joe Blitzstein for making me fall in love with statistics.\\
+Yum-Tong Siu for showing me that I can handle the true intensity of mathematics. \vspace{0.15cm}
+
+\noindent \textsc{I am grateful to my mentors, without whom I wouldn't be here:}\\
+\noindent Luis Lomeli, for bringing out the best of me, teaching me to be a bulldog. \\
+\noindent Nikola Karavasilev, who gave me a taste of real science, when it was nowhere to be found around me. \\
+\noindent My high school teacher, Elena Kiselova, for sowing the seeds of trees I am now sitting in the shade of. \\
+\noindent Wasalu Jaco, whose lived experience gave me clarity amidst the heat. \vspace{0.15 cm}
+
+\noindent \textsc{I want to thank the friends that made this foreign land more hospitable:}\\
+Jordan, the most gracious person I know, for being a positive influence in my life. \\
+Tega, for always being there when things were most difficult. \\
+John, for introducing me to powerlifting, which has become the bedrock I can fall back on. \\
+Jan, for bringing brotherly competition that has been pushing me to be better. \\
+Kubra and Bolu, for making me feel seen and heard since day one on campus.\\
+My blocking mates, Cameron and Leah, for all the late night conversations.\vspace{0.15 cm}
+
+\noindent \textsc{I am grateful for my friends back home} - Stani, Eli, Lily and Georgi - for being by my side throughout the years, unwavering in their belief and unapologetic in their support.\vspace{0.15 cm}
+
+\noindent \textsc{I am thankful to my entire family for their patience and guidance.} I grateful to my father, Iliyan, for teaching me discipline and my mother, Irina, for the gift of intuition. I want to thank my brothers, Vladislav and Kiril, and my sisters, Dimana and Rozena, for keeping me rooted and never letting me forget who I am doing this for. Last, but not least, I want to thank our people, who through culture, stories, and celebrations have instilled in me my highest value: Sophia.\vspace{0.15 cm}
+
+\noindent \textsc{This thesis is dedicated to the memory of grandma Rumi, who was the first to show me the beauty of mathematics.}}
 
 \end{center}
 
@@ -2447,7 +2472,7 @@ This strategy has been extended to the case of independent Wigner matrices $M_n,
 \noindent Given that up to this point, we have had the ample opportunity of exploring the powerful uses of Green's function, one may ask if there is an equivalent approach for the spectral behavior of random matrices. There is, indeed, such a result, also known as the \textit{Four Moment Theorem for Green's function} \cite{tao2}:
 
 
-\subsection{Four Moment Theorem for Green's function}
+\subsection*{Four Moment Theorem for Green's function}
 Let $M_n, M_n'$ be two Wigner random matrices satisfying the following condition: $$P(|(M_n)_{ij}|\geq t^C)\leq \exp(-t)$$
 for all $1\leq i, j\leq n$ and $t\geq C'$ for some constants $C, C'$, independent of $i, j$ and $n$. Furthermore, assume that $M_n$ and $M_n'$ match in moments up to order 4 off the diagonal and up to order 2 on the diagonal for some sufficiently large $C_0$. Let $z = E + i\eta$ for some $E \in \mathbb{R}$ and some $\eta > 0$. We assume the level repulsion hypothesis that for any $c > 0$, one has with high probability that
 \begin{equation*}
@@ -2572,31 +2597,19 @@ And since $W_{ij} = G_{ij} - mS_{ij}$:
 $$\frac{\partial W_{ij}}{\partial G_{ij}} = 1, \quad \frac{\partial \overline{W_{ij}}}{\partial \overline{G_{ij}}} = 1$$
 Recall the resolvent identities we proved in \hyperref[resolventderivative]{Section 2}, namely $\partial_{H_{ij}}G_{xy} = -G_{xi}G_{jy}$ and $\partial_{\overline{H_{ij}}}\overline{G_{xy}} = -\overline{G_{xi}}\ \overline{G_{jy}}$ . Substituting the derivatives into our chain rule expression yields:
 
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = p|W_{ij}|^{2p-2} \cdot \overline{W_{ij}} \cdot 1 \cdot (-G_{ik}G_{lj}) + p|W_{ij}|^{2p-2} \cdot W_{ij} \cdot 1 \cdot (-G_{ik}^*G_{lj}^*)$$
-
-Simplifying:
-
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [\overline{W_{ij}} \cdot G_{ik}G_{lj} + W_{ij} \cdot G_{ik}^*G_{lj}^*]$$
-
-This can be rewritten as:
-
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = p|W_{ij}|^{2p-2} \cdot \overline{W_{ij}} \cdot 1 \cdot (-G_{ik}G_{lj}) + p|W_{ij}|^{2p-2} \cdot W_{ij} \cdot 1 \cdot (-\overline{G_{ik}}\overline{G_{lj}})$$
+$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [\overline{W_{ij}} \cdot G_{ik}G_{lj} + W_{ij} \cdot \overline{G_{ik}G_{lj}}]$$
 $$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [\overline{W_{ij}} \cdot G_{ik}G_{lj} + (\overline{W_{ij}} \cdot G_{ik}G_{lj})^*]$$
-
 $$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(\overline{W_{ij}} \cdot G_{ik}G_{lj})$$
-
-
-
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(\overline{W_{ij}} \cdot G_{ik}G_{lj})$$
-
-
+Hence, by putting everything together, we get:
 $$\partial_{H_{k\ell}}F(H) = \partial_{H_{k\ell}} |W_{ij}|^{2p} = 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)= -2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$$
-Similarly, the second derivative is:
+Let us calculate the second derivative is:
 
 $$\partial_{H_{k\ell}}^2F(H) = \partial_{H_{k\ell}}\left[ 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)\right]=$$
 $$= -2p \partial_{H_{k\ell}}\left[|W_{ij}|^{2p-2}\right]\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\partial_{H_{k\ell}} \left[\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\right]$$
-The derivative in the first term is: $$\partial_{H_{k\ell}}\left[|W_{ij}|^{2p-2}\right] = (2p-2)|W_{ij}|^{2p-4}\partial_{H_{k\ell}}\left[|W_{ij}|^2\right] = (2p-2)|W_{ij}|^{2p-4}\left(\partial_{H_{k\ell}} W_{ij}\cdot \overline{W}_{ij}+W_{ij}\cdot \partial_{H_{k\ell}} \overline{W}_{ij}\right)=$$
+The first term is: $$\partial_{H_{k\ell}}\left[|W_{ij}|^{2p-2}\right] = (2p-2)|W_{ij}|^{2p-4}\partial_{H_{k\ell}}\left[|W_{ij}|^2\right] = (2p-2)|W_{ij}|^{2p-4}\left(\partial_{H_{k\ell}} W_{ij}\cdot \overline{W}_{ij}+W_{ij}\cdot \partial_{H_{k\ell}} \overline{W}_{ij}\right)=$$
 $$= -(2p-2)|W_{ij}|^{2p-4}\left(G_{ik}G_{\ell j}\cdot \overline{W}_{ij}+W_{ij}\cdot \overline{G_{ik}G_{\ell j}}\right) = -(4p-4)|W_{ij}|^{2p-4} \text{Re}\left(W_{ij}\cdot \overline{G_{ik}G_{\ell j}}\right)$$
-For the second term, we have: $$\partial_{H_{k\ell}}\left[\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\right] = \text{Re}\left(\partial_{H_{k\ell}} W_{ij} \overline{G_{ik}G_{\ell j}}+W_{ij} \partial_{H_{k\ell}} \overline{G_{ik}G_{\ell j}}\right)=$$
+And the second is: $$\partial_{H_{k\ell}}\left[\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\right] = \text{Re}\left(\partial_{H_{k\ell}} W_{ij} \overline{G_{ik}G_{\ell j}}+W_{ij} \partial_{H_{k\ell}} \overline{G_{ik}G_{\ell j}}\right)=$$
 $$=\text{Re}\left(-G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\partial_{H_{k\ell}}\left[\overline{G_{ik}G_{\ell j}}\right]\right) =-\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}+\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right) $$
 As such, by combining the terms, we get the second derivative expansion: 
 $$(8p^2-8p)|W_{ij}|^{2p-4}\text{Re}^2\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right) +2p|W_{ij}|^{2p-2}\left(|G_{ik}G_{\ell j}|^2+\text{Re}\left(W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}\right)+\text{Re}\left(\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right)\right)$$
