@@ -324,7 +324,7 @@ Before we derive the estimate, let us first establish several identities:
 \begin{boxt}{(Matrix Identities).}
 Let $A$ and $B$ be arbitrary matrices. Provided that the inverses exist, we can derive the following identities: 
 $$\frac{1}{A}=A^{-1} =A^{-1}(A+B)(A+B)^{-1}=(A+B)^{-1}+A^{-1}B(A+B)^{-1} = \frac{1}{A+B}-\frac{1}{A}B\frac{1}{A+B}$$
-$$\Rightarrow \frac{1}{A+B}=\frac{1}{A}-\frac{1}{A}B\frac{1}{A+B} = \frac{1}{A}-\frac{1}{A+B}B\frac{1}{A},$$
+\begin{equation*}\Rightarrow \frac{1}{A+B}=\frac{1}{A}-\frac{1}{A}B\frac{1}{A+B} = \frac{1}{A}-\frac{1}{A+B}B\frac{1}{A}\tag{2.4}\end{equation*}
 where the last equality follows from simply swapping the order $A^{-1}=A^{-1}(A+B)^{-1}(A+B)$. \end{boxt}
 
 \noindent Using this, we can now set $A = H_t^{(\alpha)}-z$ and $B  = H_t-H_t^{(\alpha)}$, hence by substituting above, we have: $$\frac{1}{H_t-z} = G_{t}(z) = \frac{1}{H_t^{\alpha}-z}-\frac{1}{H_t-z}\left(H_t-H_t^{(\alpha)}\right)\frac{1}{H_t^{(\alpha)}-z} = G^{(\alpha)}_t-G_t(H_t-H_t^{(\alpha)})G_t^{(\alpha)}$$
@@ -2466,12 +2466,22 @@ for some constant $c_0 > 0$ independent of $n$.
 
 
 \subsection{Result}
+At the root of the Lindeberg exchange strategy is to establish control at each step of the replacement. The matrix-equivalent for this is to swap one entry $H_{ij}$ at a time (up to the Hermitian control) with its matching Gaussian in the following sense: 
 \begin{boxt}{Conditions}
 \begin{enumerate}[label=(8.\arabic*)]
 \item $\mathbb{E}\left[H_{ij}^\ell \left(\overline{H}_{ij}\right)^{k-\ell}\right] = \mathbb{E}\left[\left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right]$
 \item $\forall q\geq 1, \quad \mathbb{E}\left[H_{xy}\right]^{2q}\prec W^{-q}$
 \end{enumerate}
 \end{boxt}
+
+\subsection*{Replacement}
+Let $\rho\in [0, 1]$. Define: $$H(\rho) = H(H_{k\ell}, H_{\ell k}\mapsto \rho H_{k\ell}, \rho H_{\ell k})$$
+$$H'(\rho) = H'(H'_{k\ell}, H'_{\ell k}\mapsto \rho H'_{k\ell}, \rho H_{\ell k}')$$
+Let us now consider the Taylor expansion w.r.t. to the latter scaling variable $\rho$ up to exponent $n$: 
+$$F(H) = F(H)(0) + \left.\frac{d}{dp}F(H(\rho))\right\vert_{\rho=0}+\left.\frac{d^2}{dp^2}F(H(\rho))\right\vert_{\rho=0} + \cdots + \left.\frac{d^{n+1}}{dp^{n+1}}F(H(\rho))\right\vert_{\rho=0}$$
+Focusing on the last term, we have: $$\frac{d^{n+1}}{dp^{n+1}}  F(H(\rho))= \sum_{\alpha=0}^{n-1}H_{k\ell}^\alpha H_{\ell k}^{n+1-\alpha}C_\alpha,$$
+where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textcolor{red}{justify}) $C_{n+1}$
+
 \textcolor{red}{elaborate on conditions}. In order to apply the Lindeberg expansion strategy to our case, let us consider the following function: $$F(H) = \left\vert
 (H-z)_{ij}^{-1} - m(z)S_{ij}
 \right\vert ^{2p} = \left\vert 
@@ -2504,28 +2514,23 @@ If that were true, then $\exists$ event $\mathcal{A}$, s.t. $\mathcal{Q}\leq W^\
 $$\mathcal{P}\lesssim \mathbb{E}|H_{ij}|^6W^\epsilon + \mathbb{E}|H_{ij}|^6 \mathbf{1}\left[{A^C}\right]W^C\lesssim W^{-3+\epsilon} + W^C \left\{\mathbb{E}|H_{ij}|^{12}\right\}^{1/2} \left\{P(A^C)\right\}^{1/2}\lesssim$$
 
 $$\lesssim W^{-3+\epsilon} + W^C W^{-3} W^{-D_0}$$
-We can pick $D_0$, s.t. the stochastically dominating term is $W^{-3+\epsilon}$, s.t. we get $\mathcal{P}+\mathcal{P}^G\lesssim W^{-3+\epsilon}$, i.e: $$\left\vert \mathbb{E}\left(F(H_{ij}\right)\right\vert$$
+We can pick $D_0$, s.t. the stochastically dominating term is $W^{-3+\epsilon}$, s.t. we get $\mathcal{P}+\mathcal{P}^G\lesssim W^{-3+\epsilon}$, i.e: $$\left\vert \mathbb{E}\left(F(H_{ij}\right) - \mathbb{E}\left(F(H_{ij}^G\right)\right\vert\lesssim W^{-3+\epsilon},$$
+Then, by applying the triangle inequality to the telescoping sum of replacements, and accounting for the $NW$ non-zero entries in the band, we have: 
+ \begin{equation*} \left\vert \mathbb{E}\left(F(H)\right) - \mathbb{E}\left(F(H^G)\right)\right\vert\lesssim NWW^{-3+\epsilon} = NW^{-2+\epsilon}\tag{8.3}
+ \end{equation*}
+\noindent For the condition of delocalization, we need for any $\beta>0$ the following to hold:
+ $$W\gg N^{\frac{1}{2}+\beta} = N^{\frac{1+2\beta}{2}}\Leftrightarrow N\ll W^{\frac{2}{1+2\beta}}$$
+\noindent Bounding $(8.3)$ by the latter condition gives us:
+  $$NW^{-2+\epsilon}\ll W^{-2+\epsilon+\frac{2}{1+2\beta}}$$
+\noindent Hence, in order for our asymptotics to work, we need a negative exponent, i.e: $$-2+\epsilon + \frac{2}{1+2\beta}<0$$
+  $$0<\epsilon <2-\frac{2}{1+2\beta} = \frac{4\beta}{1+2\beta},$$
+  whereas since $\beta>0\Rightarrow \frac{4\beta}{1+2\beta}$, we can always pick such an $\epsilon>0$ by the density of the rationals. Now, the only missing piece is to justify the assumption we made earlier, namely $\mathcal{Q}\prec 1$. For this purpose, we need to establish stochastic control of the resolvent at each step of the 
 
 
 
 
 
-\subsection{Old Notes}
-
-
-We consider replacing the $(k, \ell)$ entry of the $H$ matrix with the corresponding entry from $H'$. If we define their difference to be $\Delta = H_{k\ell}-H'_{k\ell}$, the Taylor expansion becomes: $$F(H')-F(H) = \Delta \partial_{H_{k\ell}}F(H)  + \frac{\Delta^2}{2}\partial_{H_{k\ell}}^2F(H) +\frac{\Delta^3}{3!}\partial_{H_{k\ell}}^3F(H) +\frac{\Delta^4}{4!}\partial_{H_{k\ell}}^4F(H)+\frac{\Delta^5}{5!}\partial_{H_{k\ell}}^2F(H) +R_6$$
-When the distributions match up to the 4th moment, we have: $$\mathbb{E}[F(H')-F(H)] = \frac{\mathbb{E}[\Delta^5]}{2}\mathbb{E}\left[\partial_{H_{k\ell}}^5F(H)\right] +\mathbb{E}[R_6]$$
-In order to estimate this expression, we need to calculate the derivatives. Let us start with the first derivative of our function with respect to the matrix entry
-
-
-First, let me establish the relationship between these matrices:
-\begin{itemize}
-    \item $H$ is the base matrix
-    \item $G$ is the resolvent of $H$, defined as $G = (H - zI)^{-1}$ where $z$ is a complex parameter
-    \item $W_{ij} = G_{ij} - mS_{ij}$ is the difference between the resolvent and some scaled matrix $S$
-    \item We want to find $\frac{\partial|W_{ij}|^{2p}}{\partial H_{kl}}$
-\end{itemize}
-
+\subsection{Continuity bound}
 
 
 I'll use the chain rule since $|W_{ij}|^{2p}$ depends on $H_{kl}$ through $G$:
@@ -2586,7 +2591,6 @@ Where:
     \item $\text{Re}()$ denotes the real part of the complex expression
 \end{itemize}
 
-\subsection*{Old notes}
 
  $H_{k\ell}$: 
 $$\partial_{H_{k\ell}}F(H) = \partial_{H_{k\ell}} |W_{ij}|^{2p} = 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)= -2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$$
@@ -2627,16 +2631,43 @@ where $s$ indexes the power of $|W_{ij}|$, $c_s(p)$ is the polynomial coefficien
 	\end{itemize}
 \end{enumerate}
 Let us verify the following coefficient formula rigorously $c_n = (-1)^n 2^n \cdot n!(p)_n$. The base case is clearly satisfied, so assume it holds for $n$. Observe that it necessarily comes from the first term and as such, we need to worry about only two of its components. Namely,  By differentiating the $|W_{ij}|^{2p-2n}$, we get a factor of $-(2p-2n)$ that reduces the power by $2$ and differentiating $\text{Re}^{n}(W_{ij}\overline{G_{ik}G_{\ell j}})$, we get and additional factor. As such, the combined result becomes $c_{n+1} = -2(n+1)(p-n)c_n = (-1)^{n+1} 2^{n+1})(n+1)!(p)_{n+1}$
-\subsection*{Replacement}
-Let $\rho\in [0, 1]$. Define: $$H(\rho) = H(H_{k\ell}, H_{\ell k}\mapsto \rho H_{k\ell}, \rho H_{\ell k})$$
-$$H'(\rho) = H'(H'_{k\ell}, H'_{\ell k}\mapsto \rho H'_{k\ell}, \rho H_{\ell k}')$$
-Let us now consider the Taylor expansion w.r.t. to the latter scaling variable $\rho$ up to exponent $n$: 
-$$F(H) = F(H)(0) + \left.\frac{d}{dp}F(H(\rho))\right\vert_{\rho=0}+\left.\frac{d^2}{dp^2}F(H(\rho))\right\vert_{\rho=0} + \cdots + \left.\frac{d^{n+1}}{dp^{n+1}}F(H(\rho))\right\vert_{\rho=0}$$
-Focusing on the last term, we have: $$\frac{d^{n+1}}{dp^{n+1}}  F(H(\rho))= \sum_{\alpha=0}^{n-1}H_{k\ell}^\alpha H_{\ell k}^{n+1-\alpha}C_\alpha,$$
-where $C_\alpha$ is some function of $F(H(\rho))$. Under the assumption (\textcolor{red}{justify}) $C_{n+1}$
 
-\section{Combined formula}
-$$\sum_{\beta=0}^{2p+d}\sum_{\vec i, \vec j, \vec \sigma} c_{\vec i, \vec j, \vec \sigma} \prod_{\alpha =1}^\beta G_{\vec j_{\alpha\alpha}}$$
+\subsection*{Abstract Form}
+From our earlier estimates it becomes clear that calculating an explicit formula would be rather troublesome. As such, we should instead try and abstract away the derivative structure, demonstrating that even with crude stochastic estimates, there is a form of continuity argument that retains our control over the entire replacement process. Having calculated up to the third derivative, we can now make an educated guess as to the form that all subsequent steps would take. Namely, we should expect: 
+
+\begin{equation*}
+\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H) = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma\in \{-1, 1\}^\ell}\sum_{\vec a\in \{x, y, i, j\}^\ell}\sum_{\vec b\in \{x, y, i, j\}^\ell} C_{\ell, \vec \sigma, \vec a, \vec b} \prod_{i=1}^\ell G_{a_i b_j}(\sigma_i),
+\end{equation*}
+where $C_{\ell, \vec \sigma \vec a, \vec b}$ is some constant, polynomial in $p$, and $\sigma_i$ represents whether we are considering the resolvent or its conjugate, i.e $G_{a_ib_i}(1) = G_{a_ib_i}$ and $G_{a_ib_i}(-1) = \overline{G_{a_ib_i}}$.
+
+\textcolor{red}{1. prove by inductive argument}
+
+\textcolor{red}{2. Stochastic bound $\prec 1$}
+
+Having established the stochastic bound on the individual derivatives, we can now lay out the aforementioned continuity argument that will allows us to preserve control throughout the entire replacement. To start, define the following: 
+
+\begin{equation*}
+\begin{array}{c}
+G_1 = G\left(H_{11}, \cdots, H_{ij}^G, \cdots, H_{NN}^G\right)\\
+G_2 = G\left(H_{11}, \cdots,\tilde{t}_{ij}^G H_{ij}^G, \cdots, H_{NN}^G\right)\\
+G_3 = G\left(H_{11}, \cdots,\tilde{t}_{ij} H_{ij}^G, \cdots, H_{NN}^G\right)
+\end{array},
+\end{equation*}
+where $\tilde{t}_{ij}^G$ and $\tilde{t}_{ij}$ are the replacement variables at step $ij$ for this argument, and as such are different than the ones we used in our Lindeberg argument. By the matrix identity $(2.4)$, we have the following: 
+\begin{equation*}
+G_1 = G_2 + G_1\left(cH_{ij}^Ge_i^*e_j+ \tilde{c} H_{ji}^G e_j^*e_i\right)G_2
+\end{equation*}
+\textcolor{red}{have to do the same with the other terms? have to get an extra H}
+
+$$(G_2)_{xy} = (G_1)_{xy} + cH_{ij}^G (G_1)_{xi}(G_2)_{jy}+\tilde{c}H_{ij}^G (G_1)_{xj}(G_2)_{iy}$$
+Given $(8.2)$, we have $(G_1)_{xy}\prec 1$, and as such: 
+$$|(G_2)_{xy}|\prec 1 + W^{-\frac{1}{2}}|(G_2)_{jy}|+W^{-1/2}|(G_2)_{iy}|$$
+Let $\Xi = \max_{x, y}|(G_2)_{xy}|$, then: $$\Xi \prec 1 + W^{-1/2}\Xi,$$
+hence $\Xi\prec 1$ (\textcolor{red}{requires justification for the $N^\epsilon$ exponents from the stochastic domination}. 
+
+\textcolor{red}{How does that complete the argument?}
+
+
 
 \newpage
 

@@ -21,8 +21,7 @@
 \contentsline {subsection}{\numberline {8.1}Lindeberg exchange strategy}{41}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Four Moment Theorem for Green's function}{42}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Result}{42}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Old Notes}{44}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Combined formula}{48}{section.9}%
-\contentsline {section}{\numberline {10}Appendix}{49}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Resolvent estimates}{50}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Diagonal $|G_{xx}-m(z)|$ estimate}{52}{subsection.10.2}%
+\contentsline {subsection}{\numberline {8.4}Continuity bound}{45}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Appendix}{50}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Resolvent estimates}{51}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Diagonal $|G_{xx}-m(z)|$ estimate}{53}{subsection.9.2}%
