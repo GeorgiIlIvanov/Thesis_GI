@@ -437,11 +437,11 @@ This is equivalent to $\partial_t U(t, s) = \Theta_t U(t, s)$, which makes $U(t,
 $$d\E_t(z) = U(t, t) W(t) U(t, t)dt + \int_0^t d\left[U(t, s)W(s)U(t, s)\right]ds=$$
 $$=W(t)dt + \int_0^t\left[\Theta_t U(t, s) W(s) U(t, s) + U(t, s)W(s)U(t, s)\Theta_t\right]dtds =$$
 $$= \E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt + \{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt$$
-Therefore, by the pathwise uniqueness of solutions to SDEs (Thm. 9.1 \cite{steele}), the following expression satisfies the same SDE:
+Therefore, by the pathwise uniqueness of solutions to SDEs (Thm. 9.1 \cite{steele}), the following expression satisfies the same SDE:\textcolor{red}{Define:
 \begin{equation*}\E_t(z)=\E_t^{D}(z)+\E_t^{M}(z)+\E_t^{S}(z)\tag{3.3}\end{equation*}
 $$\E_t^{D}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds,$$
 $$\E_t^{M}(z)=-\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}ds,$$
-$$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$
+$$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$}
 
 \subsection{Stopping time}
 While the three terms we achieved in the previous section are a good start, we have non-linear powers w.r.t to term $\E_t(z)$ itself, which is what we are trying to bound. This means that we have to be more careful in our analysis. For this purpose, we will have to use a stopping time argument \cite{bandSDE}. More specifically, for a fixed $\delta_\sto>0$ and $D\lesssim 1$ ($a\lesssim b\equiv a = O(b))$, independent of $N$, define:
@@ -513,8 +513,7 @@ For $|E|<2$ fixed, assume $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\
 This result has a physical interpretation. First, observe
 that by \hyperref[2.1]{(2.1)} and  \hyperref[lemma-a11]{Lemma A.1.1}, $1-|m(z)|^2\asymp \eta\Leftrightarrow \exists \alpha>0, 1-|m(z)|^2\geq \alpha\eta$, we have that: 
  $$\Theta =\frac{|m(z)|^2S}{1-|m(z)|^2S} = \frac{|m(z)|^2S}{1-|m(z)|^2-|m(z)|^2(S-\text{Id})}\sim \frac{S}{\alpha\eta-(S-\text{Id})}$$
-\textcolor{red}{Shouldn't this be a minus sign? Theorem 2 in \cite{bandSDE} states it with a plus sign.}
-If we recall the phenomenology of our \hyperref[model]{model}, we can interpret the band width $W$ as the range of interactions in the particle system $\Z_N = \{1, \cdots, N\}$. In this context, since the doubly stochastic matrix is normalized as $\sum_x S_{xy}=1$ and $\sum_y S_{xy}=1$ for fixed $x, y\in \Gamma$, it has a unique interpretation as the transition matrix for a random walk on $\Z_N$. In this context, $S-\text{Id}$ is then clearly its generator, which allows us to consider $\Theta$ as its \textcolor{red}{resolvent?(neg. sign?)}. The spectral gap of this random walk on $\Gamma$ with steps of variance $W^2$ is of order $W^2N^{-2}$ (\textcolor{red}{reference?}). Standard bounds for diffusion \hyperref[lemma-a2]{Lemma A.2} imply that $\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$, whereas the latter theorem reveals a distinct scaling  $W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}\ll W^{-1}\eta^{-1/2}$. This in fact is precisely what characterized quantum diffusion, because instead of following standard resolvent bounds, the maximal entry of the diffusion profile $\Theta$ exhibits different scaling behavior, akin to the phenomenon of interference in quantum systems. Moreover, this quantum correction persists until the relaxation time $\eta^{-1}\asymp N^2W^{-2}$ (Thouless time \cite{17, 32, 33}), allowing us to prove delocalization (\hyperref[proof-deloc]{Theorem 2}).
+If we recall the phenomenology of our \hyperref[model]{model}, we can interpret the band width $W$ as the range of interactions in the particle system $\Z_N = \{1, \cdots, N\}$. In this context, since the doubly stochastic matrix is normalized as $\sum_x S_{xy}=1$ and $\sum_y S_{xy}=1$ for fixed $x, y\in \Gamma$, it has a unique interpretation as the transition matrix for a random walk on $\Z_N$. In this context, $S-\text{Id}$ is then clearly its generator, which allows us to consider $\Theta$ as its resolvent. The spectral gap of this random walk on $\Gamma$ with steps of variance $W^2$ is of order $W^2N^{-2}$ \cite{spectralgap}. Standard bounds for diffusion \hyperref[lemma-a2]{Lemma A.2} imply that $\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$, whereas the latter theorem reveals a distinct scaling  $W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}\ll W^{-1}\eta^{-1/2}$. This in fact is precisely what characterized quantum diffusion, because instead of following standard resolvent bounds, the maximal entry of the diffusion profile $\Theta$ exhibits different scaling behavior, akin to the phenomenon of interference in quantum systems. Moreover, this quantum correction persists until the relaxation time $\eta^{-1}\asymp N^2W^{-2}$ (Thouless time \cite{17, 32, 33}), allowing us to prove delocalization (\hyperref[proof-deloc]{Theorem 2}).
 
 \subsection{Delocalization}
 The following (Thm. 4 \cite{bandSDE}) is a direct consequence of Theorem 2, discussed at length in \hyperref[proof-deloc]{Section 7.3}:
@@ -2479,23 +2478,44 @@ where $H_{N, N}^G, \cdots, H_{i, j+1}^G,  H_{ij}^G$ are the Gaussian replacement
 \item $\forall q\geq 1, \quad \mathbb{E}\left\vert H_{xy}\right\vert ^{2q}\prec W^{-q}$
 \end{enumerate}
 \end{boxt}
-The first condition $(8.1)$ is the $\textit{Five Moment}$ matching assumption that gives the name of our result. The second $(8.2)$ is a moment decay condition that allows us to relax the Gaussian assumption, while still providing sufficient strength of our bounds. However, we still have to verify that each consecutive replacement is manageable. For this purpose, we will define the following interpolation for $t\in [0, 1]$:
-$$tH^{(ij)} = H^{(i, j)}(H_{ij}, H_{ji}\mapsto t H_{ij}, tH_{ji})$$
-$$tH^{(i, j), G} = H^{(i, j), G}(H^G_{ij}, H^G_{ij}\mapsto t H^G_{ij}, t H^{G}_{ij}).$$
+The first condition $(8.1)$ is the $\textit{Five Moment}$ matching assumption that gives the name of our result. The second $(8.2)$ is a moment decay condition that allows us to relax the Gaussian assumption, while still providing sufficient strength of our bounds. However, we still have to verify that each consecutive replacement is manageable. For this purpose, we will define the interpolation for $t\in [0, 1]$ at entries $(ij)$ and $(ji)$, where with slight abuse of notation, we let:
+$$tH_{ij} = H^{(i, j)}[H_{ij}, H_{ji}\mapsto t H_{ij}, tH_{ji}]$$
+$$tH_{ij}^{G} = H^{(i, j),G}[H^G_{ij}, H^G_{ij}\mapsto t H^G_{ij}, t H^{G}_{ij}].$$
 Whenever the replacement step $(i, j)$ is implicit from context, we will drop the superscript. In order to make our theorem applicable to the context of delocalization, we want to consider the following function: 
 $$F(H) = \left\vert
 (H-z)_{ij}^{-1} - m(z)S_{ij}
 \right\vert ^{2p} = \left\vert 
 G_{ij}(z)-m(z)S_{ij}
 \right\vert ^{2p} = |W_{ij}|^{2p}$$
-Our reasoning is simple. Having familiarized ourselves with the flow method and the resolvent approach, it makes sense for us to choose a function that quantifies the deviation of resolvent entries form their deterministic approximations. By raising to power $2p$, we have better tools at our disposal, namely Chebyshev' and Markov's inequalities. 
+Our reasoning is simple. Having familiarized ourselves with the flow method and the resolvent approach, it makes sense for us to choose a function that quantifies the deviation of resolvent entries form their deterministic approximations. By raising to power $2p$, we have better tools at our disposal, namely Chebyshev' and Markov's inequalities. Let us apply our strategy to $F$ at step $ij$ for $t\in [0, 1]$: 
 
-\noindent Consider the replacement at stage $ij$ for $t\in [0, 1]$: 
+$$F(tH_{ij}) = F(H_{11}, \cdots, H_{i, j-1}, tH_{ij}, H_{i, j+1}^G, \cdots H_{NN}^G)$$
+In order to apply the Taylor series for the error terms, let us calculate the derivatives: $$\partial_t F(tH_{ij}) = \partial_{H_{ij}} F(tH_{ij})H_{ij} + \partial_{H_{ji}} F(tH_{ij})\overline{H_{ij}}$$
+We claim that the following represents the $k$th derivative: 
+$$\frac{d^k}{dt^k} F(tH_{ij}) = \sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}$$
+Assume the latter for an induction hypothesis, having already verified the base case. Then: 
+$$\frac{d^{k+1}}{dt^{k+1}} F(tH_{ij}) = \frac{d}{dt}\left[\frac{d^k}{dt^k} F(tH_{ij}) \right]=\frac{d}{dt}\left[ \sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]=$$
+$$=\sum_{\ell=0}^k\binom{k}{\ell}\frac{d}{dt}\left[\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right]H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}$$
 
-$$F(tH_{ij}) = F(H_{11}^G, \cdots, H_{i, j-1}^G, tH_{ij}, H_{i, j+1}, \cdots H_{NN})$$
- By the chain rule: $$\partial_t F(tH_{ij}) = \partial_{H_{ij}} F(tH_{ij})H_{ij} + \partial_{H_{ji}} F(tH_{ij})\overline{H_{ij}}$$
-(\textcolor{red}{prove by induction? - also justify the first formula} - Similarly, we have: 
-$$\frac{d^k}{dt^k} F(tH_{ij}) = \sum_{k=0}^k c_{\ell, k}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}$$
+\noindent By the chain rule for any $\ell$ and $m$:
+$$\frac{d}{dt}\left[\partial_{H_{ij}}^\ell \partial_{H_{ji}}^m F(tH_{ij})\right] = \partial_{H_{ij}}^{\ell+1} \partial_{H_{ji}}^m F(tH_{ij})H_{ij} + \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{m+1} F(tH_{ij})\overline{H_{ij}}$$
+Substituting in the derivative formula gives us:
+$$
+= \sum_{\ell=0}^k \binom{k}{\ell}\left[\partial_{H_{ij}}^{\ell+1} \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij} + \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell+1} F(tH_{ij})\overline{H_{ij}}\right]H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}$$
+$$
+= \sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^{\ell+1} \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^{\ell+1} \left(\overline{H_{ij}}\right)^{k-\ell} + \sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell+1} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell+1}
+$$
+$$
+= \sum_{\ell=1}^{k+1} \binom{k}{\ell-1}\partial_{H_{ij}}^{\ell} \partial_{H_{ji}}^{k+1-\ell} F(tH_{ij})H_{ij}^{k+1-\ell} \left(\overline{H_{ij}}\right)^{k+1-\ell} + \sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell+1} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell+1}
+$$
+But observe that we can split the sums and group it as follows:
+$$=\binom{k}{0}\partial_{H_{ij}}^0\partial_{H_{ji}}^{k+1} F(tH_{ij})\left(\overline{H_{ij}}\right)^{k+1}+\binom{k}{k}\partial_{H_{ij}}^{k+1}\partial_{H_{ji}}^{0} F(tH_{ij})\left(\overline{H_{ij}}\right)^{k+1}+$$
+$$=+\sum_{\ell=1}^k \left(\binom{k}{\ell-1}+\binom{k}{\ell}\right)\partial_{H_{ij}}^{\ell} \partial_{H_{ji}}^{k+1-\ell} F(tH_{ij})H_{ij}^{\ell} \left(\overline{H_{ij}}\right)^{k+1-\ell} $$
+But since $\binom{k}{k} = \binom{k+1}{k+1}$ and $\binom{k}{\ell-1}+\binom{k}{\ell} = \binom{k+1}{\ell}$, this completes the induction:
+$$\frac{d^{k+1}}{dt^{k+1}} F(tH_{ij}) = \sum_{\ell=0}^{k+1} \binom{k+1}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k+1-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k+1-\ell}$$
+
+\subsection*{Taylor series}
+
 
 \noindent By Taylor expansion around $t=0$: 
 $$F(H_{ij}) =F(0) + \sum_{k=1}^5 \frac{1}{k!} \frac{d^k}{dt^k}\left. F(tH_{ij})\right\vert_{t=0?1}+ \frac{1}{720} \frac{d^6}{dt^6}\left.F(tH_{ij})\right\vert_{t=t_{ij}},$$
@@ -2943,6 +2963,8 @@ dimensions I: Self-energy renormalization. \textit{arXiv:2103.12048}, 2021.
 \bibitem{tao} T. Tao and V. Vu. Random Matrices: The Universality Phenomenon for Wigner Ensembles. \textit{ Proceedings of Symposia in Applied Mathematics} 72:01, 2011.
 
 \bibitem{tao2} T. Tao and V. Vu. Random Matrices: Universal Properties of Eigenvectors. \textit{Random Matrices: Theory and Applications} 01:01, 2012.
+
+%\bibitem{spectralgap} Find reference
 
 
 \end{thebibliography}
