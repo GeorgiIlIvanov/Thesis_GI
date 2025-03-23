@@ -170,9 +170,9 @@ Yum-Tong Siu, for showing me that I can handle the true intensity of mathematics
 
 \noindent \textsc{I want to thank the friends that made this foreign land more hospitable:}\\
 Jordan, the most gracious person I know, for being a strong positive influence in my life. \\
-Tega, for always being there when things were most difficult. \\
-John, for introducing me to powerlifting, which has become the bedrock I fall back on. \\
+Tega, for being there when things were most difficult. \\
 Jan, for bringing brotherly competition and pushing me to be better. \\
+John, for introducing me to powerlifting, which has become the bedrock I fall back on. \\
 My blocking mates, Cameron and Leah, for all the late night conversations. \\
 Kubra and Bolu, for making me feel seen and heard since day one on campus.
 \vspace{0.25 cm}
@@ -2604,7 +2604,7 @@ $$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [\ove
 $$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(\overline{W_{ij}} \cdot G_{ik}G_{lj})$$
 Hence, by putting everything together, we get:
 $$\partial_{H_{k\ell}}F(H) = \partial_{H_{k\ell}} |W_{ij}|^{2p} = 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)= -2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$$
-Let us calculate the second derivative is:
+Let us calculate the second derivative:
 
 $$\partial_{H_{k\ell}}^2F(H) = \partial_{H_{k\ell}}\left[ 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)\right]=$$
 $$= -2p \partial_{H_{k\ell}}\left[|W_{ij}|^{2p-2}\right]\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\partial_{H_{k\ell}} \left[\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\right]$$
@@ -2612,8 +2612,8 @@ The first term is: $$\partial_{H_{k\ell}}\left[|W_{ij}|^{2p-2}\right] = (2p-2)|W
 $$= -(2p-2)|W_{ij}|^{2p-4}\left(G_{ik}G_{\ell j}\cdot \overline{W}_{ij}+W_{ij}\cdot \overline{G_{ik}G_{\ell j}}\right) = -(4p-4)|W_{ij}|^{2p-4} \text{Re}\left(W_{ij}\cdot \overline{G_{ik}G_{\ell j}}\right)$$
 And the second is: $$\partial_{H_{k\ell}}\left[\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\right] = \text{Re}\left(\partial_{H_{k\ell}} W_{ij} \overline{G_{ik}G_{\ell j}}+W_{ij} \partial_{H_{k\ell}} \overline{G_{ik}G_{\ell j}}\right)=$$
 $$=\text{Re}\left(-G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\partial_{H_{k\ell}}\left[\overline{G_{ik}G_{\ell j}}\right]\right) =-\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}+\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right) $$
-As such, by combining the terms, we get the second derivative expansion: 
-$$(8p^2-8p)|W_{ij}|^{2p-4}\text{Re}^2\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right) +2p|W_{ij}|^{2p-2}\left(|G_{ik}G_{\ell j}|^2+\text{Re}\left(W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}\right)+\text{Re}\left(\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right)\right)$$
+As such, by combining the terms, we get the following expansion: 
+$$(8p^2-8p)|W_{ij}|^{2p-4}\text{Re}^2\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right) +2p|W_{ij}|^{2p-2}\left[|G_{ik}G_{\ell j}|^2+\text{Re}\left(W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}\right)+\text{Re}\left(\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right)\right]$$
 In order to derive the third derivative, we need to differentiate each of the terms above. By applying the chain rule and using our previous calculations, we have: 
 \[-48p(p-1)(p-2)|W_{ij}|^{2p-6}\text{Re}^3\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)+24p(p-1)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-\]
 \[-4p(2p-2)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)|G_{ik}G_{\ell j}|^2-2p|W_{ij}|^{2p-2}\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ii}G_{kk}G_{\ell j}}+G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-\]
