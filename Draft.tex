@@ -2614,33 +2614,15 @@ And the second is: $$\partial_{H_{k\ell}}\left[\text{Re}\left(W_{ij}\overline{G_
 $$=\text{Re}\left(-G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\partial_{H_{k\ell}}\left[\overline{G_{ik}G_{\ell j}}\right]\right) =-\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}+\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right) $$
 As such, by combining the terms, we get the following expansion: 
 $$(8p^2-8p)|W_{ij}|^{2p-4}\text{Re}^2\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right) +2p|W_{ij}|^{2p-2}\left[|G_{ik}G_{\ell j}|^2+\text{Re}\left(W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}\right)+\text{Re}\left(\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right)\right]$$
-In order to derive the third derivative, we need to differentiate each of the terms above. By applying the chain rule and using our previous calculations, we have: 
-\[-48p(p-1)(p-2)|W_{ij}|^{2p-6}\text{Re}^3\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)+24p(p-1)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-\]
-\[-4p(2p-2)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)|G_{ik}G_{\ell j}|^2-2p|W_{ij}|^{2p-2}\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ii}G_{kk}G_{\ell j}}+G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-\]
-\[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ii}G_{kk}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ik}G_{\ell\ell}G_{jj}}\right)-\]
-\[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell k}G_{\ell\ell}G_{jj}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jk}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell i}G_{kk}G_{\ell j}}\right)-\]
+While this doesn't look as bad, we have already went from one to four terms in our expression (two and eight, respectively, if written in conjugate form). In fact, the growth is factorial, giving that the chain rule generates several new elements for each term: 
+\[\partial_{H_{k\ell}}^3F(H)  = -48p(p-1)(p-2)|W_{ij}|^{2p-6}\text{Re}^3\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)+\]
+$$+24p(p-1)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-$$
+$$-4p(2p-2)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)|G_{ik}G_{\ell j}|^2-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell i}G_{kk}G_{\ell j}}\right)-$$
+$$-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ii}G_{kk}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ik}G_{\ell\ell}G_{jj}}\right)-$$
+\[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell k}G_{\ell\ell}G_{jj}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jk}G_{\ell j}}\right)-\]
 \[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{k\ell}G_{\ell k}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{k k}G_{\ell\ell}G_{j\ell}}\right)\]
-\subsection**{Generalization}
-As we can see, continuing with the explicit calculation of the derivatives is going to be quite unruly due to the factorial growth. For this reason, we would like to instead abstract away the  estimates, focusing on the primary terms. Let us first make several observations before we prove them rigorously. We posit that the general form is along the lines of: $$\partial_{H_{k\ell}}^{(n)} F(H) = \sum_{s=1}^{n}c_s(p)|W_{ij}|^{2p-2s}\cdot R_s^{(n)} (G, W),$$
-where $s$ indexes the power of $|W_{ij}|$, $c_s(p)$ is the polynomial coefficient in $p$ and $T_s(G, W)$ represents the real terms from the product of $G$ and $W$, i.e. the resolvent and its fluctuation, respectively. Pattern-matching for our earlier calculations we can observe that: 
-\begin{enumerate}
-\item First derivative $(s=1)$: $\partial_{H_{k\ell}}F(H) = -2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$:
-	\begin{itemize}
-		\item $c_1(p)=1$ with $R_1^{(1)} = \text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$
-	\end{itemize}
-\item Second Derivative $\partial_{H_{k\ell}}^{(2)}F(H) $:
-	\begin{itemize}
-		\item $c_1(p) = 2p$ with $R_1^{(2)}=|G_{ik}G_{\ell j}|^2+\text{Re}\left(W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}+\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right)$
-		\item $c_2(p)=8p(p-1)$ with $R_2 = \left(R^{(1)}\right)^2$. 
-	\end{itemize}
-	\item Third derivative $\partial_{H_{k\ell}}^{(3)}F(H)$: 
-	\begin{itemize}
-		\item $c_1(p) = -2^1\cdot 1!\cdot p$ with $R_1^{(3)}$ being  the sum of terms of the form $\text{Re}(W_{ij}\overline{G_1, G_2, G_3, G_4})$
-		\item $c_2(p) = 8p(p-1) = 2^2\cdot 2!(p)_2$ with $R_2^{(3)} = \text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)$
-		\item $c_3(p) -48p(p-1)(p-2) = -2^3 \cdot 3!(p)_3$ with $R_3^{(3)} = \left(R_1^{(1)}\right)^3$
-	\end{itemize}
-\end{enumerate}
-Let us verify the following coefficient formula rigorously $c_n = (-1)^n 2^n \cdot n!(p)_n$. The base case is clearly satisfied, so assume it holds for $n$. Observe that it necessarily comes from the first term and as such, we need to worry about only two of its components. Namely,  By differentiating the $|W_{ij}|^{2p-2n}$, we get a factor of $-(2p-2n)$ that reduces the power by $2$ and differentiating $\text{Re}^{n}(W_{ij}\overline{G_{ik}G_{\ell j}})$, we get and additional factor. As such, the combined result becomes $c_{n+1} = -2(n+1)(p-n)c_n = (-1)^{n+1} 2^{n+1})(n+1)!(p)_{n+1}$
+$$-2p|W_{ij}|^{2p-2}\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ii}G_{kk}G_{\ell j}}+G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-$$
+We can see that this quickly becomes unruly. Getting to exponent six, which is what we need for the bound on $\mathcal{Q}$, will simply be impossible without some way of abstracting away the details. Fortunately, we are only concerned with stochastic bounds, and as such, don't need the exact form of the terms, only their approximate size. 
 
 \subsection*{Abstract Form}
 From our earlier estimates it becomes clear that calculating an explicit formula would be rather troublesome. As such, we should instead try and abstract away the derivative structure, demonstrating that even with crude stochastic estimates, there is a form of continuity argument that retains our control over the entire replacement process. Having calculated up to the third derivative, we can now make an educated guess as to the form that all subsequent steps would take. Namely, we should expect: 
