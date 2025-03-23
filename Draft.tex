@@ -2594,7 +2594,7 @@ $$\frac{\partial |W_{xy}|^{2p}}{\partial H_{ij}} = \frac{\partial |W_{xy}|^{2p}}
 
 \noindent And since $W_{xy} = G_{xy} - m\delta_{xy}$: $$\frac{\partial W_{xy}}{\partial G_{xy}} = 1, \quad \frac{\partial \overline{W_{xy}}}{\partial \overline{G_{xy}}} = 1$$
 
-\noindent Recall the resolvent identities we proved in Section 2, namely $\partial_{H_{ij}}G_{xy} = -G_{xi}G_{jy}$ and $\partial_{\overline{H_{ij}}}\overline{G_{xy}} = -\overline{G_{xi}}\ \overline{G_{jy}}$. Substituting the derivatives into our chain rule expression yields:
+\noindent Recall the identities we proved in Sec.2: $\partial_{H_{ij}}G_{xy} = -G_{xi}G_{jy}$ and $\partial_{\overline{H_{ij}}}\overline{G_{xy}} = -\overline{G_{xi}}\ \overline{G_{jy}}$. Substituting the derivatives into our chain rule expression yields:
 
 $$\frac{\partial |W_{xy}|^{2p}}{\partial H_{ij}} = p|W_{xy}|^{2p-2} \cdot \overline{W_{xy}} \cdot 1 \cdot (-G_{xi}G_{jy}) + p|W_{xy}|^{2p-2} \cdot W_{xy} \cdot 1 \cdot (-\overline{G_{xi}}\overline{G_{jy}})$$
 
@@ -2610,7 +2610,7 @@ $$\frac{\partial |W_{xy}|^{2p}}{\partial H_{ij}} = -2p|W_{xy}|^{2p-2} \cdot \tex
 
 $$\partial_{H_{ij}}^2F(H) = \partial_{H_{ij}}\left[ 2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\partial_{H_{ij}}\overline{W_{xy}}\right)\right]=$$ $$= -2p \partial_{H_{ij}}\left[|W_{xy}|^{2p-2}\right]\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)-2p|W_{xy}|^{2p-2}\partial_{H_{ij}} \left[\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)\right]$$
 
-\noindent The first term is: $$\partial_{H_{ij}}\left[|W_{xy}|^{2p-2}\right] = (2p-2)|W_{xy}|^{2p-4}\partial_{H_{ij}}\left[|W_{xy}|^2\right] = (2p-2)|W_{xy}|^{2p-4}\left(\partial_{H_{ij}} W_{xy}\cdot \overline{W}_{xy}+W_{xy}\cdot \partial_{H_{ij}} \overline{W}_{xy}\right)=$$ $$= -(2p-2)|W_{xy}|^{2p-4}\left(G_{xi}G_{jy}\cdot \overline{W}_{xy}+W_{xy}\cdot \overline{G_{xi}G_{jy}}\right) = -(4p-4)|W_{xy}|^{2p-4} \text{Re}\left(W_{xy}\cdot \overline{G_{xi}G_{jy}}\right)$$
+\noindent The first term $\partial_{H_{ij}}\left[|W_{xy}|^{2p-2}\right] $ is: $$ (2p-2)|W_{xy}|^{2p-4}\partial_{H_{ij}}\left[|W_{xy}|^2\right] = (2p-2)|W_{xy}|^{2p-4}\left(\partial_{H_{ij}} W_{xy}\cdot \overline{W}_{xy}+W_{xy}\cdot \partial_{H_{ij}} \overline{W}_{xy}\right)=$$ $$= -(2p-2)|W_{xy}|^{2p-4}\left(G_{xi}G_{jy}\cdot \overline{W}_{xy}+W_{xy}\cdot \overline{G_{xi}G_{jy}}\right) = -(4p-4)|W_{xy}|^{2p-4} \text{Re}\left(W_{xy}\cdot \overline{G_{xi}G_{jy}}\right)$$
 
 \noindent And the second is: $$\partial_{H_{ij}}\left[\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)\right] = \text{Re}\left(\partial_{H_{ij}} W_{xy} \overline{G_{xi}G_{jy}}+W_{xy} \partial_{H_{ij}} \overline{G_{xi}G_{jy}}\right)=$$ $$=\text{Re}\left(-G_{xi}G_{jy}\overline{G_{xi}G_{jy}}+W_{xy}\partial_{H_{ij}}\left[\overline{G_{xi}G_{jy}}\right]\right) =-\text{Re}\left(G_{xi}G_{jy}\overline{G_{xi}G_{jy}}+W_{xy}\overline{G_{xi}G_{ii}}\overline{G_{jy}}+\overline{G_{xi}}\overline{G_{jj}G_{jy}}\right) $$
 
@@ -2623,18 +2623,41 @@ $$-2p|W_{xy}|^{2p-2}\text{Re}\left(G_{xi}G_{jy}\overline{G_{xx}G_{ii}G_{jy}}+G_{
 We can see that this quickly becomes unruly. Getting to exponent six, which is what we need for the bound on $\mathcal{Q}$, will simply be impossible without some way of abstracting away the details. Fortunately, we are only concerned with stochastic bounds, and as such, don't need the exact form of the terms. Our regularity condition $(8.2)$ will allow us to show delocalization as long as we verify that $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H) \prec 1$.  
 
 \subsection*{Abstract Form}
-That said, our work of calculating up to the third derivative isn't wasted, because now we can make an educated guess as to the form that all subsequent steps would take. Namely, we should expect: 
+That said, our work of calculating the third derivative isn't wasted, because now we can make an educated guess as to the form that all subsequent steps would take. Namely, we should expect: 
 
 \begin{equation*}
-\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H) = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma\in \{-1, 1\}^\ell}\sum_{\vec a\in \{x, y, i, j\}^\ell}\sum_{\vec b\in \{x, y, i, j\}^\ell} C_{\ell, \vec \sigma, \vec a, \vec b} \prod_{i=1}^\ell G_{a_i b_j}(\sigma_i),
+\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\leq \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma\in \{-1, 1\}^\ell}\sum_{\vec a\in \{x, y, i, j\}^\ell}\sum_{\vec b\in \{x, y, i, j\}^\ell} C_{\ell, \vec \sigma, \vec a, \vec b} \prod_{i=1}^\ell\left\vert  \tilde{G}_{a_i b_j}(\sigma_i)\right\vert\tag{8.6},
 \end{equation*}
-where $C_{\ell, \vec \sigma \vec a, \vec b}$ is some constant, polynomial in $p$, and $\sigma_i$ represents whether we are considering the resolvent or its conjugate, i.e $G_{a_ib_i}(1) = G_{a_ib_i}$ and $G_{a_ib_i}(-1) = \overline{G_{a_ib_i}}$.
+where $C_{\ell, \vec \sigma \vec a, \vec b}$ is some constant that is polynomial in $p$ (which includes $0$), and $\tilde{G}_{a_i,b_i}(\sigma_i)$ is a function of the resolvent, representing all possible configurations , namely: 
+\begin{itemize}
+\item If $a_i=x \wedge b_i=y$, then $\tilde{G}_{a_i, b_i}(1) = W_{xy}$ and $\tilde{G}_{a_i, b_i}(-1) = \overline{W_{xy}}$ 
+\item For $(a_i=x\wedge b_i=y)^C$, we have $\tilde G_{a_ib_i}(1) = G_{a_ib_i}$ and $\tilde G_{a_ib_i}(-1) = \overline{G_{a_ib_i}}$.
+ \end{itemize} 
+Note that $(8.6)$ would have been an equality (without absolute values around $\tilde G$), had we included a separate index that would account for $|W_{xy}|$ by itself, given that it figures as an element, separate from $W_{xy}$ and $\overline{W_{xy}}$. But again, given that we are only interested in a rough stochastic estimate, we don't need to be as careful, which is why we use an upper bound, provided by the triangle inequality and the fact that $x\leq |x|$. We can trivially see that the base case is satisfied by the definition of $F(H)$ and the first derivative we proved. Let us assume $(8.6)$ for the induction hypothesis. Now, we want to prove the cases for $k_1+1$ and $k_2+1$. Starting with the first one, we can differentiate $(8.6)$, s.t. by linearity and the product rule: 
 
-\textcolor{red}{1. prove by inductive argument}
 
-\textcolor{red}{2. Stochastic bound $\prec 1$}
+$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \partial_{H_{ij}}\left(\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\right) \leq \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} C_{\ell, \vec \sigma, \vec a, \vec b}\  \partial_{H_{ij}}\left(\prod_{i=1}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right)=$$
+$$=\sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert \prod_{i=1,i\neq k}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right) $$
+We now need to calculate $\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert$, where the cases are two, as delineated above:
+\begin{itemize}
+\item If $a_k=x \wedge b_k=y$, then $\tilde{G}_{a_k b_k}(\sigma_k)$ is either $W_{xy}$ or $\overline{W_{xy}}$. Using the chain rule and the resolvent derivatives $\partial_{H_{ij}}G_{xy} = -G_{xi}G_{jy}$, we have the following (or its conjugate): $$\partial_{H_{ij}}\left\vert W_{xy}\right\vert = -\frac{1}{\left\vert W_{xy}\right\vert}\text{Re}(G_{xi}G_{jy}\overline{W_{xy}})$$
+
+\item If $(a_k=x\wedge b_k=y)^C$, then $\tilde{G}_{a_k b_k}(\sigma_k)$ is either $G_{a_k b_k}$ or $\overline{G_{a_k b_k}}$. By the same token, we have (or its conjugate): $$\partial_{H_{ij}}\left\vert G_{a_k b_k}\right\vert = -\frac{1}{\left\vert G_{a_k b_k}\right\vert}\text{Re}(G_{a_k, i}G_{j, b_k}\overline{G_{a_k b_k}})$$
+\end{itemize}
+We can use the fact that $|\text{Re}(z)|\leq |z|$ to bound our derivative term using the triangle inequality: 
+$$\left|\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert\right| \leq \frac{|\tilde{D}_{a_k b_k}||\tilde{G}_{a_k b_k}(\sigma_k)|}{|\tilde{G}_{a_k b_k}(-\sigma_k)|} = |\tilde{D}_{a_k b_k}|,$$
+where $\tilde{D}_{a_k b_k} = \tilde{G}_{xi}\tilde{G}_{jy}\vee \tilde{G}_{a_k i}\tilde{G}_{j b_k}$, since conjugates have the same absolute value. This means that: 
+
+$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) \leq \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert \prod_{i=1,i\neq k}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right) \leq $$
+$$ \leq \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(|\tilde{D}_{a_k b_k}| \prod_{i=1,i\neq k}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right)$$
+But observe that the term inside the bracket is precisely the product of $\ell+1$ terms of the form $\tilde G_{a_ib_i}$ ($\ell-1$ from the product and $2$ from $\tilde{D}_{a_kb_k}$), whereas the sum over $k$ can be factored in as part of the sums over vectors $\vec a$ and $\vec b$ as an additional index, making the vectors $\ell+1$-dimensional, i.e: 
+
+$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) \leq \sum_{m=1}^{2p+k_1+k_2+1} \sum_{\vec\sigma'}\sum_{\vec a'}\sum_{\vec b'} C'_{m, \vec\sigma', \vec a', \vec b'} \prod_{i=1}^m\left\vert \tilde{G}_{a'_i b'_i}(\sigma'_i)\right\vert$$
+This clearly matches the form of $(8.6)$. And since the proof for $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2+1} F(H)$ follows WLOG, we have indeed completed the induction. 
+
+
 \subsection{Continuity Argument}
-Having established the stochastic bound on the individual derivatives, we can now lay out the aforementioned continuity argument that will allows us to preserve control throughout the entire replacement. To start, define the following: 
+Having established the stochastic bound on the individual derivatives, we can now lay out the continuity argument that will allows us to preserve control throughout the entire replacement. To start, define the following: 
 
 \begin{equation*}
 \begin{array}{c}
