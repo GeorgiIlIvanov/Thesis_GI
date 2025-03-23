@@ -2499,12 +2499,13 @@ $$H^{(i, j), G}=(H_{11}, \cdots H_{i, j-1}, H_{ij}^G, H_{i, j+1}^G, \cdots, H_{N
 where $H_{N, N}^G, \cdots, H_{i, j+1}^G,  H_{ij}^G$ are the Gaussian replacement entries, matching in the sense of $(8.1)$ :
 
 \begin{boxt}{Conditions}
-\begin{enumerate}[label=(8.\arabic*)]\label{8.1}
-\item $\mathbb{E}\left[H_{ij}^\ell \left(\overline{H}_{ij}\right)^{k-\ell}\right] = \mathbb{E}\left[\left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right], \quad 0\leq \ell\leq k\leq 5$\label{8.2}
+\begin{enumerate}[label=(8.1.\arabic*),align=left, leftmargin=30pt, labelwidth=25pt, labelsep=5pt]\label{8.1.1}
+\item $\mathbb{E}\left[H_{ij}^\ell \left(\overline{H}_{ij}\right)^{k-\ell}\right] = \mathbb{E}\left[\left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right], \quad 0\leq \ell\leq k\leq 5$\label{8.1.2}
 \item $\forall q\geq 1, \quad \mathbb{E}\left\vert H_{xy}\right\vert ^{2q}\prec W^{-q}$
+\item $|G_{xy}|\prec 1$ and $|G_{xy}-\delta_{xy}m(z)|\prec 1$ \label{8.1.3}
 \end{enumerate}
 \end{boxt}
-The first condition $(8.1)$ is the $\textit{Five Moment}$ matching assumption that gives the name of our result. The second $(8.2)$ is a moment decay condition that allows us to relax the Gaussian assumption, while still providing sufficient strength of our bounds. However, we still have to verify that each consecutive replacement is manageable. For this purpose, we will define the interpolation for $t\in [0, 1]$ at entries $(ij)$ and $(ji)$, where with slight abuse of notation, we let:
+The first condition $(8.1.1)$ is the $\textit{Five Moment}$ matching assumption that gives the name of our result. The second $(8.1.2)$ is a moment decay condition that allows us to relax the Gaussian assumption, while still providing sufficient strength of our bounds. However, we still have to verify that each consecutive replacement is manageable. For this, we will construct a continuity argument, assuming only very crude resolvent bounds $(8.1.3)$. As a first step, let us define the interpolation for $t\in [0, 1]$ at entries $(ij)$ and $(ji)$, where with slight abuse of notation, we let:
 $$tH_{ij} = H^{(i, j)}[H_{ij}, H_{ji}\mapsto t H_{ij}, tH_{ji}]$$
 $$tH_{ij}^{G} = H^{(i, j),G}[H^G_{ij}, H^G_{ij}\mapsto t H^G_{ij}, t H^{G}_{ij}].$$
 Whenever the replacement step $(i, j)$ is implicit from context, we will drop the superscript. In order to make our theorem applicable to the context of delocalization, we want to consider the following function: 
@@ -2620,46 +2621,50 @@ $$\partial_{H_{ij}}^2F(H) = \partial_{H_{ij}}\left[ 2p|W_{xy}|^{2p-2}\text{Re}\l
 $$\partial_{H_{ij}}^3F(H) = -48p(p-1)(p-2)|W_{xy}|^{2p-6}\text{Re}^3\left(W_{xy}\overline{G_{xi}G_{jy}}\right)$$ $$+24p(p-1)|W_{xy}|^{2p-4}\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)\text{Re}\left(W_{xy}\overline{G_{xx}G_{ii}G_{jy}}+W_{xy}\overline{G_{xi}G_{jj}G_{yy}}\right)$$ $$-4p(2p-2)|W_{xy}|^{2p-4}\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)|G_{xi}G_{jy}|^2-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xi}G_{jx}G_{ii}G_{jy}}\right)$$ $$-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xx}G_{ii}G_{xx}G_{ii}G_{jy}}\right)-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xx}G_{ii}G_{xi}G_{jj}G_{yy}}\right)$$ $$-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xi}G_{ji}G_{jj}G_{yy}}\right)-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xi}G_{jj}G_{yi}G_{jy}}\right)$$ 
 $$-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xx}G_{ij}G_{ji}G_{jy}}\right)-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xx}G_{ii}G_{jj}G_{yj}}\right)$$ 
 $$-2p|W_{xy}|^{2p-2}\text{Re}\left(G_{xi}G_{jy}\overline{G_{xx}G_{ii}G_{jy}}+G_{xi}G_{jy}\overline{G_{xi}G_{jj}G_{yy}}\right)$$
-We can see that this quickly becomes unruly. Getting to exponent six, which is what we need for the bound on $\mathcal{Q}$, will simply be impossible without some way of abstracting away the details. Fortunately, we are only concerned with stochastic bounds, and as such, don't need the exact form of the terms. Our regularity condition $(8.2)$ will allow us to show delocalization as long as we verify that $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H) \prec 1$.  
+We can see that this quickly becomes unruly. Getting to exponent six, which is what we need for the bound on $\mathcal{Q}$, will simply be impossible without some way of abstracting away the details. Fortunately, we are only concerned with stochastic bounds, and as such, don't need the exact form of the terms. 
 
 \subsection*{Abstract Form}
 That said, our work of calculating the third derivative isn't wasted, because now we can make an educated guess as to the form that all subsequent steps would take. Namely, we should expect: 
 
 \begin{equation*}
-\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)= \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma\in \{-1,0, 1\}^\ell}\sum_{\vec a\in \{x, y, i, j\}^\ell}\sum_{\vec b\in \{x, y, i, j\}^\ell} C_{\ell, \vec \sigma, \vec a, \vec b} \prod_{i=1}^\ell \tilde{G}_{a_i b_j}(\sigma_i)\tag{8.6},
+\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)= \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma\in \{-1,1\}^\ell}\sum_{\vec a\in \{x, y, i, j\}^\ell}\sum_{\vec b\in \{x, y, i, j\}^\ell} C_{\ell, \vec \sigma, \vec a, \vec b} \prod_{i=1}^\ell \tilde{G}_{a_i b_j}(\sigma_i)\tag{8.6},
 \end{equation*}
 where $C_{\ell, \vec \sigma \vec a, \vec b}$ is some constant that is polynomial in $p$ (which includes $0$), and $\tilde{G}_{a_i,b_i}(\sigma_i)$ is a function of the resolvent, representing all possible configurations , namely: 
 \begin{itemize}
-\item If $a_i=x \wedge b_i=y$, then $\tilde{G}_{a_i, b_i}(1) = W_{xy}$,  $\tilde{G}_{a_i, b_i}(-1) = \overline{W_{xy}}$ and $\tilde{G}_{a_ib_i}(0) = |W_{xy}|$. 
+\item If $a_i=x \wedge b_i=y$, then $\tilde{G}_{a_i, b_i}(1) = W_{xy}$ and  $\tilde{G}_{a_i, b_i}(-1) = \overline{W_{xy}}$.
 \item For $(a_i=x\wedge b_i=y)^C$, we have $\tilde G_{a_ib_i}(1) = G_{a_ib_i}$ and $\tilde G_{a_ib_i}(-1) = \overline{G_{a_ib_i}}$.
  \end{itemize} 
-Note that we included a separate index that would account for $|W_{xy}|$ by itself, given that it figures as an element, separate from $W_{xy}$ and $\overline{W_{xy}}$. We can trivially see that the base case is satisfied by the definition of $F(H)$ and the first derivative we proved. Let us assume $(8.6)$ for the induction hypothesis. Now, we want to prove the cases for $k_1+1$ and $k_2+1$. Starting with the first one, we can differentiate $(8.6)$, s.t. by linearity and the product rule: 
+Note that all terms of the form $|W_{xy}|$ that we encountered in our derivative expansion were in fact always raised to an even power $|W_{xy}|^{2p_0}$, which means that they can be represented as multiples of $|W_{xy}|^{2} = W_{xy}\cdot \overline{W}_{xy}$.  We can trivially see that the base case is satisfied by the definition of $F(H)$ and the first derivative we proved. Let us assume $(8.6)$ for the induction hypothesis. Now, we want to prove the cases for $k_1+1$ and $k_2+1$. Starting with the first one, we can differentiate $(8.6)$, s.t. by linearity and the product rule: 
 
 
-$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \partial_{H_{ij}}\left(\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\right) = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} C_{\ell, \vec \sigma, \vec a, \vec b}\  \partial_{H_{ij}}\left(\prod_{i=1}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right)=$$
-$$=\sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert \prod_{i=1,i\neq k}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right) $$
-We now need to calculate $\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert$, where the cases are two, as delineated above:
+$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \partial_{H_{ij}}\left(\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\right) = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} C_{\ell, \vec \sigma, \vec a, \vec b}\  \partial_{H_{ij}}\left(\prod_{i=1}^\ell \tilde{G}_{a_i b_i}(\sigma_i)\right)=$$
+$$=\sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(\left(\partial_{H_{ij}}\tilde{G}_{a_k b_k}(\sigma_k)\right) \prod_{i=1,i\neq k}^\ell \tilde{G}_{a_i b_i}(\sigma_i)\right) $$
+We now need to calculate $\partial_{H_{ij}}\tilde{G}_{a_k b_k}(\sigma_k)$, depending on the cases, delineated above:
 \begin{itemize}
-\item If $a_k=x \wedge b_k=y$, then $\tilde{G}_{a_k b_k}(\sigma_k)$ is either $W_{xy}$ or $\overline{W_{xy}}$. Using the chain rule and the resolvent derivatives $\partial_{H_{ij}}G_{xy} = -G_{xi}G_{jy}$, we have the following (or its conjugate): $$\partial_{H_{ij}}\left\vert W_{xy}\right\vert = -\frac{1}{\left\vert W_{xy}\right\vert}\text{Re}(G_{xi}G_{jy}\overline{W_{xy}})$$
 
-\item If $(a_k=x\wedge b_k=y)^C$, then $\tilde{G}_{a_k b_k}(\sigma_k)$ is either $G_{a_k b_k}$ or $\overline{G_{a_k b_k}}$. By the same token, we have (or its conjugate): $$\partial_{H_{ij}}\left\vert G_{a_k b_k}\right\vert = -\frac{1}{\left\vert G_{a_k b_k}\right\vert}\text{Re}(G_{a_k, i}G_{j, b_k}\overline{G_{a_k b_k}})$$
+\item For $a_k=x, b_k=y, \sigma_k=1$ we have $\partial_{H_{ij}} W_{xy} = -G_{xi}G_{jy}$
+
+\item Similarly, for $a_k=x, b_k=y, \sigma_k=-1$ we have $\partial_{H_{ij}} \overline{W_{xy}} = -\overline{G_{xj}G_{iy}}$
+
+\item For $(a_k=x\wedge b_k=y)^C$ and $\sigma_k = 1$ the result is the exact identity $\partial_{H_{ij}} G_{a_k b_k} = -G_{a_k i}G_{j b_k}$
+
+\item Lastly, for $(a_k=x\wedge b_k=y)^C$ and $\sigma_k=-1$, we similarly have $\partial_{H_{ij}} \overline{G_{a_k b_k}} = -\overline{G_{a_k j}G_{i b_k}}$
 \end{itemize}
-We can use the fact that $|\text{Re}(z)|\leq |z|$ to bound our derivative term using the triangle inequality: 
-$$\left|\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert\right| \leq \frac{|\tilde{D}_{a_k b_k}||\tilde{G}_{a_k b_k}(\sigma_k)|}{|\tilde{G}_{a_k b_k}(-\sigma_k)|} = |\tilde{D}_{a_k b_k}|,$$
-where $\tilde{D}_{a_k b_k} = \tilde{G}_{xi}\tilde{G}_{jy}\vee \tilde{G}_{a_k i}\tilde{G}_{j b_k}$, since conjugates have the same absolute value. This means that: 
+All elements are clearly of the form $\tilde{D}_{a_k b_k} = \tilde{G}_{xi}\tilde{G}_{jy}\vee \tilde{G}_{a_k i}\tilde{G}_{j b_k}$ This means that: 
 
-$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) \leq \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert \prod_{i=1,i\neq k}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right) \leq $$
-$$ \leq \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(|\tilde{D}_{a_k b_k}| \prod_{i=1,i\neq k}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right)$$
+$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(\partial_{H_{ij}} \tilde{G}_{a_k b_k}(\sigma_k) \prod_{i=1,i\neq k}^\ell \tilde{G}_{a_i b_i}(\sigma_i)\right) = $$
+$$ = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(\tilde{D}_{a_k b_k} \prod_{i=1,i\neq k}^\ell \tilde{G}_{a_i b_i}(\sigma_i)\right)$$
 But observe that the term inside the bracket is precisely the product of $\ell+1$ terms of the form $\tilde G_{a_ib_i}$ ($\ell-1$ from the product and $2$ from $\tilde{D}_{a_kb_k}$), whereas the sum over $k$ can be factored in as part of the sums over vectors $\vec a$ and $\vec b$ as an additional index, making the vectors $\ell+1$-dimensional, i.e: 
 
-$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) \leq \sum_{m=1}^{2p+k_1+k_2+1} \sum_{\vec\sigma'}\sum_{\vec a'}\sum_{\vec b'} C'_{m, \vec\sigma', \vec a', \vec b'} \prod_{i=1}^m\left\vert \tilde{G}_{a'_i b'_i}(\sigma'_i)\right\vert$$
-This clearly matches the form of $(8.6)$. And since the proof for $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2+1} F(H)$ follows WLOG, we have indeed completed the induction. With the completed bound on $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)$, we can now construct the continuity argument. 
+$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \sum_{m=1}^{2p+k_1+k_2+1} \sum_{\vec\sigma'}\sum_{\vec a'}\sum_{\vec b'} C'_{m, \vec\sigma', \vec a', \vec b'} \prod_{i=1}^m\ \tilde{G}_{a'_i b'_i}(\sigma'_i).$$
+ This clearly matches the form of $(8.6)$. And since the proof for $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2+1} F(H)$ follows WLOG, we have indeed completed the induction. Let us now establish the stochastic bound on $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)$. \vspace{0.1 cm}
 
-\noindent  We will assume minimal resolvent bounds, namely that $|\tilde{G}_{k\ell}|\prec 1$ for all $k, \ell\in \{1, \cdots, N\}$. By definition of stochastic domination (\hyperref[def-1]{Def.1}), we have that for all $\epsilon_{a_i,b_i}>0$ and $D_{a_ib_i}>0$, $\exists N_{\epsilon_{a_ib_i}, D_{a_ib_i}}$ s.t.: $$\sup_{s\in S_N}\mathbb{P}\left(\left\vert\tilde{G}_{a_ib_i}\right\vert(\sigma_i)>N^{\epsilon_{a_ib_i}} \right)<N^{-D_{a_ib_i}}$$
-By using the product rule of stochastic domination (\hyperref[lemma-a6]{Lemma A6}), we have that $\prod_{i=1}^\ell \left\vert \tilde{G}_{a_ib_i}(\sigma_i)\right\vert \prec 1^\ell = 1$, and as such $C_{\ell, \vec a, \vec b, \vec \sigma}\prod_{i=1}^\ell \left\vert \tilde{G}_{a_ib_i}(\sigma_i)\right\vert \prec 1^\ell = 1$. And since the sum is finite, where the number of terms is $\sum_{\ell=0}^{2p+k_1+k_2} 2^{\ell}\cdot 4^\ell\cdot 4^\ell = \sum_{\ell=0}^{2p+k_1+k_2}32^\ell$, by the finite sum rule of stochastic domination (\hyperref[lemma-A7]{Lemma A7}), we also have that $\sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} |C_{\ell, \vec \sigma, \vec a, \vec b}| \prod_{i=1}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\prec 1$. B
+\noindent  Per $(8.1.3)$, we assume minimal resolvent bounds, namely that $|\tilde{G}_{k\ell}|\prec 1$ for all $k, \ell\in \{1, \cdots, N\}$. By using the product rule of stochastic domination (\hyperref[lemma-a6]{Lemma A6}), we have that $\prod_{i=1}^\ell \left\vert \tilde{G}_{a_ib_i}(\sigma_i)\right\vert \prec 1^\ell = 1$, and as such $C_{\ell, \vec a, \vec b, \vec \sigma}\prod_{i=1}^\ell \left\vert \tilde{G}_{a_ib_i}(\sigma_i)\right\vert \prec 1^\ell = 1$. And since the sum is finite, where the number of terms is $\sum_{\ell=0}^{2p+k_1+k_2} 2^{\ell}\cdot 4^\ell\cdot 4^\ell = \sum_{\ell=0}^{2p+k_1+k_2}32^\ell$, by the finite sum rule of stochastic domination (\hyperref[lemma-a7]{Lemma A7}), we also have that $\sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} |C_{\ell, \vec \sigma, \vec a, \vec b}| \prod_{i=1}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\prec 1$. By the triangle inequality, we have:
+
+$$\left\vert\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H)\right\vert \leq  \sum_{m=1}^{2p+k_1+k_2+1} \sum_{\vec\sigma'}\sum_{\vec a'}\sum_{\vec b'} C'_{m, \vec\sigma', \vec a', \vec b'} \prod_{i=1}^m\ \left\vert\tilde{G}_{a'_i b'_i}(\sigma'_i)\right\vert\prec 1$$
 
 \subsection{Continuity Argument}
-\noindent Having established the stochastic bound on the individual derivatives, we can now lay out the continuity argument that will allows us to preserve control throughout the entire replacement. To start, define the following: 
+\noindent Having established the stochastic bound on the individual derivatives, we can now lay out the continuity argument that will allows us to preserve control throughout the entire replacement. To start, define : 
 
 \begin{equation*}
 \begin{array}{c}
@@ -2668,7 +2673,7 @@ G_2 = G\left(H_{11}, \cdots,\tilde{t}_{ij}^G H_{ij}^G=\cdots H_{NN}^G\right) \\
 G_3 = G\left(H_{11}, \cdots,\tilde{t}_{ij} H_{ij}, \cdots, H_{NN}^G\right),
 \end{array},
 \end{equation*}
-where $\tilde{t}_{ij}^G$ and $\tilde{t}_{ij}$ are the replacement variables at step $ij$ for this argument, and as such are different than the ones we used in our Lindeberg argument. By the matrix identity $(2.4)$ for $A = H_1-z$ and $B = H_2-H_1$, we have the following: 
+where $\tilde{t}_{ij}^G$ and $\tilde{t}_{ij}$ are the replacement variables at step $ij$ for this argument, different than the ones we used in our Lindeberg argument. By the matrix identity $(2.4)$ for $A = H_1-z$ and $B = H_2-H_1$, we have the following: 
 $$G_2 = G_1 - G_1\left(H_2-H_1\right)G_2$$
 $$\Rightarrow G_1 = G_2+G_1\left(H_2-H_1\right)G_2$$
 
