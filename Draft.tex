@@ -138,7 +138,7 @@
     
     
 	 \justify{  
-	 In this thesis, we investigate the delocalization properties of eigenvectors in random matrices with a particular focus on the non-mean field model of the random band matrix. We provide an overview of recent advancements that employ the stochastic flow method, placing them in the context of universality classes and Anderson localization. The approach enables rigorous bounds on eigenvector statistics using resolvent identities and diagrammatic perturbation methods. The analysis includes detailed estimates on the drift terms in the dynamical $T$-equation and applications of martingale theory to the control of the quadratic variation. The final section explores the extension of these results beyond Gaussian distributions using the Lindeberg exchange strategy and provides a Five Moment Theorem that addresses the universality of delocalization behavior. 
+	 In this thesis, we investigate the delocalization properties of eigenvectors in random matrices with a particular focus on the non-mean field model of the random band matrix. We provide an overview of recent advancements that employ the stochastic flow method, placing them in the context of universality classes and Anderson localization. The approach enables rigorous bounds on eigenvector statistics using resolvent identities and diagrammatic perturbation methods. We include detailed estimates on the drift terms of the dynamical $T$-equation and applications of martingale theory to the control of the quadratic variation. The final section explores the extension of these results beyond the Gaussian distribution. We prove a Five Moment Theorem that addresses the universality of delocalization behavior, using the Lindeberg exchange strategy. 
 	 }
     \end{center}
   
@@ -154,7 +154,7 @@
     \Large{\textbf{Acknowledgments}}\vspace{0.1cm}
 \end{center}
 \begin{center}
-\justify{\textsc{First, and foremost}, I would like to thank Kevin Yang, without whom this thesis would not be possible. I could not have asked for a more supportive advisor - one who allowed me to explore ideas freely, whilst nudging me towards concrete steps that  gave them shape. I am also grateful to the Office of Undergraduate Research and Fellowship for supporting my work by a HCRP grant. \vspace{0.25 cm} 
+\justify{\textsc{First, and foremost}, I would like to thank Kevin Yang, without whom this thesis would not be possible. I could not have asked for a more supportive advisor - one who allowed me to explore ideas freely, whilst nudging me towards the concrete steps that  gave them shape. I am also grateful to the Office of Undergraduate Research and Fellowship for supporting my work with a HCRP grant. \vspace{0.25 cm} 
 
 \noindent \textsc{I want to thank all those from whom I learned over the last 4 years}:\\
 My first teacher at Harvard, Hakim Walker, for inspiring me to leap into world of pure mathematics. \\
@@ -204,13 +204,13 @@ Kubra and Bolu, for making me feel seen and heard since day one on campus.
 The topic of random matrix theory (RMT) was originally motivated by the study of complex quantum systems, described by a Hamiltonian  - the operator that models the interactions between constituent particles. Even when all couplings are known, the daunting and often impossible task of diagonalizing the operator to obtain its spectral decomposition prevents calculating its exact energy levels. To tackle this, Eugene Wigner introduced in his seminal 1957 paper \cite{wigner} the phenomenological model of a random matrix with independent and identically distributed (i.i.d) entries. His goal was to explain the empirical observation that the spectral gaps of large nuclei follow the same statistics, regardless of the material. 
 
 \vspace{0.5cm}
-\noindent The core idea was to ignore all physical details of the system except for the constraint on its symmetry type, defined by the presence of time-reversal and rotational symmetry, or the lack-thereof. The key result, now known as the Wigner semicircle law, states that the eigenvalue density of \( N \times N \) self-adjoint random matrices with independent entries $H_{ij}\sim [0, 1/N]$, up to the symmetry constraint $H_{ij} = \overline{H_{ji}}$, is given by $\varrho_{SC}(x)=\frac{1}{2\pi} \sqrt{(4-x^2)_+}$ \cite{dynamic}. What Wigner proved is a type of law of large numbers that holds in the limit \( N \to \infty \) and is independent of the distribution of individual entries. The prediction that the spacing of individual eigenvalues $\lambda_1(H)\leq \cdots \leq \lambda_n(H)$ follows universal gap statistics was later refined into the Wigner-Dyson-Mehta (WDM) universality conjecture \cite{mehta}, which asserts the latter hypothesis is true for \textit{Wigner matrices} \cite{taoWDM}. This RMT ensemble defines a general class of mean-field integrable models and is part of the active effort of understanding the different universality classes. 
+\noindent The core idea was to ignore all physical details of the system except for the constraint on its symmetry type, defined by the presence of time-reversal and rotational symmetry, or the lack-thereof. The result, now known as the Wigner semicircle law, states that the empirical eigenvalue distribution of \( N \times N \) self-adjoint random matrices with independent entries $H_{ij}\sim [0, 1/N]$, up to the symmetry constraint $H_{ij} = \overline{H_{ji}}$, is given by $\varrho_{SC}(x)=\frac{1}{2\pi} \sqrt{(4-x^2)_+}$ \cite{dynamic}. What Wigner proved is a type of law of large numbers that holds in the limit \( N \to \infty \) and is independent of the distribution of individual entries. The prediction that the spacing of individual eigenvalues $\lambda_1(H)\leq \cdots \leq \lambda_n(H)$ follows universal gap statistics was later refined into the Wigner-Dyson-Mehta (WDM) universality conjecture \cite{mehta}, which asserts the latter hypothesis is true for \textit{Wigner matrices} \cite{taoWDM}. This RMT ensemble defines a general class of mean-field models and is part of the active effort of understanding the different universality classes. 
 
 \vspace{0.5 cm}
 \noindent Another subject of great importance is the \textit{Poisson universality class}, closely related to the phenomenon of localized eigenstates. While Wigner's original theory had no mention of eigenvectors \cite{7}, their properties are essential in studying the behavior of more general random operators. One historically relevant example is the Anderson localization model, introduced by Philip W. Anderson in 1958, which explores how disorder affects quantum transport \cite{anderson}. The author considered the behavior of a quantum particle moving on a lattice $\Z^d$ with random on-site energies, represented by the random Schrödinger operator \( H_{RS}=-\Delta + \lambda V \), where \( \Delta \) is the discrete Laplacian and \( \lambda V \) is a random diagonal perturbation \cite{randomoperators}. In his work, Anderson posited that there exists a \textit{mobility edge} that separates a transition between localized and delocalized eigenvector statistics. 
 \vspace{0.5 cm}
 
-\noindent Localization for large values of $\lambda$ was first rigorously demonstrated using multiscale analysis \cite{24} with alternative approaches, such as the fractional moment method \cite{1}, later ensuing. The conjectured delocalization for small $\lambda$ is supported by extensive numerical evidence, yet a rigorous proof has remained out of reach \cite{bandSDE}. The primary reason for the scarcity of rigorous results has been in the general lack of exactly solvable models of sufficient generality. \cite{kravtsov2009}.  To address these gaps, it is crucial to explore systems that interpolate between localized and delocalized regimes while preserving analytical tractability. One such ensemble, supported by extensive numerical evidence, provides a promising case study for establishing the coexistence of localized and delocalized regimes. Two examples that we will consider more in depth in this thesis are the non-invariant Gaussian random matrix ensemble and the Random Band Matrix model (RBM).
+\noindent Localization for large values of $\lambda$ was first rigorously demonstrated using multiscale analysis \cite{24} with alternative approaches, such as the fractional moment method \cite{1}, later ensuing. The conjectured delocalization for small $\lambda$ is supported by extensive numerical evidence, yet a rigorous proof has remained out of reach \cite{bandSDE}. The primary reason for the scarcity of rigorous results has been the general lack of exactly solvable models of sufficient generality. \cite{kravtsov2009}.  To address these gaps, it is crucial to explore systems that interpolate between localized and delocalized regimes while preserving analytical tractability. Two examples that we will present are the non-invariant Gaussian random matrix ensemble and the Random Band Matrix model (RBM), which will be the primary focus of this thesis. 
 
 \subsection*{Non-Invariant Gaussian Matrix}
 The non-invariant Gaussian random matrix ensemble, called also the critical random matrix ensemble (CRMT) \cite{mirlin1996}, is defined for Hermitian matrices \( H \) with independent Gaussian-distributed off-diagonal elements \cite{kravtsov2009}:$$
@@ -220,7 +220,7 @@ The non-invariant Gaussian random matrix ensemble, called also the critical rand
 \frac{1}{2} \left[ 1 + \left( \frac{n - m}{b} \right)^2 \right]^{-1}, & n \neq m 
 \end{cases}
 ,$$
-where \( \beta = 1, 2, 4 \) corresponds to the orthogonal (GOE), unitary (GUE), and symplectic (GSE) symmetry classes, respectively, and \( b > 0 \) is a tunable parameter. The CRMT emerged in the study of the 3D Anderson model as the critical value  instantiation of a Power-law RBM (defined below). By mapping the system onto a nonlinear $\sigma$-model with nonlocal interaction and using renormalization group (RG) methods, the authors found that for $a = 1$, the model reaches a critical point with multifractal eigenstate behavior, and the spectral statistics exhibit an intermediate regime. The critical nature of CRMT is encoded in the decay \( |n - m|^{-2} \), reminiscent of the Anderson model's localization in coordinate space. The parameter \( b \) influences the spectrum of fractal dimensions \( d_n(b) \), governed by:
+where \( \beta = 1, 2, 4 \) corresponds to the universality class of orthogonal (GOE), unitary (GUE), and symplectic (GSE) matrices, respectively, and \( b > 0 \) is a tunable parameter. The CRMT emerged in the study of the 3D Anderson model as the critical value  instantiation of a Power-law RBM (defined below). By mapping the system onto a nonlinear $\sigma$-model with nonlocal interaction and using renormalization group (RG) methods, the authors found that for $a = 1$, the model reaches a critical point with multifractal eigenstate behavior, and the spectral statistics exhibit an intermediate regime. The critical nature of CRMT is encoded in the decay \( |n - m|^{-2} \), reminiscent of the Anderson model's localization in coordinate space. The parameter \( b \) influences the spectrum of fractal dimensions \( d_n(b) \), governed by:
 \[
 d_2 = 
 \begin{cases} 
@@ -228,10 +228,10 @@ d_2 =
 c_\beta B, & B \ll 1 
 \end{cases}
 \]
-where \( B = b \pi \beta/2 \), and \( c_\beta \) is a constant specific to the symmetry class. Notably, this leads to a duality relationship \( d_2(B) + d_2(B^{-1}) = 1 \) that has been numerically verified with high precision \cite{kravtsov2009}. The level spacing distribution \( P(s) \) of CRMT exhibits hybrid behavior, combining a Poisson tail with Wigner-Dyson statistics in the bulk. While this model effectively captures key aspects of multifractality and the coexistence of localized and delocalized phases, it lacks the rigor necessary to fully characterize the critical behaviors and universal properties of these transitions. Particularly helpful will be the aforementioned fact that the CRMT is a critical value instantiation of an random band matrix with power-law entires. Given the rich and active topic of RBMs, it will serve as our main object of study.  
+where \( B = b \pi \beta/2 \), and \( c_\beta \) is a constant specific to the symmetry class. Notably, this leads to a duality relationship \( d_2(B) + d_2(B^{-1}) = 1 \) that has been numerically verified with high precision \cite{kravtsov2009}. The level spacing distribution \( P(s) \) of CRMT exhibits hybrid behavior, combining a Poisson tail with Wigner-Dyson statistics in the bulk. While this model effectively captures key aspects of multifractality and the coexistence of localized and delocalized phases, it lacks the rigor necessary to fully characterize the critical behaviors and universal properties of these transitions. Particularly helpful should be the aforementioned fact that the CRMT is a critical value instantiation of a random band matrix with power-law entires. Given the rich and active topic of RBMs, we now turn to our main object of study.  
 
 \subsection*{Random Band Matrices (RBM)}
-The Random band matrix model is of great interest by itself because it serves as an interpolation between Wigner matrices and the random Schrödinger operator $H_{RS}$ \cite{dynamic}. A RBM $(H_{xy})_{x, y\in \Gamma}$, with centered complex random variables (r.v.), independent up to symmetry $H_{ij} = \overline{H_{ji}}$, can represent a $d$-dimensional quantum system on a graph $\Gamma = \llbracket 1, N\rrbracket ^d$ with the effective distance being of order $W<\frac{N}{2}$, defined to the band width of the model \cite{7, 21}.  What this means is that for $|i-j|_{N} = \min\left([x-y]_N, [y-x]_N\right)>W$ we have $H_{ij}=0$. It is standard to also normalize the covariance matrix $S_{xy} = \mathbb{E} |H_{xy}|^2$, s.t. $\sum_x S_{xy}=1$ for any $x\in \Gamma$. The model is conjectured to exhibit both localization for $W\ll W_c$ and delocalization for $W\gg W_c$ w.r.t a critical transition band $W_c$ that depends on the band width $W$ and the dimension $d$ \cite{7}:  \[
+The Random band matrix model is of great interest by itself because it serves as an interpolation between Wigner matrices and the random Schrödinger operator $H_{RS}$ \cite{dynamic}. A RBM $(H_{xy})_{x, y\in \Gamma}$, with centered complex random variables (r.v.), independent up to symmetry $H_{ij} = \overline{H_{ji}}$, can represent a $d$-dimensional quantum system on a graph $\Gamma = \llbracket 1, N\rrbracket ^d$ with the effective distance being of order $W<\frac{N}{2}$, defined to the band width of the model \cite{7, 21}.  What this means is that for $|i-j|_{N} = \min\left([x-y]_N, [y-x]_N\right)>W$ we have $H_{ij}=0$. It is standard to also normalize the covariance matrix $S_{xy} = \mathbb{E} |H_{xy}|^2$, s.t. $\sum_x S_{xy}=1$ for any $x\in \Gamma$. The model is conjectured to exhibit both localization for $W\ll W_c$ and delocalization for $W\gg W_c$ w.r.t a critical transition band $W_c$ that depends on the band width $W$ and dimension $d$ \cite{7}:  \[
 W_c = 
 \begin{cases} 
 \sqrt{N} & \text{for } d=1 \\ 
@@ -243,7 +243,7 @@ O(1) & \text{for } d\geq 3
 The Anderson model and the RBM are expected to have the same properties when $\lambda  \approx \frac{1}{W}$ \cite{7}, an observation supported with extensive numerical evidence \cite{arbm1, arbm2}. For localization, the current best bound is up to $W\ll N^{1/4}$ \cite{13}. On the other side of the transition, there is a long line of work of iterative improvements.\vspace{0.255 cm}
 
 \noindent Delocalization and quantum diffusion, explained in detailed below, have been rigorously established for the case of $d\geq 7$ \cite{8, 9, 40, highdim} using diagrammatic representations. The first two papers also 
-concluded a strong form of delocalization and GUE statistics for  $W\gg N^{3/4}$ \cite{8, 9} in the one-dimensional case. More recently, Dubova and Yang improved on the latter bound for $1d$ Gaussian random band matrices, assuming $W\gg N^{8/11}$ \cite{bandSDE}, by using the flow method \cite{RP, soosten}. Sections \hyperref[sec:flow]{2} through \hyperref[sec:drift]{5} are dedicated exclusively to their work. Their contribution of a controlled truncation of observable dynamics is what lead to the conclusive work by Yau and Yin, establishing delocalization for $W\geq N^{{1/2}+\epsilon}$ in the one-dimensional Gaussian case \cite{yauyin}. The continued success of this approach has allowed for proving delocalization in two dimension when $W\geq N^\epsilon$ \cite{twodim}. The latter sequence of notable results is the reason for dedicating the bulk of this thesis to the detailed examination of the tools utilized by the stochastic flow method. Furthermore, given the underlying Gaussian assumption in all previous work, the question of the non-Gaussian case is a highly motivated one. As such, the remainder of our work (\hyperref[sec:non-gaussian]{Section 6}) will be focused on relaxing the Gaussian assumption by proving a Five Moment Matching theorem. With this said, we can start with our model of interest:
+concluded a strong form of delocalization and GUE statistics for  $W\gg N^{3/4}$ \cite{8, 9} in the one-dimensional case. More recently, Dubova and Yang improved on the latter bound for $1d$ Gaussian random band matrices, assuming $W\gg N^{8/11}$ \cite{bandSDE}, by using the flow method \cite{RP, soosten}. Sections \hyperref[sec:flow]{2} through \hyperref[sec:drift]{7} are dedicated exclusively to their work, which analyzed the truncation of the observable dynamic hierarchy. Yau and Yin were later able to analyze the full hierarchy, establishing delocalization for $W\geq N^{{1/2}+\epsilon}$ in the one-dimensional Gaussian case \cite{yauyin}. The continued success of this approach has allowed for proving delocalization in two dimension when $W\geq N^\epsilon$ \cite{twodim}. The latter sequence of notable results is the reason for dedicating the bulk of this thesis to the study of the tools, utilized by the stochastic flow method. Furthermore, given the underlying Gaussian assumption in all previous work, the question of the non-Gaussian case is a highly motivated one. As such, the remainder of our work (\hyperref[sec:non-gaussian]{Section 8}) will be focused on relaxing the Gaussian assumption by proving a Five Moment Matching theorem. With this said, we can start with our model of interest:
 
 \newpage
 
@@ -288,7 +288,7 @@ where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically abo
 \end{center}
 \vspace{0.255 cm}
 
-\noindent In our analysis, we will utilize the flow method (\hyperref[sec:flow]{Section 3}), where the spectral parameter $z=E+i\eta$ of the resolvent of $H$ (defined in \hyperref[sec:prereq]{Section 2}) is varied at constant-speed in the upper-half plane $\mathbb{H}$ ($E\in\mathbb{R}$ and $\eta>0$) as the entries of $H$ are realized as Brownian motion \cite{bandSDE}.  
+\noindent In our analysis, we will utilize the flow method (\hyperref[sec:flow]{Section 3}), where the spectral parameter $z=E+i\eta$ of the resolvent of $H$ (defined in \hyperref[sec:prereq]{Section 2}) is varied at constant-speed in the upper-half plane $\mathbb{H}$ ($E\in\mathbb{R}$ and $\eta>0$) as the entries of $H$ are realized as Brownian motion \cite{bandSDE}. Two key assumptions we will make are that $\eta \asymp W^2 N^{-2}$ and $\eta\geq W^{-3/4+\eta}$ for some $\eta>0$. 
 
 
 \newpage
@@ -300,10 +300,11 @@ $$H\mathbf{u}_\alpha = \lambda_\alpha \mathbf{u}\Leftrightarrow (H - z)\mathbf{u
 \begin{equation}
 \Rightarrow G(z)\mathbf{u}_\alpha = (H-z)^{-1}\mathbf{u}_\alpha = \frac{1}{\lambda_\alpha-z}\frac{(\lambda_\alpha-z)\mathbf{u}_\alpha }{H-z}=\frac{1}{\lambda_\alpha -z}\mathbf{u}_\alpha\end{equation}
 
-\noindent This is equivalent to $\mathbf{u}_\alpha$ being eigenvectors for the resolvent with $\frac{1}{\lambda_\alpha-z}$ as the eigenvalues. This also means that we have by spectral decomposition 
+\noindent This is equivalent to $\mathbf{u}_\alpha$ being eigenvectors for the resolvent with $\frac{1}{\lambda_\alpha-z}$ as the eigenvalues. This also means that we have by spectral decomposition: 
 $$G(z) =\sum_{i=1}^N \frac{\mathbf{u}_\alpha\mathbf{u}_\alpha^*}{\lambda_\alpha-z}.$$
 Now, recall that their empirical measure for $H$ is defined as \cite{dynamic}: $$\varrho_N(dx):=\frac{1}{N}\sum_{j=1}^N \delta(x-\lambda_j)dx,$$
-Let $m(z)=m_N(z) = \int_\R \frac{\varrho_N(x)}{x-z}dx$ be its Stieltjes transform for $z = E+i\eta$, where $E\in \R$ and $\eta>0$. By the relationship we found above, we have the following  identity, which follows from the definition of the Dirac delta function: $$m(z)= \int_\R \frac{\varrho_N(x)}{x-z}dx = \int_\mathbb{R} \frac{1}{N}\frac{\sum_{j=1}^N \delta(x-\lambda_j)dx}{x-z}dx = \frac{1}{N}\sum_{j=1}^N\int_\R\frac{\delta(x-\lambda_j)}{x-z}dx =\frac{1}{N} \sum_{j=1}^N \frac{1}{\lambda_j-z} = \frac{1}{N}\text{Tr}(G(z))$$
+Let $m(z)=m_N(z) = \int_\R \frac{\varrho_N(x)}{x-z}dx$ be its Stieltjes transform for $z = E+i\eta$, where $E\in \R$ and $\eta>0$. By the relationship we found above, we have the following  identity, which follows from the definition of the Dirac delta function: 
+\begin{equation*}\scalebox{1}{$m(z)= \int_\R \frac{\varrho_N(x)}{x-z}dx = \int_\mathbb{R} \frac{1}{N}\frac{\sum_{j=1}^N \delta(x-\lambda_j)dx}{x-z}dx = \frac{1}{N}\sum_{j=1}^N\int_\R\frac{\delta(x-\lambda_j)}{x-z}dx =\frac{1}{N} \sum_{j=1}^N \frac{1}{\lambda_j-z} = \frac{1}{N}\text{Tr}(G(z))$}\end{equation*}
 From the moments method \cite{dynamic} we know that the Stieltjes transform $m_N(z)$ of the empirical distribution converges in probability to the Stieltjes transform $m_{SC} = \frac{1}{2}(-z+\sqrt{z^2-4})$ of the semicircle law as $N\rightarrow\infty$. This means that in the limit, with probability one the self-consistent equation holds: 
 \label{self-consistent}
 \begin{equation}
@@ -2516,7 +2517,7 @@ F(H) = \left\vert
 G_{xy}(z)-m(z)\delta_{xy}
 \right\vert ^{2p} = |W_{xy}|^{2p}\tag{8.3}
 \end{equation*}
-Our reasoning is simple. Having familiarized ourselves with the flow method and the resolvent approach, it makes sense for us to choose a function that quantifies the deviation of resolvent entries form their deterministic approximations. By raising to power $2p$, we have better tools at our disposal, namely Chebyshev' and Markov's inequalities. Let us apply our strategy to $F$ at step $ij$ for $t\in [0, 1]$: 
+Our reasoning is simple. Having familiarized ourselves with the flow method and the resolvent approach, it makes sense for us to choose a function that quantifies the deviation of resolvent entries form their deterministic approximations. By raising to power $2p$, we have better tools at our disposal, namely Chebyshev' and Markov's inequalities. Let us apply our strategy to $F$ at step $(i,j)$ for $t\in [0, 1]$: 
 
 $$F(tH_{ij}) = F(H_{11}, \cdots, H_{i, j-1}, tH_{ij}, H_{i, j+1}^G, \cdots H_{NN}^G),$$
 up to the Hermitian constraint. In order to apply the Taylor series for the error terms, let us calculate the derivatives: $$\partial_t F(tH_{ij}) = \partial_{H_{ij}} F(tH_{ij})H_{ij} + \partial_{H_{ji}} F(tH_{ij})\overline{H_{ij}}$$
@@ -2670,11 +2671,11 @@ G_2 = G\left(H_{11}, \cdots,\tilde{t}_{ij}^G H_{ij}^G=\cdots H_{NN}^G\right) \\
 G_3 = G\left(H_{11}, \cdots,\tilde{t}_{ij} H_{ij}, \cdots, H_{NN}^G\right),
 \end{array},
 \end{equation*}
-where $\tilde{t}_{ij}^G$ and $\tilde{t}_{ij}$ are the replacement variables $\in [0, 1]$ at step $ij$ for this argument, different than the ones we used in our Lindeberg argument. By the matrix identity $(2.4)$ for $A = H_2-z$ and $B = H_1-H_2$, we have the following: 
+where $\tilde{t}_{ij}^G$ and $\tilde{t}_{ij}$ are the replacement variables $\in [0, 1]$ at step $(i,j)$ for this argument, different than the ones we used in our Lindeberg argument. Our goal is the following - assuming that $G_1$ satisfies the resolvent condition $(8.1.3)$, we will now prove that $G_2$ and $G_3$ also do. This will be equivalent to verifying that the interpolation at step $(i,j)$ preserves our resolvent bounds, which we need to establish sufficient control throughout the entire replacement of the $NW$ non-zero entries in the band matrix. To start, let us use the matrix identity $(2.4)$ for $A = H_2-z$ and $B = H_1-H_2$:
 $$G_1 = G_2 - G_2\left(H_1-H_2\right)G_1$$
 $$\Rightarrow G_2 = G_1+G_2\left(H_1-H_2\right)G_1$$
 
-\noindent Given that $H_2$ and $H_1$ differ only in their $(ij)$th and $(ji)$th component, we can represent their difference as the sum of two matrices with the only non-zero entries being the latter, which by definition of the orthonormal basis is $e_i^*e_j$ and $e_j^*e_i$ respectively. Then, for $c = 1-\tilde{t}_{ij}^G\in [0, 1]$, we have:
+\noindent Given that $H_2$ and $H_1$ differ only in their $(ij)$th and $(ji)$th component, we can represent their difference as the sum of two matrices with the only non-zero entries being the latter entries. Those are, by definition of the orthonormal basis, $e_i^*e_j$ and $e_j^*e_i$, respectively. Then, for $c = 1-\tilde{t}_{ij}^G\in [0, 1]$, we have:
 \begin{equation*}
 G_2= G_1 + G_2\left(cH_{ij}^Ge_i^*e_j+ cH_{ji}^G e_j^*e_i\right)G_1
 \end{equation*}
@@ -2682,31 +2683,26 @@ G_2= G_1 + G_2\left(cH_{ij}^Ge_i^*e_j+ cH_{ji}^G e_j^*e_i\right)G_1
 $$\Rightarrow (G_2)_{xy} = (G_1)_{xy} + cH_{ij}^G (G_2)_{xi}(G_1)_{jy}+{c}H_{ij}^G (G_2)_{xj}(G_1)_{iy}$$
 Given $(8.1.2)$ and $(8.1.3)$, we have:
 $$|(G_2)_{xy}|\prec 1 + W^{-\frac{1}{2}}|(G_2)_{jy}|+W^{-1/2}|(G_2)_{iy}|$$
-Let $\Xi_2 = \max_{x, y}|(G_2)_{xy}|$. We can rewrite the expression above as: 
-\begin{equation*}\Xi \prec 1 + W^{-1/2}\Xi_2\tag{8.7}\end{equation*}
+Let $\Xi = \max_{x, y}|(G_2)_{xy}|$. We can rewrite the expression above as: 
+\begin{equation*}\Xi \prec 1 + W^{-1/2}\Xi\tag{8.7}\end{equation*}
 
-\noindent Now, let $\epsilon, D>0$ be arbitrary. Given that we work in the context of the delocalization, we have $W\gg N^{\frac{1}{2}+\beta} = N^{\frac{1+2\beta}{2}}\Rightarrow W^{-1/2}\ll N^{-\frac{1+2\beta}{4}}$. Hence, let us choose $\delta = \min \left(1, \frac{2\beta+1}{4\epsilon}\right)$. 
-By Def.1 of stochastic domination, from $(8.7)$, we have that: $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)>N^{\delta\epsilon}(1+W^{-1/2}\Xi_N(s))\right)<N^{-D}$$
+\noindent Now, let $\epsilon, D>0$ be arbitrary. Given that we work in the context of the delocalization, we have $W\gg N^{\frac{1}{2}+\beta} = N^{\frac{1+2\beta}{2}}\Rightarrow W^{-1/2}\ll N^{-\frac{1+2\beta}{4}}$. Hence, let us choose $\delta = \min \left(1, \frac{2\beta+1}{4\epsilon}\right)$. This is to ensure that $\delta\epsilon<\frac{2\beta+1}{4}$. By Def.1 of stochastic domination, from $(8.7)$, we have that: $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)>N^{\delta\epsilon}(1+W^{-1/2}\Xi_N(s))\right)<N^{-D}$$
 $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)>N^{\delta\epsilon}+N^{\delta\epsilon} W^{-1/2}\Xi_N(s)\right)<N^{-D}$$
 $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)(1-N^{\delta\epsilon} W^{-1/2})>N^{\delta\epsilon}\right)<N^{-D}$$
 $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right)<N^{-D}$$
-By our choice of $\delta$, we clearly have that $$N^{\delta\varepsilon}W^{-1/2} \ll N^{\delta\varepsilon} \cdot N^{-1/4-\beta/2} = N^{\delta\varepsilon-1/4-\beta/2} \ll 1$$
-This means that $\exists N_0(\beta, \epsilon)$, s.t $\forall N\geq N_0$, we have that $\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}>N^{\delta\epsilon}$. This means that for all $N\geq N_0$, the latter event is a subset: $$\left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right\}\subset \left\{\Xi_N(s)>N^{\delta \epsilon}\right\}$$
-Define 
+By the delocalization scale, we have that $$N^{\delta\epsilon}W^{-1/2} \ll N^{\delta\varepsilon} \cdot N^{-1/4-\beta/2} = N^{\delta\varepsilon-1/4-\beta/2}$$
+$$1-N^{\delta\epsilon} W^{-1/2}\gg 1-N^{\delta\epsilon -\frac{1+2\beta}{4}}$$
+$$\frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon} W^{-1/2}}\ll \frac{N^{\delta\epsilon}}{1-N^{{\delta\epsilon}-\frac{1+2\beta}{4}}}$$
 
+\noindent This means that $\exists N_0$, s.t. for all $N\geq N_0$, the latter event is a subset: $$ \left\{\Xi_N(s)>\frac{N^\epsilon}{1-N^{{\delta\epsilon}-\frac{1+2\beta}{4}}}\right\}\subset \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right\}$$
+$$\mathbb{P} \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon-\frac{1+2\beta}{4}}}\right\}\leq\mathbb{P} \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right\}\leq N^{-D}$$
+ \textcolor{red}{COMPLETE THE STOCHASTIC DOMINATION}. More specifically, find $N^\gamma$
 
-
-hence $\Xi_2\prec 1$.
-Notice that the approach is equivalent for $\Xi_3 = \max_{x, y}|(G_3)_{xy}|$, i.e WLOG, we have that $\Xi_3\prec 1$ as well. 
-
- 
-\textcolor{red}{complete the continuity argument}. 
-
-
-
+\noindent With this, we have verified that $\Xi\prec 1$.
+Notice that the approach is equivalent for $\Xi_3 = \max_{x, y}|(G_3)_{xy}|$, i.e WLOG, we have that $\Xi_3\prec 1$ as well. What we have essentially established is a sort of a continuity argument. Namely, at every step $(i,j)$ of the replacement, the proof above demonstrates that we preserve the resolvent bounds. Now remains the last step is extending this argument throughout the replacement of the entire matrix. 
 
 \subsection{Five Moment Theorem}
-Let the LHS and RHS be $\mathcal{P}$ and $\mathrm{Q}$, respectively. We want $\mathcal{Q}\leq W^C$ for some $C \lesssim 1$ , s.t. $\mathcal{Q}\prec 1$ (\textcolor{red}{definition? - revisit}). \\
+Recall the following  $\mathcal{P}$ and $\mathrm{Q}$, respectively. We want $\mathcal{Q}\leq W^C$ for some $C \lesssim 1$ , s.t. $\mathcal{Q}\prec 1$ (\textcolor{red}{definition? - revisit}). \\
 
 If that were true, then $\exists$ event $\mathcal{A}$, s.t. $\mathcal{Q}\leq W^\epsilon$ on $\mathcal{A}$ with $P(\mathcal{A})\geq 1-W^{-D}$ (\textcolor{red}{workout the details of }$\epsilon$ and $D$- which one is given by the definition and which one do we retrieve?). Then: 
 $$\mathcal{P}\lesssim \mathbb{E}|H_{ij}|^6W^\epsilon + \mathbb{E}|H_{ij}|^6 \mathbf{1}\left[{A^C}\right]W^C\lesssim W^{-3+\epsilon} + W^C \left\{\mathbb{E}|H_{ij}|^{12}\right\}^{1/2} \left\{P(A^C)\right\}^{1/2}\lesssim$$
@@ -2739,30 +2735,31 @@ Then, by applying the triangle inequality to the telescoping sum of replacements
 \section{Appendix}
 \label{sec:appendix}
 
-\begin{boxt}{Lemma A.1.1} \label{lemma-a11} $$ 1-|m|^2 \asymp \eta$$ (Lemma 3.5 \cite{21} and Lemma 6.2 \cite{dynamic})
-
+\begin{boxt}{Lemma A.1.1} \label{lemma-a11} $$ 1-|m|^2 \asymp \eta$$ 
 \end{boxt}
+\textit{Proof} Proofs can be found in Lemma 3.5 \cite{21} and Lemma 6.2 \cite{dynamic}). 
 
 \begin{boxt}{Lemma A.1.2} \label{lemma-a12} 
+\begin{itemize}
+\item $ \im w_s = \im w_t + (t-s)\im m(z)$ 
+\item $(t-s)\lesssim \eta_s $
+\end{itemize}
 
-$ \im w_s = \im w_t + (t-s)\im m(z)$ \\
+\end{boxt}
 \textit{Proof}- Recall the definition $w_s = -\frac{1}{m(z)} - sm(z)$, where $m(z)$ is the stieltjes transform. By taking its imaginary part, we have: $$\im w_s = -\im \left( \frac{1}{m(z)}\right)-s\im m(z)= -\im \left( \frac{1}{m(z)}\right)-t\im m(z) + (t-s)\im m(z)$$
 $$=\im w_t + (t-s)\im m(z)$$
-\end{boxt}
 Since $|\im m(z)|$ is bounded uniformly away from $0$ in the bulk (Lemma 6.2. in \cite{dynamic}) - \textcolor{red}{deduce} that $(t-s)\lesssim \eta_s $
 
-\begin{boxt}{Lemma A.2} \label{lemma-a2} -$\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$
-
- Lemma 23 \cite{bandSDE} - For $|E|<2$ fixed and $\eta\gtrsim W^2/N^2$, then $$(\Theta_t)_{ab} + |(\Theta_tS^{\frac{1}{2}})_{ab}| + |\left(S^{\frac{1}{2}}\Theta_t S^{\frac{1}{2}}\right)_{ab}|\lesssim W^{-1}\eta_t^{-\frac{1}{2}}, $$
+\begin{boxt}{Lemma A.2} \label{lemma-a2} -
+ For $|E|<2$ fixed and $\eta\gtrsim W^2/N^2$, then $$(\Theta_t)_{ab} + |(\Theta_tS^{\frac{1}{2}})_{ab}| + |\left(S^{\frac{1}{2}}\Theta_t S^{\frac{1}{2}}\right)_{ab}|\lesssim W^{-1}\eta_t^{-\frac{1}{2}}, $$
  $$\max_a \sum_b |(\Theta_t)_{ab}|+\max_a \sum_b |(\Theta_tS^{\frac{1}{2}})_{ab}|\lesssim \eta_t^{-1}$$
 \end{boxt}
+Proof can be found as Lemma 23 in \cite{bandSDE}. From the latter result it clearly follows that $\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$. 
 
 \begin{boxt}{Corollary A.3} \label{cor-a3} -
 $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy} + \sup_y \sum_x \{\text{Id} + (t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
-
-
- Expression $(3.7)$ in \cite{bandSDE}
  \end{boxt}
+ \textit{Proof} - Can be found as expression $(3.7)$ in \cite{bandSDE}. 
 
 \begin{boxt}{Lemma A.4} \label{lemma-a4} -) $\sum_y |B_{xy}|$ and $\sum_y |S_{xy}|$ have size $O(1)$. )
 
