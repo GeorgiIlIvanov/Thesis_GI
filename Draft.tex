@@ -2496,7 +2496,7 @@ for all $1\leq i, j\leq n$ and $t\geq C'$ for some constants $C, C'$, independen
 The goal for the remainder of this thesis is to prove a theorem, similar to the one above, for the delocalization of RBMs with a relaxation on the Gaussian assumption. Recall that at the root of the Lindeberg exchange strategy is to establish stochastic control at each step of a replacement. While we are working with matrices instead of of vectors of random variables, the notion of replacement naturally extends when we consider a lexicographic ordering of the indices. Similar to how we swapped $X_n$ with $Y_n$, in this context we will also start with $H_{NN}$. We will work our way backwards by replacing consecutively $H_{N, N-1}, \cdots,H_{i, j+1},  H_{ij}, H_{i, j-1}\cdots$.  As such, at step $(i, j)$ of the replacement (accounting for the Hermitian constraint), we will have the following two matrices, represented in lexicographic vector form:
 $$H^{(i, j)}=(H_{11}, \cdots H_{i, j-1}, H_{ij}, H_{i, j+1}^G, \cdots, H_{NN}^G)$$
 $$H^{(i, j), G}=(H_{11}, \cdots H_{i, j-1}, H_{ij}^G, H_{i, j+1}^G, \cdots, H_{NN}^G),$$
-where $H_{N, N}^G, \cdots, H_{i, j+1}^G,  H_{ij}^G$ are the Gaussian replacement entries, matching in the sense of $(8.1)$ :
+where $H_{N, N}^G, \cdots, H_{i, j+1}^G,  H_{ij}^G$ are the Gaussian replacement entries, matching in the sense of $(8.1.1)$ :
 
 \begin{boxt}{Conditions}
 \begin{enumerate}[label=(8.1.\arabic*),align=left, leftmargin=30pt, labelwidth=25pt, labelsep=5pt]\label{8.1.1}
@@ -2518,8 +2518,8 @@ G_{xy}(z)-m(z)\delta_{xy}
 \end{equation*}
 Our reasoning is simple. Having familiarized ourselves with the flow method and the resolvent approach, it makes sense for us to choose a function that quantifies the deviation of resolvent entries form their deterministic approximations. By raising to power $2p$, we have better tools at our disposal, namely Chebyshev' and Markov's inequalities. Let us apply our strategy to $F$ at step $ij$ for $t\in [0, 1]$: 
 
-$$F(tH_{ij}) = F(H_{11}, \cdots, H_{i, j-1}, tH_{ij}, H_{i, j+1}^G, \cdots H_{NN}^G)$$
-In order to apply the Taylor series for the error terms, let us calculate the derivatives: $$\partial_t F(tH_{ij}) = \partial_{H_{ij}} F(tH_{ij})H_{ij} + \partial_{H_{ji}} F(tH_{ij})\overline{H_{ij}}$$
+$$F(tH_{ij}) = F(H_{11}, \cdots, H_{i, j-1}, tH_{ij}, H_{i, j+1}^G, \cdots H_{NN}^G),$$
+up to the Hermitian constraint. In order to apply the Taylor series for the error terms, let us calculate the derivatives: $$\partial_t F(tH_{ij}) = \partial_{H_{ij}} F(tH_{ij})H_{ij} + \partial_{H_{ji}} F(tH_{ij})\overline{H_{ij}}$$
 We claim that the following represents the $k$th derivative: 
 \begin{equation*}\frac{d^k}{dt^k} F(tH_{ij}) = \sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\tag{8.4}\end{equation*}
 Assume the latter for an induction hypothesis, having already verified the base case. Then: 
@@ -2566,7 +2566,7 @@ Let us take the expectation of $(8.4)$. We can use the independence of $F(0)$ fr
 $$\mathbb{E}\left[\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0) \left\{H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}-(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right\}\right]=$$
 $$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\mathbb{E}\left[\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0) \right]\mathbb{E}\left[H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}-(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]=$$
 $$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\mathbb{E}\left[\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0) \right]\left\{\mathbb{E}\left[H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]-\mathbb{E}\left[(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]\right\}=0$$
-by condition $(8.1)$. This means that:
+by condition $(8.1.1)$. This means that:
 $$\mathbb{E}\left[F(tH_{ij})-F(tH_{ij}^G)\right]=\frac{1}{720} \mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]-\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]$$
 This means that by the Hölder' and the triangle inequalities: 
 $$\left\vert \mathbb{E}\left[ F(H_{ij} - F(H_{ij}^G)\right] \right\vert\leq \frac{1}{720} \left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]\right\vert+\frac{1}{720}\left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]\right\vert $$
@@ -2580,7 +2580,7 @@ $$\leq \sum_{\ell=0}^6 \binom{6}{\ell}\mathbb{E}\left\vert \left.
 \left\vert H_{ij}^\ell \right\vert \left\vert \left(\overline{H_{ij}}\right)^{6-\ell}
 \right\vert \right]$$
 $$\leq \sum_{k=0}^6\binom{6}{\ell} \mathbb{E}\left[ \left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\right] \mathbb{E}\left[|H_{ij}|^\ell \left\vert \overline{H_{ij}}\right\vert^{6-\ell}\right]\lesssim \sum_{k=0}^7 \mathbb{E}\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\mathbb{E}|H_{ij}|^6,$$
-where the first is the triangle inequality, the second is Hölder's $L^1$ inequality and the last step uses the fact that $|H_{ij}| = \left\vert\overline{H_{ij}}\right\vert$. Let us call the RHS $\mathcal{Q}$, i.e we just showed that $\mathcal{P}\lesssim \mathcal{Q}$. WLOG, we also have that $\mathcal{P}^G\lesssim \mathcal{Q}^G$. By condition $(8.2)$, we have that $\mathbb{E}|H_{ij}|^6\prec W^{-3}$, so our goal will be to establish a bound on the first multiple term, namely $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ for all $t\in [0, 1]$. The delocalization argument will follow readily, so let us now direct our attention to the derivatives on $F(H)$ w.r.t. the entries $H_{ij}$. 
+where the first is the triangle inequality, the second is Hölder's $L^1$ inequality and the last step uses the fact that $|H_{ij}| = \left\vert\overline{H_{ij}}\right\vert$. Let us call the RHS $\mathcal{Q}$, i.e we just showed that $\mathcal{P}\lesssim \mathcal{Q}$. WLOG, we also have that $\mathcal{P}^G\lesssim \mathcal{Q}^G$. By condition $(8.1.2)$, we have that $\mathbb{E}|H_{ij}|^6\prec W^{-3}$, so our goal will be to establish a bound on the first multiple term, namely $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ for all $t\in [0, 1]$. The delocalization argument will follow readily, so let us now direct our attention to the derivatives on $F(H)$ w.r.t. the entries $H_{ij}$. 
 
 \subsection{Derivatives of $F(tH_{ij})$}
 By looking at the general form of our target $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ , we can glean that a good place to start would be with the calculation of $\partial_{H_{ij}}F(tH_{ij})$. Given our definition of the interpolation $tH_{ij}$, we can tell in advance that term $t$ will only appear as a multiple after we apply the chain rule, so we can focus exclusively on $\partial_{H_{ij}}^\ell F(tH_{xy})$. Recall our definition $(8.3)$ of $F(H)$: 
@@ -2634,10 +2634,7 @@ where $C_{\ell, \vec \sigma \vec a, \vec b}$ is some constant that is polynomial
 \item If $a_i=x \wedge b_i=y$, then $\tilde{G}_{a_i, b_i}(1) = W_{xy}$ and  $\tilde{G}_{a_i, b_i}(-1) = \overline{W_{xy}}$.
 \item For $(a_i=x\wedge b_i=y)^C$, we have $\tilde G_{a_ib_i}(1) = G_{a_ib_i}$ and $\tilde G_{a_ib_i}(-1) = \overline{G_{a_ib_i}}$.
  \end{itemize} 
-Note that all terms of the form $|W_{xy}|$ that we encountered in our derivative expansion were in fact always raised to an even power $|W_{xy}|^{2p_0}$, which means that they can be represented as multiples of $|W_{xy}|^{2} = W_{xy}\cdot \overline{W}_{xy}$.  We can trivially see that the base case is satisfied by the definition of $F(H)$ and the first derivative we proved. Let us assume $(8.6)$ for the induction hypothesis. Now, we want to prove the cases for $k_1+1$ and $k_2+1$. Starting with the first one, we can differentiate $(8.6)$, s.t. by linearity and the product rule: 
-
-
-$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \partial_{H_{ij}}\left(\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\right) = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} C_{\ell, \vec \sigma, \vec a, \vec b}\  \partial_{H_{ij}}\left(\prod_{i=1}^\ell \tilde{G}_{a_i b_i}(\sigma_i)\right)=$$
+Note that all terms of the form $|W_{xy}|$ that we encountered in our derivative expansion were in fact always raised to an even power $|W_{xy}|^{2p_0}$, which means that they can be represented as multiples of $|W_{xy}|^{2} = W_{xy}\cdot \overline{W}_{xy}$.  We can trivially see that the base case is satisfied by the definition of $F(H)$ and the first derivative we proved. Let us assume $(8.6)$ for the induction hypothesis. Now, we want to prove the cases for $k_1+1$ and $k_2+1$. Starting with the first one, we can differentiate $(8.6)$, s.t. by linearity and the product rule: $$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \partial_{H_{ij}}\left(\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\right) = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} C_{\ell, \vec \sigma, \vec a, \vec b}\  \partial_{H_{ij}}\left(\prod_{i=1}^\ell \tilde{G}_{a_i b_i}(\sigma_i)\right)=$$
 $$=\sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(\left(\partial_{H_{ij}}\tilde{G}_{a_k b_k}(\sigma_k)\right) \prod_{i=1,i\neq k}^\ell \tilde{G}_{a_i b_i}(\sigma_i)\right) $$
 We now need to calculate $\partial_{H_{ij}}\tilde{G}_{a_k b_k}(\sigma_k)$, depending on the cases, delineated above:
 \begin{itemize}
@@ -2677,18 +2674,17 @@ where $\tilde{t}_{ij}^G$ and $\tilde{t}_{ij}$ are the replacement variables at s
 $$G_2 = G_1 - G_1\left(H_2-H_1\right)G_2$$
 $$\Rightarrow G_1 = G_2+G_1\left(H_2-H_1\right)G_2$$
 
-\noindent Given that $H_2$ and $H_1$ differ only in their $(ij)$th and $(ji)$th component, we can represent that as the sum of two matrices with the only non-zero entries being the latter, which by definition of the orthonormal basis is $e_i^*e_j$ and $e_j^*e_i$ respectively. 
+\noindent Given that $H_2$ and $H_1$ differ only in their $(ij)$th and $(ji)$th component, we can represent their difference as the sum of two matrices with the only non-zero entries being the latter, which by definition of the orthonormal basis is $e_i^*e_j$ and $e_j^*e_i$ respectively. Then, for $c_{12} = \tilde{t}_{ij}^G-1$, we have:
 \begin{equation*}
-G_1 = G_2 + G_1\left(cH_{ij}^Ge_i^*e_j+ \tilde{c} H_{ji}^G e_j^*e_i\right)G_2
+G_1 = G_2 + G_1\left((cH_{ij}^Ge_i^*e_j+ cH_{ji}^G e_j^*e_i\right)G_2
 \end{equation*}
 
-$$(G_2)_{xy} = (G_1)_{xy} + cH_{ij}^G (G_1)_{xi}(G_2)_{jy}+\tilde{c}H_{ij}^G (G_1)_{xj}(G_2)_{iy}$$
-Given $(8.2)$, we have $(G_1)_{xy}\prec 1$, and as such: 
+$$\Rightarrow (G_2)_{xy} = (G_1)_{xy} + cH_{ij}^G (G_1)_{xi}(G_2)_{jy}+\tilde{c}H_{ij}^G (G_1)_{xj}(G_2)_{iy}$$
+Given $(8.1.2)$ and $(8.1.3)$, we have:
 $$|(G_2)_{xy}|\prec 1 + W^{-\frac{1}{2}}|(G_2)_{jy}|+W^{-1/2}|(G_2)_{iy}|$$
 Let $\Xi = \max_{x, y}|(G_2)_{xy}|$, then: $$\Xi \prec 1 + W^{-1/2}\Xi,$$
 hence $\Xi\prec 1$ (\textcolor{red}{requires justification for the $N^\epsilon$ exponents from the stochastic domination}. 
-
-\textcolor{red}{How does that complete the argument?}
+\textcolor{red}{complete the continuity argument}. 
 
 
 
@@ -2710,7 +2706,7 @@ Then, by applying the triangle inequality to the telescoping sum of replacements
   $$NW^{-2+\epsilon}\ll W^{-2+\epsilon+\frac{2}{1+2\beta}}$$
 \noindent Hence, in order for our asymptotics to work, we need a negative exponent, i.e: $$-2+\epsilon + \frac{2}{1+2\beta}<0$$
   $$0<\epsilon <2-\frac{2}{1+2\beta} = \frac{4\beta}{1+2\beta}>0,$$
-  whereas since $\beta>0\Rightarrow \frac{4\beta}{1+2\beta}$, we can always pick such an $\epsilon>0$ by the density of the rationals. This is also why we needed a five matching moments assumption - if we had four instead, then the bound we would get per condition $(8.2)$ would be $\left\vert \mathbb{E}\left(F(H_{ij}\right) - \mathbb{E}\left(F(H_{ij}^G\right)\right\vert\lesssim W^{-\frac{5}{2}+\epsilon}$. By following the same steps as above, we would get $-\frac{3}{2}+\epsilon+\frac{2}{1+2\beta}<0\Leftrightarrow \epsilon< \frac{6\beta-1}{1+2\beta}$.  But then $\epsilon$ would be negative for $\beta<\frac{1}{6}$, meaning the delocalization bound does not hold. 
+  whereas since $\beta>0\Rightarrow \frac{4\beta}{1+2\beta}$, we can always pick such an $\epsilon>0$ by the density of the rationals. This is also why we needed a five matching moments assumption - if we had four instead, then the bound we would get per condition $(8.1.2)$ would be $\left\vert \mathbb{E}\left(F(H_{ij}\right) - \mathbb{E}\left(F(H_{ij}^G\right)\right\vert\lesssim W^{-\frac{5}{2}+\epsilon}$. By following the same steps as above, we would get $-\frac{3}{2}+\epsilon+\frac{2}{1+2\beta}<0\Leftrightarrow \epsilon< \frac{6\beta-1}{1+2\beta}$.  But then $\epsilon$ would be negative for $\beta<\frac{1}{6}$, meaning the delocalization bound does not hold. 
   
 
 
