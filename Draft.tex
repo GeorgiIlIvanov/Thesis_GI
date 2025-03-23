@@ -522,7 +522,7 @@ $$\quad W^{-\frac{11}{4}} \ll N^{-2}\quad\Leftrightarrow W \gg N^{\frac{8}{11}}$
 \label{sec:deloc}
 
 We will need the following definition for the statement of delocalization and quantum diffusion:
-\begin{boxt}{Definition 1: (Stochastic Domination).}
+\begin{boxt}{Definition 1: (Stochastic Domination).}\label{def-1}
 \noindent Consider two sequences of r.v.s parametrized by $s\in S_N$:\vspace{-0.25 cm}
 $$X = \{X_N(s): N\in \mathbb{Z}_+, s\in S_N\}, \quad Y = \{Y_N(s): N\in \mathbb{Z}_+, s\in S_N\},$$
 Then if for any $\epsilon, D>0$, $\exists N_{\epsilon, D}$, s.t. $\sup_{s\in S_N}\mathbb{P}\left(X_N(s)>N^\epsilon Y_N(s)\right)<N^{-D}$ for $N\geq N_{\epsilon, D}$, 
@@ -2626,17 +2626,17 @@ We can see that this quickly becomes unruly. Getting to exponent six, which is w
 That said, our work of calculating the third derivative isn't wasted, because now we can make an educated guess as to the form that all subsequent steps would take. Namely, we should expect: 
 
 \begin{equation*}
-\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\leq \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma\in \{-1, 1\}^\ell}\sum_{\vec a\in \{x, y, i, j\}^\ell}\sum_{\vec b\in \{x, y, i, j\}^\ell} C_{\ell, \vec \sigma, \vec a, \vec b} \prod_{i=1}^\ell\left\vert  \tilde{G}_{a_i b_j}(\sigma_i)\right\vert\tag{8.6},
+\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)= \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma\in \{-1,0, 1\}^\ell}\sum_{\vec a\in \{x, y, i, j\}^\ell}\sum_{\vec b\in \{x, y, i, j\}^\ell} C_{\ell, \vec \sigma, \vec a, \vec b} \prod_{i=1}^\ell \tilde{G}_{a_i b_j}(\sigma_i)\tag{8.6},
 \end{equation*}
 where $C_{\ell, \vec \sigma \vec a, \vec b}$ is some constant that is polynomial in $p$ (which includes $0$), and $\tilde{G}_{a_i,b_i}(\sigma_i)$ is a function of the resolvent, representing all possible configurations , namely: 
 \begin{itemize}
-\item If $a_i=x \wedge b_i=y$, then $\tilde{G}_{a_i, b_i}(1) = W_{xy}$ and $\tilde{G}_{a_i, b_i}(-1) = \overline{W_{xy}}$ 
+\item If $a_i=x \wedge b_i=y$, then $\tilde{G}_{a_i, b_i}(1) = W_{xy}$,  $\tilde{G}_{a_i, b_i}(-1) = \overline{W_{xy}}$ and $\tilde{G}_{a_ib_i}(0) = |W_{xy}|$. 
 \item For $(a_i=x\wedge b_i=y)^C$, we have $\tilde G_{a_ib_i}(1) = G_{a_ib_i}$ and $\tilde G_{a_ib_i}(-1) = \overline{G_{a_ib_i}}$.
  \end{itemize} 
-Note that $(8.6)$ would have been an equality (without absolute values around $\tilde G$), had we included a separate index that would account for $|W_{xy}|$ by itself, given that it figures as an element, separate from $W_{xy}$ and $\overline{W_{xy}}$. But again, given that we are only interested in a rough stochastic estimate, we don't need to be as careful, which is why we use an upper bound, provided by the triangle inequality and the fact that $x\leq |x|$. We can trivially see that the base case is satisfied by the definition of $F(H)$ and the first derivative we proved. Let us assume $(8.6)$ for the induction hypothesis. Now, we want to prove the cases for $k_1+1$ and $k_2+1$. Starting with the first one, we can differentiate $(8.6)$, s.t. by linearity and the product rule: 
+Note that we included a separate index that would account for $|W_{xy}|$ by itself, given that it figures as an element, separate from $W_{xy}$ and $\overline{W_{xy}}$. We can trivially see that the base case is satisfied by the definition of $F(H)$ and the first derivative we proved. Let us assume $(8.6)$ for the induction hypothesis. Now, we want to prove the cases for $k_1+1$ and $k_2+1$. Starting with the first one, we can differentiate $(8.6)$, s.t. by linearity and the product rule: 
 
 
-$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \partial_{H_{ij}}\left(\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\right) \leq \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} C_{\ell, \vec \sigma, \vec a, \vec b}\  \partial_{H_{ij}}\left(\prod_{i=1}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right)=$$
+$$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \partial_{H_{ij}}\left(\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\right) = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} C_{\ell, \vec \sigma, \vec a, \vec b}\  \partial_{H_{ij}}\left(\prod_{i=1}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right)=$$
 $$=\sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_{\ell, \vec \sigma, \vec a, \vec b}\ \sum_{k=1}^\ell \left(\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert \prod_{i=1,i\neq k}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\right) $$
 We now need to calculate $\partial_{H_{ij}}\left\vert \tilde{G}_{a_k b_k}(\sigma_k)\right\vert$, where the cases are two, as delineated above:
 \begin{itemize}
@@ -2653,26 +2653,29 @@ $$ \leq \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b}C_
 But observe that the term inside the bracket is precisely the product of $\ell+1$ terms of the form $\tilde G_{a_ib_i}$ ($\ell-1$ from the product and $2$ from $\tilde{D}_{a_kb_k}$), whereas the sum over $k$ can be factored in as part of the sums over vectors $\vec a$ and $\vec b$ as an additional index, making the vectors $\ell+1$-dimensional, i.e: 
 
 $$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) \leq \sum_{m=1}^{2p+k_1+k_2+1} \sum_{\vec\sigma'}\sum_{\vec a'}\sum_{\vec b'} C'_{m, \vec\sigma', \vec a', \vec b'} \prod_{i=1}^m\left\vert \tilde{G}_{a'_i b'_i}(\sigma'_i)\right\vert$$
-This clearly matches the form of $(8.6)$. And since the proof for $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2+1} F(H)$ follows WLOG, we have indeed completed the induction. 
+This clearly matches the form of $(8.6)$. And since the proof for $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2+1} F(H)$ follows WLOG, we have indeed completed the induction. With the completed bound on $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)$, we can now construct the continuity argument. 
 
+\noindent  We will assume minimal resolvent bounds, namely that $|\tilde{G}_{k\ell}|\prec 1$ for all $k, \ell\in \{1, \cdots, N\}$. By definition of stochastic domination (\hyperref[def-1]{Def.1}), we have that for all $\epsilon_{a_i,b_i}>0$ and $D_{a_ib_i}>0$, $\exists N_{\epsilon_{a_ib_i}, D_{a_ib_i}}$ s.t.: $$\sup_{s\in S_N}\mathbb{P}\left(\left\vert\tilde{G}_{a_ib_i}\right\vert(\sigma_i)>N^{\epsilon_{a_ib_i}} \right)<N^{-D_{a_ib_i}}$$
+By using the product rule of stochastic domination (\hyperref[lemma-a6]{Lemma A6}), we have that $\prod_{i=1}^\ell \left\vert \tilde{G}_{a_ib_i}(\sigma_i)\right\vert \prec 1^\ell = 1$, and as such $C_{\ell, \vec a, \vec b, \vec \sigma}\prod_{i=1}^\ell \left\vert \tilde{G}_{a_ib_i}(\sigma_i)\right\vert \prec 1^\ell = 1$. And since the sum is finite, where the number of terms is $\sum_{\ell=0}^{2p+k_1+k_2} 2^{\ell}\cdot 4^\ell\cdot 4^\ell = \sum_{\ell=0}^{2p+k_1+k_2}32^\ell$, by the finite sum rule of stochastic domination (\hyperref[lemma-A7]{Lemma A7}), we also have that $\sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma}\sum_{\vec a}\sum_{\vec b} |C_{\ell, \vec \sigma, \vec a, \vec b}| \prod_{i=1}^\ell\left\vert \tilde{G}_{a_i b_i}(\sigma_i)\right\vert\prec 1$. B
 
 \subsection{Continuity Argument}
-With the completed bound on the functional expression of derivatives, we can now construct the continuity argument. We will assume minimal resolvent bounds, namely that $|\tilde{G}_{k\ell}|\prec 1$ for all $k, \ell\in \{1, \cdots, N\}$. 
-
-Having established the stochastic bound on the individual derivatives, we can now lay out the continuity argument that will allows us to preserve control throughout the entire replacement. To start, define the following: 
+\noindent Having established the stochastic bound on the individual derivatives, we can now lay out the continuity argument that will allows us to preserve control throughout the entire replacement. To start, define the following: 
 
 \begin{equation*}
 \begin{array}{c}
 G_1 = G\left(H_{11}, \cdots, H_{ij}^G, \cdots, H_{NN}^G\right)\\
-G_2 = G\left(H_{11}, \cdots,\tilde{t}_{ij}^G H_{ij}^G, \cdots, H_{NN}^G\right)\\
-G_3 = G\left(H_{11}, \cdots,\tilde{t}_{ij} H_{ij}, \cdots, H_{NN}^G\right)
+G_2 = G\left(H_{11}, \cdots,\tilde{t}_{ij}^G H_{ij}^G=\cdots H_{NN}^G\right) \\
+G_3 = G\left(H_{11}, \cdots,\tilde{t}_{ij} H_{ij}, \cdots, H_{NN}^G\right),
 \end{array},
 \end{equation*}
-where $\tilde{t}_{ij}^G$ and $\tilde{t}_{ij}$ are the replacement variables at step $ij$ for this argument, and as such are different than the ones we used in our Lindeberg argument. By the matrix identity $(2.4)$, we have the following: 
+where $\tilde{t}_{ij}^G$ and $\tilde{t}_{ij}$ are the replacement variables at step $ij$ for this argument, and as such are different than the ones we used in our Lindeberg argument. By the matrix identity $(2.4)$ for $A = H_1-z$ and $B = H_2-H_1$, we have the following: 
+$$G_2 = G_1 - G_1\left(H_2-H_1\right)G_2$$
+$$\Rightarrow G_1 = G_2+G_1\left(H_2-H_1\right)G_2$$
+
+\noindent Given that $H_2$ and $H_1$ differ only in their $(ij)$th and $(ji)$th component, we can represent that as the sum of two matrices with the only non-zero entries being the latter, which by definition of the orthonormal basis is $e_i^*e_j$ and $e_j^*e_i$ respectively. 
 \begin{equation*}
 G_1 = G_2 + G_1\left(cH_{ij}^Ge_i^*e_j+ \tilde{c} H_{ji}^G e_j^*e_i\right)G_2
 \end{equation*}
-\textcolor{red}{have to do the same with the other terms? have to get an extra H}
 
 $$(G_2)_{xy} = (G_1)_{xy} + cH_{ij}^G (G_1)_{xi}(G_2)_{jy}+\tilde{c}H_{ij}^G (G_1)_{xj}(G_2)_{iy}$$
 Given $(8.2)$, we have $(G_1)_{xy}\prec 1$, and as such: 
@@ -2775,7 +2778,11 @@ If $X_i \prec Y_i$ for $i = 1,2,...,\ell$, then $\prod_{i=1}^{\ell} X_i \prec \p
 \end{boxtheorem}
 \textit{Proof} - By definition, for any $\epsilon, D > 0$, there exist $N_{\epsilon,D,i}$ such that: $$\sup_{s\in S_N}\mathbb{P}\left(X_i(s) > N^{\epsilon/\ell} Y_i(s)\right) < N^{-(D+\log_N \ell)}$$ for all $N \geq N_{\epsilon,D,i}$. For the product, consider: $$\mathbb{P}\left(\prod_{i=1}^{\ell} X_i(s) > N^{\epsilon} \prod_{i=1}^{\ell} Y_i(s)\right).$$
 This event occurs only if at least one $X_i(s) > N^{\epsilon/\ell} Y_i(s)$. By the union bound: $$\mathbb{P}\left(\prod_{i=1}^{\ell} X_i(s) > N^{\epsilon} \prod_{i=1}^{\ell} Y_i(s)\right) \leq \sum_{i=1}^{\ell} \mathbb{P}\left(X_i(s) > N^{\epsilon/\ell} Y_i(s)\right) < \ell \cdot N^{-(D+\log_N \ell)} = N^{-D}$$ for all $N \geq \max_{i=1}^{\ell} N_{\epsilon,D,i}$.
+\begin{boxtheorem}{Lemma A7: (Stochastic Domination Sum)}\label{lemma-a7}
 
+If $X_i \prec Y_i$ for $i = 1,2,...,\ell$, then $\sum_{i=1}^{\ell} X_i \prec \sum_{i=1}^{\ell} Y_i$.
+\end{boxtheorem}
+\textit{Proof} - Analogous to Lemma A6. 
 \subsection{Resolvent estimates}
 
 
