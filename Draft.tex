@@ -154,7 +154,7 @@
     \Large{\textbf{Acknowledgments}}\vspace{0.1cm}
 \end{center}
 \begin{center}
-\justify{\textsc{First, and foremost}, I would like to thank Kevin Yang, without whom this thesis would not have been possible. I could not have asked for a more supportive advisor - one who allowed me to explore ideas freely, whilst nudging me towards concrete steps that  gave them shape. I am grateful to the Office of Undergraduate Research and Fellowship for supporting my thesis by a HCRP grant. \vspace{0.25 cm} 
+\justify{\textsc{First, and foremost}, I would like to thank Kevin Yang, without whom this thesis would not be possible. I could not have asked for a more supportive advisor - one who allowed me to explore ideas freely, whilst nudging me towards concrete steps that  gave them shape. I am also grateful to the Office of Undergraduate Research and Fellowship for supporting my work by a HCRP grant. \vspace{0.25 cm} 
 
 \noindent \textsc{I want to thank all those from whom I learned over the last 4 years}:\\
 My first teacher at Harvard, Hakim Walker, for inspiring me to leap into world of pure mathematics. \\
@@ -168,7 +168,7 @@ Yum-Tong Siu, for showing me that I can handle the true intensity of mathematics
 \noindent My high school teacher, Elena Kiselova, for sowing the seeds of trees I am now sitting in the shade of. \\
 \noindent Wasalu Jaco, whose lived experience gave me clarity amidst the heat. \vspace{0.25 cm}
 
-\noindent \textsc{I want to thank the friends that made this foreign land more hospitable:}\\
+\noindent \textsc{I want to thank the friends who made this foreign land hospitable:}\\
 Jordan, the most gracious person I know, for being a strong positive influence in my life. \\
 Tega, for being there when things were most difficult. \\
 Jan, for bringing brotherly competition and pushing me to be better. \\
@@ -177,7 +177,7 @@ My blocking mates, Cameron and Leah, for all the late night conversations. \\
 Kubra and Bolu, for making me feel seen and heard since day one on campus.
 \vspace{0.25 cm}
 
-\noindent \textsc{I am grateful for my friends back home} - Stani, Eli, Lily and Georgi - for being by my side throughout the years, unwavering in their belief and unapologetic in their support.\vspace{0.25 cm}
+\noindent \textsc{I am grateful to my friends back home} - Stani, Eli, Lily and Georgi - for being by my side throughout the years, unwavering in their belief and unapologetic in their support.\vspace{0.25 cm}
 
 \noindent \textsc{I am thankful to my entire family for their patience and guidance.} I grateful to my father, Iliyan, for teaching me discipline and my mother, Irina, for the gift of intuition. I want to thank my brothers, Vladislav and Kiril, and my sisters, Dimana and Rozena, for keeping me rooted and never letting me forget who I am doing this for. Last, but not least, I want to thank our people, who through culture, stories, and celebrations have instilled in me my highest value: Sophia.\vspace{0.25 cm}
 
@@ -2510,10 +2510,10 @@ $$tH_{ij}^{G} = H^{(i, j),G}[H^G_{ij}, H^G_{ij}\mapsto t H^G_{ij}, t H^{G}_{ij}]
 Whenever the replacement step $(i, j)$ is implicit from context, we will drop the superscript. In order to make our theorem applicable to the context of delocalization, we want to consider the following function: 
 \begin{equation*}\label{8.3}
 F(H) = \left\vert
-(H-z)_{ij}^{-1} - m(z)S_{ij}
+(H-z)_{xy}^{-1} - m(z)\delta_{xy}
 \right\vert ^{2p} = \left\vert 
-G_{ij}(z)-m(z)S_{ij}
-\right\vert ^{2p} = |W_{ij}|^{2p}\tag{8.3}
+G_{xy}(z)-m(z)\delta_{xy}
+\right\vert ^{2p} = |W_{xy}|^{2p}\tag{8.3}
 \end{equation*}
 Our reasoning is simple. Having familiarized ourselves with the flow method and the resolvent approach, it makes sense for us to choose a function that quantifies the deviation of resolvent entries form their deterministic approximations. By raising to power $2p$, we have better tools at our disposal, namely Chebyshev' and Markov's inequalities. Let us apply our strategy to $F$ at step $ij$ for $t\in [0, 1]$: 
 
@@ -2582,50 +2582,48 @@ $$\leq \sum_{k=0}^6\binom{6}{\ell} \mathbb{E}\left[ \left\vert \partial_{H_{ij}}
 where the first is the triangle inequality, the second is Hölder's $L^1$ inequality and the last step uses the fact that $|H_{ij}| = \left\vert\overline{H_{ij}}\right\vert$. Let us call the RHS $\mathcal{Q}$, i.e we just showed that $\mathcal{P}\lesssim \mathcal{Q}$. WLOG, we also have that $\mathcal{P}^G\lesssim \mathcal{Q}^G$. By condition $(8.2)$, we have that $\mathbb{E}|H_{ij}|^6\prec W^{-3}$, so our goal will be to establish a bound on the first multiple term, namely $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ for all $t\in [0, 1]$. The delocalization argument will follow readily, so let us now direct our attention to the derivatives on $F(H)$ w.r.t. the entries $H_{ij}$. 
 
 \subsection{Derivatives of $F(tH_{ij})$}
-By looking at the general form of our target $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ , we can glean that a good place to start would be with the calculation of $\partial_{H_{k\ell}}F(tH_{ij})$. Given our definition of the interpolation $tH_{ij}$, we can tell in advance that term $t$ will only appear as a multiple after we apply the chain rule, so we can focus exclusively on $\partial_{H_{xy}}^\ell F(tH_{xy})$. Recall our definition $(8.3)$ of $F(H)$: 
-$$F(H) = \left\vert
-(H-z)_{ij}^{-1} - m(z)S_{ij}
-\right\vert ^{2p} = \left\vert 
-G_{ij}(z)-m(z)S_{ij}
-\right\vert ^{2p} = |W_{ij}|^{2p}
+By looking at the general form of our target $\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(tH_{ij})\right\vert$ , we can glean that a good place to start would be with the calculation of $\partial_{H_{ij}}F(tH_{ij})$. Given our definition of the interpolation $tH_{ij}$, we can tell in advance that term $t$ will only appear as a multiple after we apply the chain rule, so we can focus exclusively on $\partial_{H_{ij}}^\ell F(tH_{xy})$. Recall our definition $(8.3)$ of $F(H)$: 
+$$F(H) = \left\vert (H-z)_{xy}^{-1} - m(z)\delta_{xy} \right\vert ^{2p} = \left\vert G_{xy}(z)-m(z)\delta_{xy} \right\vert ^{2p} = |W_{xy}|^{2p}
 $$
-Let us apply the chain rule, by recognizing that $|W_{ij}|^{2p} = \left(W_{ij} \cdot \overline{W_{ij}}\right)^p$ :
 
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = \frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}} \cdot \frac{\partial W_{ij}}{\partial G_{ij}} \cdot \frac{\partial G_{ij}}{\partial H_{kl}} + \frac{\partial |W_{ij}|^{2p}}{\partial \overline{W_{ij}}} \cdot \frac{\partial \overline{W_{ij}}}{\partial \overline{G_{ij}}} \cdot \frac{\partial \overline{G_{ij}}}{\partial H_{kl}}$$
-Using complex differentiation, we have:
-$$\frac{\partial |W_{ij}|^{2p}}{\partial W_{ij}} = p|W_{ij}|^{2p-2} \cdot \overline{W_{ij}}, \quad\frac{\partial |W_{ij}|^{2p}}{\partial \overline{W_{ij}}} = p|W_{ij}|^{2p-2} \cdot W_{ij}$$
-And since $W_{ij} = G_{ij} - mS_{ij}$:
-$$\frac{\partial W_{ij}}{\partial G_{ij}} = 1, \quad \frac{\partial \overline{W_{ij}}}{\partial \overline{G_{ij}}} = 1$$
-Recall the resolvent identities we proved in \hyperref[resolventderivative]{Section 2}, namely $\partial_{H_{ij}}G_{xy} = -G_{xi}G_{jy}$ and $\partial_{\overline{H_{ij}}}\overline{G_{xy}} = -\overline{G_{xi}}\ \overline{G_{jy}}$ . Substituting the derivatives into our chain rule expression yields:
+\noindent Let us apply the chain rule, by recognizing that $|W_{xy}|^{2p} = \left(W_{xy} \cdot \overline{W_{xy}}\right)^p$:
 
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = p|W_{ij}|^{2p-2} \cdot \overline{W_{ij}} \cdot 1 \cdot (-G_{ik}G_{lj}) + p|W_{ij}|^{2p-2} \cdot W_{ij} \cdot 1 \cdot (-\overline{G_{ik}}\overline{G_{lj}})$$
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [\overline{W_{ij}} \cdot G_{ik}G_{lj} + W_{ij} \cdot \overline{G_{ik}G_{lj}}]$$
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -p|W_{ij}|^{2p-2} \cdot [\overline{W_{ij}} \cdot G_{ik}G_{lj} + (\overline{W_{ij}} \cdot G_{ik}G_{lj})^*]$$
-$$\frac{\partial |W_{ij}|^{2p}}{\partial H_{kl}} = -2p|W_{ij}|^{2p-2} \cdot \text{Re}(\overline{W_{ij}} \cdot G_{ik}G_{lj})$$
-Hence, by putting everything together, we get:
-$$\partial_{H_{k\ell}}F(H) = \partial_{H_{k\ell}} |W_{ij}|^{2p} = 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)= -2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)$$
-Let us calculate the second derivative:
+$$\frac{\partial |W_{xy}|^{2p}}{\partial H_{ij}} = \frac{\partial |W_{xy}|^{2p}}{\partial W_{xy}} \cdot \frac{\partial W_{xy}}{\partial G_{xy}} \cdot \frac{\partial G_{xy}}{\partial H_{ij}} + \frac{\partial |W_{xy}|^{2p}}{\partial \overline{W_{xy}}} \cdot \frac{\partial \overline{W_{xy}}}{\partial \overline{G_{xy}}} \cdot \frac{\partial \overline{G_{xy}}}{\partial H_{ij}}$$
 
-$$\partial_{H_{k\ell}}^2F(H) = \partial_{H_{k\ell}}\left[ 2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\partial_{H_{k\ell}}\overline{W_{ij}}\right)\right]=$$
-$$= -2p \partial_{H_{k\ell}}\left[|W_{ij}|^{2p-2}\right]\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\partial_{H_{k\ell}} \left[\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\right]$$
-The first term is: $$\partial_{H_{k\ell}}\left[|W_{ij}|^{2p-2}\right] = (2p-2)|W_{ij}|^{2p-4}\partial_{H_{k\ell}}\left[|W_{ij}|^2\right] = (2p-2)|W_{ij}|^{2p-4}\left(\partial_{H_{k\ell}} W_{ij}\cdot \overline{W}_{ij}+W_{ij}\cdot \partial_{H_{k\ell}} \overline{W}_{ij}\right)=$$
-$$= -(2p-2)|W_{ij}|^{2p-4}\left(G_{ik}G_{\ell j}\cdot \overline{W}_{ij}+W_{ij}\cdot \overline{G_{ik}G_{\ell j}}\right) = -(4p-4)|W_{ij}|^{2p-4} \text{Re}\left(W_{ij}\cdot \overline{G_{ik}G_{\ell j}}\right)$$
-And the second is: $$\partial_{H_{k\ell}}\left[\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\right] = \text{Re}\left(\partial_{H_{k\ell}} W_{ij} \overline{G_{ik}G_{\ell j}}+W_{ij} \partial_{H_{k\ell}} \overline{G_{ik}G_{\ell j}}\right)=$$
-$$=\text{Re}\left(-G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\partial_{H_{k\ell}}\left[\overline{G_{ik}G_{\ell j}}\right]\right) =-\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}+\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right) $$
-As such, by combining the terms, we get the following expansion: 
-$$(8p^2-8p)|W_{ij}|^{2p-4}\text{Re}^2\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right) +2p|W_{ij}|^{2p-2}\left[|G_{ik}G_{\ell j}|^2+\text{Re}\left(W_{ij}\overline{G_{ik}G_{kk}}\overline{G_{\ell j}}\right)+\text{Re}\left(\overline{G_{ik}}\overline{G_{\ell \ell}G_{\ell j}}\right)\right]$$
-While this doesn't look as bad, we have already went from one to four terms in our expression (two and eight, respectively, if written in conjugate form). In fact, the growth is factorial, giving that the chain rule generates several new elements for each term: 
-\[\partial_{H_{k\ell}}^3F(H)  = -48p(p-1)(p-2)|W_{ij}|^{2p-6}\text{Re}^3\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)+\]
-$$+24p(p-1)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{\ell j}}+W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-$$
-$$-4p(2p-2)|W_{ij}|^{2p-4}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell j}}\right)|G_{ik}G_{\ell j}|^2-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell i}G_{kk}G_{\ell j}}\right)-$$
-$$-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ii}G_{kk}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{kk}G_{ik}G_{\ell\ell}G_{jj}}\right)-$$
-\[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell k}G_{\ell\ell}G_{jj}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ik}G_{\ell \ell}G_{jk}G_{\ell j}}\right)-\]
-\[-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{k\ell}G_{\ell k}G_{\ell j}}\right)-2p|W_{ij}|^{2p-2}\text{Re}\left(W_{ij}\overline{G_{ii}G_{k k}G_{\ell\ell}G_{j\ell}}\right)\]
-$$-2p|W_{ij}|^{2p-2}\text{Re}\left(G_{ik}G_{\ell j}\overline{G_{ii}G_{kk}G_{\ell j}}+G_{ik}G_{\ell j}\overline{G_{ik}G_{\ell \ell}G_{jj}}\right)-$$
-We can see that this quickly becomes unruly. Getting to exponent six, which is what we need for the bound on $\mathcal{Q}$, will simply be impossible without some way of abstracting away the details. Fortunately, we are only concerned with stochastic bounds, and as such, don't need the exact form of the terms, only to show that $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H) \prec 1$.  
+\noindent Using complex differentiation, we have: $$\frac{\partial |W_{xy}|^{2p}}{\partial W_{xy}} = p|W_{xy}|^{2p-2} \cdot \overline{W_{xy}}, \quad\frac{\partial |W_{xy}|^{2p}}{\partial \overline{W_{xy}}} = p|W_{xy}|^{2p-2} \cdot W_{xy}$$
+
+\noindent And since $W_{xy} = G_{xy} - m\delta_{xy}$: $$\frac{\partial W_{xy}}{\partial G_{xy}} = 1, \quad \frac{\partial \overline{W_{xy}}}{\partial \overline{G_{xy}}} = 1$$
+
+\noindent Recall the resolvent identities we proved in Section 2, namely $\partial_{H_{ij}}G_{xy} = -G_{xi}G_{jy}$ and $\partial_{\overline{H_{ij}}}\overline{G_{xy}} = -\overline{G_{xi}}\ \overline{G_{jy}}$. Substituting the derivatives into our chain rule expression yields:
+
+$$\frac{\partial |W_{xy}|^{2p}}{\partial H_{ij}} = p|W_{xy}|^{2p-2} \cdot \overline{W_{xy}} \cdot 1 \cdot (-G_{xi}G_{jy}) + p|W_{xy}|^{2p-2} \cdot W_{xy} \cdot 1 \cdot (-\overline{G_{xi}}\overline{G_{jy}})$$
+
+$$\frac{\partial |W_{xy}|^{2p}}{\partial H_{ij}} = -p|W_{xy}|^{2p-2} \cdot [\overline{W_{xy}} \cdot G_{xi}G_{jy} + W_{xy} \cdot \overline{G_{xi}G_{jy}}]$$
+
+$$\frac{\partial |W_{xy}|^{2p}}{\partial H_{ij}} = -p|W_{xy}|^{2p-2} \cdot [\overline{W_{xy}} \cdot G_{xi}G_{jy} + (\overline{W_{xy}} \cdot G_{xi}G_{jy})^*]$$
+
+$$\frac{\partial |W_{xy}|^{2p}}{\partial H_{ij}} = -2p|W_{xy}|^{2p-2} \cdot \text{Re}(\overline{W_{xy}} \cdot G_{xi}G_{jy})$$
+
+\noindent Hence, by putting everything together, we get: $$\partial_{H_{ij}}F(H) = \partial_{H_{ij}} |W_{xy}|^{2p} = 2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\partial_{H_{ij}}\overline{W_{xy}}\right)= -2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)$$
+
+\noindent Let us calculate the second derivative:
+
+$$\partial_{H_{ij}}^2F(H) = \partial_{H_{ij}}\left[ 2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\partial_{H_{ij}}\overline{W_{xy}}\right)\right]=$$ $$= -2p \partial_{H_{ij}}\left[|W_{xy}|^{2p-2}\right]\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)-2p|W_{xy}|^{2p-2}\partial_{H_{ij}} \left[\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)\right]$$
+
+\noindent The first term is: $$\partial_{H_{ij}}\left[|W_{xy}|^{2p-2}\right] = (2p-2)|W_{xy}|^{2p-4}\partial_{H_{ij}}\left[|W_{xy}|^2\right] = (2p-2)|W_{xy}|^{2p-4}\left(\partial_{H_{ij}} W_{xy}\cdot \overline{W}_{xy}+W_{xy}\cdot \partial_{H_{ij}} \overline{W}_{xy}\right)=$$ $$= -(2p-2)|W_{xy}|^{2p-4}\left(G_{xi}G_{jy}\cdot \overline{W}_{xy}+W_{xy}\cdot \overline{G_{xi}G_{jy}}\right) = -(4p-4)|W_{xy}|^{2p-4} \text{Re}\left(W_{xy}\cdot \overline{G_{xi}G_{jy}}\right)$$
+
+\noindent And the second is: $$\partial_{H_{ij}}\left[\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)\right] = \text{Re}\left(\partial_{H_{ij}} W_{xy} \overline{G_{xi}G_{jy}}+W_{xy} \partial_{H_{ij}} \overline{G_{xi}G_{jy}}\right)=$$ $$=\text{Re}\left(-G_{xi}G_{jy}\overline{G_{xi}G_{jy}}+W_{xy}\partial_{H_{ij}}\left[\overline{G_{xi}G_{jy}}\right]\right) =-\text{Re}\left(G_{xi}G_{jy}\overline{G_{xi}G_{jy}}+W_{xy}\overline{G_{xi}G_{ii}}\overline{G_{jy}}+\overline{G_{xi}}\overline{G_{jj}G_{jy}}\right) $$
+
+\noindent As such, by combining the terms, we get the following expansion: $$(8p^2-8p)|W_{xy}|^{2p-4}\text{Re}^2\left(W_{xy}\overline{G_{xi}G_{jy}}\right) +2p|W_{xy}|^{2p-2}\left[|G_{xi}G_{jy}|^2+\text{Re}\left(W_{xy}\overline{G_{xi}G_{ii}}\overline{G_{jy}}\right)+\text{Re}\left(\overline{G_{xi}}\overline{G_{jj}G_{jy}}\right)\right]$$
+
+\noindent While this doesn't look as bad, we have already went from one to four terms in our expression (two and eight, respectively, if written in conjugate form). In fact, the growth is factorial, giving that the chain rule generates several new elements for each term: 
+$$\partial_{H_{ij}}^3F(H) = -48p(p-1)(p-2)|W_{xy}|^{2p-6}\text{Re}^3\left(W_{xy}\overline{G_{xi}G_{jy}}\right)$$ $$+24p(p-1)|W_{xy}|^{2p-4}\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)\text{Re}\left(W_{xy}\overline{G_{xx}G_{ii}G_{jy}}+W_{xy}\overline{G_{xi}G_{jj}G_{yy}}\right)$$ $$-4p(2p-2)|W_{xy}|^{2p-4}\text{Re}\left(W_{xy}\overline{G_{xi}G_{jy}}\right)|G_{xi}G_{jy}|^2-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xi}G_{jx}G_{ii}G_{jy}}\right)$$ $$-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xx}G_{ii}G_{xx}G_{ii}G_{jy}}\right)-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xx}G_{ii}G_{xi}G_{jj}G_{yy}}\right)$$ $$-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xi}G_{ji}G_{jj}G_{yy}}\right)-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xi}G_{jj}G_{yi}G_{jy}}\right)$$ 
+$$-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xx}G_{ij}G_{ji}G_{jy}}\right)-2p|W_{xy}|^{2p-2}\text{Re}\left(W_{xy}\overline{G_{xx}G_{ii}G_{jj}G_{yj}}\right)$$ 
+$$-2p|W_{xy}|^{2p-2}\text{Re}\left(G_{xi}G_{jy}\overline{G_{xx}G_{ii}G_{jy}}+G_{xi}G_{jy}\overline{G_{xi}G_{jj}G_{yy}}\right)$$
+We can see that this quickly becomes unruly. Getting to exponent six, which is what we need for the bound on $\mathcal{Q}$, will simply be impossible without some way of abstracting away the details. Fortunately, we are only concerned with stochastic bounds, and as such, don't need the exact form of the terms. Our regularity condition $(8.2)$ will allow us to show delocalization as long as we verify that $\partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H) \prec 1$.  
 
 \subsection*{Abstract Form}
-Having calculated up to the third derivative, we can make an educated guess as to the form that all subsequent steps would take. Namely, we should expect: 
+That said, our work of calculating up to the third derivative isn't wasted, because now we can make an educated guess as to the form that all subsequent steps would take. Namely, we should expect: 
 
 \begin{equation*}
 \partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H) = \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma\in \{-1, 1\}^\ell}\sum_{\vec a\in \{x, y, i, j\}^\ell}\sum_{\vec b\in \{x, y, i, j\}^\ell} C_{\ell, \vec \sigma, \vec a, \vec b} \prod_{i=1}^\ell G_{a_i b_j}(\sigma_i),
