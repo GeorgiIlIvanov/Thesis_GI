@@ -14,11 +14,11 @@
 \contentsline {subsection}{\numberline {6.2}Estimate for $\mathcal {E}_t^{M, \text {stop}}(z)$}{34}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{40}{subsection.6.3}%
 \contentsline {section}{\numberline {7}Proof of Theorems}{42}{section.7}%
-\contentsline {section}{\numberline {8}Non-Gaussian case}{44}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Lindeberg exchange strategy}{44}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Replacement}{45}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Derivatives of $F(tH_{ij})$}{49}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Continuity Argument}{53}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Five Moment Theorem}{55}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Appendix}{57}{section.9}%
-\contentsline {section}{References}{61}{AMS.29}%
+\contentsline {section}{\numberline {8}Non-Gaussian case}{45}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Lindeberg exchange strategy}{45}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Replacement}{46}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Derivatives of $F(tH_{ij})$}{50}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Continuity Argument}{54}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Five Moment Theorem}{56}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Appendix}{58}{section.9}%
+\contentsline {section}{References}{62}{AMS.29}%

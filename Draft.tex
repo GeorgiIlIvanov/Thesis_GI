@@ -2503,8 +2503,8 @@ Hence, $\mathbb{P}[\left\{\tau_{\sto, 2}\neq 1\}\cap \{\tau_{\sto, 1=1}\}\right]
 \begin{boxtheorem}{Theorem 2: (Quantum Diffusion)}
 For $|E|<2$ fixed, assume $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq W^{8/11+\nu}$. Then: $$\max_{x, y}|T_{xy}-\Theta_{xy}|\prec W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$$
 \end{boxtheorem}
-\textit{Proof} - By the previous theorem and the definition of stopping time, we know that $$\max_{a,b}|\E_1(z)_{ab}|\prec W^{-\frac{7}{4}} \eta_1^{-\frac{3}{2}}$$
-But recall by our flow construction that $\eta_1=\eta$ and by extension, $T_1=T$ and $\Theta_1=\Theta$, meaning that: $$\max_{a,b}|\E_1(z)_{ab}| =\max_{x, y}|T_{xy}-\Theta_{xy}|\prec W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$$
+\textit{Proof} - By the previous theorem and the definition of stopping time, we know: $$\max_{a,b}|\E_1(z)_{ab}|\prec W^{-\frac{7}{4}} \eta_1^{-\frac{3}{2}}.$$
+But recall our flow construction that $\eta_1=\eta$, s.t $T_1=T$ and $\Theta_1=\Theta$. This means that: $$\max_{a,b}|\E_1(z)_{ab}| =\max_{x, y}|T_{xy}-\Theta_{xy}|\prec W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$$
 
 \subsection*{7.3 Theorem 3}
 \label{proof-deloc}
@@ -2515,6 +2515,7 @@ But recall by our flow construction that $\eta_1=\eta$ and by extension, $T_1=T$
 \textit{Proof} - By Theorem 1 and the definition $(3.4.2)$ of $\tau_\sto$, we have that: $$\max_{x, y}|G_{xy} - \delta_{xy}m(z)|^2\prec \max_{a, b}(S^{1/2}T_1(z)S^{1/2})_{ab}+\max_{a, b}S_{ab}^{1/2}$$
 By Theorem 2 we showed above, \hyperref[lemma-a2]{Lemma A2}, and the behavior of $S^{1/2}$ as the averaging operator: $$\max_{a, b}T_1(z)_{ab}\prec W^{_1}\eta_1^{-1/2} = W^{-1}\eta^{-1/2}\Rightarrow \max_{ab}\left(S^{1/2}T_1(z)S^{1/2}\right)_{ab}\prec W^{-1}\eta^{-1/2}$$
 $$\Rightarrow \max_{x, y}|G_{xy} - \delta_{xy}m(z)|^2\prec  W^{-1}\eta^{-1/2}+W^{-1}\prec  W^{-1}\eta^{-1/2}$$
+\newpage
 \subsection*{7.4 Theorem 4 - Delocalization}
 \begin{boxtheorem}{Theorem 4: (Delocalization).}
 For any $\ell\ll N$ and fixed $\epsilon, \kappa, c>0$: $$\frac{|\mathcal{A}_{\epsilon, \ell, \kappa}|}{N}\lesssim \sqrt{\epsilon}+\mathcal{O}(N^{-c})$$
@@ -2767,12 +2768,11 @@ $$\frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon} W^{-1/2}}\ll \frac{N^{\delta\ep
 
 \noindent This means that $\exists N_0$, s.t. for all $N\geq N_0$, the latter event is a subset: $$ \left\{\Xi_N(s)>\frac{N^\epsilon}{1-N^{{\delta\epsilon}-\frac{1+2\beta}{4}}}\right\}\subset \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right\}$$
 $$\Rightarrow \mathbb{P} \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon-\frac{1+2\beta}{4}}}\right\}\leq\mathbb{P} \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right\}\leq N^{-D},$$
-by Boole's inequality. Now, this means that we, need to find $\gamma$ and $N_0'$, s.t. $\forall N\geq N_0'$:
-
-$$N^\gamma\gg \frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon-\frac{1+2\beta}{4}}}$$
-
-\noindent With this, we have verified that $\Xi\prec 1$.
-Notice that the approach is equivalent for $\Xi_3 = \max_{x, y}|(G_3)_{xy}|$, i.e WLOG, we have that $\Xi_3\prec 1$ as well. What we have essentially established is a sort of a continuity argument. Namely, at every step $(i,j)$ of the replacement, the proof above demonstrates that we preserve the resolvent bounds. Now remains the last step is extending this argument throughout the replacement of the entire matrix. 
+by Boole's inequality. But observe that we can take $\delta$ to be small enough, s.t. 
+$$N^{\delta\epsilon-\frac{1+2\beta}{4}}\leq \frac{1}{2}\quad \Leftrightarrow \quad 1-N^{\delta\epsilon-\frac{1+2\beta}{4}}\geq \frac{1}{2}\quad \Rightarrow \quad \frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon-\frac{1+2\beta}{4}}}\leq 2N^{\delta\epsilon}$$
+$$  \left\{\Xi_N(s)> 2N^{\delta\epsilon}\right\}\subset \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon-\frac{1+2\beta}{4}}}\right\}$$
+$$\Rightarrow \mathbb{P} \left\{\Xi_N(s)> 2N^{\delta\epsilon}\right\}\leq\mathbb{P} \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon-\frac{1+2\beta}{4}}}\right\}\leq N^{-D},$$
+\noindent by Boole's inequality again. But since $\delta\epsilon$ is small, this is exactly what we need per the definition of stochastic domination (up to trivial rescaling w.r.t to $\epsilon$), meaning that we have verified that $\Xi\prec 1$. Notice that the approach is equivalent for $\Xi_3 = \max_{x, y}|(G_3)_{xy}|$, i.e WLOG, we have that $\Xi_3\prec 1$ as well. What we have essentially established is a sort of a continuity argument. Namely, at every step $(i,j)$ of the replacement, the proof above demonstrates that we preserve the resolvent bounds. Now remains the last step is extending this argument throughout the replacement of the entire matrix. 
 
 \subsection{Five Moment Theorem}
 Recall the following  $\mathcal{P}$ and $\mathrm{Q}$, respectively. We want $\mathcal{Q}\leq W^C$ for some $C \lesssim 1$ , s.t. $\mathcal{Q}\prec 1$ (\textcolor{red}{definition? - revisit}). \\
