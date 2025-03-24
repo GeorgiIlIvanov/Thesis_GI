@@ -468,8 +468,8 @@ $$= \E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt + \{\Th
 Therefore, by the pathwise uniqueness of solutions to SDEs (Thm. 9.1 \cite{steele}), the following expression satisfies the same SDE:
 \begin{equation*}\E_t(z)=\E_t^{D}(z)+\E_t^{M}(z)+\E_t^{S}(z),\tag{3.3}\end{equation*}
 where the drift term $\E^D_t(z)$, the martingale term $\E^M_t(z)$, and the squared term $\E^S_t(z)$ are defined as:
-$$\E_t^{D}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds$$
-$$\E_t^{M}(z)=-\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}$$
+$$\E_t^{D}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega_s(z) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds$$
+$$\E_t^{M}(z)=-\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM_s(z)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}$$
 $$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds.$$
 
 \noindent It is important to note that while we called $\E^M_t(z)$ a martingale, it is, in fact, not one, as neither are the remaining terms. The reason is that if we consider the mapping $t\mapsto \int_s^t U(t, s)dM_s$, we can see there is dependence on future information $t\geq s$, which is not adapted to the natural filtration of $M_s$. As such, we need a stopping time argument for the latter dynamics \cite{bandSDE}:
@@ -493,8 +493,8 @@ For a fixed $\delta_\sto>0$ and $D\lesssim 1$ ($a\lesssim b\equiv a = O(b))$, in
 \noindent While the particular choices for constants may seem arbitrary at the moment, they are informed by the bounds we get on the maximal entries of the diffusion profile $\Theta_t$ (\hyperref[diffusion]{Sec. 4.1}), the assumption of $\eta\gg W^{-3/4}$, as well as the technical steps in our analytic argument. That said, we can still gain some intuition as to the meaning of each. With $\tau_{\text{stop},1}$ we have control over the size the error term $\E_s(z) = T_s(z) - \Theta_s$, whereas $\tau_{\text{stop},2}$ is w.r.t to the deviation of the resolvent entries from the semicircle law $m(z)$, normalized by appropriate terms. The reasoning behind the latter definitions is simple - informally, our goal is to establish a bootstrapping mechanism that will allow us to propagate forward the stopping time through a self-reinforcement (continuity) argument. For this purpose, we will instead study the stopped version of $\E_t(z)$, namely the solution $\E^\sto$  to the following equation: $$d\E_t^{\sto}(z) = \left(\Theta_t\E_t^{\sto}(z)+\E_t^{\sto}(z)\Theta_t\right)dt + \mathbf{1}_{t\leq \tau_\sto}\E_t^\sto (z)^2dt$$
 $$-\mathbf{1}_{t\leq \tau_\sto}S^{\frac{1}{2}}dM_t(z)S^{\frac{1}{2}}+\mathbf{1}_{t\leq \tau_\sto} S^{\frac{1}{2}}\Omega_t(z)S^{\frac{1}{2}}dt,$$
 where the same reasoning as before (Duhamel formula for the variation of parameters), we have that: \begin{equation*}\E_t(z)=\E_t^{D}(z)+\E_t^{M}(z)+\E_t^{S}(z),\tag{3.5}\end{equation*}
-$$\E_t^{D, \sto}(z)=\int_0^{t\wedge\tau_\sto} \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds$$
-$$\E_t^{M, \sto}(z)=-\int_0^{t\wedge\tau_\sto} \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}$$
+$$\E_t^{D, \sto}(z)=\int_0^{t\wedge\tau_\sto} \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega_s(z) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds$$
+$$\E_t^{M, \sto}(z)=-\int_0^{t\wedge\tau_\sto} \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM_s(z)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}$$
 $$\E_t^{S, \sto}(z)=\int_0^{t\wedge\tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds.$$
 
 \noindent Since our stopping times are defined w.r.t. to the natural Brownian filtration, the aforementioned uniqueness theorem guarantees that $\E_t^\sto(z) = \E_t(z)$ for all $\leq \tau_\sto$.  The self-reinforcing argument works as follows:
@@ -2260,12 +2260,12 @@ While the technical details are again outside of the scope of thesis, we can ela
 
 
 \subsection{Estimate for $\E_t^{M, \text{stop}}(z)$}
-Recall the martingale term:
-$$\E_t^{M, \text{stop}}(z)=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\} S^{1/2}dM(s)S^{1/2} \{\text{Id} + (t-s)\Theta_t\}= $$$$=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}S^{\frac{1}{2}}\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]S^{\frac{1}{2}}\{\text{Id} + (t-s)\Theta_t\}-$$
+Recall that our martingale term was the sum of two quadratic variations, namely:
+$$\E_t^{M, \text{stop}}(z)=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\} S^{1/2}dM_s(z)S^{1/2} \{\text{Id} + (t-s)\Theta_t\}= $$$$=-\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}S^{\frac{1}{2}}\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]S^{\frac{1}{2}}\{\text{Id} + (t-s)\Theta_t\}-$$
 $$- \int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}S^{\frac{1}{2}}\sum_{u, v}\left[G_{xy}\overline{G_{xu}dH_{uv}(t)}\,\overline{G_{vy}}\right]S^{\frac{1}{2}}\{\text{Id} + (t-s)\Theta_t\}=$$
-$$=\E_t^{M, 1}(z)+\E_t^{M, 2}(z)$$
+$$=\E_t^{M, 1}(z)+\E_t^{M, 2}(z),$$
 
-\noindent The latter two terms can be written diagrammatically using the same notation as before (\hyperref[def2]{Def. 2}):
+\noindent which can in turn be written diagrammatically using the same notation as before (\hyperref[def2]{Def. 2}):
 \begin{center}
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -2309,7 +2309,7 @@ where the purple wavy line represents $dH_{uv}$ and the red wavy line is its com
 \begin{boxtheorem}{\centering BDG inequality}
 $$\mathbb{E}\left[\sup_{0\leq s\leq t}\left\vert M_{xy}(s)\right\vert^{2p}\right]\leq C_p\mathbb{E}\left[ M_{xy} \right]_t^p$$
 \end{boxtheorem}
-In order to express the Quadratic Variation (QV) on the RHS, we will need to rewrite our separate graphs into one combined QV graph. To do this, we will use that fact that the Brownian increments $dB_{\alpha\beta}(t)$ are mutually uncorrelated, s.t. we clearly have that the cross-terms in the quadratic variation vanish unless we have $(u, v) = (u', v')$, i.e we can identify the latter pairs, getting a combined graph:
+In order to express the Quadratic Variation (QV) on the RHS, we will need to rewrite our separate graphs into one combined QV graph. To do this, we will use that fact that the Brownian increments $dB_{\alpha\beta}(t)$ are mutually uncorrelated, s.t. the cross-terms in the quadratic variation vanish unless $(u, v) = (u', v')$. This means that we can identify the latter pairs, getting a combined graph:
 
 
 \begin{center}
@@ -2340,11 +2340,11 @@ In order to express the Quadratic Variation (QV) on the RHS, we will need to rew
 
 \end{tikzpicture}
 \end{center}
-If we are to approach the bounding in the same fashion as before, we will not get appropriate bounds: By eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim W^{-1/2}$ per estimate $(4)$ and another $O(\sqrt{dt})$ per the fact that $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(2)$ to all red lines, we get a combined term $O(W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, each of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that by accounting for all of the terms, we have in the worst case scenario a term $\eta_s^{15/4}$, which remains as $\eta_s^{5/4}$ after canceling the other such terms. By the same logic, we can observe that we have at most $\eta_t^{-\frac{9}{2}}$ and at least $\eta_t^{-3}$ from the splitting terms.\textcolor{red}{FINISH THE BOUND AFTER THE OTHER TWO}.
+If we are to approach the bounding in the same fashion as before, we will not get appropriate bounds. To see this, let us start by eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim W^{-1/2}$ per estimate $(E4)$, along with $O(\sqrt{dt})$ per the Brownian variance $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(E2)$ to all straight lines connected to $u$ and $v$, we get a combined term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{\delta_\sto/20}W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, each of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that this gives us at most $W^{-\frac{3}{2}}$, which is not sufficient for the $W^{-\frac{7}{4}}$ coefficient in the bound we showed earlier, which is the one necessary for our proof. As such, we will have to approach $\E_t^{M, \sto}$ differently:
 
 
 \subsubsection*{Alternative bound}
-The latter calculations demonstrate that we need to be more thoughtful with our estimates. Let us come back to our original form of the $S^{1/2}dM(s)S^{1/2}$ term. Observe that we can split the components $\E_t^{M, 1}$ and $\E_t^{M, 2}$ into 4 separate parts each by expanding the square brackets. We will this explicitly for $\mathcal{E}_{t}^{M, 1}$, whereas the second term is equivalent up to complex conjugation:
+The latter calculations demonstrate that we need to be more thoughtful with our estimates. Let us come back to our original form of the $S^{1/2}dM_s(z)S^{1/2}$ term. Observe that we can split the components $\E_t^{M, 1}$ and $\E_t^{M, 2}$ into 4 separate parts each by expanding the square brackets. We will this explicitly for $\mathcal{E}_{t}^{M, 1}$, whereas the second term is equivalent up to complex conjugation:
 
 $$\mathcal{E}_t^{M, 1} = -\int_0^{t\wedge \tau_\sto}(t-s)^2\Theta_tS^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}\Theta_t+$$
 $$-\int_0^{t\wedge \tau_\sto}(t-s)\Theta_tS^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}$$
