@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.14)  24 MAR 2025 10:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.14)  24 MAR 2025 11:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1945,10 +1945,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [55]
-Underfull \hbox (badness 10000) in paragraph at lines 2778--2779
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1969,19 +1965,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [57]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2811.
+(mdframed)              on input line 2809.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2815.
+(mdframed)              on input line 2813.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2828.
+(mdframed)              on input line 2826.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2834.
+(mdframed)              on input line 2832.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2839.
+(mdframed)              on input line 2837.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1992,13 +1988,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [58]
-Package mdframed Info: Not enough space on this page on input line 2840.
+Package mdframed Info: Not enough space on this page on input line 2838.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2847.
+(mdframed)              on input line 2845.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2865.
+(mdframed)              on input line 2863.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2011,23 +2007,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [59]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2871.
+(mdframed)              on input line 2869.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2879.
+(mdframed)              on input line 2877.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2886.
+(mdframed)              on input line 2884.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2894.
+(mdframed)              on input line 2892.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2898.
+(mdframed)              on input line 2896.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2905.
-Package mdframed Info: Not enough space on this page on input line 2908.
+(mdframed)              on input line 2903.
+Package mdframed Info: Not enough space on this page on input line 2906.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2038,7 +2034,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [60]
-Package mdframed Info: Not enough space on this page on input line 2908.
+Package mdframed Info: Not enough space on this page on input line 2906.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2058,7 +2054,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [62]
-Underfull \hbox (badness 6412) in paragraph at lines 2956--2957
+Underfull \hbox (badness 6412) in paragraph at lines 2954--2955
 []\T2A/cmr/m/n/10.95 H.-T. Yau and J. Yin. Delocalization of One-Dimensional Ra
 ndom Band Matrices.
  []
@@ -2072,7 +2068,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [63]
-Underfull \hbox (badness 2173) in paragraph at lines 2987--2988
+Underfull \hbox (badness 2173) in paragraph at lines 2985--2986
 []\T2A/cmr/m/n/10.95 P. von Soosten and S. Warzel. Random characteristics for W
 igner matrices. \T2A/cmr/m/it/10.95 Electronic
  []
@@ -2090,11 +2086,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Draft.out' has not changed.
-(rerunfilecheck)             Checksum: 0023F20FF654FF690437F1E951A142C9;3316.
+(rerunfilecheck)             Checksum: 2FA64B6DE8AAFB7A103B7E0851AA66CF;3316.
  ) 
 Here is how much of TeX's memory you used:
- 27525 strings out of 476025
- 509984 string characters out of 5790017
+ 27526 strings out of 476025
+ 509990 string characters out of 5790017
  1894388 words of memory out of 5000000
  47287 multiletter control sequences out of 15000+600000
  534808 words of font info for 82 fonts, out of 8000000 for 9000
@@ -2132,10 +2128,10 @@ t/fonts/type1/public/cm-super/sfti0600.pfb></usr/local/texlive/2023/texmf-dist/
 fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2023/texmf-dist/fo
 nts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2023/texmf-dist/font
 s/type1/public/stmaryrd/stmary10.pfb>
-Output written on Draft.pdf (70 pages, 1110006 bytes).
+Output written on Draft.pdf (70 pages, 1110703 bytes).
 PDF statistics:
- 837 PDF objects out of 1000 (max. 8388607)
- 691 compressed objects within 7 object streams
- 178 named destinations out of 1000 (max. 500000)
+ 838 PDF objects out of 1000 (max. 8388607)
+ 692 compressed objects within 7 object streams
+ 179 named destinations out of 1000 (max. 500000)
  202 words of extra memory for PDF output out of 10000 (max. 10000000)
 

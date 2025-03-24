@@ -2642,7 +2642,7 @@ $$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\mathbb{E}\left[\parti
 by condition $(8.1.1)$. This means that:
 $$\mathbb{E}\left[F(tH_{ij})-F(tH_{ij}^G)\right]=\frac{1}{720} \mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]-\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]$$
 This means that by the Hölder' and the triangle inequalities: 
-$$\left\vert \mathbb{E}\left[ F(H_{ij} - F(H_{ij}^G)\right] \right\vert\leq \frac{1}{720} \left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]\right\vert+\frac{1}{720}\left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]\right\vert $$
+$$\left\vert \mathbb{E}\left[ F(H_{ij}) - F(H_{ij}^G)\right] \right\vert\leq \frac{1}{720} \left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]\right\vert+\frac{1}{720}\left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]\right\vert $$
 $$\lesssim \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert+\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right\vert = \mathcal{P} + \mathcal{P}^G$$
 Applying formula $(8.4)$ to $\mathcal{P}$ (with $\mathcal{P}^G$ following WLOG), we get:
 $$\mathcal{P} = \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert  = \mathbb{E}\left\vert  \left.\sum_{\ell=0}^6 \binom{6}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{6-\ell}\right\vert_{t=t_{ij}}\right\vert\leq $$
@@ -2652,7 +2652,7 @@ $$\leq \sum_{\ell=0}^6 \binom{6}{\ell}\mathbb{E}\left\vert \left.
 \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})\right\vert _{t=t_{ij}}\right\vert
 \left\vert H_{ij}^\ell \right\vert \left\vert \left(\overline{H_{ij}}\right)^{6-\ell}
 \right\vert \right]$$
-$$\leq \sum_{\ell=0}^6\binom{6}{\ell} \mathbb{E}\left[ \left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\right] \mathbb{E}\left[|H_{ij}|^\ell \left\vert \overline{H_{ij}}\right\vert^{6-\ell}\right]\lesssim \sum_{\ell=0}^6 \mathbb{E}\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\mathbb{E}|H_{ij}|^6,$$
+\begin{equation*}\leq \sum_{\ell=0}^6\binom{6}{\ell} \mathbb{E}\left[ \left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\right] \mathbb{E}\left[|H_{ij}|^\ell \left\vert \overline{H_{ij}}\right\vert^{6-\ell}\right]\lesssim \sum_{\ell=0}^6 \mathbb{E}\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\mathbb{E}|H_{ij}|^6,\tag{8.5.1}\end{equation*}
 where the first is the triangle inequality, the second is Hölder's $L^1$ inequality and the last step uses the fact that $|H_{ij}| = \left\vert\overline{H_{ij}}\right\vert$. Let us call $\mathcal{Q}=\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert$. Observe that WLOG, we have the same result for $\mathcal{P}^G$ and $\mathcal{Q}^G$, respectively. By condition $(8.1.2)$, we have that $\mathbb{E}|H_{ij}|^6\prec W^{-3}$, so our goal will be to establish a bound on $\mathcal{Q}$ for all $t\in [0, 1]$. The delocalization argument will follow readily, so let us now direct our attention to the derivatives on $F(H)$ w.r.t. the entries $H_{ij}$. 
 
 \subsection{Derivatives of $F(tH_{ij})$}
@@ -2775,15 +2775,13 @@ $$\Rightarrow \mathbb{P} \left\{\Xi_N(s)> 2N^{\delta\epsilon}\right\}\leq\mathbb
 \noindent by Boole's inequality again. But since $\delta\epsilon$ is small, this is exactly what we need per the definition of stochastic domination (up to trivial rescaling w.r.t to $\epsilon$), meaning that we have verified that $\Xi\prec 1$. Notice that the approach is equivalent for $\Xi_3 = \max_{x, y}|(G_3)_{xy}|$, i.e WLOG, we have that $\Xi_3\prec 1$ as well. What we have essentially established is a sort of a continuity argument. Namely, at every step $(i,j)$ of the replacement, the proof above demonstrates that we preserve the resolvent bounds. Now remains the last step is extending this argument throughout the replacement of the entire matrix. 
 
 \subsection{Five Moment Theorem}
-Recall the following  $\mathcal{P}$ and $\mathrm{Q}$, respectively. We want $\mathcal{Q}\leq W^C$ for some $C \lesssim 1$ , s.t. $\mathcal{Q}\prec 1$ (\textcolor{red}{definition? - revisit}). \\
-
-If that were true, then $\exists$ event $\mathcal{A}$, s.t. $\mathcal{Q}\leq W^\epsilon$ on $\mathcal{A}$ with $P(\mathcal{A})\geq 1-W^{-D}$ (\textcolor{red}{workout the details of }$\epsilon$ and $D$- which one is given by the definition and which one do we retrieve?). Then: 
-$$\mathcal{P}\lesssim \mathbb{E}|H_{ij}|^6W^\epsilon + \mathbb{E}|H_{ij}|^6 \mathbf{1}\left[{A^C}\right]W^C\lesssim W^{-3+\epsilon} + W^C \left\{\mathbb{E}|H_{ij}|^{12}\right\}^{1/2} \left\{P(A^C)\right\}^{1/2}\lesssim$$
-
-$$\lesssim W^{-3+\epsilon} + W^C W^{-3} W^{-D_0}$$
-We can pick $D_0$, s.t. the stochastically dominating term is $W^{-3+\epsilon}$, s.t. we get $\mathcal{P}+\mathcal{P}^G\lesssim W^{-3+\epsilon}$, i.e: $$\left\vert \mathbb{E}\left(F(H_{ij}\right) - \mathbb{E}\left(F(H_{ij}^G\right)\right\vert\lesssim W^{-3+\epsilon},$$
+All our work up to this point will allows us to finally bound the the difference: $$\left\vert \mathbb{E}\left[ F(H_{ij} - F(H_{ij}^G)\right]\right\vert \lesssim \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert+\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right\vert = \mathcal{P} + \mathcal{P}^G$$
+We showed in the last section that $\mathcal{Q}=\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\prec W^{-C}$ for some $C\lesssim 1$. By the definition stochastic domination, for any $\epsilon>0$ and $D>0$, there exists an event $\mathcal{A}$, s.t. $\mathcal{Q}\leq W^\epsilon$ on $\mathcal{A}$ with $P(\mathcal{A})\geq 1-W^{-D}$. Hence, we can split $\mathcal{P}$ as in $(8.5.1)$ and use Cauchy-Schwarz: 
+$$\mathcal{P}\lesssim \mathbb{E}|H_{ij}|^6W^\epsilon + \mathbb{E}|H_{ij}|^6 \mathbb{E}\left[\mathbf{1}_{A^C}\mathcal{Q}\right]\lesssim W^{-3+\epsilon} + W^{-C} \left\{\mathbb{E}|H_{ij}|^{12}\right\}^{1/2} \left\{P(A^C)\right\}^{1/2}\lesssim$$
+$$\lesssim W^{-3+\epsilon} + W^{-C} W^{-3} W^{-D_0},$$
+where the last bound follows from $(8.1.2)$ and our probability bound on $\mathcal{A}$. But this means that we can pick $D_0$ large enough so the stochastically dominating term is $W^{-3+\epsilon}$, i.e. $\mathcal{P}+\mathcal{P}^G\lesssim W^{-3+\epsilon}$: $$\left\vert \mathbb{E}\left[F(H_{ij})\right] - \mathbb{E}\left[F(H_{ij}^G)\right]\right\vert\lesssim W^{-3+\epsilon}$$
 Then, by applying the triangle inequality to the telescoping sum of replacements, and accounting for the $NW$ non-zero entries in the band, we have: 
- \begin{equation*} \left\vert \mathbb{E}\left(F(H)\right) - \mathbb{E}\left(F(H^G)\right)\right\vert\lesssim NWW^{-3+\epsilon} = NW^{-2+\epsilon}\tag{8.8}
+ \begin{equation*} \left\vert \mathbb{E}\left[F(H)\right] - \mathbb{E}\left[F(H^G)\right]\right\vert\lesssim NWW^{-3+\epsilon} = NW^{-2+\epsilon}\tag{8.8}
  \end{equation*}
 \noindent For the condition of delocalization, we need for any $\beta>0$ the following to hold:
  $$W\gg N^{\frac{1}{2}+\beta} = N^{\frac{1+2\beta}{2}}\Leftrightarrow N\ll W^{\frac{2}{1+2\beta}}$$
@@ -2791,7 +2789,7 @@ Then, by applying the triangle inequality to the telescoping sum of replacements
   $$NW^{-2+\epsilon}\ll W^{-2+\epsilon+\frac{2}{1+2\beta}}$$
 \noindent Hence, in order for our asymptotics to work, we need a negative exponent, i.e: $$-2+\epsilon + \frac{2}{1+2\beta}<0$$
   $$0<\epsilon <2-\frac{2}{1+2\beta} = \frac{4\beta}{1+2\beta}>0,$$
-  whereas since $\beta>0\Rightarrow \frac{4\beta}{1+2\beta}$, we can always pick such an $\epsilon>0$ by the density of the rationals. This is also why we needed a five matching moments assumption - if we had four instead, then the bound we would get per condition $(8.1.2)$ would be $\left\vert \mathbb{E}\left(F(H_{ij}\right) - \mathbb{E}\left(F(H_{ij}^G\right)\right\vert\lesssim W^{-\frac{5}{2}+\epsilon}$. By following the same steps as above, we would get $-\frac{3}{2}+\epsilon+\frac{2}{1+2\beta}<0\Leftrightarrow \epsilon< \frac{6\beta-1}{1+2\beta}$.  But then $\epsilon$ would be negative for $\beta<\frac{1}{6}$, meaning the delocalization bound does not hold. 
+  whereas since $\beta>0\Rightarrow \frac{4\beta}{1+2\beta}$, we can always pick such an $\epsilon>0$ by the density of the rationals, completing the proof. Note, this is also why we needed a five matching moments assumption - if we had four instead, then the bound we would get per condition $(8.1.2)$ would be $\left\vert \mathbb{E}\left(F(H_{ij}\right) - \mathbb{E}\left(F(H_{ij}^G\right)\right\vert\lesssim W^{-\frac{5}{2}+\epsilon}$. By following the same steps as above, we would get $-\frac{3}{2}+\epsilon+\frac{2}{1+2\beta}<0\Leftrightarrow \epsilon< \frac{6\beta-1}{1+2\beta}$.  But then $\epsilon$ would be negative for $\beta<\frac{1}{6}$, meaning the delocalization bound does not hold. 
   
 
 
