@@ -2490,10 +2490,14 @@ $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{-\delta}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\
 \begin{boxtheorem}{Theorem 1: (Stopping time).} $\mathbb{P}[\tau_{\text{stop}, i} \neq  1] \lesssim_D N^{-D}$ for any $i=1, 2$ and $D > 0$.
 \end{boxtheorem}
 \textit{Proof} - By Boole's inequality: $$\mathbb{P}\left[\tau_{\sto, 1}\neq 1\right]\leq \mathbb{P}[\left\{\tau_{\sto, 2}\neq 1\}\cap \{\tau_{\sto, 1=1}\}\right]+\mathbb{P}[\tau_\sto=\tau_{\sto, 1}<1]$$
-For any $\mathcal{A}\in \{\tau_\sto = \tau_{\sto, 1}<1\}$, we have $|\E_{\tau_\sto}(z)_{ab}|\geq W^{\delta_\sto}W^{-3/4}\eta_t^{-1}W^{-1}\eta_t^{-1/2}$. By definition of the stopped SDE, we have $\E_{\tau_\sto}(z) = \E_{\tau_\sto}^{\sto}(z)$, i.e: $$\mathbb{P}\left[\tau_\sto = \tau_{\sto, 1}<1\right]\leq \mathbb{P}\left[\max_{t\in [0, 1]}\max_{a, b}\frac{|\E_t^{M, \sto}(z)_{ab}|}{W^{-\frac{3}{4}}\eta_t^{-\frac{3}{4}}W^{-1}\eta_t^{-\frac{1}{2}}}\geq W^{\delta_\sto}\right]$$
+For any $\mathcal{A}\in \{\tau_\sto = \tau_{\sto, 1}<1\}$, we have $|\E_{\tau_\sto}(z)_{ab}|\geq W^{\delta_\sto}W^{-3/4}\eta_t^{-1}W^{-1}\eta_t^{-1/2}$, since $\E_t(z)$ is almost surely continuous in $t$. By definition of the stopped SDE, we have $\E_{\tau_\sto}(z) = \E_{\tau_\sto}^{\sto}(z)$, i.e: $$\mathbb{P}\left[\tau_\sto = \tau_{\sto, 1}<1\right]\leq \mathbb{P}\left[\max_{t\in [0, 1]}\max_{a, b}\frac{|\E_t^{M, \sto}(z)_{ab}|}{W^{-\frac{3}{4}}\eta_t^{-\frac{3}{4}}W^{-1}\eta_t^{-\frac{1}{2}}}\geq W^{\delta_\sto}\right]$$
 By our theorems $6.1$ through $6.3$ in the last section applied to the RHS, we know from the definition of stochastic domination that for any $D>0$: 
 $$\mathbb{P}\left[ \tau_\sto = \tau_{\sto, 1}<1\right]\leq C_DN^{-D}$$
-Those same theorems imply that $$\max_{t\in [0, 1]}\max_{a, b}\frac{|\E_t^{M, \sto}(z)_{ab}|}{W^{\delta_\sto}W^{-\frac{3}{4}}\eta_t^{-\frac{3}{4}}W^{-1}\eta_t^{-\frac{1}{2}}}$$
+This means that we know need to establish an equivalent bound for the first term on the RHS. Assume an event $\mathcal{B}$ for which the following is true:
+$$\max_{t\in [0, 1]}\max_{a, b}\frac{|\E_t(z)_{ab}|}{W^{\delta_\sto}W^{-\frac{3}{4}}\eta_t^{-\frac{3}{4}}W^{-1}\eta_t^{-\frac{1}{2}}}\lesssim 1$$
+Since $T_t(z) = \Theta_t+\E_t(z)$ and $|(\Theta_t)_{ab}|\lesssim W^{-1}\eta_t^{-1/2}$ (Lemma A.2), this implies that on $\mathcal{B}$, we have $T_t(z)_{ab}\lesssim W^{-1}\eta_t^{-\frac{1}{2}}$. By the behavior of $S^{1/2}$ as an averaging operator, we have for all $a, b$ and $t\in [0, 1]$: $$(S^{1/2}T_t(z)S^{1/2})_{ab}\lesssim W^{-1}\eta_t^{-1/2}.$$ 
+This means that by \hyperref[corollary-b5]{Corollary B.5} on the event $\mathcal{B}$, we get precisely: $$\frac{|G_t(z)_{ab}-m(z)\delta_{ab}|}{(S^{1/2}T_t(z)S^{1/2})_{ab}+S^{1/2}_{ab}+W^{-C}}\prec 1$$
+Hence, $\mathbb{P}[\left\{\tau_{\sto, 2}\neq 1\}\cap \{\tau_{\sto, 1=1}\}\right]\rightarrow 0$ as $N\rightarrow \infty$, completing the theorem. 
 
 \subsection*{7.2 Theorem 2 - Quantum Diffusion}
 \begin{boxtheorem}{Theorem 2: (Quantum Diffusion)}
@@ -2753,17 +2757,19 @@ $$|(G_2)_{xy}|\prec 1 + W^{-\frac{1}{2}}|(G_2)_{jy}|+W^{-1/2}|(G_2)_{iy}|$$
 Let $\Xi = \max_{x, y}|(G_2)_{xy}|$. We can rewrite the expression above as: 
 \begin{equation*}\Xi \prec 1 + W^{-1/2}\Xi\tag{8.7}\end{equation*}
 
-\noindent Now, let $\epsilon, D>0$ be arbitrary. Given that we work in the context of the delocalization, we have $W\gg N^{\frac{1}{2}+\beta} = N^{\frac{1+2\beta}{2}}\Rightarrow W^{-1/2}\ll N^{-\frac{1+2\beta}{4}}$. Hence, let us choose $\delta = \min \left(1, \frac{2\beta+1}{4\epsilon}\right)$. This is to ensure that $\delta\epsilon<\frac{2\beta+1}{4}$. By Def.1 of stochastic domination, from $(8.7)$, we have that: $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)>N^{\delta\epsilon}(1+W^{-1/2}\Xi_N(s))\right)<N^{-D}$$
+\noindent Now, let $\epsilon, D>0$ be arbitrary. Given that we work in the context of the delocalization, we have $W\gg N^{\frac{1}{2}+\beta} = N^{\frac{1+2\beta}{2}}\Rightarrow W^{-1/2}\ll N^{-\frac{1+2\beta}{4}}$ for any fixed $\beta>0$. Hence, let us choose $\delta \in \left(0, \frac{2\beta+1}{4\epsilon}\right)$ by the density of the rationals. By Def.1 of stochastic domination, from $(8.7)$, we have that: $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)>N^{\delta\epsilon}(1+W^{-1/2}\Xi_N(s))\right)<N^{-D}$$
 $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)>N^{\delta\epsilon}+N^{\delta\epsilon} W^{-1/2}\Xi_N(s)\right)<N^{-D}$$
 $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)(1-N^{\delta\epsilon} W^{-1/2})>N^{\delta\epsilon}\right)<N^{-D}$$
 $$\sup_{s\in S_N}\mathbb{P}\left(\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right)<N^{-D}$$
-By the delocalization scale, we have that $$N^{\delta\epsilon}W^{-1/2} \ll N^{\delta\varepsilon} \cdot N^{-1/4-\beta/2} = N^{\delta\varepsilon-1/4-\beta/2}$$
+By the delocalization scale and per our choice $\delta\epsilon <\frac{2\beta+1}{4\epsilon}$, we have that $$N^{\delta\epsilon}W^{-1/2} \ll N^{\delta\varepsilon} \cdot N^{-1/4-\beta/2} = N^{\delta\varepsilon-1/4-\beta/2}$$
 $$1-N^{\delta\epsilon} W^{-1/2}\gg 1-N^{\delta\epsilon -\frac{1+2\beta}{4}}$$
 $$\frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon} W^{-1/2}}\ll \frac{N^{\delta\epsilon}}{1-N^{{\delta\epsilon}-\frac{1+2\beta}{4}}}$$
 
 \noindent This means that $\exists N_0$, s.t. for all $N\geq N_0$, the latter event is a subset: $$ \left\{\Xi_N(s)>\frac{N^\epsilon}{1-N^{{\delta\epsilon}-\frac{1+2\beta}{4}}}\right\}\subset \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right\}$$
-$$\mathbb{P} \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon-\frac{1+2\beta}{4}}}\right\}\leq\mathbb{P} \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right\}\leq N^{-D}$$
- \textcolor{red}{COMPLETE THE STOCHASTIC DOMINATION}. More specifically, find $N^\gamma$
+$$\Rightarrow \mathbb{P} \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon-\frac{1+2\beta}{4}}}\right\}\leq\mathbb{P} \left\{\Xi_N(s)>\frac{N^{\delta\epsilon}}{(1-N^{\delta\epsilon} W^{-1/2})}\right\}\leq N^{-D},$$
+by Boole's inequality. Now, this means that we, need to find $\gamma$ and $N_0'$, s.t. $\forall N\geq N_0'$:
+
+$$N^\gamma\gg \frac{N^{\delta\epsilon}}{1-N^{\delta\epsilon-\frac{1+2\beta}{4}}}$$
 
 \noindent With this, we have verified that $\Xi\prec 1$.
 Notice that the approach is equivalent for $\Xi_3 = \max_{x, y}|(G_3)_{xy}|$, i.e WLOG, we have that $\Xi_3\prec 1$ as well. What we have essentially established is a sort of a continuity argument. Namely, at every step $(i,j)$ of the replacement, the proof above demonstrates that we preserve the resolvent bounds. Now remains the last step is extending this argument throughout the replacement of the entire matrix. 
