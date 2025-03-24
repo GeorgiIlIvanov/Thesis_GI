@@ -288,7 +288,7 @@ where $Z_{N, W}\asymp W$ is a normalizing constant bounded deterministically abo
 \end{center}
 \vspace{0.255 cm}
 
-\noindent In our analysis, we will utilize the flow method (\hyperref[sec:flow]{Section 3}), where the spectral parameter $z=E+i\eta$ of the resolvent of $H$ (defined in \hyperref[sec:prereq]{Section 2}) is varied at constant-speed in the upper-half plane $\mathbb{H}$ ($E\in\mathbb{R}$ and $\eta>0$) as the entries of $H$ are realized as Brownian motion \cite{bandSDE}. Two key assumptions we will make are that $\eta \asymp W^2 N^{-2}$ and $\eta\geq W^{-3/4+\eta}$ for some $\eta>0$. 
+\noindent In our analysis, we will utilize the flow method (\hyperref[sec:flow]{Section 3}), where the spectral parameter $z=E+i\eta$ of the resolvent of $H$ (defined in \hyperref[sec:prereq]{Section 2}) is varied at constant-speed in the upper-half plane $\mathbb{H}$ ($E\in\mathbb{R}$ and $\eta>0$) as the entries of $H$ are realized as Brownian motion \cite{bandSDE}. We will make two key assumptions. The first is a diffusion time scale of $\eta \asymp W^2 N^{-2}$ and the second is that $\eta\geq W^{-3/4+\eta}$ for some $\eta>0$. Those will be discussed in detail later on in Section 3.3.
 
 
 \newpage
@@ -328,7 +328,7 @@ which is also equivalent to $\text{Im }m \asymp 1$, where $\asymp$ means being b
 \begin{equation*}\label{2.3}\text{Im}(m(z))= \frac{\eta|m(z)|^2}{1-|m(z)|^2 }
 \tag{2.3}
 \end{equation*}
-Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. First, we claim that $|m(z)|\geq c>0$ uniformly. Indeed, $m(z)$ is continuous, this is equivalent to $m(z)\neq 0$, which can be verified as follows: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
+Now, let $E\in [-10, 10]$ and $\eta\in (0, 10]$. We claim that $|m(z)|\geq c>0$ uniformly. Indeed, $m(z)$ is continuous, this is equivalent to $m(z)\neq 0$, which can be verified as follows: $$m(z) = \frac{-z+\sqrt{z^2-4}}{2}=0 \Leftrightarrow \sqrt{z^2-4}=z$$
 $$\Rightarrow z^2-4=z^2\Leftrightarrow -4=0$$ 
 
 
@@ -365,12 +365,12 @@ Similarly, we can derive our second resolvent identity, by applying again the sa
 \begin{equation*}
 G_{xy} = G_{xy}^{(x)} - G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)} =- G_{xx}\sum_{k\neq x}H_{xk}G_{ky}^{(x)}\quad x\neq y
 \end{equation*}
-Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entry $H_{ij}$ using the limit definition. Let us define the perturbed matrix $H' = H(H_{ij}\mapsto H_{ij}+\epsilon)$ at entry $H_{ij}$, where $G' = (H'-z)^{-1}$ and let $\epsilon_{ij} = \mathbf{0}(0_{ij}\mapsto \epsilon)$ be the perturbed zero matrix, which we can write as $\mathbf{1}_{ij}$ when $\epsilon=1$. By our matrix identities, we have: $$\partial_{H_{ij}}G(z)_{xy}=\lim_{\epsilon\rightarrow 0} \frac{G_{xy}'-G_{xy}}{\epsilon} = \lim_{\epsilon\rightarrow 0}\frac{\left[G'(H-H')G\right]_{xy}}{\epsilon} = -\lim_{\epsilon\rightarrow 0}\frac{\left[G'\epsilon_{ij}G\right]_{xy}}{\epsilon} = -[G'\mathbf{1}_{ij}G]_{xy} = -G_{xi}G_{jy}$$
+Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entry $H_{ij}$ using the limit definition. Let us define the perturbed matrix $H' = H(H_{ij}\mapsto H_{ij}+\epsilon)$ at entry $H_{ij}$, where $G' = (H'-z)^{-1}$ and let $\epsilon_{ij} = \mathbf{0}(0_{ij}\mapsto \epsilon)$ be the perturbed zero matrix, which we can write as $\mathbf{1}_{ij} = \mathbf{e}_i^*\mathbf{e}_j$ when $\epsilon=1$. By our matrix identities, we have: $$\partial_{H_{ij}}G(z)_{xy}=\lim_{\epsilon\rightarrow 0} \frac{G_{xy}'-G_{xy}}{\epsilon} = \lim_{\epsilon\rightarrow 0}\frac{\left[G'(H-H')G\right]_{xy}}{\epsilon} = -\lim_{\epsilon\rightarrow 0}\frac{\left[G'\epsilon_{ij}G\right]_{xy}}{\epsilon} = -[G'\mathbf{1}_{ij}G]_{xy} = -G_{xi}G_{jy}$$
 \begin{equation*}\label{resolventderivative}
 \partial_{H_{ij}}\overline{G(z)_{xy}}= \lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}(H^\intercal-H'^\intercal)\overline{G}\right]_{xy}}{\epsilon} =\\\\= -\lim_{\epsilon\rightarrow 0}\frac{\left[\overline{G'}\epsilon_{ji}\overline{G}\right]_{xy}}{\epsilon} = -[\overline{G'}\mathbf{1}_{ji}\overline{G}]_{xy} = -\overline{G_{xj}}\ \overline{G_{iy}}
 \end{equation*}
 By extension of the Hermitian property, we have $\partial_{\overline{H}_{ij}} \overline{G(z)_{xy}} = \partial_{{H}_{ji}} \overline{G(z)_{xy}}  = -\overline{G_{xi}}\ \overline{G_{jy}}$
-\noindent Lastly, the following result is ubiquitous in RMT literature (8.3.iii \cite{dynamic}), and as such has its own name: 
+\noindent Lastly, the following result is ubiquitous in RMT literature (8.3.(iii) \cite{dynamic}), and as such has its own name: 
 \begin{boxtheorem}{Ward identity: }\label{ward} $$\sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$\end{boxtheorem}
 The proof follows directly from the spectral decomposition of the resolvent we showed in $(1)$, by which:
 $$G_{ij} = \sum_{\alpha} \frac{\mathbf{u}_\alpha(i) \mathbf{u}_\alpha^*(j)}{\lambda_\alpha - z}\quad \Leftrightarrow \sum_j G_{ij} G_{ji}^* = \sum_{j, \alpha, \beta}\frac{\mathbf{u}_\alpha(i) \mathbf{u}_\alpha^*(j)}{\lambda_\alpha - z} \frac{\mathbf{u}_\beta(j) \mathbf{u}_\beta^*(i)}{\lambda_\beta - z^*}
@@ -401,8 +401,8 @@ In our case, by taking the function to be $G(t)$ and using restriction of a symm
 $$dG(t)_{xy} = \frac{\partial G(t)_{xy}}{\partial t}dt +\sqrt{S_{ij}}\sum_{i\leq j}\frac{\partial G(t)_{xy}}{\partial b(t)_{ij}}db(t)_{ij}
 +\frac{S_{ij}}{2}\sum_{i\leq j}\frac{\partial^2 G(t)_{xy}}{\partial b(t)_{ij}^2}(db(t)_{ij})^2$$
 To calculate the individual terms, we will use the definition of derivative:
-$$\frac{\partial G(t)_{xy}}{\partial t}=\lim_{\epsilon\rightarrow 0}\frac{(H(t)-w(t+\epsilon))^{-1}_{xy}-(H(t)-w(t))^{-1}{xy}}{\epsilon},$$
-whereas the following matrix identity: $A^{-1}-B^{-1} = A^{-1}(B-A)B^{-1}$ can help us approximate for small perturbations. Namely, for $\Delta w(t) = w(t+\epsilon)-w(t)$, we have:
+$$\frac{\partial G(t)_{xy}}{\partial t}=\lim_{\epsilon\rightarrow 0}\frac{(H(t)-w(t+\epsilon))^{-1}_{xy}-(H(t)-w(t))^{-1}{xy}}{\epsilon}.$$
+The matrix identity $(2.4)$ can help us approximate for small perturbations $\Delta w(t) = w(t+\epsilon)-w(t)$:
 $$\left[(H(t)-w(t+\epsilon))^{-1}\right]_{xy}-\left[(H(t)-w(t))^{-1}\right ]_{xy}= \left[ G(t)\Delta w(t) G(t)\right]_{xy}$$$$\Rightarrow \frac{\partial G(t)_{xy}}{\partial t} =\lim_{\epsilon\rightarrow 0} \frac{ \left[ G(t)\Delta w(t) G(t)\right]_{xy}}{\epsilon}=\sum_{j}G(t)_{xj}\frac{dw(t)}{dt}G(t)_{jy}= -m(z)\sum_j G(t)_{xj}G(t)_{jy}$$
 Similarly, we can carry out the calculation for the second term, using the independence of entries:
 
@@ -427,16 +427,17 @@ dF(t)_{xy}= d|G_{xy}|^2= G(t)_{xy} d\overline{G(t)}_{xy} + \overline{G(t)}_{xy} 
 $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} + d\left[G_{xy}, \overline{G}_{xy}\right]$$
  $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} +d\left[\sum_{\alpha, \beta} G_{x\alpha}d H_{\alpha \beta}\overline{G}_{xy}\right]$$
 $$d|G_{xy}|^2 = G_{xy}d\overline{G_{xy}} + \overline{G}_{xy}dG_{xy} +\sum_{\alpha,\beta, \gamma, \delta}G_{x\alpha}G_{\beta\gamma}\overline{G_{xy}}\overline{G_{\delta \gamma}}$$
-In order to find the derivative of the $T$-matrix, we need to substitute for the earlier terms we found, namely \( dG(t)_{xy} = d\mathrm{I}(t)_{xy} + d\mathrm{II}(t)_{xy} dt \) and its conjugate, noting that \( d\mathrm{I}(t)_{xy} d\overline{\mathrm{I}(t)}_{xy} \) contributes to the quadratic variation, we obtain
-\(
-dF(t)_{xy} = dM(t)_{xy} + \Omega(t)_{xy} dt
-\), where
+In order to find the derivative of the $T$-matrix, we need to substitute for the earlier terms we found, namely \( dG(t)_{xy} = d\mathrm{I}(t)_{xy} + d\mathrm{II}(t)_{xy} dt \) and its conjugate. By observing that \( d\mathrm{I}(t)_{xy} d\overline{\mathrm{I}(t)}_{xy} \) contributes to the quadratic variation, we can obtain the following expression:
+\[
+dF(t)_{xy} = dM(t)_{xy} + \Omega(t)_{xy} dt,
+\]
+where:
 \begin{equation*}
 dM(t)_{xy} = \overline{G(t)}_{xy} d\mathrm{I}(t)_{xy} + G(t)_{xy} \overline{d\mathrm{I}(t)}_{xy} \end{equation*}
 \begin{equation*}
 \Omega(t)_{xy} = G_{xy}\frac{\overline{d\mathrm{II}(t)}_{xy}}{dt}+\overline{G_{xy}}\frac{d\mathrm{II}(t)_{xy}}{dt}+\frac{d\left[G_{xy}, \overline{G_{xy}}\right]}{dt}
 \end{equation*}
-and when expanded w.r.t to $d\mathrm{I}(t)$ and $d\mathrm{II}(t)dt$:
+When expanded w.r.t to $d\mathrm{I}(t)$ and $d\mathrm{II}(t)dt$, those terms are:
 $$dM(t)_{xy} = \sum_{\alpha, \beta}\overline{G_{xy}}G_{x\alpha}{S_{\alpha\beta}}^{1/2}G_{\beta y}dB_{\beta(t)}+\sum_{\alpha, \beta}{G}_{xy}\overline{G_{x\alpha}}{S_{\alpha\beta}}^{1/2}\,\overline{G_{\beta y}}dB_{\beta(t)}$$
 
 
@@ -457,21 +458,24 @@ But observe that:
 $$T_t(z)^2-\Theta_t^2 =(\E_t(z)+\Theta_t(z))^2- \Theta_t(z)^2=\E_t(z)^2+\Theta_t\E_t(z)+\E_t(z)\Theta_t$$
 \begin{equation*}\Rightarrow d\E_t(z)=\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt +\E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2}
  \Omega_t(z) S^{1/2}dt\tag{3.2}\end{equation*}
-Now, observe that the first term $\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt$ makes this equation a matrix-valued linear SDE with a nonlinear stochastic term $W(t) = \E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$. This means that we have to apply a method of variation of parameters (a matrix-valued Duhamel formula \cite{bandSDE}). For this, let us identify an integrating factor $U(t, s)$. Observe that: 
+The first term $\{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt$ makes this equation a matrix-valued linear SDE with a nonlinear stochastic term $W(t) = \E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt$. This means that we have to apply a method of variation of parameters (a matrix-valued Duhamel formula \cite{bandSDE}). For this, let us identify an integrating factor $U(t, s)$. Observe that: 
 $$\partial_{t}\{\text{Id}+(t-s)\Theta_t\} = \Theta_t+(t-s)\Theta_t^2=\Theta_t\frac{1-t|m(z)|^2S+(t-s)|m(z)|^2S}{1-t|m(z)|^2S}=$$
 $$=\Theta_t \frac{1-s|m(z)|^2S}{1-t|m(z)|^2S}=\Theta_t\{\text{Id}+(t-s)\Theta_t\}$$
 This is equivalent to $\partial_t U(t, s) = \Theta_t U(t, s)$, which makes $U(t, s)$ our evolution operator, since also $U(t, t) = \text{Id}$. We can then define the integral form: $\E_t(z) = \int_0^t U(t, s) W(s) U(t, s)ds,$ and verify that it satisfies our SDE by using Leibniz's integral rule, we get:
 $$d\E_t(z) = U(t, t) W(t) U(t, t)dt + \int_0^t d\left[U(t, s)W(s)U(t, s)\right]ds=$$
 $$=W(t)dt + \int_0^t\left[\Theta_t U(t, s) W(s) U(t, s) + U(t, s)W(s)U(t, s)\Theta_t\right]dtds =$$
 $$= \E_t^2(z)dt - S^{1/2} dM_t(z)S^{1/2} + S^{1/2} \Omega_t(z) S^{1/2}dt + \{\Theta_t \E_t(z)+\E_t(z)\Theta_t\}dt$$
-Therefore, by the pathwise uniqueness of solutions to SDEs (Thm. 9.1 \cite{steele}), the following expression satisfies the same SDE:\textcolor{red}{Define:
-\begin{equation*}\E_t(z)=\E_t^{D}(z)+\E_t^{M}(z)+\E_t^{S}(z)\tag{3.3}\end{equation*}
-$$\E_t^{D}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds,$$
-$$\E_t^{M}(z)=-\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}ds,$$
-$$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds,$$}
+Therefore, by the pathwise uniqueness of solutions to SDEs (Thm. 9.1 \cite{steele}), the following expression satisfies the same SDE:
+\begin{equation*}\E_t(z)=\E_t^{D}(z)+\E_t^{M}(z)+\E_t^{S}(z),\tag{3.3}\end{equation*}
+where the drift term $\E^D_t(z)$, the martingale term $\E^M_t(z)$, and the squared term $\E^S_t(z)$ are defined as:
+$$\E_t^{D}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds$$
+$$\E_t^{M}(z)=-\int_0^t \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}$$
+$$\E_t^{S}(z)=\int_0^t \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds.$$
 
-\subsection{Stopping time}
-While the three terms we achieved in the previous section are a good start, we have non-linear powers w.r.t to term $\E_t(z)$ itself, which is what we are trying to bound. This means that we have to be more careful in our analysis. For this purpose, we will have to use a stopping time argument \cite{bandSDE}. More specifically, for a fixed $\delta_\sto>0$ and $D\lesssim 1$ ($a\lesssim b\equiv a = O(b))$, independent of $N$, define:
+\noindent It is important to note that while we called $\E^M_t(z)$ a martingale, it is, in fact, not one, as neither are the remaining terms. The reason is that if we consider the mapping $t\mapsto \int_s^t U(t, s)dM_s$, we can see there is dependence on future information $t\geq s$, which is not adapted to the natural filtration of $M_s$. As such, we need a stopping time argument for the latter dynamics \cite{bandSDE}:
+
+\subsection{Stopping times}
+For a fixed $\delta_\sto>0$ and $D\lesssim 1$ ($a\lesssim b\equiv a = O(b))$, independent of $N$, define:
 \begin{equation*}
 \tau_{\text{stop}, 1}=\inf \left\{s\geq 0: \max_{a, b} |\E_s(z)_{ab}|\geq W^{\delta_{\sto}}W^{-\frac{3}{4}}|\im w_s|^{-1}\cdot W^{-1}|\im w_s|^{-\frac{1}{2}}\right\}\wedge 1
 \tag{3.4.1}
@@ -486,10 +490,14 @@ While the three terms we achieved in the previous section are a good start, we h
 \begin{equation*}
 \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}\tag{3.4.2}
 \end{equation*}
+\noindent While the particular choices for constants may seem arbitrary at the moment, they are informed by the bounds we get on the maximal entries of the diffusion profile $\Theta_t$ (\hyperref[diffusion]{Sec. 4.1}), the assumption of $\eta\gg W^{-3/4}$, as well as the technical steps in our analytic argument. That said, we can still gain some intuition as to the meaning of each. With $\tau_{\text{stop},1}$ we have control over the size the error term $\E_s(z) = T_s(z) - \Theta_s$, whereas $\tau_{\text{stop},2}$ is w.r.t to the deviation of the resolvent entries from the semicircle law $m(z)$, normalized by appropriate terms. The reasoning behind the latter definitions is simple - informally, our goal is to establish a bootstrapping mechanism that will allow us to propagate forward the stopping time through a self-reinforcement (continuity) argument. For this purpose, we will instead study the stopped version of $\E_t(z)$, namely the solution $\E^\sto$  to the following equation: $$d\E_t^{\sto}(z) = \left(\Theta_t\E_t^{\sto}(z)+\E_t^{\sto}(z)\Theta_t\right)dt + \mathbf{1}_{t\leq \tau_\sto}\E_t^\sto (z)^2dt$$
+$$-\mathbf{1}_{t\leq \tau_\sto}S^{\frac{1}{2}}dM_t(z)S^{\frac{1}{2}}+\mathbf{1}_{t\leq \tau_\sto} S^{\frac{1}{2}}\Omega_t(z)S^{\frac{1}{2}}dt,$$
+where the same reasoning as before (Duhamel formula for the variation of parameters), we have that: \begin{equation*}\E_t(z)=\E_t^{D}(z)+\E_t^{M}(z)+\E_t^{S}(z),\tag{3.5}\end{equation*}
+$$\E_t^{D, \sto}(z)=\int_0^{t\wedge\tau_\sto} \{\text{Id} + (t-s)\Theta_t\} S^{1/2} \Omega(s) S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds$$
+$$\E_t^{M, \sto}(z)=-\int_0^{t\wedge\tau_\sto} \{\text{Id} + (t-s)\Theta_t\}S^{1/2} dM(s)S^{1/2}\{\text{Id} +(t-s)\Theta_t\}$$
+$$\E_t^{S, \sto}(z)=\int_0^{t\wedge\tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds.$$
 
-\noindent The reasoning behind the latter definitions is simple - informally, our goal is to establish a bootstrapping mechanism that will allow us to propagate forward the stopping time through a self-reinforcement (continuity) argument. While the particular choices for constants may seem arbitrary at the moment, they are informed by the bounds we get on the maximal entries of the diffusion profile $\Theta_t$ (\hyperref[diffusion]{Sec. 4.1}), the assumption of $\eta\gg W^{-3/4}$, as well as the technical steps in our analytic argument. That said, we can still gain some intuition as to the meaning of each. With $\tau_{\text{stop},1}$ we have control over the size the error term $\E_s(z) = T_s(z) - \Theta_s$, whereas $\tau_{\text{stop},2}$ is w.r.t to the deviation of the resolvent entries from the semicircle law $m(z)$, normalized by appropriate terms. The self-reinforcing argument works as follows:
-
-  
+\noindent Since our stopping times are defined w.r.t. to the natural Brownian filtration, the aforementioned uniqueness theorem guarantees that $\E_t^\sto(z) = \E_t(z)$ for all $\leq \tau_\sto$.  The self-reinforcing argument works as follows:
 
 \begin{enumerate}
 
@@ -499,7 +507,7 @@ While the three terms we achieved in the previous section are a good start, we h
 \item For any $s \leq \tau_{\text{stop}}$, we can control the error terms in the flow SDE by means of martingale inequalities, since we will be working with the stopped martingales $\E_t^{D, \sto}$, $\E_t^{M, \sto}$, and $\E_t^{S, \sto}$. 
 
 
-\item This will allow us to prove the following theorem in \hyperref[proof-stop]{Section 7.1}:
+\item This will allow us to prove the following theorem in \hyperref[proof-stop]{Section 7}:
 
 \begin{boxtheorem}{Theorem 1: (Stopping time).} $\mathbb{P}[\tau_{\text{stop}, i} \neq  1] \lesssim_D N^{-D}$ for any $i=1, 2$ and $D > 0$.
 \end{boxtheorem}
