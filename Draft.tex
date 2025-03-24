@@ -931,7 +931,7 @@ $\mathcal{G}_{20, s}\lesssim W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4}\times $
 \mathcal{G}_{30, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{x\beta}S_{uv} B_{v\alpha}  S_{\alpha\beta}G_{\beta\alpha}G_{uy} B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 \end{center}
-Here, we eliminate first the edges  $\beta\textcolor{red}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow} y$ using estimate $(E2)$, giving us a $O(W^{\delta_\sto/10}W^{-1}\eta_s^{-1/2})$ term. Due to the edge from $x\textcolor{blue}{\rightarrow}\beta$, we are cannot sum $\alpha\leadsto\beta$ over $S_{ab}$ entries because it serves as a multiplicative term to the blue edge $x\textcolor{blue}{\rightarrow}\beta$. For this reason, we will apply the individual $S_{ab}\lesssim W^{-1}$ bound, s.t now summing over $x\textcolor{blue}{\rightarrow}\beta$ with estimate $(E1)$ gives us a combined bound $O(W^{\delta_\sto/20}W^{\frac{1}{2}+\epsilon}\eta_s^{-3/4})$. Finally, by summing over the remaining wavy edges, starting with $\alpha, v$ and then $u$, due to the $O(1)$ term (estimate $(E5)$), we get an estimate of the form: $\mathcal{G}_{30, s}\lesssim W^{3\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_s^{-5/4}\times $
+Here, we eliminate first the edges  $\beta\textcolor{red}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow} y$ using estimate $(E2)$, giving us a $O(W^{\delta_\sto/10}W^{-1}\eta_s^{-1/2})$ term. Due to the edge from $x\textcolor{blue}{\rightarrow}\beta$, we are cannot sum $\alpha\leadsto\beta$ over $S_{ab}$ entries because it serves as a multiplicative term to the blue edge $x\textcolor{blue}{\rightarrow}\beta$. For this reason, we will apply the individual $S_{ab}\lesssim W^{-1}$ bound, s.t now summing over $x\textcolor{blue}{\rightarrow}\beta$ with estimate $(E1)$ gives us combined $O(W^{\delta_\sto/20}W^{\frac{1}{2}+\epsilon}\eta_s^{-3/4})$. Finally, by summing over the remaining wavy edges, starting with $\alpha, v$ and then $u$, due to the $O(1)$ term (estimate $(E5)$), we get an estimate of the form: $\mathcal{G}_{30, s}\lesssim W^{3\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_s^{-5/4}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -1526,8 +1526,8 @@ $\mathcal{G}_{32, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{ti
 \overline{G_{xy}}B_{u\gamma} S_{\gamma \delta}  G_{x\delta} (G_{\gamma \gamma}-m)G_{\delta \beta}S_{uv} B_{v\alpha} S_{\alpha \beta} G_{\beta \alpha} G_{\alpha y}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
-Here, we eliminate the loop at $\gamma$ and the edges $\delta\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $x\textcolor{red}{\rightarrow}y$, all contributing $O(W^{-1/2}\eta_s^{-1/4})$. By summing over $\beta\rightsquigarrow \alpha$ for an $O(1)$ term, we again have a bound that is equivalent to the previous ones, since all the wavy lines sum up to contribute $O(1)$. As such, we have a bound, equivalent to:
-$\mathcal{G}_{42, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+We eliminate the loop at $\gamma$ and the edges $\delta\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $x\textcolor{red}{\rightarrow}y$, all contributing $O(W^{\delta_\sto/20}W^{-1/2}\eta_s^{-1/4})$. By summing over $\beta\rightsquigarrow \alpha$ for an $O(1)$ term, we again have a bound that is equivalent to the previous ones, since all the wavy lines sum up to contribute $O(1)$. As such, we have a bound, equivalent to:
+$\mathcal{G}_{42, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1542,7 +1542,7 @@ $\mathcal{G}_{42, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[blue, ->](x) to (delta);
 \draw[blue, ->] (delta) to (y);
 
-\end{tikzpicture}. But these are exactly the same bounds as for $\mathcal{G}_{i1, s}$, which means that $\max_{i=1, \cdots, 4}| \mathcal{G}_{i2, s}|\lesssim W^{\delta_\sto/4+2\epsilon}W^{-2}\eta_t^{-3/2}\lesssim  W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}}$.
+\end{tikzpicture}. But these are exactly the same bounds as for $\mathcal{G}_{i1, s}$, which means that: $$\max_{i=1, \cdots, 4}| \mathcal{G}_{i2, s}|\lesssim W^{\delta_\sto/4+2\epsilon}W^{-2}\eta_t^{-3/2}\lesssim  W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}}$$
 
 
 \subsubsection*{Size estimate for $\mathcal{G}_{13, s}^{(1)}$}
@@ -1584,8 +1584,8 @@ The last non-regularization term from the regular vertex expansion contains a pa
 G_{x\delta} G_{\gamma y}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
-Here, we bound the two loops at $\beta, \alpha$ and then the edges $x\textcolor{blue}{\rightarrow}\gamma$ and $\gamma\textcolor{blue}{\rightarrow}y$, getting a combined term $O(W^{-2}\eta_s^{-1})$. Hence, after summing over the wavy lines, we get the same bound as before:
-$\mathcal{G}_{13, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+Here, we bound the two loops at $\beta, \alpha$ and then the edges $x\textcolor{blue}{\rightarrow}\gamma$ and $\gamma\textcolor{blue}{\rightarrow}y$, getting a combined term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. Hence, after summing over the wavy lines, we get the same bound as before:
+$\mathcal{G}_{13, s}^{(1)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1640,8 +1640,8 @@ $\mathcal{G}_{13, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \overline{G_{xy}}S_{uv}B_{v\alpha}G_{\alpha\delta}G_{\gamma\alpha}S_{\alpha\beta}(G_{\beta\beta}-m)B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
-We start by eliminating the loop at $\beta$ and then the edges $x\textcolor{red}{\rightarrow}\gamma$, $\gamma\textcolor{blue}{\rightarrow}\alpha$, and $\alpha\textcolor{blue}{\rightarrow}\delta$, getting back $O(W^{-2}\eta_s^{-1})$ by estimate $(2)$. Observe that with this we have almost the same subgraph as before with an additional wavy line $\gamma\rightsquigarrow \delta$, i.e our estimate looks like: 
-$\mathcal{G}_{13, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+We eliminate the loop at $\beta$ and then the edges $x\textcolor{red}{\rightarrow}\gamma$, $\gamma\textcolor{blue}{\rightarrow}\alpha$, and $\alpha\textcolor{blue}{\rightarrow}\delta$, getting back $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$ by estimate $(E2)$. Observe that with this we have almost the same subgraph as before with an additional wavy line $\gamma\rightsquigarrow \delta$, i.e our estimate looks like: 
+$\mathcal{G}_{13, s}^{(2)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1655,7 +1655,7 @@ $\mathcal{G}_{13, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
 \draw[blue, ->](x) to (gamma);
-\draw[wavy] (gamma) to (delta);
+\draw[wavy, orange] (gamma) to (delta);
 \draw[blue, ->] (delta) to (y);
 
 \end{tikzpicture}
@@ -1699,8 +1699,8 @@ $\mathcal{G}_{13, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
 
-\noindent For the last subgraph, we start with the loop $\alpha$ and then apply the second estimate for the edges $x\textcolor{red}{\rightarrow}y$, $\gamma\textcolor{blue}{\rightarrow}\beta$, and $\beta\textcolor{blue}{\rightarrow}\delta$. We get a combined term $O(W^{-2}\eta_s^{-1})$, s.t. after summing out $\beta, \alpha, v, u, $, we get a final estimate that looks like the one before:
-$\mathcal{G}_{13, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+\noindent For the last subgraph, we start with the loop $\alpha$ and then apply the second estimate for the edges $x\textcolor{red}{\rightarrow}y$, $\gamma\textcolor{blue}{\rightarrow}\beta$, and $\beta\textcolor{blue}{\rightarrow}\delta$. We get a combined term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$, s.t. after summing out $\beta, \alpha, v, u, $, we get a final estimate that looks like the one before:
+$\mathcal{G}_{13, s}^{(3)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1714,10 +1714,10 @@ $\mathcal{G}_{13, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
 \draw[blue, ->](x) to (gamma);
-\draw[wavy] (gamma) to (delta);
+\draw[wavy, orange] (gamma) to (delta);
 \draw[blue, ->] (delta) to (y);
 
-\end{tikzpicture}. And since the partial derivative expansion is equivalent to the summation of the latter three subgraphs, we get a combined bound on $\mathcal{G}_{i3, s}$ that is $O(W^{-2}\eta_t^{-3/2})$ by using our earlier calculations. 
+\end{tikzpicture}. And since the partial derivative expansion is equivalent to the summation of the latter three subgraphs, we get a combined bound on $\mathcal{G}_{i3, s}$ that is $O(W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}})$ by using our earlier calculations. 
 \subsubsection*{Size estimate for $\mathcal{G}_{23, s}^{(1)}$}
 \begin{center}
 \begin{tikzpicture}[
@@ -1755,8 +1755,8 @@ $\mathcal{G}_{13, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \overline{G_{x\gamma}G_{\delta \alpha}G_{\beta y}}S_{uv}B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}B_{u\gamma}S_{\gamma\delta}G_{x\gamma}G_{\delta y}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
-For this subgraph, we can bound the three red edges along with $\beta\textcolor{blue}{\rightarrow}\alpha$, for which we get combined term $O( W^{-2}\eta_s^{-1})$. After summing over the wavy edges in order $\beta, \alpha, v, u$, we get the same bound as before:
-$\mathcal{G}_{23, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+For this subgraph, we can bound the three red edges along with $\beta\textcolor{blue}{\rightarrow}\alpha$, for which we get combined term $O( W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. After summing over the wavy edges in order $\beta, \alpha, v, u$, we get the same bound as before:
+$\mathcal{G}_{23, s}^{(1)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1770,7 +1770,7 @@ $\mathcal{G}_{23, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
 \draw[blue, ->](x) to (gamma);
-\draw[wavy] (gamma) to (delta);
+\draw[wavy, orange] (gamma) to (delta);
 \draw[blue, ->] (delta) to (y);
 
 \end{tikzpicture}
@@ -1814,7 +1814,7 @@ $\mathcal{G}_{23, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 Here, we can get bound all the red lines along with $\beta\textcolor{blue}{\rightarrow}\alpha$, s.t. after the summation over the wavy lines in order $\beta, \alpha, v, u$, we get the familiar:
-$\mathcal{G}_{23, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+$\mathcal{G}_{23, s}^{(2)}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1828,7 +1828,7 @@ $\mathcal{G}_{23, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
 \draw[blue, ->](x) to (gamma);
-\draw[wavy] (gamma) to (delta);
+\draw[wavy, orange] (gamma) to (delta);
 \draw[blue, ->] (delta) to (y);
 
 \end{tikzpicture}
@@ -1871,7 +1871,7 @@ $\mathcal{G}_{23, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 
-\noindent Lastly, by bounding all the red edges along with $\gamma\textcolor{blue}{\rightarrow}\alpha$ and $\beta\textcolor{blue}{\rightarrow}\delta$ and summing over the wavy edges in order $\beta, \alpha, v, u$, we get the equivalent bound: $\mathcal{G}_{23, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+\noindent Lastly, by bounding all the red edges along with $\gamma\textcolor{blue}{\rightarrow}\alpha$ and $\beta\textcolor{blue}{\rightarrow}\delta$ and summing over the wavy edges in order $\beta, \alpha, v, u$, we get the equivalent bound: $\mathcal{G}_{23, s}^{(3)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1885,10 +1885,10 @@ $\mathcal{G}_{23, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
 \draw[blue, ->](x) to (gamma);
-\draw[wavy] (gamma) to (delta);
+\draw[wavy, orange] (gamma) to (delta);
 \draw[blue, ->] (delta) to (y);
 
-\end{tikzpicture}, which makes this subgraph subject to the same $O(W^{-2}\eta_t^{-3/2})$ estimate. 
+\end{tikzpicture}, which makes this entire subgraph subject to the same $O(W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}})$ estimate. 
 
 \subsubsection*{Size estimate for $\mathcal{G}_{33, s}^{(1)}$}
 
@@ -1929,8 +1929,8 @@ $\mathcal{G}_{23, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 
-\noindent By bounding all the blue edges we get a combined $O(W^{-2}\eta_s^{-1})$ term, s.t. after summing over the wavy edges in order $\beta, \alpha, v, u$, we get a final bound:
-$\mathcal{G}_{33, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+\noindent By bounding all the blue edges we get a combined $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$ term, s.t. after summing over the wavy edges in order $\beta, \alpha, v, u$, we get a  bound:
+$\mathcal{G}_{33, s}^{(1)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1944,7 +1944,7 @@ $\mathcal{G}_{33, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
 \draw[red, ->](x) to (gamma);
-\draw[wavy] (gamma) to (delta);
+\draw[wavy, orange] (gamma) to (delta);
 \draw[red, ->] (delta) to (y);
 
 \end{tikzpicture}
@@ -1988,7 +1988,7 @@ $\mathcal{G}_{33, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \overline{G_{x y}}G_{x\delta}G_{\gamma \beta}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \alpha} B_{u\gamma} S_{\gamma\delta} G_{\alpha \gamma}G_{\delta y}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
-For this graph, let us bound the edges $x\textcolor{red}{\rightarrow}y$, $\gamma\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$, s.t. after summing over the wavy lines in order of the indices $\beta, \alpha, v, u, \gamma$, we get a final bound: $\mathcal{G}_{33, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+For this graph, let us bound the edges $x\textcolor{red}{\rightarrow}y$, $\gamma\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$, s.t. after summing over the wavy lines in order of the indices $\beta, \alpha, v, u, \gamma$, we get a final bound: $\mathcal{G}_{33, s}^{(2)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
