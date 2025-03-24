@@ -1040,12 +1040,12 @@ We need to consider two subcases by splitting the double line $\left[\{\text{Id}
 \end{tikzpicture}
 $\lesssim  (t-s) W^{\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_t^{-3/2}\eta_s^{1/4} + W^{\delta_\sto/20}W^{-1/2}\eta_t^{-1}\eta_s^{3/4}\lesssim$
 \end{center}
-$$\lesssim W^{\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_t^{-3/2}\eta_s^{5/4} + W^{\delta_\sto/20}W^{-1/2}\eta_t^{-1}\eta_s^{3/4}$$
+\begin{equation*}\lesssim W^{\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_t^{-3/2}\eta_s^{5/4} + W^{\delta_\sto/20}W^{-1/2}\eta_t^{-1}\eta_s^{3/4}\tag{6.1}\end{equation*}
 This means that if we combine the diagram bound with the result above, we get: 
-$$\max_{i=1, 2, 3, 4}|\mathcal{G}_{i0, s}|\lesssim W^{\delta_\sto/5}W^{-2+2\epsilon}\eta_t^{-3/2} + W^{\delta_\sto/5}W^{-2+2\epsilon}\eta_t^{-1}\eta_s^{1/2}$$
+\begin{equation*}\max_{i=1, 2, 3, 4}|\mathcal{G}_{i0, s}|\lesssim W^{\delta_\sto/5}W^{-2+2\epsilon}\eta_t^{-3/2} + W^{\delta_\sto/5}W^{-2+2\epsilon}\eta_t^{-1}\eta_s^{1/2}\end{equation*}
 Lastly, we need to integrate over $s\in [0, t]$ by using a change of variable $\sigma =\eta_s$, s.t. the bounds of the integral are $\sigma\in [\eta_t, \eta_0]$:
 $$\max_{i=1, 2, 3, 4} \int_0^{t\wedge \tau_\sto}|\mathcal{G}_{i0, s}|ds\lesssim W^{\frac{\delta_\sto}{5}+2\epsilon} W^{-2}\eta_t^{-3/2} \int_{\eta_t}^{\eta_0}d\sigma + W^{\frac{\delta_\sto}{5}+2\epsilon}W^{-2}\eta_t^{-1}\int_{\eta_t}^{\eta_0}\sigma^{-1/2}d\sigma $$
-$$\max_{i=1, 2, 3, 4} \int_0^{t\wedge \tau_\sto}|\mathcal{G}_{i0, s}|ds\lesssim W^{\frac{\delta_\sto}{5}+2\epsilon} W^{_2}\eta_t^{-\frac{3}{2}}$$
+\begin{equation*}\max_{i=1, 2, 3, 4} \int_0^{t\wedge \tau_\sto}|\mathcal{G}_{i0, s}|ds\lesssim W^{\frac{\delta_\sto}{5}+2\epsilon} W^{-2}\eta_t^{-\frac{3}{2}}\tag{6.2}\end{equation*}
 
 \subsubsection*{Size estimates for $\mathcal{G}_{11, s}$}
 In order to represent $B_{u\gamma} S_{\gamma\delta} G_{x_i\gamma}(G_{\delta\delta}-m)G_{\gamma y_i} f(G)$, we need to add the two new vertices $\gamma$ and $\delta$:
@@ -1312,10 +1312,14 @@ $\max_{i=1, \cdots, 4} \mathcal{G}_{i1, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_
 \end{tikzpicture}
 \end{array}\right.$
 \end{center}
-Observe that the latter subgraphs are almost identical to the one we calculate for the $\mathcal{G}_{i0, s}$ estimates with the addition of a solid line. This means that we will have an additional term $O(W^{1/2}\eta_s^{-3/4})$ from estimate $(1)$. As such, the subgraph is bounded by the sum of terms $O(\eta_t^{-3/2}\eta_s^{1/2})$ and $O(\eta_t^{-1})$, i.e combined with the multiplicative term, we get:$$\max_{i=1, \cdots, 4}| \mathcal{G}_{i1, s}|\lesssim W^{-2}\eta_t^{-3/2}\eta_s^{-1/2}+W^{-2}\eta_t^{-1}\eta_s^{-1}$$
-$$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t}|\mathcal{G}_{i1, a}|ds\lesssim W^{-2}\eta_t^{-3/2}\int_{\eta_t}^{O(1)}\sigma^{-1/2}d\sigma + W^{-2}\eta_t^{-1}\int_{\eta_t}^{O(1)}\sigma^{-1}d\sigma=$$
-$$= 2W^{-2}\eta_t^{-3/2}-2W^{-2}\eta_t^{-1}-W^{-2}\eta_t^{-1}\ln \eta_t= O(W^{-2}\eta_t^{-3/2})$$
-
+Observe that the latter subgraphs are almost identical to the one we calculate for the $\mathcal{G}_{i0, s}$ estimates with the addition of a solid line. This means that we have to multiply our $(6.1)$ bound by an additional term $W^{\frac{1}{2}+\epsilon}\eta_s^{-3/4}$ from estimate $(E1)$ (and the fact that $\eta_0\lesssim 1$):
+$$\max_{i=1, \cdots, 4}| \mathcal{G}_{i1, s}|\lesssim W^{\delta_\sto/4}W^{-2+2\epsilon}\eta_t^{-3/2}\eta_s^{-1/2}+W^{\delta_\sto/4+\epsilon}W^{-2}\eta_t^{-1}\eta_s^{-1}$$
+$$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t}|\mathcal{G}_{i1, a}|ds\lesssim W^{\delta_\sto/4}W^{-2+2\epsilon}\eta_t^{-3/2}\int_{\eta_t}^{\eta_0}\sigma^{-1/2}d\sigma + W^{\delta_\sto/4+\epsilon}W^{-2}\eta_t^{-1}\int_{\eta_t}^{\eta_0}\sigma^{-1}d\sigma\lesssim$$
+$$\lesssim W^{\delta_\sto/4}W^{-2+2\epsilon}\eta_t^{-3/2}\eta_0^{-1}-W^{\delta_\sto/4}W^{-2+2\epsilon}\eta_t^{-1}+$$
+$$+W^{\delta_\sto/4+\epsilon}W^{-2}\eta_t^{-1}\ln \eta_0-W^{\delta_\sto/4+\epsilon}W^{-2}\eta_t^{-1}\ln \eta_t$$
+$$\lesssim W^{\delta'}W^{-2}\eta_t^{-3/2}\lesssim W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}},$$
+since $\delta' = \frac{\delta_\sto}{4}+2\epsilon>0$ is arbitrarily small. 
+\newpage
 \subsubsection*{Size estimates for $\mathcal{G}_{12, s}$}
 Following the regular vertex expansion, we have to now represent each of the subgraphs that has the form $\mathcal{G}_{i2, s}=B_{u\gamma} S_{\gamma \delta} G_{x_i\delta} (G_{\gamma\gamma}-m)G_{\delta y_i} f(G)$. By applying the graphical representation we get: 
 \begin{center}
@@ -1353,8 +1357,8 @@ Following the regular vertex expansion, we have to now represent each of the sub
 \mathcal{G}_{12, s} = 
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} B_{u\gamma} S_{\gamma \delta} G_{x\delta} (G_{\gamma\gamma}-m)G_{\delta y} S_{uv} B_{v\alpha} (G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
-Canceling all three loops $\textcolor{blue}{\circlearrowright}$ and the edge $x\textcolor{red}{\rightarrow}y$ gives us a combined term $O(W^{-2}\eta_s^{-1})$ per estimate $(2)$. Subsequently, we sum out all the wavy lines, which gives us the same bound as before:
-$\mathcal{G}_{12, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+Canceling all three loops $\textcolor{blue}{\circlearrowright}$ and the edge $x\textcolor{red}{\rightarrow}y$ gives us a combined term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$ per estimate $(E2)$. Subsequently, we sum out all the wavy lines, which gives us the same bound as before:
+$\mathcal{G}_{12, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1409,8 +1413,8 @@ $\mathcal{G}_{12, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}
 \overline{G_{x\alpha}} B_{u\gamma} S_{\gamma \delta} G_{x\delta} (G_{\gamma\gamma}-m)G_{\delta y}\overline{G_{\beta y}} S_{uv} B_{v\alpha} S_{\alpha\beta}G_{\beta\alpha}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
-Here we cancel the loop at $\gamma$ and the directed edges $x\textcolor{red}{\rightarrow}\alpha$, $\beta\textcolor{red}{\rightarrow}y$ and $\beta\textcolor{blue}{\rightarrow}\alpha$. With this, we are again left with a term $O(W^{-2}\eta_s^{-1})$, s.t. after summing out the wavy lines using estimate $(5)$, we get the same bound:
-$\mathcal{G}_{22, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+Here we cancel the loop at $\gamma$ and the directed edges $x\textcolor{red}{\rightarrow}\alpha$, $\beta\textcolor{red}{\rightarrow}y$ and $\beta\textcolor{blue}{\rightarrow}\alpha$. With this, we are again left with a term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$, s.t. after summing out the wavy lines using estimate $(E5)$, we get the same bound:
+$\mathcal{G}_{22, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1466,8 +1470,8 @@ $\mathcal{G}_{22, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \overline{G_{xy}}G_{x\beta} B_{u\gamma} S_{\gamma \delta} G_{\alpha \delta} (G_{\gamma\gamma}-m)G_{\delta y}S_{uv}B_{v\alpha}S_{\alpha\beta}G_{\beta \alpha} 
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$}
 \end{equation*}
-For this subgraph, we start by eliminating the loop at $\gamma$ and the edges $\beta\textcolor{blue}{\rightarrow}\alpha$, $\alpha\textcolor{blue}{\rightarrow}\delta$, and $x\textcolor{red}{\rightarrow}y$. This means that we have 5 instead of 4 terms per estimate $(2)$, i.e we get a combined term $O(W^{-5/2}\eta_s^{-5/4})$. With this, we have a similar subgraph remaining with a few extra wavy edges that will sum out to $O(1)$ per estimate 5, hence the total estimate will be equivalent to:
-$\mathcal{G}_{32, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+For this subgraph, we start by eliminating the loop at $\gamma$ and the edges $\beta\textcolor{blue}{\rightarrow}\alpha$, $\alpha\textcolor{blue}{\rightarrow}\delta$, and $x\textcolor{red}{\rightarrow}y$. This means that get a combined term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. With this, we have a similar subgraph remaining with a few extra wavy edges that will sum out to $O(1)$ per estimate $(E5)$, hence the total estimate will be equivalent to:
+$\mathcal{G}_{32, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -1538,7 +1542,7 @@ $\mathcal{G}_{42, s}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[blue, ->](x) to (delta);
 \draw[blue, ->] (delta) to (y);
 
-\end{tikzpicture}. But these are exactly the same bounds as for $\mathcal{G}_{i1, s}$, which means that $\max_{i=1, \cdots, 4}| \mathcal{G}_{i2, s}|\lesssim W^{-2}\eta_t^{-3/2}$
+\end{tikzpicture}. But these are exactly the same bounds as for $\mathcal{G}_{i1, s}$, which means that $\max_{i=1, \cdots, 4}| \mathcal{G}_{i2, s}|\lesssim W^{\delta_\sto/4+2\epsilon}W^{-2}\eta_t^{-3/2}\lesssim  W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}}$.
 
 
 \subsubsection*{Size estimate for $\mathcal{G}_{13, s}^{(1)}$}
