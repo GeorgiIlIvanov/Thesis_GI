@@ -2902,6 +2902,12 @@ Then, the following holds: $$\max_x |G_t(z)_{xx} - m(z)|^2\prec \max_{a, b}|S^{1
 \end{boxtheorem}
 \textit{Proof} - can be found as Lemma 13 in \cite{bandSDE}
 
+\begin{boxtheorem}{Corollary B5}\label{corollary-b5} - Let $\mathcal{A}$ be an even on which the following holds for all $t\in [0, 1]$: $$\max_{a, b}\left(S^{1/2}T_t(z)S^{1/2}\right)_{ab}\lesssim W^{-1}\eta_t^{-1/2}$$
+Then, we have the following stochastic bound for any large $C>0$ that is independent of $W$: $$\mathbf{1}_{\mathcal{A}}\max_{t\in [0, 1]} \max_{x, y}\frac{|G_{xy} - \delta_{xy}m(z)|}{(S^{1/2}T_t(z)S^{1/2})_{ab}+S^{1/2}_{ab}+W^{-C}}\prec 1$$
+.
+\end{boxtheorem}
+\textit{Proof} - the result follows by Lemmas B.3 and B.4 from a continuity argument. Can be found as Corollary 14 in \cite{bandSDE}
+
 \newpage 
 \addcontentsline{toc}{section}{References}
 
