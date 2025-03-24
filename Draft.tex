@@ -75,8 +75,9 @@
 \date{}
 \doublespacing
 \begin{document}
-\renewcommand{\contentsname}{Contents}
 \renewcommand{\refname}{References}
+\renewcommand{\contentsname}{Contents}
+
 
 \pagenumbering{roman}
 % Title Page
@@ -2353,7 +2354,7 @@ $$-\int_0^{t\wedge \tau_\sto}S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{
 $$= \mathcal{E}_t^{M, 11}+\mathcal{E}_t^{M, 12}+\mathcal{E}_t^{M, 13}+\mathcal{E}_t^{M, 14}$$
 Now, we will apply the BDG inequality to the individual $\mathcal{E}_t^{M, 1i}$ terms for $j=1, 2, 3, 4$:
 
-$$\mathbb{E}\left\vert \mathcal{E}^{M, 1i}_t(z)_{ab}\right\vert^{2p}\leq C_p\mathbb{E}\left[ \mathcal{E}^{M, 1i}_t(z)_{ab} \right]^p$$
+\begin{equation*}\mathbb{E}\left\vert \mathcal{E}^{M, 1i}_t(z)_{ab}\right\vert^{2p}\leq C_p\mathbb{E}\left[ \mathcal{E}^{M, 1i}_t(z)_{ab} \right]^p\tag{6.3}\end{equation*}
 
 
 \noindent To calculate the quadratic variation (QV) on the RHS, recall from before that the Brownian increments $dB_{\alpha\beta}(t)$ are mutually uncorrelated, i.e our term $dH_s = \sum_{u, v} \sqrt{S_{u, v}}dB_{u, v}(s)$ has covariance structure: $$\mathbb{E}\left[dH_s\overline{dH_s}\right] = \mathbb{E}\left[\sum_{u, u', v, v'}\sqrt{S_{uv}}dB_{uv}(s)\sqrt{S_{u'v'}}dB_{u'v'}(s)\right]_{ab}=S_{ab}ds$$
@@ -2408,10 +2409,10 @@ hence we get the following bounds:
 $$\|\Upsilon^u\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2\|G^* S^u G\|_{op}\leq \max_{\alpha, \beta}|(\Theta_t S^{1/2})|^2 W^{-1}\eta_s^{-2}$$
 $$\|\Gamma^u\|_{op}\leq\max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2\|G^* S^u G\|_{op}\lesssim \max_{\alpha,\beta}|S_{\alpha\beta}^{1/2}|^2 W^{-1}\eta_s^{-2}\lesssim W^{-3}\eta_s^{-2}$$
 
-\noindent With this we have all the necessary pieces to complete the estimation of all the QV terms $\mathcal{E}^{M, 1i}_t$, by changing the variable of integration w.r.t $\sigma = |\text{Im}w_s|$.
+\noindent With this we have all the necessary pieces to complete the estimation of all the QV terms $\mathcal{E}^{M, 1i}_t$, by changing the variable of integration w.r.t $\sigma = |\text{Im}w_s|$. As such, for any $\delta>0$:
 $$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right]\lesssim \int_0^{\tau_\sto\wedge t} \eta_s^{-1} W^{\delta_\sto}W^{-2}\eta_t^{-\frac{3}{2}}\max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2ds$$
 $$\left[\mathcal{E}_{t}^{M, 11}(z)_{ab}\right]\lesssim W^{\delta_\sto}W^{-2}\eta_t^{-\frac{3}{2}} \max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \int_{\eta_t}^{\eta_0} \sigma^{-1}ds\lesssim W^{-4+\delta+\delta_\sto}\eta_t^{-\frac{5}{2}},$$
-since $\max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \lesssim W^{-2}\eta_t^{-1}$ (\hyperref[lemma-a2]{Lemma A.2})and $\log \eta_t^{-1}\lesssim \log \eta^{-1}\lesssim W^{\delta}$ for any $\delta>0$. Similarly, the second and third terms are: 
+since $\max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \lesssim W^{-2}\eta_t^{-1}$ (\hyperref[lemma-a2]{Lemma A.2}) and $\log \eta_t^{-1}\lesssim \log \eta^{-1}\lesssim W^{\delta}$. Similarly, the second and third terms are: 
 
 $$\left[\mathcal{E}_{t}^{M, 12}(z)_{ab}\right] \lesssim  W^{\delta_\sto} W^{-3}W^{-1}\eta_t^{-3/2}\int_0^{t\wedge \tau_\sto}(t-s)^2\eta_s^{-5}ds$$
 $$\lesssim W^{\delta_\sto}W^{-4}\eta_t^{-3/2}\int_{\eta_t}^{\eta_0}\sigma^{-3}ds\lesssim W^{\delta_\sto} W^{-4}\eta_t^{-\frac{7}{2}}$$
@@ -2424,50 +2425,50 @@ we can observe that a naive bound of the sort we did for the last three terms is
 $$\E_t^{M, 14}(z)= \int_0^{t\wedge \tau_\sto}S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}$$
 By the fact that $S^{1/2}$ is an averaging operator (\hyperref[diffusion]{Sec. 4.1}), one can estimate: $$\left[\E_t^{M, 14}(z)\right] \leq \max_{\alpha, \beta}\left[\left\{\int_0^{\tau_\sto\wedge}S^{1/2} \sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}_{\alpha\beta}\right]=$$
 
-\begin{equation*}=\max_{\alpha\beta}\int_0^{\tau_\sto\wedge}\sum_{x, x', u, v}S^{\frac{1}{2}}_{\alpha x}S^{\frac{1}{2}}_{\alpha x'}\overline{G_{x\beta}}G_{x'\beta}G_{xu}\overline{G_{x'u}}S_{uv}|G_{v\beta}|^2ds=\tag{6.2}\end{equation*}
-\begin{equation*}=\max_{\alpha\beta}\int_0^{\tau_\sto\wedge}\sum_{x, x', u, v}\left(G^*S^{\frac{1}{2}, \alpha}GG^*S^{\frac{1}{2},\alpha}G\right)_{uu}S_{uv}|G_{v\beta}|^2ds\tag{6.2.1}\end{equation*}
+\begin{equation*}=\max_{\alpha\beta}\int_0^{\tau_\sto\wedge}\sum_{x, x', u, v}S^{\frac{1}{2}}_{\alpha x}S^{\frac{1}{2}}_{\alpha x'}\overline{G_{x\beta}}G_{x'\beta}G_{xu}\overline{G_{x'u}}S_{uv}|G_{v\beta}|^2ds=\tag{6.4}\end{equation*}
+\begin{equation*}=\max_{\alpha\beta}\int_0^{\tau_\sto\wedge}\sum_{x, x', u, v}\left(G^*S^{\frac{1}{2}, \alpha}GG^*S^{\frac{1}{2},\alpha}G\right)_{uu}S_{uv}|G_{v\beta}|^2ds\tag{6.4.1}\end{equation*}
 By first applying the \hyperref[ward]{Ward identity} and then the operator norm bound $\|G\|_{op}\leq \eta_s^{-1}$, we have: 
 $$\left(G^*S^{\frac{1}{2}, \alpha}GG^*S^{\frac{1}{2},\alpha}G\right)_{uu} = \eta_s^{-1}\left(G^*S^{\frac{1}{2}, \alpha}\text{Im}GS^{\frac{1}{2},\alpha}G\right)_{uu}\lesssim$$
 $$\lesssim \eta_s^{-1}\left\|\sqrt{S^{\frac{1}{2}, \alpha}}\im G\sqrt{S^{\frac{1}{2}, \alpha}}\right\|_{\mathrm{op}}(G^*S^{\frac{1}{2}, \alpha}G)_{uu}\lesssim$$
-\begin{equation*}\lesssim W^{-1}\eta_s^{-2}(G^*S^{\frac{1}{2}, \alpha}G)_{uu} = W^{-1}\eta_s^{-2}\sum_\gamma S^{\frac{1}{2}}_{\alpha\gamma}|G_{\gamma\beta}|^2\tag{6.2.2}\end{equation*}
-Now, in both the display after $(6.2)$ and the one above we have terms of the form $S_{xy}|G_{yz}|^2$. To estimate this, we will use the a time $s\leq \tau_\sto$ before the stopping time, for which we know \cite{bandSDE}: $$|T_s(z)_{zy}|\lesssim |(\Theta_s)_{zy}|+|\E_s(z)_{xy}|\lesssim W^{-1}\eta_s^{-\frac{1}{2}}$$
+\begin{equation*}\lesssim W^{-1}\eta_s^{-2}(G^*S^{\frac{1}{2}, \alpha}G)_{uu} = W^{-1}\eta_s^{-2}\sum_\gamma S^{\frac{1}{2}}_{\alpha\gamma}|G_{\gamma\beta}|^2\tag{6.4.2}\end{equation*}
+Now, in both the display after $(6.4)$ and the one above we have terms of the form $S_{xy}|G_{yz}|^2$. To estimate this, we will use the a time $s\leq \tau_\sto$ before the stopping time, for which we know \cite{bandSDE}: $$|T_s(z)_{zy}|\lesssim |(\Theta_s)_{zy}|+|\E_s(z)_{xy}|\lesssim W^{-1}\eta_s^{-\frac{1}{2}}$$
 $$\Rightarrow \sum_v S_{uv}|G_{v\beta}|^2\lesssim W^{\delta_\sto/10}S_{u\beta}+W^{\delta_\sto/10}\left[S^{1/2}T_s(z)S^{1/2}\right]_{u\beta}\lesssim$$ 
 $$\lesssim W^{\delta_\sto}S_{u\beta} + W^{\delta_\sto/10}W^{-1}\eta_s^{-1/2}\lesssim W^{\delta_\sto/10}W^{-1}\eta_s^{-1/2},$$
-since $\eta_s = O(1)$. This means that we can combine $(6.2.1)$ and $(6.2.2)$ along with the result above in order to integrate with a change of variable as before: \newpage
+since $\eta_s = O(1)$. This means that we can combine $(6.4.1)$ and $(6.4.2)$ along with the result above in order to integrate with a change of variable as before: \newpage
 $$\left[\E_t^{M, 14}(z)_{ab}\right]\lesssim \int_0^{t\wedge \tau_\sto} W^{\delta_\sto/5}W^{-3}\eta_s^{-3}ds\lesssim$$
 $$\lesssim W^{\delta_\sto/5}W^{-3}\int_{\eta_t}^{\eta_0}\sigma^{-3}d\sigma\lesssim W^{\delta_\sto/5}W^{-3}\eta_t^{-2}$$
 
-By interpolating with the first bound we found, we get: 
-$$\left[\E_t^{M, 14}(z)_{ab}\right] \lesssim \sqrt{ W^{\delta_\sto/10}W^{-4}\eta_t^{-4}}\sqrt{W^{\delta_\sto/5}W^{-3}\eta_t^{-2}}\lesssim W^{\frac{3\delta_\sto}{20}}W^{-\frac{7}{2}}\eta_t^{-3}$$
+\noindent By interpolating with the first bound we found, we get: 
+$$\left[\E_t^{M, 14}(z)_{ab}\right] \lesssim \sqrt{ W^{\delta_\sto/10}W^{-4}\eta_t^{-4}}\sqrt{W^{\delta_\sto/5}W^{-3}\eta_t^{-2}}\lesssim W^{\frac{3\delta_\sto}{20}}W^{-\frac{7}{2}}\eta_t^{-3}\lesssim W^{\frac{\delta_\sto}{5}}W^{-\frac{7}{2}}\eta_t^{-3}$$
+As such, we have in fact showed that for all $i=1, \cdots 4$ $$[\E_t^{M, 1j}(z)_{ab}]\lesssim W^{\frac{\delta_\sto}{5}}\lesssim W^{\delta_\sto/5}W^{-\frac{3}{2}}\eta_t^{-2}W^{-2}\eta_t^{-1}$$
+By applying Chebyshev to the BDG inequality $(6.3)$, we have that for any $\delta>0$ and $p\geq 1$: 
+\begin{equation*}\mathbb{P}\left(\left\vert \E_t^{M, 1j}(z)_{ab}\right\vert\geq N^\delta [\E_t^{M, 1j}(z)_{ab}]^{1/2}\right)\leq C_p N^{-2p\delta}\tag{6.5}\end{equation*}
+Using Boole's inequality and a "standard Hölder continuity argument"  are sufficient to show \cite{bandSDE}:
+$$\frac{\left\vert \E_t^{M_1, j}(z)_{ab}\right\vert}{W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}}}\prec W^{\frac{\delta_\sto}{5}}$$
 
 
-\subsubsection*{Result}
-(3.14) \cite{bandSDE}. By Chebyshev inequality, we have that for any $\delta>0$ and $p\geq 1$, the following holds: 
-$$\mathbb{P}\left(\left\vert \E_t^{M, 1j}(z)_{ab}\geq N^\delta [\E_t^{M, 1j}(z)_{ab}]^{1/2}\right\vert\right)\leq C_p N^{-2p\delta}$$
+
 
 \subsection{Estimate for $\E_t^{S, \text{stop}}(z)$}
 
-In order to bound the squared term $\E_t^{S, \sto}(z)$, we will use \hyperref[cor-a3]{Corollary A.3} of \hyperref[lemma-a2]{Lemma A.2} (Display $(3.7)$ and Lemma 23 in \cite{bandSDE}, respectively) to state the following  bound: $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy}+\sup_y \sum_x \{\text{Id}+(t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
+Recall \hyperref[cor-a3]{Corollary A.3} of \hyperref[lemma-a2]{Lemma A.2}: $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy}+\sup_y \sum_x \{\text{Id}+(t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
 Then by Hölder's inequality and the bound above, we have: $$|\E_t^{S}(z)_{ab}|=\left\vert\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds\right\vert \leq$$
 $$\leq \int \left[1+O(\eta_t^{-1}\eta_s)\right]^2 \max_{a, b}|\E_s(z)_{ab}^2|ds \lesssim \int_0^{\tau_\sto \wedge t} \max_{a, b}|\E_s(z)_{ab}^2|ds + \int_0^{\tau_\sto \wedge t}\eta_t^{-2}\eta_s^{2} \max_{a, b}|\E_s(z)^2_{ab}|ds$$
 We can bound $\max_{a, b}|\E_s(z)_{ab}^2|ds$ by using the definition of our stopping time. Since $s\leq \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}$, by property of $\tau_{\sto, 1}$ and given a bound $N\leq W^{\frac{11}{8}-\nu}$ we have: $$\max_{a, b}|\E_s(z)_{ab}|<W^{\delta_\sto} W^{-\frac{3}{4}} \eta_s^{-1}\cdot W^{-1}\eta_s^{-\frac{1}{2}}$$
 $$\max_{a, b}|\E_s(z)_{ab}|^2<W^{2\delta_\sto} W^{-\frac{3}{2}} \eta_s^{-2}\cdot W^{-2}\eta_s^{-1}=W^{2\delta_{\sto}} W^{-\frac{7}{2}}\eta_s^{-3} $$
-Now, observe that by matrix multiplication, for any $a, b\in \Gamma$, we have: $$\E_s(z)^2_{ab} = \sum_{j=1}^N \E_s(z)_{aj}\E_s(z)_{jb}$$
+Now, observe that by matrix multiplication, for any $a, b\in \Gamma$,$\E_s(z)^2_{ab} = \sum_{j=1}^N \E_s(z)_{aj}\E_s(z)_{jb}$:
 $$\Rightarrow |\E_s(z)_{ab}^2|\leq \sum_{j=1}^N |\E_s(z)_{aj}||\E_s(z)_{jb}|\leq \sum_{j=1}^N \max_{x,y}|\E_s(z)_{xy}|^2 = N\max_{x,y}|\E_s(z)_{xy}|^2$$
 $$\Rightarrow \max_{a,b}|\E_s(z)^2_{ab}|\leq W^{2\delta_\sto}W^{-\frac{28-11}{8}-\nu}\eta_s^{-2} = W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_s^{-2}$$
-Putting the last two results together gives us the following bound on $|\E_t^S(z)_{ab}|$:
-$$|\E_t^S(z)_{ab}|\lesssim \int_0^t W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_s^{-2}ds + \int_0^t \eta_t^{-2}W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_s^{-1}ds$$
-By doing a change of variable for $\sigma = \im w_s$, we get: 
+Putting the last two results together gives us the following bound on $|\E_t^{S, \mathrm{stop}}(z)_{ab}|$:
+$$|\E_t^{S, \mathrm{stop}}(z)_{ab}|\lesssim \int_0^t W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_s^{-2}ds + \int_0^t \eta_t^{-2}W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_s^{-1}ds$$
 \begin{equation*}
 |\E_t^{S, \sto}(z)_{ab}|\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu}\int_{\eta_t}^{\im w_0}\sigma^{-3}d\sigma + \eta_t^{-2} W^{2\delta_\sto} W^{-\frac{17}{8}-\nu}\int_{\eta_t}^{\im w_0}\sigma^{-1}d\sigma
 \end{equation*}
 \begin{equation*}
-\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu} \left(\frac{\im w_0^{-2}-\eta_t^{-2}}{-2}\right)+W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\left(\log \im w_0-\log \eta_t\right)
+\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu} \left(\frac{\im w_0^{-2}-\eta_t^{-2}}{-2}\right)+W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\left(\ln \im w_0-\ln \eta_t\right)
 \end{equation*}
 By \hyperref[lemma-a12]{Lemma A.1.2} for any $s\in [0, t]$, we have $\im w_s = \im w_t+(t-s)\im m(z)\geq \im w_t$
-and \hyperref[2.1]{$\im m(z)\asymp 1$}:
-$$\Rightarrow \im w_s = \eta+(1-s)\im m(z)\leq \eta+ \im m(z) = \im w_0 = \frac{\im m(z)}{|m(z)|^2}\leq \im m(z)\lesssim 1\Leftrightarrow \log \im w_0\lesssim 0$$
-Hence, we can drop the negative term w.r.t. $\im w_0^{-2}$ and bound above by $\log \im w_0\lesssim 0$:
+and \hyperref[2.1]{$\im m(z)\asymp 1$}, which imply $\eta\leq \im w_s\lesssim 1$. And since $|\log \eta|\prec 1$ (follows by $\eta\geq W^{-3/4}$), we have that $|\log \im w_s|\prec 1$. Hence, we can drop the negative term w.r.t. $\im w_0^{-2}$ and bound above :
 \begin{equation*}
 |\E_t^{S, \sto}(z)_{ab}|\lesssim W^{2\delta_\sto} W^{-\frac{17}{8}-\nu} \eta_t^{-2}+W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\log \eta_t^{-1} \lesssim W^{2\delta_\sto}W^{-\frac{17}{8}-\nu}\eta_t^{-2}\log \eta_t^{-1}
 \end{equation*}
@@ -2482,13 +2483,26 @@ $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{-\delta}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\
 
 \section{Proof of Theorems}
 
-\subsection{Theorem 1 - Stopping time}
+\subsection*{7.1 Theorem 1 - Stopping time}
 \label{proof-stop}
 
-\subsection{Theorem 2 - Quantum Diffusion}
+\begin{boxtheorem}{Theorem 1: (Stopping time).} $\mathbb{P}[\tau_{\text{stop}, i} \neq  1] \lesssim_D N^{-D}$ for any $i=1, 2$ and $D > 0$.
+\end{boxtheorem}
+\textit{Proof} - By Boole's inequality
 
-\subsection{Theorem 3 - Delocalization}
+\subsection*{7.2 Theorem 2 - Quantum Diffusion}
+\begin{boxtheorem}{Theorem 2: (Quantum Diffusion)}
+For $|E|<2$ fixed, assume $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq W^{8/11+\nu}$. Then: $$\max_{x, y}|T_{xy}-\Theta_{xy}|\prec W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$$
+\end{boxtheorem}
+\textit{Proof} - 
+
+\subsection*{7.3 Theorem 3 - Delocalization}
 \label{proof-deloc}
+\begin{boxtheorem}{Theorem 3}
+\noindent Assume $|E|<2$ is fixed and that $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq N^{8/11+\nu}$. Then:
+\begin{center}$\max_{x, y}|G_{xy} - \delta_{xy}m(z)|^2\prec W^{-1}\eta^{-\frac{1}{2}}$\end{center}
+\end{boxtheorem}
+\textit{Proof} - 
 
 
 \newpage
@@ -2776,34 +2790,37 @@ Then, by applying the triangle inequality to the telescoping sum of replacements
 
 \begin{boxt}{Lemma A.1.1} \label{lemma-a11} $$ 1-|m|^2 \asymp \eta$$ 
 \end{boxt}
-\textit{Proof} Proofs can be found in Lemma 3.5 \cite{21} and Lemma 6.2 \cite{dynamic}). 
+\textit{Proof} - can be found in Lemma 3.5 \cite{21} and Lemma 6.2 \cite{dynamic}). 
 
 \begin{boxt}{Lemma A.1.2} \label{lemma-a12} 
-\begin{itemize}
+\begin{enumerate}
 \item $ \im w_s = \im w_t + (t-s)\im m(z)$ 
 \item $(t-s)\lesssim \eta_s $
-\end{itemize}
+\end{enumerate}
 
 \end{boxt}
 \textit{Proof}- Recall the definition $w_s = -\frac{1}{m(z)} - sm(z)$, where $m(z)$ is the stieltjes transform. By taking its imaginary part, we have: $$\im w_s = -\im \left( \frac{1}{m(z)}\right)-s\im m(z)= -\im \left( \frac{1}{m(z)}\right)-t\im m(z) + (t-s)\im m(z)$$
-$$=\im w_t + (t-s)\im m(z)$$
-Since $|\im m(z)|$ is bounded uniformly away from $0$ in the bulk (Lemma 6.2. in \cite{dynamic}) - \textcolor{red}{deduce} that $(t-s)\lesssim \eta_s $
+$$=\im w_t + (t-s)\im m(z),$$
+which proves the first identity. Rearrange as: 
+$$\im w_s\geq \im w_s\im w_t= (t-s)\im m(z)$$
+Since $|\im m(z)|$ is bounded uniformly away from $0$ in the bulk (Lemma 6.2. in \cite{dynamic} and $\im w_t\geq 0$ by def. , we can take the absolute value divide by $\im m(z)$ the result above, s.t. we get $(t-s)\lesssim \eta_s$. 
 
 \begin{boxt}{Lemma A.2} \label{lemma-a2} -
  For $|E|<2$ fixed and $\eta\gtrsim W^2/N^2$, then $$(\Theta_t)_{ab} + |(\Theta_tS^{\frac{1}{2}})_{ab}| + |\left(S^{\frac{1}{2}}\Theta_t S^{\frac{1}{2}}\right)_{ab}|\lesssim W^{-1}\eta_t^{-\frac{1}{2}}, $$
  $$\max_a \sum_b |(\Theta_t)_{ab}|+\max_a \sum_b |(\Theta_tS^{\frac{1}{2}})_{ab}|\lesssim \eta_t^{-1}$$
 \end{boxt}
-Proof can be found as Lemma 23 in \cite{bandSDE}. From the latter result it clearly follows that $\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$. 
+Proof can be found as Lemma 23 in \cite{bandSDE}. From it clearly follows that $\max_{a,b}\Theta_{ab} \lesssim W^{-1}\eta^{-1/2}$. 
 
-\begin{boxt}{Corollary A.3} \label{cor-a3} -
+\begin{boxt}{Corollary A.3} \label{cor-a3} 
 $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy} + \sup_y \sum_x \{\text{Id} + (t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
  \end{boxt}
- \textit{Proof} - Can be found as expression $(3.7)$ in \cite{bandSDE}. 
+ \textit{Proof} - Can be found as expression $(3.7)$ in the proof of Lemma 9 \cite{bandSDE}. 
 
-\begin{boxt}{Lemma A.4} \label{lemma-a4} -) $\sum_y |B_{xy}|$ and $\sum_y |S_{xy}|$ have size $O(1)$. )
-
- Lemma 25 \cite{bandSDE} - For $|E|<2$ fixed and arbitrary $a, b$, we have: $$\sum_\alpha |(B_t)_{\alpha b}| + \sum_{\beta}|(B_t)_{a\beta}|\lesssim 1$$
+\begin{boxt}{Lemma A.4} \label{lemma-a4} - For $|E|<2$ fixed and arbitrary $a, b$, we have for $B_t  =(\text{Id} - tm(z)^2S)^{-1}$: $$\sum_\alpha |(B_t)_{\alpha b}| + \sum_{\beta}|(B_t)_{a\beta}|\lesssim 1$$
  \end{boxt}
+ \textit{Proof} - found as Lemma 25 in \cite{bandSDE}. Clearly it implies that $\sum_y |B_{xy}|$ and $\sum_y |S_{xy}|$ are $\lesssim 1$.  
+
+
  
   
 
@@ -2830,7 +2847,7 @@ for all $p\in \N$ and some constants $\mu_p$. Then, we have the bounds:
 If $X_i \prec Y_i$ for $i = 1,2,...,\ell$, then $\prod_{i=1}^{\ell} X_i \prec \prod_{i=1}^{\ell} Y_i$.
 \end{boxtheorem}
 \textit{Proof} - By definition, for any $\epsilon, D > 0$, there exist $N_{\epsilon,D,i}$ such that: $$\sup_{s\in S_N}\mathbb{P}\left(X_i(s) > N^{\epsilon/\ell} Y_i(s)\right) < N^{-(D+\log_N \ell)}$$ for all $N \geq N_{\epsilon,D,i}$. For the product, consider: $$\mathbb{P}\left(\prod_{i=1}^{\ell} X_i(s) > N^{\epsilon} \prod_{i=1}^{\ell} Y_i(s)\right).$$
-This event occurs only if at least one $X_i(s) > N^{\epsilon/\ell} Y_i(s)$. By the union bound: $$\mathbb{P}\left(\prod_{i=1}^{\ell} X_i(s) > N^{\epsilon} \prod_{i=1}^{\ell} Y_i(s)\right) \leq \sum_{i=1}^{\ell} \mathbb{P}\left(X_i(s) > N^{\epsilon/\ell} Y_i(s)\right) < \ell \cdot N^{-(D+\log_N \ell)} = N^{-D}$$ for all $N \geq \max_{i=1}^{\ell} N_{\epsilon,D,i}$.
+This event occurs only if at least one $X_i(s) > N^{\epsilon/\ell} Y_i(s)$. Then $\forall N \geq \max_{i=1}^{\ell} N_{\epsilon,D,i}$ by Boole's inequality: $$\mathbb{P}\left(\prod_{i=1}^{\ell} X_i(s) > N^{\epsilon} \prod_{i=1}^{\ell} Y_i(s)\right) \leq \sum_{i=1}^{\ell} \mathbb{P}\left(X_i(s) > N^{\epsilon/\ell} Y_i(s)\right) < \ell \cdot N^{-(D+\log_N \ell)} = N^{-D}$$ 
 \begin{boxtheorem}{Lemma A7: (Stochastic Domination Sum)}\label{lemma-a7}
 
 If $X_i \prec Y_i$ for $i = 1,2,...,\ell$, then $\sum_{i=1}^{\ell} X_i \prec \sum_{i=1}^{\ell} Y_i$.
@@ -2839,24 +2856,34 @@ If $X_i \prec Y_i$ for $i = 1,2,...,\ell$, then $\sum_{i=1}^{\ell} X_i \prec \su
 \subsection*{Resolvent estimates}
 
 
-\begin{boxt}{Lemma B.1} \label{lemma-b1}
+\begin{boxtheorem}{Lemma B.1} \label{lemma-b1}
 
 
 $$\sup_x \sum_y |G_{xy}|\lesssim W^{\frac{\delta_\sto}{20}}W^{\frac{1}{2}+\epsilon} \eta_s^{-\frac{3}{4}}$$
-\end{boxt}
-\textit{Proof} - (Result $4.5$ \cite{bandSDE})
+\end{boxtheorem}
+\textit{Proof} - can be found as result $4.5$ in \cite{bandSDE}.
 
-\begin{boxt}{Lemma B.2} \label{lemma-b2}
+\begin{boxtheorem}{Lemma B.2} \label{lemma-b2}
 
 $$\max_{x, y} |G_{xy} - \delta_{xy}m(z)|\lesssim W^{\frac{\delta_\sto}{20}}W^{-\frac{1}{2}} \eta_s^{-\frac{1}{4}}
 $$
-\end{boxt}
-\textit{Proof} - (Result $4.6$ \cite{bandSDE})
+\end{boxtheorem}
+\textit{Proof} - can be found as result $4.6$ in \cite{bandSDE}). 
 
 
-\subsubsection*{Off-diagonal $G_{xy}$ estimate}
+\begin{boxtheorem}{Lemma B.3 (Off-diagonal $G_{xy}$)} \label{lemma-b3} - Let $\max_x|G_t(z)_{xx}|\prec 1$ and $\max_{x\neq y}|G_t(z)_{xy}|\prec W^{-\delta}$ for some $\delta>0$. Then, for any fixed $t\in [0, 1]$:$$\max_{a\neq b} \frac{|G_t(z)_{ab}|^2}{(S^{1/2}T_t(z)S^{1/2})_{ab}+S_{ab}^{1/2}}\prec 1$$
 
-\subsection*{Diagonal $|G_{xx}-m(z)|$ estimate}
+\end{boxtheorem}
+\textit{Proof} - can be found as Lemma 12 in \cite{bandSDE}\label{lemma-b4}
+\begin{boxtheorem}{Lemma B.4 (On-diagonal $|G_{xx}-m(z)|$)} - Suppose the following two conditions for some $\delta>0$:$$\max_{a,b}|G_t(z)_{ab}-m(z)\delta_{ab}|\leq W^{-\delta}$$
+$$\max_{a\neq b}|G_t(z)_{ab}|\prec \max_{a, b}|(S^{1/2}T_t(z)S^{1/2})_{ab}|+\max_{a, b}|S_{ab}^{1/2}|$$
+Then, the following holds: $$\max_x |G_t(z)_{xx} - m(z)|^2\prec \max_{a, b}|S^{1/2}T_t(z)S^{1/2})_{ab}|+\max_{a,b}|S_{ab}^{1/2}|+W^{-1}$$
+
+\end{boxtheorem}
+\textit{Proof} - can be found as Lemma 13 in \cite{bandSDE}
+
+\newpage 
+\addcontentsline{toc}{section}{References}
 
 \begin{thebibliography}{99}
 
