@@ -1990,7 +1990,7 @@ $\mathcal{G}_{33, s}^{(1)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\be
 \overline{G_{x y}}G_{x\delta}G_{\gamma \beta}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \alpha} B_{u\gamma} S_{\gamma\delta} G_{\alpha \gamma}G_{\delta y}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
-For this graph, let us bound the edges $x\textcolor{red}{\rightarrow}y$, $\gamma\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$, s.t. after summing over the wavy lines in order of the indices $\beta, \alpha, v, u, \gamma$, we get a final bound: $\mathcal{G}_{33, s}^{(2)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+For this graph, let us bound the edges $x\textcolor{red}{\rightarrow}y$, $\gamma\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$, s.t. after summing over the wavy lines in order of the indices $\beta, \alpha, v, u, \gamma$, we get a bound:$\mathcal{G}_{33, s}^{(2)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -2047,7 +2047,7 @@ For this graph, let us bound the edges $x\textcolor{red}{\rightarrow}y$, $\gamma
 \overline{G_{x y}}G_{x\beta}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \delta}G_{\gamma \alpha} B_{u\gamma} S_{\gamma\delta} G_{\alpha \gamma}G_{\delta y}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
-Lastly, by bounding all of the red edges along with $\beta\textcolor{blue}{\rightarrow}\delta$, $\alpha\textcolor{blue}{\rightarrow}\gamma$, we get a combined estimate $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. This leaves us with a bound that looks like 
+Lastly, by bounding all of the red edges along with $\beta\textcolor{blue}{\rightarrow}\delta$, $\alpha\textcolor{blue}{\rightarrow}\gamma$, we get an estimate $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. This leaves us with a bound that looks like 
 $\mathcal{G}_{33, s}^{(3)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -2340,7 +2340,7 @@ In order to express the Quadratic Variation (QV) on the RHS, we will need to rew
 
 \end{tikzpicture}
 \end{center}
-If we are to approach the bounding in the same fashion as before, we will not get appropriate bounds. To see this, let us start by eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim W^{-1/2}$ per estimate $(E4)$, along with $O(\sqrt{dt})$ per the Brownian variance $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(E2)$ to all straight lines connected to $u$ and $v$, we get a combined term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{\delta_\sto/20}W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, each of the form $O\left(W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$ and $a+b=3$. We can easily observe that this gives us at most $W^{-\frac{3}{2}}$, which is not strong enough for the $W^{-\frac{7}{4}}$ coefficient in the bound, necessary for our proof. As such, we will have to approach $\E_t^{M, \sto}$ differently:
+If we are to approach the bounding in the same fashion as before, we will not get appropriate bounds. To see this, let us start by eliminating the wavy line for a term  $\sqrt{S_{uv}}\lesssim W^{-1/2}$ per estimate $(E4)$, along with $O(\sqrt{dt})$ per the Brownian variance $\mathbb{E}\left\vert dB_{uv}(t)\right\vert^2=dt$. We want to keep a connected component similar to before, so let WLOG this be the path $x'=\!= a=\!= x\textcolor{blue}{\longrightarrow }y=\!= b=\!= y'$. By applying estimate $(E2)$ to all straight lines connected to $u$ and $v$, we get a combined term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. To get to the the aforementioned path, we need to bound the $x'\textcolor{blue}{\rightarrow}y'$ using estimate $(1)$ (since the edge is not "free") with which we get a term $O(W^{\delta_\sto/20}W^{1/2}\eta_s^{-3/4})$. For what remains we will have to split three double lines into their respective $\text{Id}$ and $(t-s)\Theta_t$ components, yielding $2^3$ separate terms, each of the form $O\left(W^{\delta_{ab}}W^{-\frac{3}{2}}\eta_t^{-\frac{3a+2b}{2}}\eta_{s}^{\frac{5a+3b}{4}}\right)$, where $a, b\in \{0, 1, 2, 3\}$,  $a+b=3$, and $\delta_{ab}>0$ is $\lesssim\delta_\sto$. We can easily observe that this gives us at most $W^{-\frac{3}{2}}$, which is not enough for at least a coefficient of order $W^{-\frac{7}{4}}$ in the bound, necessary for our proof. As such, we will have to approach $\E_t^{M, \sto}$ differently:
 
 
 \subsubsection*{Alternative bound}
@@ -2420,7 +2420,22 @@ $$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] \lesssim W^{\frac{\delta_\sto}{10
 $$\lesssim W^{\frac{\delta_\sto}{10}}W^{-2} \max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \int_{\eta_t}^{\eta_0}\sigma^{-3}ds\lesssim W^{\frac{\delta_\sto}{10}}W^{-4} \eta_t^{-3}$$
 As for the last term: $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] \leq \int_0^{t\wedge \tau_\sto} \sum_u \|\Gamma^u\|_{op}\sum_y \Xi_{yy'}^uds\lesssim \int_0^{t\wedge \tau_\sto} W^{-1}\eta_s^{-3}W^{\delta_\sto/10}W^{-3}\eta_s^{-2}$$
 $$\lesssim W^{\frac{\delta_\sto}{10}-4}\int_{\eta_t}^{\eta_0}\sigma^{-5}\lesssim W^{\delta_\sto}W^{-4}\eta_t^{-4},$$
-we can observe that a naive bound of the sort we did for the last three terms is not sufficient ($\eta_s^{-4}$ instead of $\eta_s^{-3}$) , given that we do not have $(t-s)$ multiples. For this reason, the authors instead approach this term with an interpolation with a second bound \cite{bandSDE}. Namely: 
+we can observe that a naive bound of the sort we did for the last three terms is not sufficient ($\eta_s^{-4}$ instead of $\eta_s^{-3}$) , given that we do not have $(t-s)$ multiples. For this reason, the authors instead approach this term with an interpolation with a second bound \cite{bandSDE}. First, recall that:
+$$\E_t^{M, 14}(z)= \int_0^{t\wedge \tau_\sto}S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}$$
+By the fact that $S^{1/2}$ is an averaging operator (\hyperref[diffusion]{Sec. 4.1}), one can estimate: $$\left[\E_t^{M, 14}(z)\right] \leq \max_{\alpha, \beta}\left[\left\{\int_0^{\tau_\sto\wedge}S^{1/2} \sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}_{\alpha\beta}\right]=$$
+
+\begin{equation*}=\max_{\alpha\beta}\int_0^{\tau_\sto\wedge}\sum_{x, x', u, v}S^{\frac{1}{2}}_{\alpha x}S^{\frac{1}{2}}_{\alpha x'}\overline{G_{x\beta}}G_{x'\beta}G_{xu}\overline{G_{x'u}}S_{uv}|G_{v\beta}|^2ds=\tag{6.2}\end{equation*}
+$$=\max_{\alpha\beta}\int_0^{\tau_\sto\wedge}\sum_{x, x', u, v}\left(G^*S^{\frac{1}{2}, \alpha}GG^*S^{\frac{1}{2},\alpha}G\right)_{uu}S_{uv}|G_{v\beta}|^2ds$$
+By first applying the \hyperref[ward]{Ward identity} and the operator norm bound $\|G\|_{op}\leq \eta_s^{-1}$, we have: 
+$$\left(G^*S^{\frac{1}{2}, \alpha}GG^*S^{\frac{1}{2},\alpha}G\right)_{uu} = \eta_s^{-1}\left(G^*S^{\frac{1}{2}, \alpha}\text{Im}GS^{\frac{1}{2},\alpha}G\right)_{uu}\lesssim$$
+$$\lesssim \eta_s^{-1}\left\|\sqrt{S^{\frac{1}{2}, \alpha}}\im G\sqrt{S^{\frac{1}{2}, \alpha}}\right\|_{\mathrm{op}}(G^*S^{\frac{1}{2}, \alpha}G)_{uu}\lesssim$$
+$$\lesssim W^{-1}\eta_s^{-2}(G^*S^{\frac{1}{2}, \alpha}G)_{uu} = W^{-1}\eta_s^{-2}\sum_\gamma S^{\frac{1}{2}}_{\alpha\gamma}|G_{\gamma\beta}|^2$$
+Now, in both the display after $(6.2)$ and the one above we have terms of the form $S|G|^2$. 
+
+
+As such, we get a combined bound $$\left[\E_t^{M, 14}(z)\right] $$ 
+
+$$\lesssim \max_{\alpha, \beta}\int_0^{\tau_\sto\wedge t} W^{\frac{\delta_\sto}{10}}W^{-1}\eta_s^{\frac{1}{2}}$$
 
 
 \subsubsection*{Result}
@@ -2429,7 +2444,7 @@ $$\mathbb{P}\left(\left\vert \E_t^{M, 1j}(z)_{ab}\geq N^\delta [\E_t^{M, 1j}(z)_
 
 \subsection{Estimate for $\E_t^{S, \text{stop}}(z)$}
 
-Let us us continue using the notation $\eta_t = |\im w_t|$ and $\eta_s=|\im w_s|$ for brevity. Now, in order to bound the squared term $\E_t^{S, \sto}(z)$, we will use \hyperref[cor-a3]{Corollary A.3} of \hyperref[lemma-a2]{Lemma A.2} (Display $(3.7)$ and Lemma 23 in \cite{bandSDE}, respectively) to state the following  bound: $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy}+\sup_y \sum_x \{\text{Id}+(t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
+In order to bound the squared term $\E_t^{S, \sto}(z)$, we will use \hyperref[cor-a3]{Corollary A.3} of \hyperref[lemma-a2]{Lemma A.2} (Display $(3.7)$ and Lemma 23 in \cite{bandSDE}, respectively) to state the following  bound: $$\sup_x \sum_y \{\text{Id}+(t-s)\Theta_t\}_{xy}+\sup_y \sum_x \{\text{Id}+(t-s)\Theta_t\}_{xy} = 1+O(\eta_t^{-1}\eta_s)$$
 Then by Hölder's inequality and the bound above, we have: $$|\E_t^{S}(z)_{ab}|=\left\vert\int_0^{t\wedge \tau_\sto} \{\text{Id} + (t-s)\Theta_t\}\E_s^2(z) \{\text{Id} + (t-s)\Theta_t\}ds\right\vert \leq$$
 $$\leq \int \left[1+O(\eta_t^{-1}\eta_s)\right]^2 \max_{a, b}|\E_s(z)_{ab}^2|ds \lesssim \int_0^{\tau_\sto \wedge t} \max_{a, b}|\E_s(z)_{ab}^2|ds + \int_0^{\tau_\sto \wedge t}\eta_t^{-2}\eta_s^{2} \max_{a, b}|\E_s(z)^2_{ab}|ds$$
 We can bound $\max_{a, b}|\E_s(z)_{ab}^2|ds$ by using the definition of our stopping time. Since $s\leq \tau_\sto = \tau_{\sto, 1}\wedge \tau_{\sto, 2}$, by property of $\tau_{\sto, 1}$ and given a bound $N\leq W^{\frac{11}{8}-\nu}$ we have: $$\max_{a, b}|\E_s(z)_{ab}|<W^{\delta_\sto} W^{-\frac{3}{4}} \eta_s^{-1}\cdot W^{-1}\eta_s^{-\frac{1}{2}}$$

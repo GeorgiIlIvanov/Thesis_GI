@@ -12,15 +12,15 @@
 \contentsline {section}{\numberline {6}Bounds on Flow Terms}{18}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Estimate for $\mathcal {E}_t^{D, \text {stop}}(z)$}{19}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Estimate for $\mathcal {E}_t^{M, \text {stop}}(z)$}{34}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{39}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Proof of Theorems}{41}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Theorem 1 - Stopping time}{41}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Theorem 2 - Quantum Diffusion}{41}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Theorem 3 - Delocalization}{41}{subsection.7.3}%
-\contentsline {section}{\numberline {8}Non-Gaussian case}{42}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Lindeberg exchange strategy}{42}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Replacement}{43}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Derivatives of $F(tH_{ij})$}{47}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Continuity Argument}{51}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Five Moment Theorem}{53}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Appendix}{55}{section.9}%
+\contentsline {subsection}{\numberline {6.3}Estimate for $\mathcal {E}_t^{S, \text {stop}}(z)$}{40}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Proof of Theorems}{42}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Theorem 1 - Stopping time}{42}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Theorem 2 - Quantum Diffusion}{42}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Theorem 3 - Delocalization}{42}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Non-Gaussian case}{43}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Lindeberg exchange strategy}{43}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Replacement}{44}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Derivatives of $F(tH_{ij})$}{48}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Continuity Argument}{52}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Five Moment Theorem}{54}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Appendix}{56}{section.9}%
