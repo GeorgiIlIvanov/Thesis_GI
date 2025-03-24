@@ -2489,7 +2489,8 @@ $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{-\delta}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\
 
 \begin{boxtheorem}{Theorem 1: (Stopping time).} $\mathbb{P}[\tau_{\text{stop}, i} \neq  1] \lesssim_D N^{-D}$ for any $i=1, 2$ and $D > 0$.
 \end{boxtheorem}
-\textit{Proof} - By Boole's inequality
+\textit{Proof} - By Boole's inequality: $$\mathbb{P}\left[\tau_{\sto, 1}\neq 1\right]\leq \mathbb{P}[\left\{\tau_{\sto, 2}\neq 1\}\cap \{\tau_{\sto, 1=1}\}\right]+P[\tau_\sto=\tau_{\sto, 1}<1]$$
+On the event of the left term, we have $|\E_{\tau_\sto}(z)_{ab}|\geq W^{\delta_\sto}W^{-3/4}\eta_t^{-1}W^{-1}\eta_t^{-1/2}$ by our ear
 
 \subsection*{7.2 Theorem 2 - Quantum Diffusion}
 \begin{boxtheorem}{Theorem 2: (Quantum Diffusion)}
@@ -2497,13 +2498,21 @@ For $|E|<2$ fixed, assume $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\
 \end{boxtheorem}
 \textit{Proof} - 
 
-\subsection*{7.3 Theorem 3 - Delocalization}
+\subsection*{7.3 Theorem 3}
 \label{proof-deloc}
 \begin{boxtheorem}{Theorem 3}
 \noindent Assume $|E|<2$ is fixed and that $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq N^{8/11+\nu}$. Then:
 \begin{center}$\max_{x, y}|G_{xy} - \delta_{xy}m(z)|^2\prec W^{-1}\eta^{-\frac{1}{2}}$\end{center}
 \end{boxtheorem}
+\textit{Proof} - By Theorem 1 and the definition $(3.4.2)$ of $\tau_\sto$, we have that: $$\max_{x, y}|G_{xy} - \delta_{xy}m(z)|^2\prec \max_{a, b}(S^{1/2}T_1(z)S^{1/2})_{ab}+\max_{a, b}S_{ab}^{1/2}$$
+By Theorem 2 we showed above, \hyperref[lemma-a2]{Lemma A2}, and the behavior of $S^{1/2}$ as the averaging operator: $$\max_{a, b}T_1(z)_{ab}\prec W^{_1}\eta_1^{-1/2} = W^{-1}\eta^{-1/2}\Rightarrow \max_{ab}\left(S^{1/2}T_1(z)S^{1/2}\right)_{ab}\prec W^{-1}\eta^{-1/2}$$
+$$\Rightarrow \max_{x, y}|G_{xy} - \delta_{xy}m(z)|^2\prec  W^{-1}\eta^{-1/2}+W^{-1}\prec  W^{-1}\eta^{-1/2}$$
+\subsection*{7.4 Theorem 4 - Delocalization}
+\begin{boxtheorem}{Theorem 4: (Delocalization).}
+For any $\ell\ll N$ and fixed $\epsilon, \kappa, c>0$: $$\frac{|\mathcal{A}_{\epsilon, \ell, \kappa}|}{N}\lesssim \sqrt{\epsilon}+\mathcal{O}(N^{-c})$$
+\end{boxtheorem}
 \textit{Proof} - 
+
 
 
 \newpage
