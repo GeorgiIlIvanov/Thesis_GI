@@ -644,7 +644,7 @@ $$
 $$
 Observe that we can represent the first term with the diagrammatic notation defined earlier, whereas its complex conjugate has the exact same structure, with only the colors of the straight edges being flipped. Since this doesn't change the underlying estimates we have from the previous section, WLOG we can pick the first term and write it out as follows:
 
-\begin{center}
+\begin{center}\label{graph}
 
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -665,9 +665,9 @@ Observe that we can represent the first term with the diagrammatic notation defi
 \draw[red, ->] (x) to[bend right=47	] (y);
 \draw[blue, ->] (v) to[out=200, in=150, loop] (v);
 \end{tikzpicture}
-$$\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_s(z)}_{xy} G_s(z)_{xu} S_{uv} 
-\left[ G_s(z)_{vv} - m(z) \right] G_s(z)_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax} 
-$$
+\begin{equation*}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_s(z)}_{xy} G_s(z)_{xu} S_{uv} 
+\left[ G_s(z)_{vv} - m(z) \right] G_s(z)_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}  \tag{6}
+\end{equation*}
 \end{center}
 By applying the loop expansion at edge $v$, we get the following four subgraphs: 
 \begin{center}
@@ -1045,8 +1045,9 @@ This means that if we combine the diagram bound with the result above, we get:
 \begin{equation*}\max_{i=1, 2, 3, 4}|\mathcal{G}_{i0, s}|\lesssim W^{\delta_\sto/5}W^{-2+2\epsilon}\eta_t^{-3/2} + W^{\delta_\sto/5}W^{-2+2\epsilon}\eta_t^{-1}\eta_s^{1/2}\end{equation*}
 Lastly, we need to integrate over $s\in [0, t]$ by using a change of variable $\sigma =\eta_s$, s.t. the bounds of the integral are $\sigma\in [\eta_t, \eta_0]$:
 $$\max_{i=1, 2, 3, 4} \int_0^{t\wedge \tau_\sto}|\mathcal{G}_{i0, s}|ds\lesssim W^{\frac{\delta_\sto}{5}+2\epsilon} W^{-2}\eta_t^{-3/2} \int_{\eta_t}^{\eta_0}d\sigma + W^{\frac{\delta_\sto}{5}+2\epsilon}W^{-2}\eta_t^{-1}\int_{\eta_t}^{\eta_0}\sigma^{-1/2}d\sigma $$
-\begin{equation*}\max_{i=1, 2, 3, 4} \int_0^{t\wedge \tau_\sto}|\mathcal{G}_{i0, s}|ds\lesssim W^{\frac{\delta_\sto}{5}+2\epsilon} W^{-2}\eta_t^{-\frac{3}{2}}\tag{6.2}\end{equation*}
-
+\begin{equation*}\max_{i=1, 2, 3, 4} \int_0^{t\wedge \tau_\sto}|\mathcal{G}_{i0, s}|ds\lesssim W^{\frac{\delta_\sto}{5}+2\epsilon} W^{-2}\eta_t^{-\frac{3}{2}}\lesssim W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}},\tag{6.2}\end{equation*}
+since $\frac{\delta_\sto}{5}+2\epsilon$ is arbitrarily small. 
+\newpage
 \subsubsection*{Size estimates for $\mathcal{G}_{11, s}$}
 In order to represent $B_{u\gamma} S_{\gamma\delta} G_{x_i\gamma}(G_{\delta\delta}-m)G_{\gamma y_i} f(G)$, we need to add the two new vertices $\gamma$ and $\delta$:
 \begin{center}
@@ -1317,7 +1318,7 @@ $\lesssim W^{\delta_\sto/10}W^{2\epsilon}\eta_t^{-3/2}\eta_s^{\frac{1}{2}} + W^{
 Multiplying this by $W^{\delta_\sto/5} W^{-2}\eta_s^{-1}$ results in the following bound:
 $$\max_{i=1, \cdots, 4}| \mathcal{G}_{i1, s}|\lesssim W^{\frac{3\delta_\sto}{10}}W^{-2+2\epsilon}\eta_t^{-3/2}\eta_s^{-1/2}+W^{\frac{3\delta_\sto}{10}}W^{-2+\epsilon}\eta_t^{-1}\eta_s^{-1}$$
 Following the same change of variables and integration, while also noting the fact that $\eta_0\lesssim 1$, gives us:
-$$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t}|\mathcal{G}_{i1, a}|ds\lesssim W^{\frac{3\delta_\sto}{10}}W^{-2+2\epsilon}\eta_t^{-3/2}\int_{\eta_t}^{\eta_0}\sigma^{-1/2}d\sigma + W^{\frac{3\delta_\sto}{10}+\epsilon}W^{-2}\eta_t^{-1}\int_{\eta_t}^{\eta_0}\sigma^{-1}d\sigma\lesssim$$
+$$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t\wedge \tau_\sto}|\mathcal{G}_{i1, a}|ds\lesssim W^{\frac{3\delta_\sto}{10}}W^{-2+2\epsilon}\eta_t^{-3/2}\int_{\eta_t}^{\eta_0}\sigma^{-1/2}d\sigma + W^{\frac{3\delta_\sto}{10}+\epsilon}W^{-2}\eta_t^{-1}\int_{\eta_t}^{\eta_0}\sigma^{-1}d\sigma\lesssim$$
 $$\lesssim W^{\frac{3\delta_\sto}{10}}W^{-2+2\epsilon}\eta_t^{-3/2}\eta_0^{-1}-W^{\frac{3\delta_\sto}{10}}W^{-2+2\epsilon}\eta_t^{-1}+W^{\frac{3\delta_\sto}{10}+\epsilon}W^{-2}\eta_t^{-1}\ln \eta_0-W^{\frac{3\delta_\sto}{10}+\epsilon}W^{-2}\eta_t^{-1}\ln \eta_t$$
 $$\lesssim W^{\delta'}W^{-2}\eta_t^{-3/2}\lesssim W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}},$$
 since $\delta' = \frac{3\delta_\sto}{10}+2\epsilon>0$ is arbitrarily small. 
@@ -2249,7 +2250,10 @@ $\mathcal{G}_{43, s}^{(3)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\be
 
 \end{tikzpicture}. With this, we have verified that all the partial derivative terms satisfy the estimate $O(W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}})$. 
 \subsubsection*{Combined bound}
-How does Lemma 20 imply $\E^D_t$ is controlled?
+All of the latter graph expansions allowed us to confirm the following result: $$\max_{a,b}\max_{i=1, \cdots, 4}\max_{j=0, 1, 2, 3} \left\vert \int_0^{t\wedge \tau_\sto}\mathcal{G}_{ij, s}(z)_{ab}ds\right\vert\lesssim W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}}$$
+It is important to note that so far we have been working with the loop and regular vertex expansions without the regularization terms. Their bounds require more technical tools that work with isotropic bounds on graph modifications, and as such was outside the scope of this thesis. We simply state that the implication of their result (Lemma 22 \cite{bandSDE}) is within the stochastic bound we established above. As such, we can conclude that when we integrate the graph \hyperref[graph]{$(6)$} we started with over $s\in [0, t\wedge \tau_\sto]$ is $\prec W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}}$, given that all of the component terms in its sum expansion are of that order. Observe that everything we did applies WLOG to its conjguate, given that all of the bounds are the same. This in fact means that: $$\max_{a, b}\left\vert \int_0^{\tau_\sto\wedge t} \{\text{Id} + (t-s)\Theta_t\} S^{1/2}\Omega_s(z)S^{1/2} \{\text{Id} + (t-s)\Theta_t\}ds\right\vert \prec W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}}$$
+\textcolor{red}{Hence, by a standard net argument}
+
 
 \subsection{Estimate for $\E_t^{M, \text{stop}}(z)$}
 
