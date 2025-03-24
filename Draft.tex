@@ -2575,7 +2575,7 @@ where $H_{N, N}^G, \cdots, H_{i, j+1}^G,  H_{ij}^G$ are the Gaussian replacement
 \begin{enumerate}[label=(8.1.\arabic*),align=left, leftmargin=30pt, labelwidth=25pt, labelsep=5pt]\label{8.1.1}
 \item $\mathbb{E}\left[H_{ij}^\ell \left(\overline{H}_{ij}\right)^{k-\ell}\right] = \mathbb{E}\left[\left(H_{ij}^G\right)^\ell \left(\overline{H}_{ij}^G\right)^{k-\ell}\right], \quad 0\leq \ell\leq k\leq 5$\label{8.1.2}
 \item $\forall q\geq 1, \quad \mathbb{E}\left\vert H_{xy}\right\vert ^{2q}\prec W^{-q}$
-\item $|G_{xy}|\prec 1$ and $|G_{xy}-\delta_{xy}m(z)|\prec 1$ \label{8.1.3}
+\item $\max_x|G_t(z){xx}|\prec 1$ and $\max_{x\neq y}|G_t(z){xy}|\prec W^{-\delta}$ for some $\delta>0$. \label{8.1.3}
 \end{enumerate}
 \end{boxt}
 The first condition $(8.1.1)$ is the $\textit{Five Moment}$ matching assumption that gives the name of our result. The second $(8.1.2)$ is a moment decay condition that allows us to relax the Gaussian assumption, while still providing sufficient strength of our bounds. However, we still have to verify that each consecutive replacement is manageable. For this, we will construct a continuity argument, assuming only very crude resolvent bounds $(8.1.3)$. As a first step, let us define the interpolation for $t\in [0, 1]$ at entries $(ij)$ and $(ji)$, where with slight abuse of notation, we let:
