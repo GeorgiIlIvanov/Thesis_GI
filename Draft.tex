@@ -2489,14 +2489,18 @@ $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{-\delta}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\
 
 \begin{boxtheorem}{Theorem 1: (Stopping time).} $\mathbb{P}[\tau_{\text{stop}, i} \neq  1] \lesssim_D N^{-D}$ for any $i=1, 2$ and $D > 0$.
 \end{boxtheorem}
-\textit{Proof} - By Boole's inequality: $$\mathbb{P}\left[\tau_{\sto, 1}\neq 1\right]\leq \mathbb{P}[\left\{\tau_{\sto, 2}\neq 1\}\cap \{\tau_{\sto, 1=1}\}\right]+P[\tau_\sto=\tau_{\sto, 1}<1]$$
-On the event of the left term, we have $|\E_{\tau_\sto}(z)_{ab}|\geq W^{\delta_\sto}W^{-3/4}\eta_t^{-1}W^{-1}\eta_t^{-1/2}$ by our ear
+\textit{Proof} - By Boole's inequality: $$\mathbb{P}\left[\tau_{\sto, 1}\neq 1\right]\leq \mathbb{P}[\left\{\tau_{\sto, 2}\neq 1\}\cap \{\tau_{\sto, 1=1}\}\right]+\mathbb{P}[\tau_\sto=\tau_{\sto, 1}<1]$$
+For any $\mathcal{A}\in \{\tau_\sto = \tau_{\sto, 1}<1\}$, we have $|\E_{\tau_\sto}(z)_{ab}|\geq W^{\delta_\sto}W^{-3/4}\eta_t^{-1}W^{-1}\eta_t^{-1/2}$. By definition of the stopped SDE, we have $\E_{\tau_\sto}(z) = \E_{\tau_\sto}^{\sto}(z)$, i.e: $$\mathbb{P}\left[\tau_\sto = \tau_{\sto, 1}<1\right]\leq \mathbb{P}\left[\max_{t\in [0, 1]}\max_{a, b}\frac{|\E_t^{M, \sto}(z)_{ab}|}{W^{-\frac{3}{4}}\eta_t^{-\frac{3}{4}}W^{-1}\eta_t^{-\frac{1}{2}}}\geq W^{\delta_\sto}\right]$$
+By our theorems $6.1$ through $6.3$ in the last section applied to the RHS, we know from the definition of stochastic domination that for any $D>0$: 
+$$\mathbb{P}\left[ \tau_\sto = \tau_{\sto, 1}<1\right]\leq C_DN^{-D}$$
+Those same theorems imply that $$\max_{t\in [0, 1]}\max_{a, b}\frac{|\E_t^{M, \sto}(z)_{ab}|}{W^{\delta_\sto}W^{-\frac{3}{4}}\eta_t^{-\frac{3}{4}}W^{-1}\eta_t^{-\frac{1}{2}}}$$
 
 \subsection*{7.2 Theorem 2 - Quantum Diffusion}
 \begin{boxtheorem}{Theorem 2: (Quantum Diffusion)}
 For $|E|<2$ fixed, assume $\exists \nu>0$, s.t. $\eta \asymp W^2 N^{-2}$ and $W\geq W^{8/11+\nu}$. Then: $$\max_{x, y}|T_{xy}-\Theta_{xy}|\prec W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$$
 \end{boxtheorem}
-\textit{Proof} - 
+\textit{Proof} - By the previous theorem and the definition of stopping time, we know that $$\max_{a,b}|\E_1(z)_{ab}|\prec W^{-\frac{7}{4}} \eta_1^{-\frac{3}{2}}$$
+But recall by our flow construction that $\eta_1=\eta$ and by extension, $T_1=T$ and $\Theta_1=\Theta$, meaning that: $$\max_{a,b}|\E_1(z)_{ab}| =\max_{x, y}|T_{xy}-\Theta_{xy}|\prec W^{-\frac{7}{4}}\eta^{-\frac{3}{2}}$$
 
 \subsection*{7.3 Theorem 3}
 \label{proof-deloc}
