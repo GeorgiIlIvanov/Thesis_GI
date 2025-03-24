@@ -1312,14 +1312,15 @@ $\max_{i=1, \cdots, 4} \mathcal{G}_{i1, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_
 \end{tikzpicture}
 \end{array}\right.$
 \end{center}
-Observe that the latter subgraphs are almost identical to the one we calculate for the $\mathcal{G}_{i0, s}$ estimates with the addition of a solid line. This means that we have to multiply our $(6.1)$ bound by an additional term $W^{\frac{1}{2}+\epsilon}\eta_s^{-3/4}$ from estimate $(E1)$ (and the fact that $\eta_0\lesssim 1$):
-$$\max_{i=1, \cdots, 4}| \mathcal{G}_{i1, s}|\lesssim W^{\delta_\sto/4}W^{-2+2\epsilon}\eta_t^{-3/2}\eta_s^{-1/2}+W^{\delta_\sto/4+\epsilon}W^{-2}\eta_t^{-1}\eta_s^{-1}$$
-$$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t}|\mathcal{G}_{i1, a}|ds\lesssim W^{\delta_\sto/4}W^{-2+2\epsilon}\eta_t^{-3/2}\int_{\eta_t}^{\eta_0}\sigma^{-1/2}d\sigma + W^{\delta_\sto/4+\epsilon}W^{-2}\eta_t^{-1}\int_{\eta_t}^{\eta_0}\sigma^{-1}d\sigma\lesssim$$
-$$\lesssim W^{\delta_\sto/4}W^{-2+2\epsilon}\eta_t^{-3/2}\eta_0^{-1}-W^{\delta_\sto/4}W^{-2+2\epsilon}\eta_t^{-1}+$$
-$$+W^{\delta_\sto/4+\epsilon}W^{-2}\eta_t^{-1}\ln \eta_0-W^{\delta_\sto/4+\epsilon}W^{-2}\eta_t^{-1}\ln \eta_t$$
+Observe that the latter subgraphs are almost identical to the one we calculate for the $\mathcal{G}_{i0, s}$ estimates with the addition of a solid line. This means that we have to multiply our $(6.1)$ bound by an additional term $O(W^{\delta_\sto/20}W^{\frac{1}{2}+\epsilon}\eta_s^{-3/4})$ from estimate $(E1)$ to get a bound on the graph that is
+$\lesssim W^{\delta_\sto/10}W^{2\epsilon}\eta_t^{-3/2}\eta_s^{\frac{1}{2}} + W^{\delta_\sto/10}W^{\epsilon}\eta_t^{-1}$
+Multiplying this by $W^{\delta_\sto/5} W^{-2}\eta_s^{-1}$ results in the following bound:
+$$\max_{i=1, \cdots, 4}| \mathcal{G}_{i1, s}|\lesssim W^{\frac{3\delta_\sto}{10}}W^{-2+2\epsilon}\eta_t^{-3/2}\eta_s^{-1/2}+W^{\frac{3\delta_\sto}{10}}W^{-2+\epsilon}\eta_t^{-1}\eta_s^{-1}$$
+Following the same change of variables and integration, while also noting the fact that $\eta_0\lesssim 1$, gives us:
+$$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t}|\mathcal{G}_{i1, a}|ds\lesssim W^{\frac{3\delta_\sto}{10}}W^{-2+2\epsilon}\eta_t^{-3/2}\int_{\eta_t}^{\eta_0}\sigma^{-1/2}d\sigma + W^{\frac{3\delta_\sto}{10}+\epsilon}W^{-2}\eta_t^{-1}\int_{\eta_t}^{\eta_0}\sigma^{-1}d\sigma\lesssim$$
+$$\lesssim W^{\frac{3\delta_\sto}{10}}W^{-2+2\epsilon}\eta_t^{-3/2}\eta_0^{-1}-W^{\frac{3\delta_\sto}{10}}W^{-2+2\epsilon}\eta_t^{-1}+W^{\frac{3\delta_\sto}{10}+\epsilon}W^{-2}\eta_t^{-1}\ln \eta_0-W^{\frac{3\delta_\sto}{10}+\epsilon}W^{-2}\eta_t^{-1}\ln \eta_t$$
 $$\lesssim W^{\delta'}W^{-2}\eta_t^{-3/2}\lesssim W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}},$$
-since $\delta' = \frac{\delta_\sto}{4}+2\epsilon>0$ is arbitrarily small. 
-\newpage
+since $\delta' = \frac{3\delta_\sto}{10}+2\epsilon>0$ is arbitrarily small. 
 \subsubsection*{Size estimates for $\mathcal{G}_{12, s}$}
 Following the regular vertex expansion, we have to now represent each of the subgraphs that has the form $\mathcal{G}_{i2, s}=B_{u\gamma} S_{\gamma \delta} G_{x_i\delta} (G_{\gamma\gamma}-m)G_{\delta y_i} f(G)$. By applying the graphical representation we get: 
 \begin{center}
@@ -2045,8 +2046,8 @@ For this graph, let us bound the edges $x\textcolor{red}{\rightarrow}y$, $\gamma
 \overline{G_{x y}}G_{x\beta}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \delta}G_{\gamma \alpha} B_{u\gamma} S_{\gamma\delta} G_{\alpha \gamma}G_{\delta y}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
-Lastly, by bounding all of the red edges along with $\beta\textcolor{blue}{\rightarrow}\delta$, $\alpha\textcolor{blue}{\rightarrow}\gamma$, we get a combined estimate $O(W^{-2}\eta_s^{-1})$. This leaves us with a bound that looks like 
-$\mathcal{G}_{33, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $
+Lastly, by bounding all of the red edges along with $\beta\textcolor{blue}{\rightarrow}\delta$, $\alpha\textcolor{blue}{\rightarrow}\gamma$, we get a combined estimate $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. This leaves us with a bound that looks like 
+$\mathcal{G}_{33, s}^{(3)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -2061,12 +2062,11 @@ $\mathcal{G}_{33, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
 \draw[blue, ->](x) to (beta);
-\draw [wavy, red] (beta) to (delta);
+\draw [wavy, orange] (beta) to (delta);
 \draw[blue, ->] (delta) to (y);
 
-\end{tikzpicture}, 
-where the red wavy line represents a sequence of black and blue wavy lines (specifically those starting at the indices $\beta, \alpha, v, u, \gamma$. And since we already showed that estimation of these subgraphs doesn't change with extra wavy lines per the $O(1)$ contribution from estimate $(5)$, this set of subgraphs is also $O(W^{-2}\eta_t^{-3/2})$  as the ones before. 
-
+\end{tikzpicture}, which clearly gives for this set of subgraphs the same bound $O(W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}})$ as the ones before. 
+ 
 
 
 \subsubsection*{Size estimate for $\mathcal{G}_{43, s}^{(1)}$}
@@ -2107,8 +2107,8 @@ where the red wavy line represents a sequence of black and blue wavy lines (spec
 \overline{G_{x \gamma}G_{\delta y}}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \alpha}G_{\alpha y} B_{u\gamma} S_{\gamma\delta} G_{x\gamma}G_{\delta \beta}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
-By bounding all the blue edges, getting a $O(W^{-1/2}\eta_s^{-1/4})$ term and subsequently summing over the wavy lines in order $\beta,\alpha, v, u, \gamma$, the resulting estimate is 
-$\mathcal{G}_{43, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+Bounding all the blue edges for $O(W^{\delta_\sto/20}W^{-1/2}\eta_s^{-1/4})$ and then summing over the wavy lines in order $\beta,\alpha, v, u, \gamma$, results in estimate:
+$\mathcal{G}_{43, s}^{(1)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -2122,7 +2122,7 @@ $\mathcal{G}_{43, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
 \draw[red, ->](x) to (gamma);
-\draw[wavy] (gamma) to (delta);
+\draw[wavy, orange] (gamma) to (delta);
 \draw[red, ->] (delta) to (y);
 
 \end{tikzpicture}
@@ -2170,8 +2170,8 @@ $\mathcal{G}_{43, s}^{(1)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 
-\noindent Bounding $\gamma\textcolor{blue}{\rightarrow}\alpha$, $\delta\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\delta$ and $x\textcolor{red}{\rightarrow}y$ for a combined $O(W^{-2}\eta_s^{-1})$ term, and summing over $\beta, \alpha, v, u$, we get:
-$\mathcal{G}_{43, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $
+\noindent Bounding $\gamma\textcolor{blue}{\rightarrow}\alpha$, $\delta\textcolor{blue}{\rightarrow}\beta$, $\beta\textcolor{blue}{\rightarrow}\delta$ and $x\textcolor{red}{\rightarrow}y$ for a combined $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$ term, and summing over $\beta, \alpha, v, u$, yields the all-too familiar bound:
+$\mathcal{G}_{43, s}^{(2)}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -2186,7 +2186,7 @@ $\mathcal{G}_{43, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $
 \draw[thick, double] (a) -- (x);
 \draw[thick, double] (y) -- (b);
 \draw[blue, ->](x) to (gamma);
-\draw [wavy, red] (gamma) to (alpha);
+\draw [wavy, orange] (gamma) to (alpha);
 \draw[blue, ->] (alpha) to (y);
 
 \end{tikzpicture}
@@ -2231,8 +2231,8 @@ $\mathcal{G}_{43, s}^{(2)}\lesssim W^{-2}\eta_s^{-1}\times $
 \overline{G_{x y}}S_{uv} B_{v\alpha}S_{\alpha \beta} G_{\beta \alpha}G_{\alpha \delta}G_{\gamma y} B_{u\gamma} S_{\gamma\delta} G_{x\gamma}G_{\delta \beta}
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
-Here, we bound the edges $\alpha\textcolor{blue}{\rightarrow}\delta$, $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$,  and $\delta\textcolor{blue}{\rightarrow}\beta$ for a combined term $O(W^{-2}\eta_s^{-1})$. After summing out $\beta, \alpha, v, u, \delta$ in that order, we get 
-$\mathcal{G}_{43, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
+Here, we bound the edges $\alpha\textcolor{blue}{\rightarrow}\delta$, $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$,  and $\delta\textcolor{blue}{\rightarrow}\beta$ for a combined term $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. After summing out $\beta, \alpha, v, u, \delta$ in that order, we get 
+$\mathcal{G}_{43, s}^{(3)}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
     ]
@@ -2247,8 +2247,9 @@ $\mathcal{G}_{43, s}^{(3)}\lesssim W^{-2}\eta_s^{-1}\times $\begin{tikzpicture}[
 \draw[blue, ->](x) to (gamma);
 \draw[blue, ->] (gamma) to (y);
 
-\end{tikzpicture}. With this, we have in fact verified that all of the partial derivative terms satisfy the estimate:$O(W^{-2}\eta_t^{-3/2})$. 
+\end{tikzpicture}. With this, we have verified that all the partial derivative terms satisfy the estimate $O(W^{-\frac{3}{4}}\eta_t^{-1}W^{-1}\eta_t^{-\frac{1}{2}})$. 
 \subsubsection*{Combined bound}
+How does Lemma 20 imply $\E^D_t$ is controlled?
 
 \subsection{Estimate for $\E_t^{M, \text{stop}}(z)$}
 
@@ -2467,7 +2468,7 @@ $$|\E_t^{S, \sto}(z)_{ab}|\lesssim W^{-\delta}\cdot W^{-\frac{3}{4}}\eta_t^{-1}\
 
 \section{Non-Gaussian case}
 \label{sec:non-gaussian}
-Up to this point, the work presented on band matrices has been focused exclusively on the case with Gaussian entries. Given that the delocalization behavior is conjectured to extend beyond this restriction, the goal for the last section of this thesis will be to do exactly that, by proving a \textit{Five Moment} matching theorem with the help of the Lindeberg exchange strategy:
+Up to this point, the work presented on band matrices has been focused exclusively on the case with Gaussian entries. Given that the delocalization behavior is conjectured to extend beyond this restriction, the goal for the last section of this thesis will be to do exactly that, by proving a \textit{Five Moment Theorem} for RBMs with the help of the Lindeberg exchange strategy:
 
 
 \subsection{Lindeberg exchange strategy}
