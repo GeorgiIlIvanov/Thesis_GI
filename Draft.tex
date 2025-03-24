@@ -2532,7 +2532,7 @@ Up to this point, the work presented on band matrices has been focused exclusive
 
 
 \subsection{Lindeberg exchange strategy}
-This method was developed by Lindeberg in his seminal proof for the generalized CLT \cite{lindeberg} and later generalized by Chatterjee \cite{chatterjee}. The argument proceeds as follows \cite{tao}: Suppose that $X_1, \cdots, X_n\sim [\mu, 1]$ are i.i.d, and let $Y_1, \cdots, Y_n\sim[\mu, 1]$ be another such set. One would like to show that for any smooth, compactly supported function $F$: $$\mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right) = \mathbb{E}F\left(\frac{Y_1+\cdots+Y_n}{\sqrt{n}}\right)+o(1)$$
+This method was developed by Lindeberg in his seminal proof for the generalized CLT \cite{lindeberg} and later extended by Chatterjee \cite{chatterjee}. The argument proceeds as follows \cite{tao}: Suppose that $X_1, \cdots, X_n\sim [\mu, 1]$ are i.i.d, and let $Y_1, \cdots, Y_n\sim[\mu, 1]$ be another such set. One would like to show that for any smooth, compactly supported function $F$: $$\mathbb{E}F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right) = \mathbb{E}F\left(\frac{Y_1+\cdots+Y_n}{\sqrt{n}}\right)+o(1),$$
 by swapping the entries one at a time, with the latter being the key step in this argument.  Define
 $S= \frac{X_1+\cdots+X_{n-1}}{\sqrt{n}}$, where clearly $ \frac{X_1+\cdots+X_n}{\sqrt{n}}=S+n^{-1/2}X_n $. Using the smoothness and compact support of $F$, we can apply the Taylor expansion around $S$: $$F\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\right)=F(S)+n^{-1/2}X_nF'(S)+\frac{1}{2}n^{-1}X_n^2 F''(S) + O(n^{-3/2}|X_n|^3)$$
 By taking the expectation, we get: 
@@ -2548,7 +2548,7 @@ This strategy has been extended to the case of independent Wigner matrices $M_n,
 
 \subsection*{Four Moment Theorem for Green's function}
 Let $M_n, M_n'$ be two Wigner random matrices satisfying the following condition: $$P(|(M_n)_{ij}|\geq t^C)\leq \exp(-t)$$
-for all $1\leq i, j\leq n$ and $t\geq C'$ for some constants $C, C'$, independent of $i, j$ and $n$. Furthermore, assume that $M_n$ and $M_n'$ match in moments up to order 4 off the diagonal and up to order 2 on the diagonal for some sufficiently large $C_0$. Let $z = E + i\eta$ for some $E \in \mathbb{R}$ and some $\eta > 0$. We assume the level repulsion hypothesis that for any $c > 0$, one has with high probability that
+for all $1\leq i, j\leq n$ and $t\geq C'$ for some constants $C, C'$, independent of $i, j$ and $n$. Furthermore, assume that $M_n$ and $M_n'$ match in moments up to order 4 off the diagonal and up to order 2 on the diagonal for some sufficiently large $C_0$. Let $z = E + i\eta$ for some $E \in \mathbb{R}$ and some $\eta > 0$. Additionally, assume the level repulsion hypothesis, i.e that for any $c > 0$, one has with high probability that:
 \begin{equation*}
     \inf_{1 \leq i \leq n} |\lambda_i(\sqrt{n}M_n) - nz| \geq n^{-c}
 \end{equation*}
@@ -2556,7 +2556,7 @@ for all $1\leq i, j\leq n$ and $t\geq C'$ for some constants $C, C'$, independen
     \inf_{1 \leq i \leq n} |\lambda_i(\sqrt{n}M_n') - nz| \geq n^{-c}.
 \end{equation*}
 
-\noindent Let $1 \leq p,q \leq n$. Then for any smooth function $G: \mathbb{C} \to \mathbb{C}$ obeying the bounds $\nabla^j G(x) = O(1)$ for all $x \in \mathbb{C}$ and $0 \leq j \leq 5$, the theorem states that for some constant $c_0 > 0$ independent of $n$, we have:
+\noindent Let $1 \leq p,q \leq n$. Then for any smooth function $G: \mathbb{C} \to \mathbb{C}$ obeying the bounds $\nabla^j G(x) = O(1)$ for all $x \in \mathbb{C}$ and $0 \leq j \leq 5$, the theorem states that for some constant $c_0 > 0$ independent of $n$:
 \begin{equation*}
     \mathbb{E} G \left( \left( \frac{1}{\sqrt{n}} M_n - zI \right)^{-1}_{pq} \right)
     - \mathbb{E} G \left( \left( \frac{1}{\sqrt{n}} M_n' - zI \right)^{-1}_{pq} \right)
@@ -2566,7 +2566,7 @@ for all $1\leq i, j\leq n$ and $t\geq C'$ for some constants $C, C'$, independen
 
 
 \subsection{Replacement}
-The goal for the remainder of this thesis is to prove a theorem, similar to the one above, for the delocalization of RBMs with a relaxation on the Gaussian assumption. Recall that at the root of the Lindeberg exchange strategy is to establish stochastic control at each step of a replacement. While we are working with matrices instead of of vectors of random variables, the notion of replacement naturally extends when we consider a lexicographic ordering of the indices. Similar to how we swapped $X_n$ with $Y_n$, in this context we will also start with $H_{NN}$. We will work our way backwards by replacing consecutively $H_{N, N-1}, \cdots,H_{i, j+1},  H_{ij}, H_{i, j-1}\cdots$.  As such, at step $(i, j)$ of the replacement (accounting for the Hermitian constraint), we will have the following two matrices, represented in lexicographic vector form:
+The goal for the remainder of this thesis is to prove a theorem, similar to the one above, for the delocalization of RBMs with a relaxation on the Gaussian assumption. Recall that at the root of the Lindeberg exchange strategy is the stochastic control at each step of replacement. While we are working with matrices instead of vectors of random variables, the notion of replacement naturally extends when we consider a lexicographic ordering of the indices. Similar to how we swapped $X_n$ with $Y_n$, in this context we will also start with $H_{NN}$. We will work our way backwards by replacing consecutively $H_{N, N-1}, \cdots,H_{i, j+1},  H_{ij}, H_{i, j-1}\cdots$.  As such, at step $(i, j)$ of the replacement (accounting for the Hermitian constraint), we will have the following two matrices, represented in lexicographic vector form:
 $$H^{(i, j)}=(H_{11}, \cdots H_{i, j-1}, H_{ij}, H_{i, j+1}^G, \cdots, H_{NN}^G)$$
 $$H^{(i, j), G}=(H_{11}, \cdots H_{i, j-1}, H_{ij}^G, H_{i, j+1}^G, \cdots, H_{NN}^G),$$
 where $H_{N, N}^G, \cdots, H_{i, j+1}^G,  H_{ij}^G$ are the Gaussian replacement entries, matching in the sense of $(8.1.1)$ :
@@ -2578,7 +2578,7 @@ where $H_{N, N}^G, \cdots, H_{i, j+1}^G,  H_{ij}^G$ are the Gaussian replacement
 \item $\max_x|G(z)_{xx}|\prec 1$ and $\max_{a, b}|G(z)_{ab}-m(z)\delta_{ab}|\prec W^{-\delta}$ for some fixed $\delta>0$. \label{8.1.3}
 \end{enumerate}
 \end{boxt}
-The first condition $(8.1.1)$ is the $\textit{Five Moment}$ matching assumption that gives the name of our result. The second $(8.1.2)$ is a moment decay condition that is standard in the context of RMT ($5.6$ in \cite{dynamic}) and will allow us to relax the Gaussian assumption, while still providing sufficient strength of our bounds. The last condition assumes weak a priori on- and off-diagonal estimates, in line with what the conditions were for Lemma B.3 and B.4. We will use them to verify that each consecutive replacement is manageable by constructing a continuity argument. As a first step, let us define the interpolation for $t\in [0, 1]$ at entries $(ij)$ and $(ji)$, where with slight abuse of notation, we let:
+The first condition $(8.1.1)$ is the $\textit{Five Moment}$ matching assumption that gives the name of our result. The second $(8.1.2)$ is a moment decay condition that is standard in the context of RMT ($5.6$ in \cite{dynamic}) and will allow us to relax the Gaussian assumption, while still providing sufficient strength of our bounds. The last condition assumes weak a priori on- and off-diagonal estimates, in line with what the conditions were for Lemma B.3 and B.4. We will use them to verify that each consecutive replacement is manageable by constructing a continuity argument. As a first step, let us define the interpolation for $t\in [0, 1]$ at entries $(ij)$ and $(ji)$, where with slight abuse of notation:
 $$tH_{ij} = H^{(i, j)}[H_{ij}, H_{ji}\mapsto t H_{ij}, tH_{ji}]$$
 $$tH_{ij}^{G} = H^{(i, j),G}[H^G_{ij}, H^G_{ij}\mapsto t H^G_{ij}, t H^{G}_{ij}].$$
 Whenever the replacement step $(i, j)$ is implicit from context, we will drop the superscript. In order to make our theorem applicable to the context of delocalization, we want to consider the following function: 
@@ -2641,17 +2641,18 @@ $$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\mathbb{E}\left[\parti
 $$=\sum_{k=1}^t\frac{1}{k!}\sum_{\ell=0}^k \binom{k}{\ell}\mathbb{E}\left[\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{k-\ell} F(0) \right]\left\{\mathbb{E}\left[H_{ij}^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]-\mathbb{E}\left[(H_{ij}^G)^\ell \left(\overline{H_{ij}}\right)^{k-\ell}\right]\right\}=0$$
 by condition $(8.1.1)$. This means that:
 $$\mathbb{E}\left[F(tH_{ij})-F(tH_{ij}^G)\right]=\frac{1}{720} \mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]-\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]$$
-This means that by the Hölder' and the triangle inequalities: 
+By the Hölder' and the triangle inequality: 
 $$\left\vert \mathbb{E}\left[ F(H_{ij}) - F(H_{ij}^G)\right] \right\vert\leq \frac{1}{720} \left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right]\right\vert+\frac{1}{720}\left\vert\mathbb{E}\left[\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right]\right\vert $$
 $$\lesssim \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert+\mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij}^G)\right\vert_{t=t_{ij}^G}\right\vert = \mathcal{P} + \mathcal{P}^G$$
 Applying formula $(8.4)$ to $\mathcal{P}$ (with $\mathcal{P}^G$ following WLOG), we get:
 $$\mathcal{P} = \mathbb{E}\left\vert\left.\frac{d^6}{dt^6}F(tH_{ij})\right\vert_{t=t_{ij}}\right\vert  = \mathbb{E}\left\vert  \left.\sum_{\ell=0}^6 \binom{6}{\ell}\partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{6-\ell}\right\vert_{t=t_{ij}}\right\vert\leq $$
 $$\leq \sum_{\ell=0}^6 \binom{6}{\ell}\mathbb{E}\left\vert \left.
 \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})H_{ij}^\ell \left(\overline{H_{ij}}\right)^{6-\ell}\right\vert_{t=t_{ij}}
-\right\vert = \sum_{\ell=0}^6 \binom{6}{\ell}\mathbb{E}\left[\left\vert \left.
+\right\vert=$$
+$$ = \sum_{\ell=0}^6 \binom{6}{\ell}\mathbb{E}\left[\left\vert \left.
 \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})\right\vert _{t=t_{ij}}\right\vert
 \left\vert H_{ij}^\ell \right\vert \left\vert \left(\overline{H_{ij}}\right)^{6-\ell}
-\right\vert \right]$$
+\right\vert \right]\leq $$
 \begin{equation*}\leq \sum_{\ell=0}^6\binom{6}{\ell} \mathbb{E}\left[ \left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\right] \mathbb{E}\left[|H_{ij}|^\ell \left\vert \overline{H_{ij}}\right\vert^{6-\ell}\right]\lesssim \sum_{\ell=0}^6 \mathbb{E}\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert\mathbb{E}|H_{ij}|^6,\tag{8.5.1}\end{equation*}
 where the first is the triangle inequality, the second is Hölder's $L^1$ inequality and the last step uses the fact that $|H_{ij}| = \left\vert\overline{H_{ij}}\right\vert$. Let us call $\mathcal{Q}=\left\vert \partial_{H_{ij}}^\ell \partial_{H_{ji}}^{6-\ell} F(tH_{ij})|_{t=t_{ij}}\right\vert$. Observe that WLOG, we have the same result for $\mathcal{P}^G$ and $\mathcal{Q}^G$, respectively. By condition $(8.1.2)$, we have that $\mathbb{E}|H_{ij}|^6\prec W^{-3}$, so our goal will be to establish a bound on $\mathcal{Q}$ for all $t\in [0, 1]$. The delocalization argument will follow readily, so let us now direct our attention to the derivatives on $F(H)$ w.r.t. the entries $H_{ij}$. 
 
@@ -2730,8 +2731,8 @@ $$\partial_{H_{ij}}^{k_1+1}\partial_{H_{ji}}^{k_2} F(H) = \sum_{m=1}^{2p+k_1+k_2
 
 $$\left\vert \partial_{H_{ij}}^{k_1}\partial_{H_{ji}}^{k_2} F(H)\right\vert \leq    \sum_{\ell=0}^{2p+k_1+k_2} \sum_{\vec\sigma\in \{-1,1\}^\ell}\sum_{\vec a\in \{x, y, i, j\}^\ell}\sum_{\vec b\in \{x, y, i, j\}^\ell} |C_{\ell, \vec \sigma, \vec a, \vec b}| \prod_{\alpha=1}^\ell \left\vert \tilde{G}_{a_\alpha b_\alpha}(\sigma_\alpha)\right\vert$$
 Observe that sum is finite, where the number of terms is $\sum_{\ell=0}^{2p+k_1+k_2} 2^{\ell}\cdot 4^\ell\cdot 4^\ell = \sum_{\ell=0}^{2p+k_1+k_2}32^\ell=M$. By the same token, we can take $\mathcal{C} = \max_{\ell, \vec\sigma, \vec a, \vec b} |C_{\ell, \vec\sigma, \vec a, \vec b}|$. Using the product rule of stochastic domination (\hyperref[lemma-a6]{Lemma A6}) and the resolvent conditions, we have that: 
-$$\mathcal{C}\prod_{\alpha=1}^\ell \left\vert \tilde{G}_{a_\alpha b_\alpha}(\sigma_\alpha)\right\vert \prec 1^{\kappa_1} \cdot W^{-\delta\kappa_2} \prec W^{-C},$$
- where $\kappa_{1}, \kappa_2=O(1)$ are some integer constants depend on t $0\leq \kappa_1, \kappa_2\leq \ell$ that depend on the particular vectors $\vec a, \vec b, \vec \sigma$, since different terms differ in resolvent combinations, and as such will have different bounds. We don't care for the exact details, since their boundedness is enough for us to conclude that $\exists C=O(1)$, s.t. the stochastic bound above holds. That is all we need for the last part of our proof. 
+$$\mathcal{C}\prod_{\alpha=1}^\ell \left\vert \tilde{G}_{a_\alpha b_\alpha}(\sigma_\alpha)\right\vert \prec 1^{\kappa_1} \cdot W^{-\delta\kappa_2} \prec W^{-C_{\kappa_1,\kappa_2}},$$
+ where $\kappa_{1}, \kappa_2=O(1)$ are some integer constants  $0\leq \kappa_1, \kappa_2\leq \ell$ that depend on the particular vectors $\vec a, \vec b, \vec \sigma$, since different terms differ in resolvent combinations, and as such will have different bounds. We don't care for the exact details, since we know that stochastic domination is also preserved under summation (\hyperref[lemma-a7]{Lemma A7}), and such this is enough for us to conclude that $\exists C=O(1)$ (some deterministic function of all the $C_{\kappa_1, \kappa_2}$), s.t. $|\mathcal{Q}|\prec W^{-C}$. That is all we need for the last part of our proof. 
 
 \subsection{Continuity Argument}
 \noindent Having established the stochastic bound on the individual derivatives, we can now lay out the continuity argument that will allows us to preserve control throughout the entire replacement. To start, define : 
