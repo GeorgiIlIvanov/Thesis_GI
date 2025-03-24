@@ -302,7 +302,7 @@ $$H\mathbf{u}_\alpha = \lambda_\alpha \mathbf{u}\Leftrightarrow (H - z)\mathbf{u
 \Rightarrow G(z)\mathbf{u}_\alpha = (H-z)^{-1}\mathbf{u}_\alpha = \frac{1}{\lambda_\alpha-z}\frac{(\lambda_\alpha-z)\mathbf{u}_\alpha }{H-z}=\frac{1}{\lambda_\alpha -z}\mathbf{u}_\alpha\end{equation}
 
 \noindent This is equivalent to $\mathbf{u}_\alpha$ being eigenvectors for the resolvent with $\frac{1}{\lambda_\alpha-z}$ as the eigenvalues. This also means that we have by spectral decomposition: 
-$$G(z) =\sum_{i=1}^N \frac{\mathbf{u}_\alpha\mathbf{u}_\alpha^*}{\lambda_\alpha-z}.$$
+\begin{equation*}G(z) =\sum_{i=1}^N \frac{\mathbf{u}_\alpha\mathbf{u}_\alpha^*}{\lambda_\alpha-z}.\tag{1.1}\end{equation*}
 Now, recall that their empirical measure for $H$ is defined as \cite{dynamic}: $$\varrho_N(dx):=\frac{1}{N}\sum_{j=1}^N \delta(x-\lambda_j)dx,$$
 Let $m(z)=m_N(z) = \int_\R \frac{\varrho_N(x)}{x-z}dx$ be its Stieltjes transform for $z = E+i\eta$, where $E\in \R$ and $\eta>0$. By the relationship we found above, we have the following  identity, which follows from the definition of the Dirac delta function: 
 \begin{equation*}\scalebox{1}{$m(z)= \int_\R \frac{\varrho_N(x)}{x-z}dx = \int_\mathbb{R} \frac{1}{N}\frac{\sum_{j=1}^N \delta(x-\lambda_j)dx}{x-z}dx = \frac{1}{N}\sum_{j=1}^N\int_\R\frac{\delta(x-\lambda_j)}{x-z}dx =\frac{1}{N} \sum_{j=1}^N \frac{1}{\lambda_j-z} = \frac{1}{N}\text{Tr}(G(z))$}\end{equation*}
@@ -372,7 +372,7 @@ Lastly, let us derive the derivatives of the resolvent w.r.t. to the matrix entr
 \end{equation*}
 By extension of the Hermitian property, we have $\partial_{\overline{H}_{ij}} \overline{G(z)_{xy}} = \partial_{{H}_{ji}} \overline{G(z)_{xy}}  = -\overline{G_{xi}}\ \overline{G_{jy}}$
 \noindent Lastly, the following result is ubiquitous in RMT literature (8.3.(iii) \cite{dynamic}), and as such has its own name: 
-\begin{boxtheorem}{Ward identity: }\label{ward} $$\sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$\end{boxtheorem}
+\begin{boxt}{Ward identity: }\label{ward} $$\sum_j |G_{ij}|^2 = \frac{1}{\eta}\im G_{ii}$$\end{boxt}
 The proof follows directly from the spectral decomposition of the resolvent we showed in $(1)$, by which:
 $$G_{ij} = \sum_{\alpha} \frac{\mathbf{u}_\alpha(i) \mathbf{u}_\alpha^*(j)}{\lambda_\alpha - z}\quad \Leftrightarrow \sum_j G_{ij} G_{ji}^* = \sum_{j, \alpha, \beta}\frac{\mathbf{u}_\alpha(i) \mathbf{u}_\alpha^*(j)}{\lambda_\alpha - z} \frac{\mathbf{u}_\beta(j) \mathbf{u}_\beta^*(i)}{\lambda_\beta - z^*}
 $$
@@ -2520,7 +2520,14 @@ $$\Rightarrow \max_{x, y}|G_{xy} - \delta_{xy}m(z)|^2\prec  W^{-1}\eta^{-1/2}+W^
 \begin{boxtheorem}{Theorem 4: (Delocalization).}
 For any $\ell\ll N$ and fixed $\epsilon, \kappa, c>0$: $$\frac{|\mathcal{A}_{\epsilon, \ell, \kappa}|}{N}\lesssim \sqrt{\epsilon}+\mathcal{O}(N^{-c})$$
 \end{boxtheorem}
-\textit{Proof} - 
+\textit{Proof} - The following proof is entirely due to Erd\H{o}s, et. al. \cite{21}, where it appears as Proposition 7.1. We present it here in order to better understand the nature of delocalization. The authors assume that $\Lambda(z) = \max_{x, y}|G_{xy}(z)-\delta_{xy}m(z)|\prec \Psi$, where $\Psi$ is a deterministic admissible parameter if $M^{-1/2}\leq \Psi^{(N)}(z)\leq M^{-\gamma/2}$ for all $N$, $E\in (2, 2)$ and $\eta\in M^{-1+\gamma}\leq \eta\leq 10)$, where $M = \frac{1}{\max_{i, j}S_{ij}}$. In the context of the work by Dubova and Yang we have presented so far, these assumptions are satisfied, given that Theorem 4 implies $|G_{xy}(z)-\delta_{xy}m(z)|^2\prec W^{-1}\eta^{-1/2}\lesssim N^{-1}\eta^{-1}$ by using the global diffusion scale $\eta\asymp W^2 N^{-2}$. Furthermore, by the other assumption $N\ll W^{11/8}$, one has $N^{-1}\eta^{-1}\asymp NW^{-1}\ll W^{-5/8}$\cite{bandSDE}. Namely, by Ward and the latter admissible parameter, we have for all $x$: \begin{equation*}\frac{\eta}{\im m}\sum_y|G_{yx}|^2 = \frac{\im G_{xx}}{\im m}\lesssim 1+O(N^{-1}\eta^{-1})\tag{7.4.1}\end{equation*}
+uniformly in $E$. Hence, the map $y\mapsto \frac{\eta}{\im m(z)}|G_{yx}|^2$ is approximately a PDF on $\Gamma$, yielding:
+$$\frac{\eta}{\im m(z)}\|P_{x, \ell}G \mathbf{e}_x\|^2 = \frac{\eta}{\im m(z)}\sum_y \mathbf{1}\left(|y-x|\geq \ell\right)|G_{yx}|^2=$$
+$$=\frac{\eta}{\im m(z)}\sum_y|G_{yx}|^2 - \frac{\eta}{\im m(z)}\sum_y \mathbf{1}\left(|y-x|\geq \ell\right)|G_{yx}|^2=1+O(N^{-c}),$$
+for some $c>0$ by using Theorem 4, Lemma B.1 and $(7.4.1)$. Using the spectral decomposition $(1.1)$: 
+$$\frac{\eta}{\im m(z)} \|P_{x, \ell} G\mathbf{e}_x\|^2 = \frac{\eta}{\im m(z)}\left\|\sum_\alpha \frac{1}{\lambda_\alpha-z}\overline{u}_\alpha(x)P_{x, \ell}\mathbf{u}_\alpha\right\|^2\leq $$
+$$\leq \frac{\eta}{\im m(z)}\left(1+\frac{1}{\xi}\right)\left\|\sum_{\alpha\in \mathcal{A}_{\epsilon, \ell}}\frac{1}{\lambda_\alpha-z}\overline{u}_\alpha(x)P_{x, \ell}\mathbf{u}_\alpha\right\|^2 +  \frac{\eta}{\im m(z)}\left(1+\frac{1}{\xi}\right)\left\|\sum_{\alpha\in \mathcal{A}^C_{\epsilon, \ell}}\frac{1}{\lambda_\alpha-z}\overline{u}_\alpha(x)P_{x, \ell}\mathbf{u}_\alpha\right\|^2,$$
+where $\xi>0$ is arbitrary and $\mathcal{A}^C_{\epsilon, \ell} =\{1, \cdots, N\}\backslash A_{\epsilon, \ell}$ is the complement set. 
 
 
 
