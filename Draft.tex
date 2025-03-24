@@ -572,15 +572,15 @@ The notation for $\mathcal{A}_{\epsilon, \ell, \kappa}$ contains all indices tha
 \section{Estimates }
 \label{sec:estimates}
 
-In this section we will state all of the inequalities and stochastic bounds we will need for control of our SDE terms. Their rigorous justification is presented in the \hyperref[sec:appendix]{Appendix}. From now on, for the sake of brevity we will define $\eta_s = |\im w_s|$ and $\eta_t = |\im w_t|$, the notation of which includes the indexing with any particular time instantiation $t_0\in [0, 1]$. With this, let us state
+In this section we will state all of the inequalities and stochastic bounds we will need for control of our SDE terms. The \hyperref[sec:appendix]{Appendix} includes the proofs of some, and the references for the rest. From now on, for the sake of brevity we will define $\eta_s = |\im w_s|$ and $\eta_t = |\im w_t|$, the notation of which includes the indexing with any particular time instantiation $t_0\in [0, 1]$. With this, let us state
 
 \begin{boxt}{Estimates}
 
 \begin{enumerate}[label=(E\arabic*)]
 
-\item  $\sup_x\sum_{y}|G_{xy}|\lesssim W^{\frac{1}{2}+\epsilon}\eta_{s}^{-\frac{3}{4}}$ per \hyperref[lemma-b1]{Lemma B.1}.
+\item  $\sup_x\sum_{y}|G_{xy}|\lesssim W^{\frac{\delta\sto}{20}} W^{\frac{1}{2}+\epsilon}\eta_{s}^{-\frac{3}{4}}$ per \hyperref[lemma-b1]{Lemma B.1}.
 
-\item $\max_{x,y}\left\vert G_{xy} - \delta_{xy}m(z)\right\vert\lesssim W^{-\frac{1}{2}}\eta_s^{-\frac{1}{4}}$ per  \hyperref[lemma-b2]{Lemma B.2}. 
+\item $\max_{x,y}\left\vert G_{xy} - \delta_{xy}m(z)\right\vert\lesssim W^{\frac{\delta_\sto}{20}}W^{-\frac{1}{2}}\eta_s^{-\frac{1}{4}}$ per  \hyperref[lemma-b2]{Lemma B.2}. 
 
 
 \item  The entries of $\Theta_{t}$ are  $O\left(W^{-1}\eta_{t}^{-\frac{1}{2}}\right)$ per \hyperref[lemma-a2]{Lemma A.2}
@@ -597,18 +597,18 @@ In this section we will state all of the inequalities and stochastic bounds we w
 \newpage
 \section{Bounds on Flow Terms}
 \label{sec:drift}
-In this section, our goal is to control the three terms of the fluctuations between the $T_{xy}$ and $\Theta_{xy}$ matrices. The squared $\mathcal{E}_t^S$ and $M$-term $\mathcal{E}_t^M$ of the flow SDE can be handled using the resolvent bounds we derived earlier, along with standard martingale calculus. However, the drift term $\mathcal{E}^{D}_t$ requires extra care. For it, we will follow Dubova and Yang's derivation closely, which employs the graphical perturbation methods developed by Bourgade, Yau and Yin, in their self-energy renormalization paper \cite{38}. More specifically, we will use Definition 17  \cite{bandSDE} for the diagrammatic notation of a standard oriented graph:
+In this section, our goal is to control the three stopped terms of the fluctuations between the $T_{xy}$ and $\Theta_{xy}$ matrices. The squared $\mathcal{E}_t^{S, \sto}$ and martingale term $\mathcal{E}_t^{M, \sto}$ of the flow SDE can be handled using the resolvent bounds we stated in the last section, along with standard martingale calculus. However, the drift term $\mathcal{E}^{D, \sto}_t$ requires extra care. For it, we will follow Dubova and Yang's derivation closely, which employs the graphical perturbation methods developed by Bourgade, Yau and Yin, in their self-energy renormalization paper \cite{38}. More specifically, we will use Definition 17  \cite{bandSDE} for the diagrammatic notation of a standard oriented graph:
 \vspace{0.255 cm}
 \begin{boxt}{Definition 2: (Diagrammatic notation)}\label{def2}
 \begin{itemize}
 \item Each vertex will be assigned a label, corresponding to a matrix index $\alpha \in \{1, \cdots, N\}$. 
-\item Each blue-colored loop \textcolor{blue}{$\circlearrowright$}, regardless of direction, represents a term $G_s(z)_{\alpha\alpha} - m(z)$;
+\item Each blue-colored loop \textcolor{blue}{$\circlearrowright$} at $\alpha$, regardless of direction, represents a term $G_s(z)_{\alpha\alpha} - m(z)$;
 \item A solid blue edge  $\alpha\textcolor{blue}{\longrightarrow}\beta$ represents a factor of $G_s(z)_{\alpha\beta}$, whereas a red $\alpha\textcolor{red}{\longrightarrow}\beta$ one is $\overline{G_s(z)_{\alpha\beta}}$;
 \item A black wavy edge $\alpha\leftrightsquigarrow \beta$ represents $S_{\alpha\beta}$, whereas $\alpha\textcolor{blue}{\leftrightsquigarrow} \beta$ is $B_{\alpha\beta} = (I-sm(z)^2S)^{-1}$; 
-\item A double edge $\alpha =\!=\!=\!=\beta$ represents $\{\text{Id}+(t-s)\Theta_t\}S^{1/2}$, which commute as shown before;
+\item A double edge $\alpha =\!=\beta$ represents $\{\text{Id}+(t-s)\Theta_t\}S^{1/2}$;
 \end{itemize}
 \end{boxt}
-Having defined the diagrammatic notation, we can now present the main operation that will allow the bounding of the drift term, namely Lemma 16 \cite{bandSDE}, which lists the loop expansion (Lemma 3.5 \cite{38}) and the regular vertex expansion (Lemma 3.14 \cite{38}): 
+Having defined the diagrammatic notation, we can now present the main operation that will allow for the bounding of the drift term, namely Lemma 16 \cite{bandSDE}, which lists the loop expansion (Lemma 3.5 \cite{38}) and the regular vertex expansion (Lemma 3.14 \cite{38}): 
 
 \subsection*{Loop Expansion}
 Consider a differentiable function $f: \mathbb{C}^{N^2}\rightarrow\mathbb{C}$, which represents the remaining subgraph per our diagrammatic notation above. For fixed time $s\in [0, 1]$, we have the following identity of subgraphs, not accounting for the renormalization term: 
@@ -803,8 +803,7 @@ $$+sm\sum_{\gamma\delta=1}^N B_{u\gamma} S_{\gamma\delta} G_{x\delta}(G_{\gamma\
 \end{itemize}
 As we noted earlier, each of the former identities can be represented as the sum of independent subraphs, such that for $i=1, 2, 3, 4$, we have:
 $$\mathcal{G}_{i, s} = m\mathcal{G}_{i0, s}+sm\mathcal{G}_{i1,s}+sm\mathcal{G}_{i2, s}-sm\mathcal{G}_{i3,s}^{(1)}-sm\mathcal{G}_{i3,s}^{(2)}-sm\mathcal{G}_{i3,s}^{(3)},$$
-We will begin by focusing our attention on the first three terms for a fixed $i=1, 2, 3, 4$, namely $\mathcal{G}_{ij}$ for $j=0, 1, 2$. For brevity, let us define $\eta_s = \left\vert \text{Im}w_s\right\vert = \left\vert \text{Im}[z+(1-t)m(z)]\right\vert$. 
-Using the estimates we defined in Section 5, we can simplify each of the resulting subgraph, starting with $j=0$:
+We will begin by focusing our attention on the first three terms for a fixed $i=1, 2, 3, 4$, namely $\mathcal{G}_{ij}$ for $j=0, 1, 2$. Using the estimates we defined in Section 5, we can simplify each of the resulting subgraph, starting with $j=0$:\newpage
 \subsubsection*{Size estimates for $\mathcal{G}_{10, s}$}
 Following diagrammatic notation, each of the $B_{uy_i}G_{x_iy_i}f(G)$ terms becomes:
 \begin{center}
@@ -836,7 +835,7 @@ Following diagrammatic notation, each of the $B_{uy_i}G_{x_iy_i}f(G)$ terms beco
 \mathcal{G}_{10, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 \end{center}
-We can apply estimate $(2)$ to the two loops around $\alpha$ and $\beta$, as well as estimate $(1)$ to the red edge connecting $x$ and $y$. From this, we receive three multiplicative terms $O(W^{\delta_\sto/20}W^{-1/2}\eta_s^{-1/4})$, i.e combined it yields a term $O(W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4})$. By estimate $(5)$, we can sum all the wavy lines out in order $\beta, \alpha, v,$ and finally $u$ for a $O(1)$ term, keeping our earlier estimate. We can stop here by leaving the connected component that is a double line from $a$ to $x$, a blue line from $x$ to $y$ and another double line from $y$ to $b$, i.e: $\mathcal{G}_{10, s}\lesssim W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4}\times $
+We can apply estimate $(E2)$ to the two loops around $\alpha$ and $\beta$, as well as estimate $(E1)$ to the red edge connecting $x$ and $y$. From this, we receive three multiplicative terms $O(W^{\delta_\sto/20}W^{-1/2}\eta_s^{-1/4})$, i.e combined it yields a term $O(W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4})$. By estimate $(E5)$, we can sum all the wavy lines out in order $\beta, \alpha, v,$ and finally $u$ for a $O(1)$ term, keeping our earlier term. We can stop here by leaving the connected component that is a double line from $a$ to $x$, a blue line from $x$ to $y$ and another double line from $y$ to $b$, i.e: $\mathcal{G}_{10, s}\lesssim W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -883,7 +882,7 @@ We can apply estimate $(2)$ to the two loops around $\alpha$ and $\beta$, as wel
 \mathcal{G}_{20, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{x\alpha}}G_{xy} \overline{G_{\beta y}} S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 \end{center}
-Repeating the same process as before, we bound all three red lines using estimate $(2)$ and sum over the wavy edges in the same order $(\beta, \alpha, v$, and $u$), s.t. we get the same bound as above:\\
+Repeating the same process as before, we bound all three red lines using estimate $(E2)$ and sum over the wavy edges in the same order $(\beta, \alpha, v$, and $u$), s.t. we get the same bound as above:\\
 $\mathcal{G}_{20, s}\lesssim W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -932,7 +931,7 @@ $\mathcal{G}_{20, s}\lesssim W^{3\delta_\sto/20}W^{-3/2}\eta_s^{-3/4}\times $
 \mathcal{G}_{30, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{x\beta}S_{uv} B_{v\alpha}  S_{\alpha\beta}G_{\beta\alpha}G_{uy} B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 \end{center}
-Here, we eliminate first the edges  $\beta\textcolor{red}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow} y$ using estimate $(2)$, giving us a $O(W^{\delta_\sto/10}W^{-1}\eta_s^{-1/2})$ term. Due to the edge from $x\textcolor{blue}{\rightarrow}\beta$, we are not going to be summing $\alpha\leadsto\beta$ over $S_{ab}$ entries because it serves as a multiplicative term to the blue edge $x\textcolor{blue}{\rightarrow}\beta$. For this reason, we will apply the individual $S_{ab}\lesssim W^{-1}$ bound, s.t now summing over $x\textcolor{blue}{\rightarrow}\beta$ with estimate $(1)$ gives us a combined bound $O(W^{\delta_\sto/20}W^{\frac{1}{2}+\epsilon}\eta_s^{-3/4})$. Finally, by summing over the remaining wavy edges, starting with $\alpha, v$ and then $u$, due to the $O(1)$ term (estimate $(5)$), we get an estimate of the form: $\mathcal{G}_{30, s}\lesssim W^{3\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_s^{-5/4}\times $
+Here, we eliminate first the edges  $\beta\textcolor{red}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow} y$ using estimate $(E2)$, giving us a $O(W^{\delta_\sto/10}W^{-1}\eta_s^{-1/2})$ term. Due to the edge from $x\textcolor{blue}{\rightarrow}\beta$, we are cannot sum $\alpha\leadsto\beta$ over $S_{ab}$ entries because it serves as a multiplicative term to the blue edge $x\textcolor{blue}{\rightarrow}\beta$. For this reason, we will apply the individual $S_{ab}\lesssim W^{-1}$ bound, s.t now summing over $x\textcolor{blue}{\rightarrow}\beta$ with estimate $(E1)$ gives us a combined bound $O(W^{\delta_\sto/20}W^{\frac{1}{2}+\epsilon}\eta_s^{-3/4})$. Finally, by summing over the remaining wavy edges, starting with $\alpha, v$ and then $u$, due to the $O(1)$ term (estimate $(E5)$), we get an estimate of the form: $\mathcal{G}_{30, s}\lesssim W^{3\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_s^{-5/4}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -980,7 +979,7 @@ Here, we eliminate first the edges  $\beta\textcolor{red}{\rightarrow}\alpha$ an
 \mathcal{G}_{4, s}(z)_{ab} = \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}} G_{x\beta}  S_{uv} B_{v\alpha}S_{\alpha\beta}G_{\beta\alpha}B_{u\beta}G_{\alpha y}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 \end{equation*}
 \end{center}
-Here, we bound first the inner edges $\alpha\textcolor{blue}{\rightarrow} y$ and $\beta\textcolor{red}{\rightarrow}\alpha$, we get by estimate $(2)$ a combined term $\lesssim O(W^{\delta_\sto/10}W^{-1}\eta_{s}^{-1/2})$. Again, by the same logic as above, we have to account for the individual term $\alpha\leadsto\beta$ instead of summing over it, retaining a $O(W^{-1})$ term. By applying estimate $(1)$ for the edge $x\textcolor{blue}{\rightarrow}\beta$ and summing over the remaining wavy lines, we get the same bound as above, namely: 
+Here, we bound first the inner edges $\alpha\textcolor{blue}{\rightarrow} y$ and $\beta\textcolor{red}{\rightarrow}\alpha$, we get by estimate $(E2)$ a combined term $\lesssim O(W^{\delta_\sto/10}W^{-1}\eta_{s}^{-1/2})$. Again, by the same logic as above, we have to account for the individual term $\alpha\leadsto\beta$ instead of summing over it, retaining a $O(W^{-1})$ term. By applying estimate $(E1)$ for the edge $x\textcolor{blue}{\rightarrow}\beta$ and summing over the remaining wavy lines, we get the same bound as above, namely: 
 $\mathcal{G}_{40, s}\lesssim  W^{3\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_s^{-5/4}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -997,7 +996,7 @@ $\mathcal{G}_{40, s}\lesssim  W^{3\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_s
 
 \end{tikzpicture}
 
-
+\newpage
 \subsubsection*{Size estimates for $\max_{i=1, \cdots, 4}\mathcal{G}_{40, s}$}
 
 In order to combine all the latter estimates, we can represent with a pink arrow either blue or red:\begin{center}
@@ -1018,10 +1017,10 @@ $\max_{i=1, \cdots, 4}\left\vert\mathcal{G}_{40, s}\right\vert\lesssim  W^{3\del
 
 \end{tikzpicture}
 \end{center}
-In order to complete the latter result, we need to consider two subcases w.r.t. to the double lines by splitting the double line $\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$ into its two components:
+We need to consider two subcases by splitting the double line $\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}$:
 \begin{itemize}
-\item $(t-s)\left[\Theta_t\right]_{yb} \lesssim (t-s)W^{-1}\eta_t^{-1/2}\lesssim W^{-1}\eta_t^{-1/2}\eta_s$ (estimate 3 \& 7), where by summing over $y$ with estimate $(1)$, we get $ O(W^{3\delta_\sto/20}W^{\frac{1}{2}+\epsilon}\eta_s^{-3/4})$  over $x$ with estimate $(6)$, we have $O(\eta_t^{-1}\eta_s)$, we get a combined term $O((t-s) W^{\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_t^{-3/2}\eta_s^{1/4})$
-\item $\text{Id}_{yb}$ is of course $O(1)$, hence we don't have a varying term. This means that we can bound the edge ending at $y$ with estimate $(2)$, s.t. we get $O( W^{2\delta_\sto/20}W^{-1/2}\eta_s^{-1/4})$ term. Combining it with $O(\eta_t^{-1}\eta_s)$ from estimate $(6)$, we have $O( W^{\delta_\sto/20}W^{-1/2}\eta_t^{-1}\eta_s^{3/4})$. With this, the total bound is: 
+\item $(t-s)\left[\Theta_t\right]_{yb} \lesssim (t-s)W^{-1}\eta_t^{-1/2}\lesssim W^{-1}\eta_t^{-1/2}\eta_s$ by estimate $(E3)$ and $(E7)$. From summing over $y$ with estimate $(E1)$, we get $ O(W^{3\delta_\sto/20}W^{\frac{1}{2}+\epsilon}\eta_s^{-3/4})$. By summing over $x$ with estimate $(E6)$, we have $O(\eta_t^{-1}\eta_s)$, making the combined term $O((t-s) W^{\delta_\sto/20}W^{-\frac{1}{2}+\epsilon}\eta_t^{-3/2}\eta_s^{1/4})$
+\item $\text{Id}_{yb}$ is of course $O(1)$, hence we don't have a varying term. This means that we can bound the edge ending at $y$ with estimate $(E2)$, getting a $O( W^{2\delta_\sto/20}W^{-1/2}\eta_s^{-1/4})$ term. Combining it with $O(\eta_t^{-1}\eta_s)$ from estimate $(E6)$, we have $O( W^{\delta_\sto/20}W^{-1/2}\eta_t^{-1}\eta_s^{3/4})$. With this, the total bound is: 
 \end{itemize}
 
 \begin{center}
@@ -1084,7 +1083,7 @@ In order to represent $B_{u\gamma} S_{\gamma\delta} G_{x_i\gamma}(G_{\delta\delt
 \left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{ax}\overline{G_{xy}}B_{u\gamma} S_{\gamma \delta} G_{x\gamma}(G_{\delta\delta}-m)G_{\gamma y}S_{uv}B_{v\alpha}(G_{\alpha\alpha}-m)S_{\alpha\beta}(G_{\beta\beta}-m)B_{uy}\left[\{\text{Id} + (t-s)\Theta_t\}S^{1/2}\right]_{yb}
 $}\end{equation*}
 \end{center}
-\noindent To estimate this graph, we will bound all loops $\textcolor{blue}{\circlearrowright}$ and $x\textcolor{red}{\rightarrow} y$ using estimate $(2)$ which yields in total $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. Then, we sum the wavy lines over $\beta, \alpha, v, u, \delta$ in that order, which is $O(1)$ by estimate $(5)$.The combined bound is:
+\noindent To estimate this graph, we will bound all loops $\textcolor{blue}{\circlearrowright}$ and $x\textcolor{red}{\rightarrow} y$, using estimate $(E2)$. This yields in total $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. Then, we sum the wavy lines over $\beta, \alpha, v, u, \delta$ in that order, which is $O(1)$ by estimate $(E5)$.The combined bound is:
 $\mathcal{G}_{11, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -1139,7 +1138,7 @@ $\mathcal{G}_{11, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \end{equation*}
 \end{center}
 
-\noindent Here, we will repeat an equivalent procedure as above, bounding the loop at $\delta$ and the edges $x\textcolor{red}{\rightarrow}\alpha$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\beta\textcolor{red}{\rightarrow}y$ , getting a bound $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. Then, we can sum the wavy lines with estimate $(5)$, getting an equivalent bound as above:
+\noindent Here, we will repeat an equivalent procedure as above, bounding the loop at $\delta$ and the edges $x\textcolor{red}{\rightarrow}\alpha$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\beta\textcolor{red}{\rightarrow}y$ , getting a bound $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. Then, we can sum the wavy lines with estimate $(E5)$, getting an equivalent bound as above:
 $\mathcal{G}_{21, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
@@ -1195,7 +1194,7 @@ $\mathcal{G}_{21, s}\lesssim W^{\delta_\sto/5}W^{-2}\eta_s^{-1}\times $
 \end{equation*}
 \end{center}
 
-\noindent Let us start by bounding the loop at $\delta$, as well as the $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$. In total, this contributes $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. However, here we don't have the same structure as before, since $\gamma$ no longer has an ingoing edge from $x$. We can abstract away the wavy lines (blue and red) with an orange wavy line, and handle the individual terms, which will be contributing only with $O(1)$ per estimate $(5)$. As such, the bound is of the form: $\mathcal{G}_{31, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times $
+\noindent Let us start by bounding the loop at $\delta$, as well as the $x\textcolor{red}{\rightarrow}y$, $\beta\textcolor{blue}{\rightarrow}\alpha$ and $\alpha\textcolor{blue}{\rightarrow}\gamma$. In total, this contributes $O(W^{\delta_\sto/5}W^{-2}\eta_s^{-1})$. However, here we don't have the same structure as before, since $\gamma$ no longer has an ingoing edge from $x$. We can abstract away the wavy lines (blue and red) with an orange wavy line, and handle the individual terms, which will be contributing only with $O(1)$ per estimate $(E5)$. As such, the bound is of the form: $\mathcal{G}_{31, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_s^{-1}\times $
 \begin{tikzpicture}[
     thick, % Line thickness
     wavy/.style={decorate, decoration={snake, amplitude=2pt, segment length=5pt}},
@@ -1315,7 +1314,7 @@ $\max_{i=1, \cdots, 4} \mathcal{G}_{i1, s}\lesssim W^{\delta_\sto/5} W^{-2}\eta_
 \end{center}
 Observe that the latter subgraphs are almost identical to the one we calculate for the $\mathcal{G}_{i0, s}$ estimates with the addition of a solid line. This means that we will have an additional term $O(W^{1/2}\eta_s^{-3/4})$ from estimate $(1)$. As such, the subgraph is bounded by the sum of terms $O(\eta_t^{-3/2}\eta_s^{1/2})$ and $O(\eta_t^{-1})$, i.e combined with the multiplicative term, we get:$$\max_{i=1, \cdots, 4}| \mathcal{G}_{i1, s}|\lesssim W^{-2}\eta_t^{-3/2}\eta_s^{-1/2}+W^{-2}\eta_t^{-1}\eta_s^{-1}$$
 $$\Rightarrow \max_{i=1, \cdots, 4}\int_{0}^{t}|\mathcal{G}_{i1, a}|ds\lesssim W^{-2}\eta_t^{-3/2}\int_{\eta_t}^{O(1)}\sigma^{-1/2}d\sigma + W^{-2}\eta_t^{-1}\int_{\eta_t}^{O(1)}\sigma^{-1}d\sigma=$$
-$$= 2W^{-2}\eta_t^{-3/2}-2W^{-2}\eta_t^{-1}-W^{-2}\eta_t^{-1}\ln \eta_t\in  O(W^{-2}\eta_t^{-3/2})$$
+$$= 2W^{-2}\eta_t^{-3/2}-2W^{-2}\eta_t^{-1}-W^{-2}\eta_t^{-1}\ln \eta_t= O(W^{-2}\eta_t^{-3/2})$$
 
 \subsubsection*{Size estimates for $\mathcal{G}_{12, s}$}
 Following the regular vertex expansion, we have to now represent each of the subgraphs that has the form $\mathcal{G}_{i2, s}=B_{u\gamma} S_{\gamma \delta} G_{x_i\delta} (G_{\gamma\gamma}-m)G_{\delta y_i} f(G)$. By applying the graphical representation we get: 
@@ -2810,15 +2809,17 @@ If $X_i \prec Y_i$ for $i = 1,2,...,\ell$, then $\sum_{i=1}^{\ell} X_i \prec \su
 
 \begin{boxt}{Lemma B.1} \label{lemma-b1}
 
-(Result $4.5$ \cite{bandSDE})
-$$\sup_x \sum_y |G_{xy}|\lesssim W^{\frac{1}{2}+\epsilon} \eta_s^{-\frac{3}{4}}$$
+
+$$\sup_x \sum_y |G_{xy}|\lesssim W^{\frac{\delta_\sto}{20}}W^{\frac{1}{2}+\epsilon} \eta_s^{-\frac{3}{4}}$$
 \end{boxt}
+\textit{Proof} - (Result $4.5$ \cite{bandSDE})
 
 \begin{boxt}{Lemma B.2} \label{lemma-b2}
-(Result $4.6$ \cite{bandSDE})
-$$\max_{x, y} |G_{xy} - \delta_{xy}m(z)|\lesssim W^{-\frac{1}{2}} \eta_s^{-\frac{1}{4}}
+
+$$\max_{x, y} |G_{xy} - \delta_{xy}m(z)|\lesssim W^{\frac{\delta_\sto}{20}}W^{-\frac{1}{2}} \eta_s^{-\frac{1}{4}}
 $$
 \end{boxt}
+\textit{Proof} - (Result $4.6$ \cite{bandSDE})
 
 
 \subsubsection*{Off-diagonal $G_{xy}$ estimate}
