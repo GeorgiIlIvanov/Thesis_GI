@@ -2419,23 +2419,26 @@ $$\lesssim W^{\delta_\sto}W^{-4}\eta_t^{-3/2}\int_{\eta_t}^{\eta_0}\sigma^{-3}ds
 $$\left[\mathcal{E}_{t}^{M, 13}(z)_{ab}\right] \lesssim W^{\frac{\delta_\sto}{10}}W^{-2} \max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \int_0^{\tau_\sto\wedge t} (t-s)^2 \eta_s^{-5}ds\lesssim $$
 $$\lesssim W^{\frac{\delta_\sto}{10}}W^{-2} \max_{\alpha, \beta}|(\Theta_t S^{1/2})_{\alpha, \beta}|^2 \int_{\eta_t}^{\eta_0}\sigma^{-3}ds\lesssim W^{\frac{\delta_\sto}{10}}W^{-4} \eta_t^{-3}$$
 As for the last term: $$\left[\mathcal{E}_{t}^{M, 14}(z)_{ab}\right] \leq \int_0^{t\wedge \tau_\sto} \sum_u \|\Gamma^u\|_{op}\sum_y \Xi_{yy'}^uds\lesssim \int_0^{t\wedge \tau_\sto} W^{-1}\eta_s^{-3}W^{\delta_\sto/10}W^{-3}\eta_s^{-2}$$
-$$\lesssim W^{\frac{\delta_\sto}{10}-4}\int_{\eta_t}^{\eta_0}\sigma^{-5}\lesssim W^{\delta_\sto}W^{-4}\eta_t^{-4},$$
+$$\lesssim W^{\frac{\delta_\sto}{10}-4}\int_{\eta_t}^{\eta_0}\sigma^{-5}\lesssim W^{\delta_\sto/10}W^{-4}\eta_t^{-4},$$
 we can observe that a naive bound of the sort we did for the last three terms is not sufficient ($\eta_s^{-4}$ instead of $\eta_s^{-3}$) , given that we do not have $(t-s)$ multiples. For this reason, the authors instead approach this term with an interpolation with a second bound \cite{bandSDE}. First, recall that:
 $$\E_t^{M, 14}(z)= \int_0^{t\wedge \tau_\sto}S^{1/2}\left\{\sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}S^{1/2}$$
 By the fact that $S^{1/2}$ is an averaging operator (\hyperref[diffusion]{Sec. 4.1}), one can estimate: $$\left[\E_t^{M, 14}(z)\right] \leq \max_{\alpha, \beta}\left[\left\{\int_0^{\tau_\sto\wedge}S^{1/2} \sum_{u, v}\left[\overline{G_{xy}}G_{xu}dH_{uv}(t)G_{vy}\right]\right\}_{\alpha\beta}\right]=$$
 
 \begin{equation*}=\max_{\alpha\beta}\int_0^{\tau_\sto\wedge}\sum_{x, x', u, v}S^{\frac{1}{2}}_{\alpha x}S^{\frac{1}{2}}_{\alpha x'}\overline{G_{x\beta}}G_{x'\beta}G_{xu}\overline{G_{x'u}}S_{uv}|G_{v\beta}|^2ds=\tag{6.2}\end{equation*}
-$$=\max_{\alpha\beta}\int_0^{\tau_\sto\wedge}\sum_{x, x', u, v}\left(G^*S^{\frac{1}{2}, \alpha}GG^*S^{\frac{1}{2},\alpha}G\right)_{uu}S_{uv}|G_{v\beta}|^2ds$$
-By first applying the \hyperref[ward]{Ward identity} and the operator norm bound $\|G\|_{op}\leq \eta_s^{-1}$, we have: 
+\begin{equation*}=\max_{\alpha\beta}\int_0^{\tau_\sto\wedge}\sum_{x, x', u, v}\left(G^*S^{\frac{1}{2}, \alpha}GG^*S^{\frac{1}{2},\alpha}G\right)_{uu}S_{uv}|G_{v\beta}|^2ds\tag{6.2.1}\end{equation*}
+By first applying the \hyperref[ward]{Ward identity} and then the operator norm bound $\|G\|_{op}\leq \eta_s^{-1}$, we have: 
 $$\left(G^*S^{\frac{1}{2}, \alpha}GG^*S^{\frac{1}{2},\alpha}G\right)_{uu} = \eta_s^{-1}\left(G^*S^{\frac{1}{2}, \alpha}\text{Im}GS^{\frac{1}{2},\alpha}G\right)_{uu}\lesssim$$
 $$\lesssim \eta_s^{-1}\left\|\sqrt{S^{\frac{1}{2}, \alpha}}\im G\sqrt{S^{\frac{1}{2}, \alpha}}\right\|_{\mathrm{op}}(G^*S^{\frac{1}{2}, \alpha}G)_{uu}\lesssim$$
-$$\lesssim W^{-1}\eta_s^{-2}(G^*S^{\frac{1}{2}, \alpha}G)_{uu} = W^{-1}\eta_s^{-2}\sum_\gamma S^{\frac{1}{2}}_{\alpha\gamma}|G_{\gamma\beta}|^2$$
-Now, in both the display after $(6.2)$ and the one above we have terms of the form $S|G|^2$. 
+\begin{equation*}\lesssim W^{-1}\eta_s^{-2}(G^*S^{\frac{1}{2}, \alpha}G)_{uu} = W^{-1}\eta_s^{-2}\sum_\gamma S^{\frac{1}{2}}_{\alpha\gamma}|G_{\gamma\beta}|^2\tag{6.2.2}\end{equation*}
+Now, in both the display after $(6.2)$ and the one above we have terms of the form $S_{xy}|G_{yz}|^2$. To estimate this, we will use the a time $s\leq \tau_\sto$ before the stopping time, for which we know \cite{bandSDE}: $$|T_s(z)_{zy}|\lesssim |(\Theta_s)_{zy}|+|\E_s(z)_{xy}|\lesssim W^{-1}\eta_s^{-\frac{1}{2}}$$
+$$\Rightarrow \sum_v S_{uv}|G_{v\beta}|^2\lesssim W^{\delta_\sto/10}S_{u\beta}+W^{\delta_\sto/10}\left[S^{1/2}T_s(z)S^{1/2}\right]_{u\beta}\lesssim$$ 
+$$\lesssim W^{\delta_\sto}S_{u\beta} + W^{\delta_\sto/10}W^{-1}\eta_s^{-1/2}\lesssim W^{\delta_\sto/10}W^{-1}\eta_s^{-1/2},$$
+since $\eta_s = O(1)$. This means that we can combine $(6.2.1)$ and $(6.2.2)$ along with the result above in order to integrate with a change of variable as before: \newpage
+$$\left[\E_t^{M, 14}(z)_{ab}\right]\lesssim \int_0^{t\wedge \tau_\sto} W^{\delta_\sto/5}W^{-3}\eta_s^{-3}ds\lesssim$$
+$$\lesssim W^{\delta_\sto/5}W^{-3}\int_{\eta_t}^{\eta_0}\sigma^{-3}d\sigma\lesssim W^{\delta_\sto/5}W^{-3}\eta_t^{-2}$$
 
-
-As such, we get a combined bound $$\left[\E_t^{M, 14}(z)\right] $$ 
-
-$$\lesssim \max_{\alpha, \beta}\int_0^{\tau_\sto\wedge t} W^{\frac{\delta_\sto}{10}}W^{-1}\eta_s^{\frac{1}{2}}$$
+By interpolating with the first bound we found, we get: 
+$$\left[\E_t^{M, 14}(z)_{ab}\right] \lesssim \sqrt{ W^{\delta_\sto/10}W^{-4}\eta_t^{-4}}\sqrt{W^{\delta_\sto/5}W^{-3}\eta_t^{-2}}\lesssim W^{\frac{3\delta_\sto}{20}}W^{-\frac{7}{2}}\eta_t^{-3}$$
 
 
 \subsubsection*{Result}
