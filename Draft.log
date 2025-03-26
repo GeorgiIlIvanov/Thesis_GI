@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.14)  24 MAR 2025 13:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.1.14)  24 MAR 2025 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2101,11 +2101,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Draft.out' has not changed.
-(rerunfilecheck)             Checksum: 95E98AD80DAF1C5447FE12A77D10F52E;3316.
+(rerunfilecheck)             Checksum: 3F0C7D17A3FF69507713327D723A1FC8;3316.
  ) 
 Here is how much of TeX's memory you used:
- 27534 strings out of 476025
- 510039 string characters out of 5790017
+ 27535 strings out of 476025
+ 510045 string characters out of 5790017
  1894388 words of memory out of 5000000
  47287 multiletter control sequences out of 15000+600000
  534808 words of font info for 82 fonts, out of 8000000 for 9000
@@ -2143,10 +2143,10 @@ t/fonts/type1/public/cm-super/sfti0600.pfb></usr/local/texlive/2023/texmf-dist/
 fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2023/texmf-dist/fo
 nts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2023/texmf-dist/font
 s/type1/public/stmaryrd/stmary10.pfb>
-Output written on Draft.pdf (71 pages, 1121962 bytes).
+Output written on Draft.pdf (71 pages, 1121969 bytes).
 PDF statistics:
- 856 PDF objects out of 1000 (max. 8388607)
- 708 compressed objects within 8 object streams
- 187 named destinations out of 1000 (max. 500000)
+ 857 PDF objects out of 1000 (max. 8388607)
+ 709 compressed objects within 8 object streams
+ 188 named destinations out of 1000 (max. 500000)
  202 words of extra memory for PDF output out of 10000 (max. 10000000)
 
